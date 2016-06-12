@@ -1,4 +1,4 @@
-* Resource Fonts
+** Resource Fonts
 
 All of the fonts provided in this packages come with either the SIL
 Open Font License /(OFL)/ or an MIT License, below I will link to each
