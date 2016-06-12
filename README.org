@@ -1,0 +1,17 @@
+* Resource Fonts
+
+All of the fonts provided in this packages come with either the SIL
+Open Font License /(OFL)/ or an MIT License, below I will link to each
+of the fonts Sources and their Licenses.
+
+| Font Name               | Font                   | License         |
+|-------------------------+------------------------+-----------------|
+| =file-icons.ttf=        | [[https://atom.io/packages/file-icons][Atom File Icons Plugin]] | [[https://github.com/DanBrooker/file-icons/blob/master/LICENSE.md][MIT LICENSE]]     |
+| =iconmoon-devicons.ttf= | [[http://vorillaz.github.io/devicons/#/main][DevIcons]]               | [[https://github.com/vorillaz/devicons#an-iconic-font-made-for-developers-code-jedis-ninjas-httpsters-evangelists-and-nerds][MIT LICENSE]]     |
+| =fontawesome.ttf=       | [[http://fontawesome.io/][FontAwesome Icons]]      | [[https://github.com/FortAwesome/Font-Awesome#license][SIL OFL LICENSE]] |
+| =ocitcons.ttf=          | [[http://octicons.github.com][GitHub OctIcons]]        | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
+| =weathericons.ttf=      | [[https://erikflowers.github.io/weather-icons/][Weather Icons]]          | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
+| =all-the-icons.ttf=     | Custom Made Font       |                 |
+
+Lastly, I would like to thank all the authors for the creation and use
+of these fantastic fonts.
