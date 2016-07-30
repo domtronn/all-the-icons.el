@@ -1,3 +1,80 @@
+#+STARTUP: showall
+
+** Installation
+
+You should be able to install this package in the standard way, add it
+to the load path and then calling
+
+#+BEGIN_SRC elisp
+(require 'all-the-icons)
+;; or
+(use-package all-the-icons)
+#+END_SRC
+
+However, in order for the icons to work you will need to install the
+Resource Fonts included in this package, they are available in the
+~fonts~ directory.
+
+** Usage
+
+The simplest usage for this package is to use the following functions;
+
++ ~ati-icon-for-buffer~
++ ~ati-icon-for-file~
++ ~ati-icon-for-mode~
+
+Which can be used to get a formatted icon which you can insert into
+buffers, /e.g./
+
+#+BEGIN_SRC elisp
+(insert (ati-icon-for-file "foo.js"))
+;; will insert 
+#+END_SRC
+
+*** Inserting Icons Directly
+
+The above is fine if you want this package to automatically decide on
+the icon you want for files and things, however, to insert the icons
+directly you will want to use these icons functions;
+
++ ~ati/alltheicon~
++ ~ati/devicon~
++ ~ati/faicon~
++ ~ati/fileicon~
++ ~ati/oction~
++ ~ati/wicon~
+
+You can then call these functions with the icon you want to insert,
+/e.g./
+
+#+BEGIN_SRC elisp
+(ati/octicon "file-binary")  ;; GitHub Octicon for Binary File
+(ati/faicon  "cogs")         ;; FontAwesome icon for cogs
+(ati/wicon   "tornado")      ;; Weather Icon for tornado
+#+END_SRC
+
+A list of all the icon names for a font family can be found in the
+~data~ directory, or by inspecting the alist variables.
+
+The alist variables are all prefixed with 
+
++ ~ati-data/~
+
+For example ~C-h v ati-data/ <TAB>~ will give a list of all the data
+alist you can describe /(and the icon fonts they're associated with)/
+
+*** Propertizing icons yourself
+
+However, sometimes when propertizing these icons /(for example
+if you were customising your mode line)/ you /may/ sometimes have
+to know the font family to add in, /e.g./
+
+#+BEGIN_SRC elisp
+  (propertize (ati/octicon "package")
+              'face `(:family "github-octicons" :height 1.2)
+              'display '(raise -0.1))
+#+END_SRC
+
 ** Resource Fonts
 
 All of the fonts provided in this packages as resources come with
