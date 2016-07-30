@@ -475,7 +475,7 @@ FAMILY is the font family to use for the icons."
                (v-adjust (* ati/scale-factor (or v-adjust ati/default-adjust)))
                (family ,family))
            (propertize icon
-                       'face `(:family ,family :height ,height :foreground ,col :icon ,icon-name)
+                       'face `(:family ,family :height ,height :foreground ,col)
                        'display `(raise ,v-adjust))))))
 
 (deficon alltheicon ati-data/alltheicons-alist "dev-icons")
