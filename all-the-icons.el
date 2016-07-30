@@ -230,6 +230,7 @@
     ("\\.haml$"         ati/fileicon "haml" nil nil ati/lyellow)
     ("\\.html?$"        ati/devicon "html5" nil nil ati/orange)
     ("\\.erb$"          ati/devicon "html5" nil nil ati/lred)
+    ("\\.hbs$"          ati/fileicon "moustache" nil nil ati/green)
     ("\\.slim$"         ati/octicon "dashboard" nil 0.0 ati/yellow)
     ("\\.jade$"         ati/fileicon "jade" nil nil ati/red)
     ("\\.pug$"          ati/fileicon "pug" nil nil ati/red)
