@@ -242,7 +242,7 @@
     ("\\.react"         ati/devicon "react" 1.1 nil ati/lblue)
     ("\\.js$"           ati/alltheicon "javascript" 0.9 nil ati/yellow)
     ("\\.es[0-9]$"      ati/alltheicon "javascript" 0.9 nil ati/yellow)
-    ("\\.jsx$"          ati/fileicon "jsx" 0.8 nil ati/lyellow)
+    ("\\.jsx$"          ati/fileicon "jsx" 0.8 nil ati/dyellow)
     ("\\.njs$"          ati/devicon "nodejs-small" 1.2 nil ati/lgreen)
 
     ;; File Types
@@ -480,7 +480,7 @@ FAMILY is the font family to use for the icons."
 
 (deficon alltheicon ati-data/alltheicons-alist "dev-icons")
 (deficon octicon ati-data/octicons-alist       "github-octicons")
-(deficon devicon ati-data/devicons-alist       "iconmoon")
+(deficon devicon ati-data/devicons-alist       "icomoon")
 (deficon fileicon ati-data/file-icon-alist     "file-icons")
 (deficon faicon ati-data/fa-icon-alist         "FontAwesome")
 (deficon wicon ati-data/weather-icons-alist    "Weather Icons")
