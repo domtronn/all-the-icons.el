@@ -1,4 +1,6 @@
 #+STARTUP: showall
+#+ATTR_HTML: title="All the Icons"
+[[file:logo.png]]
 
 ** Installation
 
