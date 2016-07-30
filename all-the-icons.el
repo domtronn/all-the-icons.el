@@ -128,8 +128,8 @@
 
     ;; ;; AWS
     ("^stack.*.json$" ati/alltheicon "aws" nil nil ati/orange)
-    
-    
+
+
     ("\\.[jc]son$"      ati/octicon "settings" nil 0.0 ati/yellow)
     ("\\.yml$"          ati/octicon "settings" nil 0.0 ati/dyellow)
 
@@ -155,7 +155,7 @@
     ("\\.aup$"          ati/fileicon "audacity" nil nil ati/yellow)
 
     ("\\.java$"         ati/devicon "java" 1.0 nil ati/purple)
-    
+
     ("\\.mp3$"          ati/faicon "volume-up" nil nil ati/dred)
     ("\\.wav$"          ati/faicon "volume-up" nil nil ati/dred)
     ("\\.m4a$"          ati/faicon "volume-up" nil nil ati/dred)
@@ -181,7 +181,7 @@
     ("\\.scala$"        ati/alltheicon "scala" nil nil ati/red)
 
     ("\\.swift$"        ati/devicon "swift" 1.0 -0.1 ati/green)
-    
+
     ("-?spec\\.js$"     ati/alltheicon "jasmine" 0.9 -0.1 ati/lpurple)
     ("-?test\\.js$"     ati/alltheicon "jasmine" 0.9 -0.1 ati/lpurple)
     ("-?spec\\."        ati/faicon "flask" 1.0 0.0 ati/dgreen)
@@ -238,7 +238,7 @@
     ("^gruntfile"       ati/devicon "grunt" 1.0 -0.1 ati/lyellow)
 
     ("\\.d3\\.?js"      ati/alltheicon "d3" 0.8 nil ati/lgreen)
-    
+
     ("\\.react"         ati/devicon "react" 1.1 nil ati/lblue)
     ("\\.js$"           ati/alltheicon "javascript" 0.9 nil ati/yellow)
     ("\\.es[0-9]$"      ati/alltheicon "javascript" 0.9 nil ati/yellow)
@@ -371,6 +371,17 @@
   "Match FILE against an entry in ALIST using `string-match'."
   (cdr (--first (string-match (car it) file) alist)))
 
+(defun ati/dir-is-submodule (dir)
+  "Checker whether or not DIR is a git submodule."
+  (when (and (file-exists-p (format "%s/.git" dir))
+             (locate-dominating-file dir ".gitmodules"))
+
+    (let* ((modules-file (format "%s.gitmodules" (locate-dominating-file dir ".gitmodules")))
+           (module-file (file-name-base dir))
+           (cmd (format "cat %s | grep submodule | awk '{print $2}' | grep %s" modules-file module-file)))
+
+      (not (eq "" (shell-command-to-string cmd))))))
+
 ;; Icon functions
 (defun ati-icon-for-dir (dir &optional chevron)
   "Format an icon for DIR with CHEVRON similar to tree based directories.
@@ -384,6 +395,8 @@ directory contents"
          (icon (cond
                 ((file-symlink-p path)
                  (ati/octicon "file-symlink-directory" 1.2))
+                ((ati/dir-is-submodule path)
+                 (ati/octicon "file-submodule" 1.2))
                 ((file-exists-p (format "%s/.git" path))
                  (ati/octicon "repo" 1.2))
                 (t (apply (car matcher) (cdr matcher))))))
