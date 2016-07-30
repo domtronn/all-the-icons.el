@@ -380,9 +380,11 @@
   (when (and (file-exists-p (format "%s/.git" dir))
              (locate-dominating-file dir ".gitmodules"))
 
-    (let* ((modules-file (format "%s.gitmodules" (locate-dominating-file dir ".gitmodules")))
+    (let* ((modules-file (expand-file-name (format "%s.gitmodules" (locate-dominating-file dir ".gitmodules"))))
            (module-file (file-name-base dir))
-           (cmd (format "cat %s | grep submodule | awk '{print $2}' | grep %s" modules-file module-file)))
+           (cmd (shell-quote-string
+                 (format "cat %s | grep submodule | awk '{print $2}' | grep %s"
+                         (shell-quote-argument modules-file) module-file))))
 
       (not (eq "" (shell-command-to-string cmd))))))
 
