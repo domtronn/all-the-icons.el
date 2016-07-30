@@ -30,7 +30,8 @@ buffers, /e.g./
 
 #+BEGIN_SRC elisp
 (insert (ati-icon-for-file "foo.js"))
-;; will insert #("" 0 1 (display (raise -0.24) face (:family "dev-icons" :height 1.08 :foreground "#FFD446")))
+;; Inserts a javascript icon
+;; #("" 0 1 (display (raise -0.24) face (:family "dev-icons" :height 1.08 :foreground "#FFD446")))
 #+END_SRC
 
 *** Inserting Icons Directly
