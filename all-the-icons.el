@@ -64,8 +64,8 @@
 (defvar ati/dpurple "#694863")
 
 ;; orange
-(defvar ati/orange "#D28445")
-(defvar ati/lorange "#FFA151")
+(defvar ati/orange "#D4843E")
+(defvar ati/lorange "#FFA500")
 (defvar ati/dorange "#915B2D")
 
 ;; cyan
@@ -106,6 +106,7 @@
 
     ("\\.fish"          ati/devicon "terminal" nil nil ati/lpink)
     ("\\.zsh"           ati/devicon "terminal" nil nil ati/lcyan)
+    ("\\.sh"            gati/devicon "terminal" nil nil ati/purple)
 
     ;; Config
     ("\\.node"          ati/devicon "nodejs-small" 1.0 nil ati/green)
@@ -244,10 +245,11 @@
     ("\\.es[0-9]$"      ati/alltheicon "javascript" 0.9 nil ati/yellow)
     ("\\.jsx$"          ati/fileicon "jsx" 0.8 nil ati/dyellow)
     ("\\.njs$"          ati/devicon "nodejs-small" 1.2 nil ati/lgreen)
+    ("^webpack"         ati/fileicon "webpack" nil nil ati/lblue)
 
     ;; File Types
-    ("\\.ico$"          ati/octicon "file-media" nil 0.0 ati/orange)
-    ("\\.png$"          ati/octicon "file-media" nil 0.0 ati/blue)
+    ("\\.ico$"          ati/octicon "file-media" nil 0.0 ati/blue)
+    ("\\.png$"          ati/octicon "file-media" nil 0.0 ati/orange)
     ("\\.gif$"          ati/octicon "file-media" nil 0.0 ati/green)
     ("\\.jpe?g$"        ati/octicon "file-media" nil 0.0 ati/dblue)
     ("\\.svg$"          ati/alltheicon "svg" 0.9 nil ati/lgreen)
@@ -258,8 +260,8 @@
     ("\\.ogv"           ati/faicon "film" nil nil ati/dblue)
 
     ;; Fonts
-    ("\\.ttf$"          ati/octicon "pencil" nil 0.0 ati/dcyan)
-    ("\\.woff2?$"       ati/octicon "pencil" nil 0.0 ati/cyan)
+    ("\\.ttf$"          ati/fileicon "font" nil 0.0 ati/dcyan)
+    ("\\.woff2?$"       ati/fileicon "font" nil 0.0 ati/cyan)
 
     ;; Doc
     ("\\.pdf"           ati/octicon "file-pdf" nil 0.0 ati/dred)
@@ -295,6 +297,7 @@
     ("movies"           ati/faicon "video-camera" 1.2 -0.1)
     ("code"             ati/octicon "code" 1.2 -0.1)
     ("workspace"        ati/octicon "code" 1.2 -0.1)
+    (".git"             ati/alltheicon "git" 0.9)
     ("."                ati/octicon "file-directory" 1.2)
     ))
 
