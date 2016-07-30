@@ -465,13 +465,14 @@ When F is provided, the info function is calculated with the format
 
 ;; Definitions
 
-(defun ati//function-name (name)
-  "Get the symbol for an icon function name for icon set NAME."
-  (intern (concat "ati/" (downcase (symbol-name name)))))
+(eval-and-compile
+  (defun ati//function-name (name)
+    "Get the symbol for an icon function name for icon set NAME."
+    (intern (concat "ati/" (downcase (symbol-name name)))))
 
-(defun ati//family-name (name)
-  "Get the symbol for an icon family function for icon set NAME."
-  (intern (concat "ati/" (downcase (symbol-name name)) "-family")))
+  (defun ati//family-name (name)
+    "Get the symbol for an icon family function for icon set NAME."
+    (intern (concat "ati/" (downcase (symbol-name name)) "-family"))))
 
 (defmacro deficon (name alist family)
   "Macro to geneate functions for inserting icons for icon set NAME.
