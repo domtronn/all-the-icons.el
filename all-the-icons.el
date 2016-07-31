@@ -474,7 +474,7 @@ When F is provided, the info function is calculated with the format
   (intern (concat "ati/" (downcase (symbol-name name)) "-family")))
 
 (defmacro deficon (name alist family)
-  "Macro to geneate functions for inserting icons for icon set NAME.
+  "Macro to generate functions for inserting icons for icon set NAME.
 
 NAME defines is the name of the iconset and will produce a
 function of the for `ati/NAME'.
