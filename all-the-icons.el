@@ -530,7 +530,7 @@ When F is provided, the info function is calculated with the format
   "Get the symbol for an icon family function for icon set NAME."
   (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-family")))
 
-(defmacro deficon (name alist family)
+(defmacro define-icon (name alist family)
   "Macro to generate functions for inserting icons for icon set NAME.
 
 NAME defines is the name of the iconset and will produce a
@@ -554,12 +554,12 @@ FAMILY is the font family to use for the icons."
                        'face `(:family ,family :height ,height :foreground ,col)
                        'display `(raise ,v-adjust))))))
 
-(deficon alltheicon all-the-icons-data/alltheicons-alist "dev-icons")
-(deficon octicon all-the-icons-data/octicons-alist       "github-octicons")
-(deficon devicon all-the-icons-data/devicons-alist       "icomoon")
-(deficon fileicon all-the-icons-data/file-icon-alist     "file-icons")
-(deficon faicon all-the-icons-data/fa-icon-alist         "FontAwesome")
-(deficon wicon all-the-icons-data/weather-icons-alist    "Weather Icons")
+(define-icon alltheicon all-the-icons-data/alltheicons-alist "dev-icons")
+(define-icon octicon all-the-icons-data/octicons-alist       "github-octicons")
+(define-icon devicon all-the-icons-data/devicons-alist       "icomoon")
+(define-icon fileicon all-the-icons-data/file-icon-alist     "file-icons")
+(define-icon faicon all-the-icons-data/fa-icon-alist         "FontAwesome")
+(define-icon wicon all-the-icons-data/weather-icons-alist    "Weather Icons")
 
 (provide 'all-the-icons)
 
