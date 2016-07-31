@@ -106,7 +106,7 @@
 
     ("\\.fish"          ati/devicon "terminal" nil nil ati/lpink)
     ("\\.zsh"           ati/devicon "terminal" nil nil ati/lcyan)
-    ("\\.sh"            gati/devicon "terminal" nil nil ati/purple)
+    ("\\.sh"            ati/devicon "terminal" nil nil ati/purple)
 
     ;; Config
     ("\\.node"          ati/devicon "nodejs-small" 1.0 nil ati/green)
