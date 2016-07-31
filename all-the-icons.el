@@ -4,7 +4,7 @@
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
 ;; Version: 1.0.0
-;; Package-Requires: ((dash "2.12.1") (emacs "24.3"))
+;; Package-Requires: ((dash "2.12.0") (emacs "24.3"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
 
