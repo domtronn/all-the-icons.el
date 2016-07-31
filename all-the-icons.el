@@ -142,9 +142,28 @@
 (defvar all-the-icons-lsilver "#B9B6AA")
 (defvar all-the-icons-dsilver "#838484")
 
-(defvar all-the-icons-scale-factor 1.2)
-(defvar all-the-icons-default-adjust -0.2)
-(defvar all-the-icons-color-icons t)
+;;; Custom Variables
+(defgroup all-the-icons nil
+  "Manage how All The Icons formats icons."
+  :prefix "all-the-icons-"
+  :group 'tools
+  :group 'convenience)
+
+(defcustom all-the-icons-color-icons t
+  "Whether or not to include a foreground colour when formatting the icon."
+  :group 'all-the-icons
+  :type 'boolean)
+
+(defcustom all-the-icons-scale-factor 1.2
+  "The bsae Scale Factor for the `height' face property of an icon."
+  :group 'all-the-icons
+  :type 'number)
+
+(defcustom all-the-icons-default-adjust -0.2
+  "The default adjustment to be made to the `raise' display property of an icon."
+  :group 'all-the-icons
+  :type 'number)
+
 (defvar all-the-icons-icon-alist
   '(
     ;; Meta
