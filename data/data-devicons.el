@@ -1,4 +1,4 @@
-(defvar ati-data/devicons-alist
+(defvar all-the-icons-data/devicons-alist
   '(
     ( "git". "\xe602" )
     ( "git-compare". "\xe628" )

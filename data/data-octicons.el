@@ -1,4 +1,4 @@
-(defvar ati-data/octicons-alist
+(defvar all-the-icons-data/octicons-alist
   '(
     ("alert" . "\xf02d")
     ("alignment-align" . "\xf08a")

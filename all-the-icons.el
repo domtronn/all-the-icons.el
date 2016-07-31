@@ -35,349 +35,349 @@
 (require 'data-weathericons "./data/data-weathericons.el")
 
 ;; red
-(defvar ati/red "#AC4142")
-(defvar ati/lred "#EB595A")
-(defvar ati/dred "#843031")
+(defvar all-the-icons-red "#AC4142")
+(defvar all-the-icons-lred "#EB595A")
+(defvar all-the-icons-dred "#843031")
 ;; green
-(defvar ati/green "#90A959")
-(defvar ati/lgreen "#C6E87A")
-(defvar ati/dgreen "#6D8143")
+(defvar all-the-icons-green "#90A959")
+(defvar all-the-icons-lgreen "#C6E87A")
+(defvar all-the-icons-dgreen "#6D8143")
 
 ;; yellow
-(defvar ati/yellow "#FFD446")
-(defvar ati/lyellow "#FFC16D")
-(defvar ati/dyellow "#B48D56")
+(defvar all-the-icons-yellow "#FFD446")
+(defvar all-the-icons-lyellow "#FFC16D")
+(defvar all-the-icons-dyellow "#B48D56")
 
 ;; blue
-(defvar ati/blue "#6A9FB5")
-(defvar ati/lblue "#8FD7F4")
-(defvar ati/dblue "#446674")
+(defvar all-the-icons-blue "#6A9FB5")
+(defvar all-the-icons-lblue "#8FD7F4")
+(defvar all-the-icons-dblue "#446674")
 
 ;; maroon
-(defvar ati/maroon "#8F5536")
-(defvar ati/lmaroon "#CE7A4E")
-(defvar ati/dmaroon "#72584B")
+(defvar all-the-icons-maroon "#8F5536")
+(defvar all-the-icons-lmaroon "#CE7A4E")
+(defvar all-the-icons-dmaroon "#72584B")
 
 ;; purple
-(defvar ati/purple "#AA759F")
-(defvar ati/lpurple "#E69DD6")
-(defvar ati/dpurple "#694863")
+(defvar all-the-icons-purple "#AA759F")
+(defvar all-the-icons-lpurple "#E69DD6")
+(defvar all-the-icons-dpurple "#694863")
 
 ;; orange
-(defvar ati/orange "#D4843E")
-(defvar ati/lorange "#FFA500")
-(defvar ati/dorange "#915B2D")
+(defvar all-the-icons-orange "#D4843E")
+(defvar all-the-icons-lorange "#FFA500")
+(defvar all-the-icons-dorange "#915B2D")
 
 ;; cyan
-(defvar ati/cyan "#75B5AA")
-(defvar ati/lcyan "#A5FDEC")
-(defvar ati/dcyan "#48746D")
+(defvar all-the-icons-cyan "#75B5AA")
+(defvar all-the-icons-lcyan "#A5FDEC")
+(defvar all-the-icons-dcyan "#48746D")
 
 ;; pink
-(defvar ati/pink "#F2B4B8")
-(defvar ati/lpink "#FFBDC1")
-(defvar ati/dpink "#B18286")
+(defvar all-the-icons-pink "#F2B4B8")
+(defvar all-the-icons-lpink "#FFBDC1")
+(defvar all-the-icons-dpink "#B18286")
 
 ;; silver
-(defvar ati/silver "#716E68")
-(defvar ati/lsilver "#B9B6AA")
-(defvar ati/dsilver "#838484")
+(defvar all-the-icons-silver "#716E68")
+(defvar all-the-icons-lsilver "#B9B6AA")
+(defvar all-the-icons-dsilver "#838484")
 
-(defvar ati/scale-factor 1.2)
-(defvar ati/default-adjust -0.2)
-(defvar ati/color-icons t)
-(defvar ati/icon-alist
+(defvar all-the-icons-scale-factor 1.2)
+(defvar all-the-icons-default-adjust -0.2)
+(defvar all-the-icons-color-icons t)
+(defvar all-the-icons-icon-alist
   '(
     ;; Meta
-    ("\\.tags"          ati/octicon "tag" 1.0 0.0 ati/blue)
-    ("^TAGS$"           ati/octicon "tag" 1.0 0.0 ati/blue)
-    ("\\.log"           ati/octicon "bug" 1.0 0.0 ati/maroon)
+    ("\\.tags"          all-the-icons-octicon "tag" 1.0 0.0 all-the-icons-blue)
+    ("^TAGS$"           all-the-icons-octicon "tag" 1.0 0.0 all-the-icons-blue)
+    ("\\.log"           all-the-icons-octicon "bug" 1.0 0.0 all-the-icons-maroon)
 
     ;;
-    ("\\.key$"          ati/octicon "key" nil 0.0 ati/lblue)
-    ("\\.pem$"          ati/octicon "key" nil 0.0 ati/orange)
-    ("\\.p12$"          ati/octicon "key" nil 0.0 ati/dorange)
-    ("\\.crt$"          ati/octicon "key" nil 0.0 ati/lblue)
-    ("\\.pub$"          ati/octicon "key" nil 0.0 ati/blue)
+    ("\\.key$"          all-the-icons-octicon "key" nil 0.0 all-the-icons-lblue)
+    ("\\.pem$"          all-the-icons-octicon "key" nil 0.0 all-the-icons-orange)
+    ("\\.p12$"          all-the-icons-octicon "key" nil 0.0 all-the-icons-dorange)
+    ("\\.crt$"          all-the-icons-octicon "key" nil 0.0 all-the-icons-lblue)
+    ("\\.pub$"          all-the-icons-octicon "key" nil 0.0 all-the-icons-blue)
 
-    ("^TODO$"           ati/octicon "checklist" nil 0.0 ati/lyellow)
-    ("^LICENSE$"        ati/octicon "book" 1.0 0.0 ati/blue)
-    ("^readme"          ati/octicon "book" 1.0 0.0 ati/lcyan)
+    ("^TODO$"           all-the-icons-octicon "checklist" nil 0.0 all-the-icons-lyellow)
+    ("^LICENSE$"        all-the-icons-octicon "book" 1.0 0.0 all-the-icons-blue)
+    ("^readme"          all-the-icons-octicon "book" 1.0 0.0 all-the-icons-lcyan)
 
-    ("\\.fish"          ati/devicon "terminal" nil nil ati/lpink)
-    ("\\.zsh"           ati/devicon "terminal" nil nil ati/lcyan)
-    ("\\.sh"            ati/devicon "terminal" nil nil ati/purple)
+    ("\\.fish"          all-the-icons-devicon "terminal" nil nil all-the-icons-lpink)
+    ("\\.zsh"           all-the-icons-devicon "terminal" nil nil all-the-icons-lcyan)
+    ("\\.sh"            all-the-icons-devicon "terminal" nil nil all-the-icons-purple)
 
     ;; Config
-    ("\\.node"          ati/devicon "nodejs-small" 1.0 nil ati/green)
-    ("\\.babelrc$"      ati/fileicon "babel" nil nil ati/yellow)
-    ("\\.bashrc$"       ati/alltheicon "script" 0.9 nil ati/dpink)
-    ("\\.bowerrc$"      ati/devicon "bower" 1.2 nil ati/silver)
-    ("^bower.json$"     ati/devicon "bower" 1.2 nil ati/lorange)
-    ("\\.ini$"          ati/octicon "settings" nil 0.0 ati/yellow)
-    ("\\.eslintignore"  ati/fileicon "eslint" 0.8 nil ati/purple)
-    ("\\.eslint"        ati/fileicon "eslint" 0.8 nil ati/lpurple)
-    ("\\.git"           ati/alltheicon "git" 1.0 nil ati/lred)
-    ("nginx"            ati/fileicon "nginx" 0.9 nil ati/dgreen)
-    ("apache"           ati/alltheicon "apache" 0.9 nil ati/dgreen)
+    ("\\.node"          all-the-icons-devicon "nodejs-small" 1.0 nil all-the-icons-green)
+    ("\\.babelrc$"      all-the-icons-fileicon "babel" nil nil all-the-icons-yellow)
+    ("\\.bashrc$"       all-the-icons-alltheicon "script" 0.9 nil all-the-icons-dpink)
+    ("\\.bowerrc$"      all-the-icons-devicon "bower" 1.2 nil all-the-icons-silver)
+    ("^bower.json$"     all-the-icons-devicon "bower" 1.2 nil all-the-icons-lorange)
+    ("\\.ini$"          all-the-icons-octicon "settings" nil 0.0 all-the-icons-yellow)
+    ("\\.eslintignore"  all-the-icons-fileicon "eslint" 0.8 nil all-the-icons-purple)
+    ("\\.eslint"        all-the-icons-fileicon "eslint" 0.8 nil all-the-icons-lpurple)
+    ("\\.git"           all-the-icons-alltheicon "git" 1.0 nil all-the-icons-lred)
+    ("nginx"            all-the-icons-fileicon "nginx" 0.9 nil all-the-icons-dgreen)
+    ("apache"           all-the-icons-alltheicon "apache" 0.9 nil all-the-icons-dgreen)
 
-    ("\\.dockerignore$" ati/fileicon "dockerfile" 1.2 nil ati/dblue)
-    ("^\\.?Dockerfile"      ati/fileicon "dockerfile" nil nil ati/blue)
-    ("^Brewfile$"       ati/faicon "beer" nil nil ati/lsilver)
-    ("\\.npmignore"     ati/fileicon "npm" nil nil ati/dred)
-    ("^package.json$"   ati/fileicon "npm" nil nil ati/red)
+    ("\\.dockerignore$" all-the-icons-fileicon "dockerfile" 1.2 nil all-the-icons-dblue)
+    ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile" nil nil all-the-icons-blue)
+    ("^Brewfile$"       all-the-icons-faicon "beer" nil nil all-the-icons-lsilver)
+    ("\\.npmignore"     all-the-icons-fileicon "npm" nil nil all-the-icons-dred)
+    ("^package.json$"   all-the-icons-fileicon "npm" nil nil all-the-icons-red)
 
     ;; ;; AWS
-    ("^stack.*.json$" ati/alltheicon "aws" nil nil ati/orange)
+    ("^stack.*.json$"   all-the-icons-alltheicon "aws" nil nil all-the-icons-orange)
 
 
-    ("\\.[jc]son$"      ati/octicon "settings" nil 0.0 ati/yellow)
-    ("\\.yml$"          ati/octicon "settings" nil 0.0 ati/dyellow)
+    ("\\.[jc]son$"      all-the-icons-octicon "settings" nil 0.0 all-the-icons-yellow)
+    ("\\.yml$"          all-the-icons-octicon "settings" nil 0.0 all-the-icons-dyellow)
 
-    ("\\.pkg$"          ati/octicon "package" nil 0.0 ati/dsilver)
-    ("\\.rpm$"          ati/octicon "package" nil 0.0 ati/dsilver)
+    ("\\.pkg$"          all-the-icons-octicon "package" nil 0.0 all-the-icons-dsilver)
+    ("\\.rpm$"          all-the-icons-octicon "package" nil 0.0 all-the-icons-dsilver)
 
-    ("\\.elc$"          ati/octicon "file-binary" nil 0.0 ati/dsilver)
+    ("\\.elc$"          all-the-icons-octicon "file-binary" nil 0.0 all-the-icons-dsilver)
 
-    ("\\.gz$"          ati/octicon "file-binary" nil 0.0 ati/lmaroon)
-    ("\\.zip$"          ati/octicon "file-zip" nil 0.0 ati/lmaroon)
-    ("\\.7z$"           ati/octicon "file-zip" nil 0.0 ati/lmaroon)
+    ("\\.gz$"           all-the-icons-octicon "file-binary" nil 0.0 all-the-icons-lmaroon)
+    ("\\.zip$"          all-the-icons-octicon "file-zip" nil 0.0 all-the-icons-lmaroon)
+    ("\\.7z$"           all-the-icons-octicon "file-zip" nil 0.0 all-the-icons-lmaroon)
 
 
     ;; lock files
-    ("~$"               ati/octicon "lock" nil 0.0 ati/maroon)
+    ("~$"               all-the-icons-octicon "lock" nil 0.0 all-the-icons-maroon)
 
-    ("\\.dmg$"          ati/octicon "tools" nil 0.0 ati/lsilver)
-    ("\\.dll$"          ati/faicon "cogs" nil nil ati/silver)
-    ("\\.DS_STORE$"     ati/faicon "cogs" nil nil ati/silver)
+    ("\\.dmg$"          all-the-icons-octicon "tools" nil 0.0 all-the-icons-lsilver)
+    ("\\.dll$"          all-the-icons-faicon "cogs" nil nil all-the-icons-silver)
+    ("\\.DS_STORE$"     all-the-icons-faicon "cogs" nil nil all-the-icons-silver)
 
     ;; Source Codes
-    ("\\.scpt$"         ati/fileicon "apple" nil nil ati/pink)
-    ("\\.aup$"          ati/fileicon "audacity" nil nil ati/yellow)
+    ("\\.scpt$"         all-the-icons-fileicon "apple" nil nil all-the-icons-pink)
+    ("\\.aup$"          all-the-icons-fileicon "audacity" nil nil all-the-icons-yellow)
 
-    ("\\.java$"         ati/devicon "java" 1.0 nil ati/purple)
+    ("\\.java$"         all-the-icons-devicon "java" 1.0 nil all-the-icons-purple)
 
-    ("\\.mp3$"          ati/faicon "volume-up" nil nil ati/dred)
-    ("\\.wav$"          ati/faicon "volume-up" nil nil ati/dred)
-    ("\\.m4a$"          ati/faicon "volume-up" nil nil ati/dred)
+    ("\\.mp3$"          all-the-icons-faicon "volume-up" nil nil all-the-icons-dred)
+    ("\\.wav$"          all-the-icons-faicon "volume-up" nil nil all-the-icons-dred)
+    ("\\.m4a$"          all-the-icons-faicon "volume-up" nil nil all-the-icons-dred)
 
-    ("\\.jl$"           ati/fileicon "julia" nil 0.0 ati/purple)
-    ("\\.matlab$"       ati/fileicon "matlab" nil nil ati/orange)
+    ("\\.jl$"           all-the-icons-fileicon "julia" nil 0.0 all-the-icons-purple)
+    ("\\.matlab$"       all-the-icons-fileicon "matlab" nil nil all-the-icons-orange)
 
-    ("\\.pl$"           ati/alltheicon "perl" nil nil ati/lorange)
-    ("\\.pl6$"          ati/fileicon "perl6" nil nil ati/cyan)
-    ("\\.pod$"          ati/devicon "perl" 1.2 nil ati/lgreen)
+    ("\\.pl$"           all-the-icons-alltheicon "perl" nil nil all-the-icons-lorange)
+    ("\\.pl6$"          all-the-icons-fileicon "perl6" nil nil all-the-icons-cyan)
+    ("\\.pod$"          all-the-icons-devicon "perl" 1.2 nil all-the-icons-lgreen)
 
-    ("\\.php$"          ati/fileicon "php" nil nil ati/lsilver)
-    ("\\.pony$"         ati/fileicon "pony" nil nil ati/maroon)
-    ("\\.prol?o?g?$"    ati/devicon "prolog" 1.1 nil ati/lmaroon)
-    ("\\.py$"           ati/devicon "python" 1.0 nil ati/dblue)
+    ("\\.php$"          all-the-icons-fileicon "php" nil nil all-the-icons-lsilver)
+    ("\\.pony$"         all-the-icons-fileicon "pony" nil nil all-the-icons-maroon)
+    ("\\.prol?o?g?$"    all-the-icons-devicon "prolog" 1.1 nil all-the-icons-lmaroon)
+    ("\\.py$"           all-the-icons-devicon "python" 1.0 nil all-the-icons-dblue)
 
-    ("\\.gem$"          ati/devicon "ruby-rough" nil nil ati/red)
-    ("\\.rb$"           ati/octicon "ruby" nil 0.0 ati/lred)
-    ("\\.rs$"           ati/devicon "rust" 1.2 nil ati/maroon)
-    ("\\.rlib$"         ati/devicon "rust" 1.2 nil ati/dmaroon)
-    ("\\.r[ds]?x?$"     ati/fileicon "R" nil nil ati/lblue)
+    ("\\.gem$"          all-the-icons-devicon "ruby-rough" nil nil all-the-icons-red)
+    ("\\.rb$"           all-the-icons-octicon "ruby" nil 0.0 all-the-icons-lred)
+    ("\\.rs$"           all-the-icons-devicon "rust" 1.2 nil all-the-icons-maroon)
+    ("\\.rlib$"         all-the-icons-devicon "rust" 1.2 nil all-the-icons-dmaroon)
+    ("\\.r[ds]?x?$"     all-the-icons-fileicon "R" nil nil all-the-icons-lblue)
 
-    ("\\.scala$"        ati/alltheicon "scala" nil nil ati/red)
+    ("\\.scala$"        all-the-icons-alltheicon "scala" nil nil all-the-icons-red)
 
-    ("\\.swift$"        ati/devicon "swift" 1.0 -0.1 ati/green)
+    ("\\.swift$"        all-the-icons-devicon "swift" 1.0 -0.1 all-the-icons-green)
 
-    ("-?spec\\.js$"     ati/alltheicon "jasmine" 0.9 -0.1 ati/lpurple)
-    ("-?test\\.js$"     ati/alltheicon "jasmine" 0.9 -0.1 ati/lpurple)
-    ("-?spec\\."        ati/faicon "flask" 1.0 0.0 ati/dgreen)
-    ("-?test\\."        ati/faicon "flask" 1.0 0.0 ati/dgreen)
+    ("-?spec\\.js$"     all-the-icons-alltheicon "jasmine" 0.9 -0.1 all-the-icons-lpurple)
+    ("-?test\\.js$"     all-the-icons-alltheicon "jasmine" 0.9 -0.1 all-the-icons-lpurple)
+    ("-?spec\\."        all-the-icons-faicon "flask" 1.0 0.0 all-the-icons-dgreen)
+    ("-?test\\."        all-the-icons-faicon "flask" 1.0 0.0 all-the-icons-dgreen)
 
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
     ;; case phi
-    ("\\.c$"            ati/alltheicon "c-line" nil nil ati/blue)
-    ("\\.h$"            ati/alltheicon "c-line" nil nil ati/purple)
+    ("\\.c$"            all-the-icons-alltheicon "c-line" nil nil all-the-icons-blue)
+    ("\\.h$"            all-the-icons-alltheicon "c-line" nil nil all-the-icons-purple)
 
-    ("\\.cpp$"          ati/alltheicon "cplusplus-line" nil -0.2 ati/blue)
-    ("\\.hpp$"          ati/alltheicon "cplusplus-line" nil -0.2 ati/purple)
+    ("\\.cpp$"          all-the-icons-alltheicon "cplusplus-line" nil -0.2 all-the-icons-blue)
+    ("\\.hpp$"          all-the-icons-alltheicon "cplusplus-line" nil -0.2 all-the-icons-purple)
 
-    ("\\.csx?$"         ati/alltheicon "csharp-line" nil nil ati/dblue)
+    ("\\.csx?$"         all-the-icons-alltheicon "csharp-line" nil nil all-the-icons-dblue)
 
-    ("\\.clj$"          ati/devicon "clojure" 1.0 nil ati/blue)
+    ("\\.clj$"          all-the-icons-devicon "clojure" 1.0 nil all-the-icons-blue)
 
-    ("\\.coffee$"       ati/alltheicon "coffeescript" 1.0 nil ati/maroon)
-    ("\\.iced$"         ati/alltheicon "coffeescript" 1.0 nil ati/lmaroon)
+    ("\\.coffee$"       all-the-icons-alltheicon "coffeescript" 1.0 nil all-the-icons-maroon)
+    ("\\.iced$"         all-the-icons-alltheicon "coffeescript" 1.0 nil all-the-icons-lmaroon)
 
     ;; Git
-    ("^MERGE_"          ati/octicon "git-merge" nil 0.0 ati/red)
-    ("^COMMIT_EDITMSG"  ati/octicon "git-commit" nil 0.0 ati/red)
+    ("^MERGE_"          all-the-icons-octicon "git-merge" nil 0.0 all-the-icons-red)
+    ("^COMMIT_EDITMSG"  all-the-icons-octicon "git-commit" nil 0.0 all-the-icons-red)
 
     ;; Lisps
-    ("\\.cl$"           ati/fileicon "clisp" nil nil ati/lorange)
-    ("\\.l$"            ati/fileicon "lisp" nil nil ati/orange)
-    ("\\.el$"           ati/fileicon "elisp" 1.0 -0.2 ati/purple)
+    ("\\.cl$"           all-the-icons-fileicon "clisp" nil nil all-the-icons-lorange)
+    ("\\.l$"            all-the-icons-fileicon "lisp" nil nil all-the-icons-orange)
+    ("\\.el$"           all-the-icons-fileicon "elisp" 1.0 -0.2 all-the-icons-purple)
 
     ;; Stylesheeting
-    ("\\.css$"          ati/devicon "css3-full" nil nil ati/yellow)
-    ("\\.scss$"         ati/devicon "sass" nil nil ati/pink)
-    ("\\.sass$"         ati/devicon "sass" nil nil ati/dpink)
-    ("\\.less$"         ati/alltheicon "less" 0.8 nil ati/dyellow)
-    ("\\.postcss$"      ati/fileicon "postcss" nil nil ati/dred)
-    ("\\.sss$"          ati/fileicon "postcss" nil nil ati/dred)
-    ("\\.styl$"         ati/devicon "stylus" nil nil ati/lgreen)
-    ("stylelint"        ati/fileicon "stylelint" nil nil ati/lyellow)
-    ("\\.csv$"          ati/octicon "graph" nil 0.0 ati/dblue)
+    ("\\.css$"          all-the-icons-devicon "css3-full" nil nil all-the-icons-yellow)
+    ("\\.scss$"         all-the-icons-devicon "sass" nil nil all-the-icons-pink)
+    ("\\.sass$"         all-the-icons-devicon "sass" nil nil all-the-icons-dpink)
+    ("\\.less$"         all-the-icons-alltheicon "less" 0.8 nil all-the-icons-dyellow)
+    ("\\.postcss$"      all-the-icons-fileicon "postcss" nil nil all-the-icons-dred)
+    ("\\.sss$"          all-the-icons-fileicon "postcss" nil nil all-the-icons-dred)
+    ("\\.styl$"         all-the-icons-devicon "stylus" nil nil all-the-icons-lgreen)
+    ("stylelint"        all-the-icons-fileicon "stylelint" nil nil all-the-icons-lyellow)
+    ("\\.csv$"          all-the-icons-octicon "graph" nil 0.0 all-the-icons-dblue)
 
-    ("\\.hs$"           ati/devicon "haskell" 1.0 nil ati/red)
+    ("\\.hs$"           all-the-icons-devicon "haskell" 1.0 nil all-the-icons-red)
 
     ;; Web modes
-    ("\\.haml$"         ati/fileicon "haml" nil nil ati/lyellow)
-    ("\\.html?$"        ati/devicon "html5" nil nil ati/orange)
-    ("\\.erb$"          ati/devicon "html5" nil nil ati/lred)
-    ("\\.hbs$"          ati/fileicon "moustache" nil nil ati/green)
-    ("\\.slim$"         ati/octicon "dashboard" nil 0.0 ati/yellow)
-    ("\\.jade$"         ati/fileicon "jade" nil nil ati/red)
-    ("\\.pug$"          ati/fileicon "pug" nil nil ati/red)
+    ("\\.haml$"         all-the-icons-fileicon "haml" nil nil all-the-icons-lyellow)
+    ("\\.html?$"        all-the-icons-devicon "html5" nil nil all-the-icons-orange)
+    ("\\.erb$"          all-the-icons-devicon "html5" nil nil all-the-icons-lred)
+    ("\\.hbs$"          all-the-icons-fileicon "moustache" nil nil all-the-icons-green)
+    ("\\.slim$"         all-the-icons-octicon "dashboard" nil 0.0 all-the-icons-yellow)
+    ("\\.jade$"         all-the-icons-fileicon "jade" nil nil all-the-icons-red)
+    ("\\.pug$"          all-the-icons-fileicon "pug" nil nil all-the-icons-red)
 
     ;; JavaScript
-    ("^gulpfile"        ati/devicon "gulp" 1.0 nil ati/lred)
-    ("^gruntfile"       ati/devicon "grunt" 1.0 -0.1 ati/lyellow)
+    ("^gulpfile"        all-the-icons-devicon "gulp" 1.0 nil all-the-icons-lred)
+    ("^gruntfile"       all-the-icons-devicon "grunt" 1.0 -0.1 all-the-icons-lyellow)
 
-    ("\\.d3\\.?js"      ati/alltheicon "d3" 0.8 nil ati/lgreen)
+    ("\\.d3\\.?js"      all-the-icons-alltheicon "d3" 0.8 nil all-the-icons-lgreen)
 
-    ("\\.react"         ati/devicon "react" 1.1 nil ati/lblue)
-    ("\\.js$"           ati/alltheicon "javascript" 0.9 nil ati/yellow)
-    ("\\.es[0-9]$"      ati/alltheicon "javascript" 0.9 nil ati/yellow)
-    ("\\.jsx$"          ati/fileicon "jsx" 0.8 nil ati/dyellow)
-    ("\\.njs$"          ati/devicon "nodejs-small" 1.2 nil ati/lgreen)
-    ("^webpack"         ati/fileicon "webpack" nil nil ati/lblue)
+    ("\\.react"         all-the-icons-devicon "react" 1.1 nil all-the-icons-lblue)
+    ("\\.js$"           all-the-icons-alltheicon "javascript" 0.9 nil all-the-icons-yellow)
+    ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript" 0.9 nil all-the-icons-yellow)
+    ("\\.jsx$"          all-the-icons-fileicon "jsx" 0.8 nil all-the-icons-dyellow)
+    ("\\.njs$"          all-the-icons-devicon "nodejs-small" 1.2 nil all-the-icons-lgreen)
+    ("^webpack"         all-the-icons-fileicon "webpack" nil nil all-the-icons-lblue)
 
     ;; File Types
-    ("\\.ico$"          ati/octicon "file-media" nil 0.0 ati/blue)
-    ("\\.png$"          ati/octicon "file-media" nil 0.0 ati/orange)
-    ("\\.gif$"          ati/octicon "file-media" nil 0.0 ati/green)
-    ("\\.jpe?g$"        ati/octicon "file-media" nil 0.0 ati/dblue)
-    ("\\.svg$"          ati/alltheicon "svg" 0.9 nil ati/lgreen)
+    ("\\.ico$"          all-the-icons-octicon "file-media" nil 0.0 all-the-icons-blue)
+    ("\\.png$"          all-the-icons-octicon "file-media" nil 0.0 all-the-icons-orange)
+    ("\\.gif$"          all-the-icons-octicon "file-media" nil 0.0 all-the-icons-green)
+    ("\\.jpe?g$"        all-the-icons-octicon "file-media" nil 0.0 all-the-icons-dblue)
+    ("\\.svg$"          all-the-icons-alltheicon "svg" 0.9 nil all-the-icons-lgreen)
 
     ;; Video
-    ("\\.mov"           ati/faicon "film" nil nil ati/blue)
-    ("\\.mp4"           ati/faicon "film" nil nil ati/blue)
-    ("\\.ogv"           ati/faicon "film" nil nil ati/dblue)
+    ("\\.mov"           all-the-icons-faicon "film" nil nil all-the-icons-blue)
+    ("\\.mp4"           all-the-icons-faicon "film" nil nil all-the-icons-blue)
+    ("\\.ogv"           all-the-icons-faicon "film" nil nil all-the-icons-dblue)
 
     ;; Fonts
-    ("\\.ttf$"          ati/fileicon "font" nil 0.0 ati/dcyan)
-    ("\\.woff2?$"       ati/fileicon "font" nil 0.0 ati/cyan)
+    ("\\.ttf$"          all-the-icons-fileicon "font" nil 0.0 all-the-icons-dcyan)
+    ("\\.woff2?$"       all-the-icons-fileicon "font" nil 0.0 all-the-icons-cyan)
 
     ;; Doc
-    ("\\.pdf"           ati/octicon "file-pdf" nil 0.0 ati/dred)
-    ("\\.te?xt"         ati/octicon "file-text" nil 0.0 ati/cyan)
-    ("\\.doc[xm]?$"     ati/fileicon "word" nil nil ati/blue)
-    ("\\.texi?$"        ati/fileicon "tex" nil nil ati/lred)
-    ("\\.md$"           ati/octicon "markdown" nil 0.0 ati/lblue)
-    ("\\.bib$"          ati/fileicon "bib" nil nil ati/maroon)
-    ("\\.org$"          ati/fileicon "org" nil nil ati/lgreen)
+    ("\\.pdf"           all-the-icons-octicon "file-pdf" nil 0.0 all-the-icons-dred)
+    ("\\.te?xt"         all-the-icons-octicon "file-text" nil 0.0 all-the-icons-cyan)
+    ("\\.doc[xm]?$"     all-the-icons-fileicon "word" nil nil all-the-icons-blue)
+    ("\\.texi?$"        all-the-icons-fileicon "tex" nil nil all-the-icons-lred)
+    ("\\.md$"           all-the-icons-octicon "markdown" nil 0.0 all-the-icons-lblue)
+    ("\\.bib$"          all-the-icons-fileicon "bib" nil nil all-the-icons-maroon)
+    ("\\.org$"          all-the-icons-fileicon "org" nil nil all-the-icons-lgreen)
 
-    ("\\.pp[st]$"       ati/fileicon "ppt" nil nil ati/orange)
-    ("\\.pp[st]x$"      ati/fileicon "ppt" nil nil ati/red)
-    ("\\.knt$"          ati/fileicon "presentation" nil nil ati/cyan)
+    ("\\.pp[st]$"       all-the-icons-fileicon "ppt" nil nil all-the-icons-orange)
+    ("\\.pp[st]x$"      all-the-icons-fileicon "ppt" nil nil all-the-icons-red)
+    ("\\.knt$"          all-the-icons-fileicon "presentall-the-iconson" nil nil all-the-icons-cyan)
 
-    ("bookmark"         ati/octicon "bookmark" 1.1 0.0 ati/lpink)
-    ("\\.cache$"        ati/octicon "database" 1.0 0.0 ati/green)
+    ("bookmark"         all-the-icons-octicon "bookmark" 1.1 0.0 all-the-icons-lpink)
+    ("\\.cache$"        all-the-icons-octicon "database" 1.0 0.0 all-the-icons-green)
 
-    ("^\\."             ati/octicon "gear" nil 0.0)
-    ("."                ati/faicon "file-o" 0.8 0.0 ati/dsilver)))
+    ("^\\."             all-the-icons-octicon "gear" nil 0.0)
+    ("."                all-the-icons-faicon "file-o" 0.8 0.0 all-the-icons-dsilver)))
 
-(defvar ati/dir-icon-alist
+(defvar all-the-icons-dir-icon-alist
   '(
-    ("trash"            ati/faicon "trash-o" 1.2 -0.1)
-    ("dropbox"          ati/faicon "dropbox" 1.2 -0.1)
-    ("google[ _-]drive" ati/devicon "google-drive" 1.3 -0.1)
-    ("atom"             ati/devicon "atom" 1.2 -0.1)
-    ("documents"        ati/faicon "book" 1.2 -0.1)
-    ("download"         ati/octicon "cloud-download" 1.2 -0.1)
-    ("desktop"          ati/faicon "desktop" 1.2 -0.1)
-    ("pictures"         ati/faicon "picture-o" 1.2 -0.1)
-    ("photos"           ati/faicon "camera-retro" 1.2 -0.1)
-    ("music"            ati/faicon "headphones" 1.2 -0.1)
-    ("movies"           ati/faicon "video-camera" 1.2 -0.1)
-    ("code"             ati/octicon "code" 1.2 -0.1)
-    ("workspace"        ati/octicon "code" 1.2 -0.1)
-    (".git"             ati/alltheicon "git" 0.9)
-    ("."                ati/octicon "file-directory" 1.2)
+    ("trash"            all-the-icons-faicon "trash-o" 1.2 -0.1)
+    ("dropbox"          all-the-icons-faicon "dropbox" 1.2 -0.1)
+    ("google[ _-]drive" all-the-icons-devicon "google-drive" 1.3 -0.1)
+    ("atom"             all-the-icons-devicon "atom" 1.2 -0.1)
+    ("documents"        all-the-icons-faicon "book" 1.2 -0.1)
+    ("download"         all-the-icons-octicon "cloud-download" 1.2 -0.1)
+    ("desktop"          all-the-icons-faicon "desktop" 1.2 -0.1)
+    ("pictures"         all-the-icons-faicon "picture-o" 1.2 -0.1)
+    ("photos"           all-the-icons-faicon "camera-retro" 1.2 -0.1)
+    ("music"            all-the-icons-faicon "headphones" 1.2 -0.1)
+    ("movies"           all-the-icons-faicon "video-camera" 1.2 -0.1)
+    ("code"             all-the-icons-octicon "code" 1.2 -0.1)
+    ("workspace"        all-the-icons-octicon "code" 1.2 -0.1)
+    (".git"             all-the-icons-alltheicon "git" 0.9)
+    ("."                all-the-icons-octicon "file-directory" 1.2)
     ))
 
-(defvar ati/weather-icon-alist
+(defvar all-the-icons-weather-icon-alist
   '(
-    ("tornado" ati/wicon "tornado")
-    ("hurricane" ati/wicon "hurricane")
-    ("thunderstorms" ati/wicon "thunderstorm")
-    ("sunny" ati/wicon "day-sunny")
-    ("rain.*snow" ati/wicon "rain-mix")
-    ("rain.*hail" ati/wicon "rain-mix")
-    ("sleet" ati/wicon "sleet")
-    ("hail" ati/wicon "hail")
-    ("drizzle" ati/wicon "sprinkle")
-    ("rain" ati/wicon "showers" 1.1 0.0)
-    ("showers" ati/wicon "showers")
-    ("blowing.*snow" ati/wicon "snow-wind")
-    ("snow" ati/wicon "snow")
-    ("dust" ati/wicon "dust")
-    ("fog" ati/wicon "fog")
-    ("haze" ati/wicon "day-haze")
-    ("smoky" ati/wicon "smoke")
-    ("blustery" ati/wicon "cloudy-windy")
-    ("windy" ati/wicon "cloudy-gusts")
-    ("cold" ati/wicon "snowflake-cold")
-    ("partly.*cloudy.*night" ati/wicon "night-alt-partly-cloudy")
-    ("partly.*cloudy" ati/wicon "day-cloudy-high")
-    ("cloudy.*night" ati/wicon "night-alt-cloudy")
-    ("cxloudy.*day" ati/wicon "day-cloudy")
-    ("cloudy" ati/wicon "cloudy")
-    ("clear.*night" ati/wicon "night-clear")
-    ("fair.*night" ati/wicon "stars")
-    ("fair.*day" ati/wicon "horizon")
-    ("hot" ati/wicon "hot")
-    ("not.*available" ati/wicon "na")
+    ("tornado" all-the-icons-wicon "tornado")
+    ("hurricane" all-the-icons-wicon "hurricane")
+    ("thunderstorms" all-the-icons-wicon "thunderstorm")
+    ("sunny" all-the-icons-wicon "day-sunny")
+    ("rain.*snow" all-the-icons-wicon "rain-mix")
+    ("rain.*hail" all-the-icons-wicon "rain-mix")
+    ("sleet" all-the-icons-wicon "sleet")
+    ("hail" all-the-icons-wicon "hail")
+    ("drizzle" all-the-icons-wicon "sprinkle")
+    ("rain" all-the-icons-wicon "showers" 1.1 0.0)
+    ("showers" all-the-icons-wicon "showers")
+    ("blowing.*snow" all-the-icons-wicon "snow-wind")
+    ("snow" all-the-icons-wicon "snow")
+    ("dust" all-the-icons-wicon "dust")
+    ("fog" all-the-icons-wicon "fog")
+    ("haze" all-the-icons-wicon "day-haze")
+    ("smoky" all-the-icons-wicon "smoke")
+    ("blustery" all-the-icons-wicon "cloudy-windy")
+    ("windy" all-the-icons-wicon "cloudy-gusts")
+    ("cold" all-the-icons-wicon "snowflake-cold")
+    ("partly.*cloudy.*night" all-the-icons-wicon "night-alt-partly-cloudy")
+    ("partly.*cloudy" all-the-icons-wicon "day-cloudy-high")
+    ("cloudy.*night" all-the-icons-wicon "night-alt-cloudy")
+    ("cxloudy.*day" all-the-icons-wicon "day-cloudy")
+    ("cloudy" all-the-icons-wicon "cloudy")
+    ("clear.*night" all-the-icons-wicon "night-clear")
+    ("fair.*night" all-the-icons-wicon "stars")
+    ("fair.*day" all-the-icons-wicon "horizon")
+    ("hot" all-the-icons-wicon "hot")
+    ("not.*available" all-the-icons-wicon "na")
     ))
 
-(defvar ati/mode-icon-alist
+(defvar all-the-icons-mode-icon-alist
   '(
-    (emacs-lisp-mode          ati/fileicon "elisp" nil -0.1)
-    (dired-mode               ati/octicon "file-directory" nil 0.0)
-    (lisp-interaction-mode    ati/fileicon "lisp" nil -0.1)
-    (js2-mode                 ati/devicon "javascript-badge" nil -0.1)
-    (term-mode                ati/octicon "terminal" nil 0.0)
-    (eshell-mode              ati/octicon "terminal" nil 0.0)
-    (magit-status-mode        ati/alltheicon "git")
-    (magit-refs-mode          ati/octicon "git-branch" nil 0.0)
-    (magit-process-mode       ati/octicon "mark-github" nil 0.0)
-    (magit-popup-mode         ati/alltheicon "git")
-    (magit-diff-mode          ati/octicon "git-compare" nil 0.0)
-    (ediff-mode               ati/octicon "git-compare" nil 0.0)
-    (comint-mode              ati/faicon "terminal" nil 0.0)
-    (eww-mode                 ati/faicon "firefox" nil -0.1)
-    (org-agenda-mode          ati/octicon "checklist" nil 0.0)
-    (cfw:calendar-mode        ati/octicon "calendar" nil 0.0)
-    (jenkins-mode             ati/fileicon "jenkins")
-    (ibuffer-mode             ati/faicon "files-o" nil 0.0)
-    (messages-buffer-mode     ati/faicon "stack-overflow" nil -0.1)
-    (help-mode                ati/faicon "info" nil -0.1)
-    (benchmark-init/tree-mode ati/octicon "dashboard" nil 0.0)
+    (emacs-lisp-mode          all-the-icons-fileicon "elisp" nil -0.1)
+    (dired-mode               all-the-icons-octicon "file-directory" nil 0.0)
+    (lisp-interaction-mode    all-the-icons-fileicon "lisp" nil -0.1)
+    (js2-mode                 all-the-icons-devicon "javascript-badge" nil -0.1)
+    (term-mode                all-the-icons-octicon "terminal" nil 0.0)
+    (eshell-mode              all-the-icons-octicon "terminal" nil 0.0)
+    (magit-status-mode        all-the-icons-alltheicon "git")
+    (magit-refs-mode          all-the-icons-octicon "git-branch" nil 0.0)
+    (magit-process-mode       all-the-icons-octicon "mark-github" nil 0.0)
+    (magit-popup-mode         all-the-icons-alltheicon "git")
+    (magit-diff-mode          all-the-icons-octicon "git-compare" nil 0.0)
+    (ediff-mode               all-the-icons-octicon "git-compare" nil 0.0)
+    (comint-mode              all-the-icons-faicon "terminal" nil 0.0)
+    (eww-mode                 all-the-icons-faicon "firefox" nil -0.1)
+    (org-agenda-mode          all-the-icons-octicon "checklist" nil 0.0)
+    (cfw:calendar-mode        all-the-icons-octicon "calendar" nil 0.0)
+    (jenkins-mode             all-the-icons-fileicon "jenkins")
+    (ibuffer-mode             all-the-icons-faicon "files-o" nil 0.0)
+    (messages-buffer-mode     all-the-icons-faicon "stack-overflow" nil -0.1)
+    (help-mode                all-the-icons-faicon "info" nil -0.1)
+    (benchmark-init/tree-mode all-the-icons-octicon "dashboard" nil 0.0)
     ))
 
 ;; ====================
 ;;   Functions Start
 ;; ====================
 
-(defun ati/auto-mode-match? (&optional file)
+(defun all-the-icons-auto-mode-match? (&optional file)
   "Whether or not FILE's `major-mode' match against its `auto-mode-alist'."
   (let* ((file (or file (buffer-file-name) (buffer-name)))
-         (auto-mode (ati/match-to-alist file auto-mode-alist)))
+         (auto-mode (all-the-icons-match-to-alist file auto-mode-alist)))
     (eq major-mode auto-mode)))
 
-(defun ati/match-to-alist (file alist)
+(defun all-the-icons-match-to-alist (file alist)
   "Match FILE against an entry in ALIST using `string-match'."
   (cdr (--first (string-match (car it) file) alist)))
 
-(defun ati/dir-is-submodule (dir)
+(defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
-  (let* ((gitmodule-dir (locate-dominating-file dir ".gitmodules"))
+  (let* ((gitmodule-dir (locate-dominall-the-iconsng-file dir ".gitmodules"))
          (modules-file  (expand-file-name (format "%s.gitmodules" gitmodule-dir)))
          (module-search (format "submodule \".*?%s\"" (file-name-base dir))))
 
@@ -387,95 +387,95 @@
         (search-forward-regexp module-search (point-max) t)))))
 
 ;; Icon functions
-(defun ati-icon-for-dir (dir &optional chevron)
+(defun all-the-icons-icon-for-dir (dir &optional chevron)
   "Format an icon for DIR with CHEVRON similar to tree based directories.
 
 Produces different symbols by inspeting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
-  (let* ((matcher (ati/match-to-alist (file-name-base dir) ati/dir-icon-alist))
+  (let* ((matcher (all-the-icons-match-to-alist (file-name-base dir) all-the-icons-dir-icon-alist))
          (path (expand-file-name dir))
-         (chevron (or (ati/octicon (format "chevron-%s" chevron) 0.8 -0.1) ""))
+         (chevron (or (all-the-icons-octicon (format "chevron-%s" chevron) 0.8 -0.1) ""))
          (icon (cond
                 ((file-symlink-p path)
-                 (ati/octicon "file-symlink-directory" 1.2))
-                ((ati/dir-is-submodule path)
-                 (ati/octicon "file-submodule" 1.2))
+                 (all-the-icons-octicon "file-symlink-directory" 1.2))
+                ((all-the-icons-dir-is-submodule path)
+                 (all-the-icons-octicon "file-submodule" 1.2))
                 ((file-exists-p (format "%s/.git" path))
-                 (ati/octicon "repo" 1.2))
+                 (all-the-icons-octicon "repo" 1.2))
                 (t (apply (car matcher) (cdr matcher))))))
     (format "\t%s\t%s " chevron icon)))
 
-(defun ati-icon-for-buffer ()
+(defun all-the-icons-icon-for-buffer ()
   "Get the formatted icon for the current buffer.
 
 This function priotises the use of the buffers file extension to
 discern the icon when its `major-mode' matches its auto mode,
 otherwise it will use the buffers `major-mode' to decide its
 icon."
-  (ati//icon-info-for-buffer))
+  (all-the-icons--icon-info-for-buffer))
 
-(defun ati-icon-family-for-buffer ()
+(defun all-the-icons-icon-family-for-buffer ()
   "Get the icon font family for the current buffer."
-  (ati//icon-info-for-buffer "family"))
+  (all-the-icons--icon-info-for-buffer "family"))
 
 ;; Icon Functions
 
-(defun ati-icon-for-file (file)
+(defun all-the-icons-icon-for-file (file)
   "Get the formatted icon for FILE."
-  (let ((icon (ati/match-to-alist file ati/icon-alist)))
+  (let ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist)))
     (apply (car icon) (cdr icon))))
 
-(defun ati-icon-for-mode (mode)
+(defun all-the-icons-icon-for-mode (mode)
   "Get the formatted icon for MODE."
-  (let ((icon (cdr (assoc mode ati/mode-icon-alist))))
+  (let ((icon (cdr (assoc mode all-the-icons-mode-icon-alist))))
     (if icon (apply (car icon) (cdr icon)) mode)))
 
 ;; Family Face Functions
-(defun ati-icon-family-for-file (file)
+(defun all-the-icons-icon-family-for-file (file)
   "Get the icons font family for FILE."
-  (let ((icon (ati/match-to-alist file ati/icon-alist)))
+  (let ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist)))
     (funcall (intern (format "%s-family" (car icon))))))
 
-(defun ati-icon-family-for-mode (mode)
+(defun all-the-icons-icon-family-for-mode (mode)
   "Get the icons font family for MODE."
-  (let ((icon (cdr (assoc mode ati/mode-icon-alist))))
+  (let ((icon (cdr (assoc mode all-the-icons-mode-icon-alist))))
     (if icon (funcall (intern (format "%s-family" (car icon)))) nil)))
 
-(defun ati//icon-info-for-buffer (&optional f)
+(defun all-the-icons--icon-info-for-buffer (&optional f)
   "Get icon info for the current buffer.
 
 When F is provided, the info function is calculated with the format
-`ati-icon-%s-for-file' or `ati-icon-%s-for-mode'."
-  (let* ((base-f (concat "ati-icon" (when f (format "-%s" f))))
+`all-the-icons-icon-%s-for-file' or `all-the-icons-icon-%s-for-mode'."
+  (let* ((base-f (concat "all-the-icons-icon" (when f (format "-%s" f))))
          (file-f (intern (concat base-f "-for-file")))
          (mode-f (intern (concat base-f "-for-mode"))))
     (if (and (buffer-file-name)
-             (ati/auto-mode-match?))
+             (all-the-icons-auto-mode-match?))
       (funcall file-f (file-name-nondirectory (buffer-file-name)))
       (funcall mode-f major-mode))))
 
 ;; Weather icons
-(defun ati-icon-for-weather (weather)
+(defun all-the-icons-icon-for-weather (weather)
   "Get an icon for a WEATHER status."
-  (let ((icon (ati/match-to-alist weather ati/weather-icon-alist)))
+  (let ((icon (all-the-icons-match-to-alist weather all-the-icons-weather-icon-alist)))
     (if icon (apply (car icon) (cdr icon)) weather)))
 
 ;; Definitions
 
-(defun ati//function-name (name)
+(defun all-the-icons--function-name (name)
   "Get the symbol for an icon function name for icon set NAME."
-  (intern (concat "ati/" (downcase (symbol-name name)))))
+  (intern (concat "all-the-icons-" (downcase (symbol-name name)))))
 
-(defun ati//family-name (name)
+(defun all-the-icons--family-name (name)
   "Get the symbol for an icon family function for icon set NAME."
-  (intern (concat "ati/" (downcase (symbol-name name)) "-family")))
+  (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-family")))
 
 (defmacro deficon (name alist family)
   "Macro to generate functions for inserting icons for icon set NAME.
 
 NAME defines is the name of the iconset and will produce a
-function of the for `ati/NAME'.
+function of the for `all-the-icons-NAME'.
 
 ALIST is the alist containing maps between icon names and the
 UniCode for the character.  All of these can be found in the data
@@ -483,24 +483,24 @@ directory of this package.
 
 FAMILY is the font family to use for the icons."
   `(prog1
-       (defun ,(ati//family-name name) () ,family);
-       (defun ,(ati//function-name name) (icon-name &optional height v-adjust col)
+       (defun ,(all-the-icons--family-name name) () ,family);
+       (defun ,(all-the-icons--function-name name) (icon-name &optional height v-adjust col)
          (let ((icon (cdr (assoc icon-name ,alist)))
-               (col (or (and ati/color-icons (symbol-value col))
+               (col (or (and all-the-icons-color-icons (symbol-value col))
                         (face-attribute 'default :foreground)))
-               (height  (* ati/scale-factor (or height 1.0)))
-               (v-adjust (* ati/scale-factor (or v-adjust ati/default-adjust)))
+               (height  (* all-the-icons-scale-factor (or height 1.0)))
+               (v-adjust (* all-the-icons-scale-factor (or v-adjust all-the-icons-default-adjust)))
                (family ,family))
            (propertize icon
                        'face `(:family ,family :height ,height :foreground ,col)
                        'display `(raise ,v-adjust))))))
 
-(deficon alltheicon ati-data/alltheicons-alist "dev-icons")
-(deficon octicon ati-data/octicons-alist       "github-octicons")
-(deficon devicon ati-data/devicons-alist       "icomoon")
-(deficon fileicon ati-data/file-icon-alist     "file-icons")
-(deficon faicon ati-data/fa-icon-alist         "FontAwesome")
-(deficon wicon ati-data/weather-icons-alist    "Weather Icons")
+(deficon alltheicon all-the-icons-data/alltheicons-alist "dev-icons")
+(deficon octicon all-the-icons-data/octicons-alist       "github-octicons")
+(deficon devicon all-the-icons-data/devicons-alist       "icomoon")
+(deficon fileicon all-the-icons-data/file-icon-alist     "file-icons")
+(deficon faicon all-the-icons-data/fa-icon-alist         "FontAwesome")
+(deficon wicon all-the-icons-data/weather-icons-alist    "Weather Icons")
 
 (provide 'all-the-icons)
 

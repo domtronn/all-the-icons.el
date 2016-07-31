@@ -1,4 +1,4 @@
-(defvar ati-data/weather-icons-alist
+(defvar all-the-icons-data/weather-icons-alist
   '(
 
     ("day-sunny"                       . "\xf00d")

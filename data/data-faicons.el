@@ -1,4 +1,4 @@
-(defvar ati-data/fa-icon-alist
+(defvar all-the-icons-data/fa-icon-alist
   '(
     ("glass" . "\xf000")
     ("music" . "\xf001")

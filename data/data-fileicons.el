@@ -1,4 +1,4 @@
-(defvar ati-data/file-icon-alist
+(defvar all-the-icons-data/file-icon-alist
   '(
     ("elisp" . "\xe926")
     ("babel" . "\xe91f")

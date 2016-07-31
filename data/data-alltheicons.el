@@ -1,4 +1,4 @@
-(defvar ati-data/alltheicons-alist
+(defvar all-the-icons-data/alltheicons-alist
   '(
 
     ( "jasmine"        . "\xe901" )
