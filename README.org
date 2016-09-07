@@ -74,7 +74,7 @@ to know the font family to add in, /e.g./
 
 #+BEGIN_SRC elisp
   (propertize (all-the-icons-octicon "package")
-              'face `(:family "github-octicons" :height 1.2)
+              'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
               'display '(raise -0.1))
 #+END_SRC
 
