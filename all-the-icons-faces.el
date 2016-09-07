@@ -59,8 +59,8 @@
   "Face for green icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-lgreen
-  '((((background dark)) :foreground "#")
-    (((background light)) :foreground "#"))
+  '((((background dark)) :foreground "#C6E87A")
+    (((background light)) :foreground "#3D6837"))
   "Face for lgreen icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-dgreen
@@ -72,12 +72,12 @@
 ;; yellow
 (defface all-the-icons-yellow
   '((((background dark)) :foreground "#FFD446")
-    (((background light)) :foreground "#FFD446"))
+    (((background light)) :foreground "#FFCC0E"))
   "Face for yellow icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-lyellow
   '((((background dark)) :foreground "#FFC16D")
-    (((background light)) :foreground "#FFC16D"))
+    (((background light)) :foreground "#FF9300"))
   "Face for lyellow icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-dyellow
@@ -94,7 +94,7 @@
   :group 'all-the-icons-faces)
 (defface all-the-icons-lblue
   '((((background dark)) :foreground "#8FD7F4")
-    (((background light)) :foreground "#8FD7F4"))
+    (((background light)) :foreground "#677174"))
   "Face for lblue icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-dblue
@@ -123,8 +123,7 @@
 ;; purple
 (defface all-the-icons-purple
   '((((background dark)) :foreground "#AA759F")
-    (((background light)) :foreground "#AA759F")
-    (((background light)) :foreground "#AA759F"))
+    (((background light)) :foreground "#68295B"))
   "Face for purple icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-lpurple
@@ -163,7 +162,7 @@
   :group 'all-the-icons-faces)
 (defface all-the-icons-lcyan
   '((((background dark)) :foreground "#A5FDEC")
-    (((background light)) :foreground "#A5FDEC"))
+    (((background light)) :foreground "#2C7D6E"))
   "Face for lcyan icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-dcyan
@@ -175,17 +174,17 @@
 ;; pink
 (defface all-the-icons-pink
   '((((background dark)) :foreground "#F2B4B8")
-    (((background light)) :foreground "#F2B4B8"))
+    (((background light)) :foreground "#FC505B"))
   "Face for pink icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-lpink
   '((((background dark)) :foreground "#FFBDC1")
-    (((background light)) :foreground "#FFBDC1"))
+    (((background light)) :foreground "#FF505B"))
   "Face for lpink icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-dpink
   '((((background dark)) :foreground "#B18286")
-    (((background light)) :foreground "#B18286"))
+    (((background light)) :foreground "#7E5D5F"))
   "Face for dpink icons"
   :group 'all-the-icons-faces)
 
@@ -197,7 +196,7 @@
   :group 'all-the-icons-faces)
 (defface all-the-icons-lsilver
   '((((background dark)) :foreground "#B9B6AA")
-    (((background light)) :foreground "#B9B6AA"))
+    (((background light)) :foreground "#7F7869"))
   "Face for lsilver icons"
   :group 'all-the-icons-faces)
 (defface all-the-icons-dsilver
