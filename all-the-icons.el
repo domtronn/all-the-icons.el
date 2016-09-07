@@ -93,54 +93,7 @@
 (require 'data-octicons     "./data/data-octicons.el")
 (require 'data-weathericons "./data/data-weathericons.el")
 
-;; red
-(defvar all-the-icons-red "#AC4142")
-(defvar all-the-icons-lred "#EB595A")
-(defvar all-the-icons-dred "#843031")
-;; green
-(defvar all-the-icons-green "#90A959")
-(defvar all-the-icons-lgreen "#C6E87A")
-(defvar all-the-icons-dgreen "#6D8143")
-
-;; yellow
-(defvar all-the-icons-yellow "#FFD446")
-(defvar all-the-icons-lyellow "#FFC16D")
-(defvar all-the-icons-dyellow "#B48D56")
-
-;; blue
-(defvar all-the-icons-blue "#6A9FB5")
-(defvar all-the-icons-lblue "#8FD7F4")
-(defvar all-the-icons-dblue "#446674")
-
-;; maroon
-(defvar all-the-icons-maroon "#8F5536")
-(defvar all-the-icons-lmaroon "#CE7A4E")
-(defvar all-the-icons-dmaroon "#72584B")
-
-;; purple
-(defvar all-the-icons-purple "#AA759F")
-(defvar all-the-icons-lpurple "#E69DD6")
-(defvar all-the-icons-dpurple "#694863")
-
-;; orange
-(defvar all-the-icons-orange "#D4843E")
-(defvar all-the-icons-lorange "#FFA500")
-(defvar all-the-icons-dorange "#915B2D")
-
-;; cyan
-(defvar all-the-icons-cyan "#75B5AA")
-(defvar all-the-icons-lcyan "#A5FDEC")
-(defvar all-the-icons-dcyan "#48746D")
-
-;; pink
-(defvar all-the-icons-pink "#F2B4B8")
-(defvar all-the-icons-lpink "#FFBDC1")
-(defvar all-the-icons-dpink "#B18286")
-
-;; silver
-(defvar all-the-icons-silver "#716E68")
-(defvar all-the-icons-lsilver "#B9B6AA")
-(defvar all-the-icons-dsilver "#838484")
+(require 'all-the-icons-faces)
 
 ;;; Custom Variables
 (defgroup all-the-icons nil
@@ -455,7 +408,7 @@
 
 (defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
-  (let* ((gitmodule-dir (locate-dominall-the-iconsng-file dir ".gitmodules"))
+  (let* ((gitmodule-dir (locate-dominating-file dir ".gitmodules"))
          (modules-file  (expand-file-name (format "%s.gitmodules" gitmodule-dir)))
          (module-search (format "submodule \".*?%s\"" (file-name-base dir))))
 
@@ -562,15 +515,14 @@ directory of this package.
 FAMILY is the font family to use for the icons."
   `(prog1
        (defun ,(all-the-icons--family-name name) () ,family);
-       (defun ,(all-the-icons--function-name name) (icon-name &optional height v-adjust col)
+       (defun ,(all-the-icons--function-name name) (icon-name &optional height v-adjust other-face)
          (let ((icon (cdr (assoc icon-name ,alist)))
-               (col (or (and all-the-icons-color-icons (symbol-value col))
-                        (face-attribute 'default :foreground)))
+               (other-face (if all-the-icons-color-icons other-face 'default))
                (height  (* all-the-icons-scale-factor (or height 1.0)))
                (v-adjust (* all-the-icons-scale-factor (or v-adjust all-the-icons-default-adjust)))
                (family ,family))
            (propertize icon
-                       'face `(:family ,family :height ,height :foreground ,col)
+                       'face `(:family ,family :height ,height :inherit ,other-face)
                        'display `(raise ,v-adjust))))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist "dev-icons")
