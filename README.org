@@ -73,7 +73,7 @@ properties to slightly adjust the way they're formatted, these are
 
 + ~:height~ - The height of the icon
 + ~:v-adjust~ - Vertical adjust (/positive is up, negative is down/)
-+ ~:face~ - The face to apply to the icon, defaults to ~'default~
++ ~:face~ - The face to apply to the icon, defaults to ~\'default~
 
 So you would call, for example
 
@@ -93,6 +93,13 @@ font family to add in to override the current font family being used,
               'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
               'display '(raise -0.1))
 #+END_SRC
+
+** Wiki
+
+Lastly, there is a
+[[https://github.com/domtronn/all-the-icons.el/wiki][Wiki Page]] which
+should give you some ideas of ways to use this library to spruce up
+other Emacs packages.
 
 ** Resource Fonts
 
@@ -115,3 +122,5 @@ automatically generated.
 
 Lastly, I would like to thank all the authors for the creation and use
 of these fantastic fonts.
+
+[[info:#installation][▲ back to top]]
