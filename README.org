@@ -123,4 +123,4 @@ Lastly, there is a
 should give you some ideas of ways to use this library to spruce up
 other Emacs packages.
 
-[[#installation][▲ back to top]]
+[[#readme][▲ back to top]]
