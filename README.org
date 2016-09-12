@@ -94,13 +94,6 @@ font family to add in to override the current font family being used,
               'display '(raise -0.1))
 #+END_SRC
 
-** Wiki
-
-Lastly, there is a
-[[https://github.com/domtronn/all-the-icons.el/wiki][Wiki Page]] which
-should give you some ideas of ways to use this library to spruce up
-other Emacs packages.
-
 ** Resource Fonts
 
 All of the fonts provided in this packages as resources come with
@@ -120,7 +113,14 @@ The fonts provided with this packages are locked down to a version for
 unicode character mapping values. In the future, these may be
 automatically generated.
 
-Lastly, I would like to thank all the authors for the creation and use
+I would like to thank all the authors for the creation and use
 of these fantastic fonts.
 
-[[info:#installation][▲ back to top]]
+** Wiki
+
+Lastly, there is a
+[[https://github.com/domtronn/all-the-icons.el/wiki][Wiki Page]] which
+should give you some ideas of ways to use this library to spruce up
+other Emacs packages.
+
+[[#installation][▲ back to top]]
