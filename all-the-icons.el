@@ -99,7 +99,7 @@
 (defgroup all-the-icons nil
   "Manage how All The Icons formats icons."
   :prefix "all-the-icons-"
-  :group 'tools
+  :group 'appearance
   :group 'convenience)
 
 (defcustom all-the-icons-color-icons t
