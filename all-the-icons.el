@@ -426,14 +426,14 @@ symlinks and git repositories which do not depend on the
 directory contents"
   (let* ((matcher (all-the-icons-match-to-alist (file-name-base dir) all-the-icons-dir-icon-alist))
          (path (expand-file-name dir))
-         (chevron (or (all-the-icons-octicon (format "chevron-%s" chevron) 0.8 -0.1) ""))
+         (chevron (or (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
          (icon (cond
                 ((file-symlink-p path)
-                 (all-the-icons-octicon "file-symlink-directory" 1.2))
+                 (all-the-icons-octicon "file-symlink-directory" :height 1.2))
                 ((all-the-icons-dir-is-submodule path)
-                 (all-the-icons-octicon "file-submodule" 1.2))
+                 (all-the-icons-octicon "file-submodule" :height 1.2))
                 ((file-exists-p (format "%s/.git" path))
-                 (all-the-icons-octicon "repo" 1.2))
+                 (all-the-icons-octicon "repo" :height 1.2))
                 (t (apply (car matcher) (cdr matcher))))))
     (format "\t%s\t%s " chevron icon)))
 
