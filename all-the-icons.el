@@ -188,6 +188,8 @@
 
     ("\\.java$"         all-the-icons-devicon "java"                      :height 1.0  :face all-the-icons-purple)
 
+    ("\\.go$"           all-the-icons-devicon "go"                        :height 1.0  :face all-the-icons-blue)
+
     ("\\.mp3$"          all-the-icons-faicon "volume-up"                  :face all-the-icons-dred)
     ("\\.wav$"          all-the-icons-faicon "volume-up"                  :face all-the-icons-dred)
     ("\\.m4a$"          all-the-icons-faicon "volume-up"                  :face all-the-icons-dred)
