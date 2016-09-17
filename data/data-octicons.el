@@ -1,5 +1,6 @@
 (defvar all-the-icons-data/octicons-alist
   '(
+
     ("alert" . "\xf02d")
     ("arrow-down" . "\xf03f")
     ("arrow-left" . "\xf040")
@@ -158,6 +159,7 @@
     ("versions" . "\xf064")
     ("x" . "\xf081")
     ("zap" . "\x26A1")
+
     ))
 
 (provide 'data-octicons)
