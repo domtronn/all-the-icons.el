@@ -21,7 +21,7 @@
     ( "elixir"             . "\xe936" )
     ( "erlang"             . "\xe934" )
     ( "git"                . "\xe907" )
-    ( "go-line"            . "\xe91d" )
+    ( "go"                 . "\xe91d" )
     ( "google-drive"       . "\xe91e" )
     ( "grunt"              . "\xe90d" )
     ( "grunt-line"         . "\xe91f" )
