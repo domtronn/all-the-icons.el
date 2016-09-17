@@ -96,27 +96,22 @@ font family to add in to override the current font family being used,
 *** Debugging/Displaying Icon Sets
 
 Sometimes it can be useful to print out all of the icons in an icon
-set to ensure that *(a)* they're the correct icon and *(b)* what icons
-are available and what name they have.
+set to ensure that 
+
+- *(a)* they're the correct icon and 
+- *(b)* what icons are available and what name they have.
 
 There is a helper function which will print out all of the icons in an
 icon set and they're corresponding id/name.
 
 #+BEGIN_SRC elisp
-  (all-the-icons-insert-icons-for 'alltheicon) ;; Prints all the icons
-                                               ;; for `alltheicon' font
-                                               ;; set
+  (all-the-icons-insert-icons-for 'alltheicon)   ;; Prints all the icons for `alltheicon' font set
 
-  (all-the-icons-insert-icons-for 'octicon 10) ;; Prints all the icons
-                                               ;; for the `octicon'
-                                               ;; family and makes the
-                                               ;; icons height 10
+  (all-the-icons-insert-icons-for 'octicon 10)   ;; Prints all the icons for the `octicon' family
+                                                 ;; and makes the icons height 10
 
-  (all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons
-                                                 ;; for the `faicon'
-                                                 ;; family and also
-                                                 ;; waits 0.5s between
-                                                 ;; printing each one
+  (all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons for the `faicon' family 
+                                                 ;; and also waits 0.5s between printing each one
 #+END_SRC
 
 ** Resource Fonts
