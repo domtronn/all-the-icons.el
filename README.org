@@ -93,7 +93,7 @@ font family to add in to override the current font family being used,
               'display '(raise -0.1))
 #+END_SRC
 
-*** COMMENT Debugging/Displaying Icon Sets
+*** Debugging/Displaying Icon Sets
 
 Sometimes it can be useful to print out all of the icons in an icon
 set to ensure that *(a)* they're the correct icon and *(b)* what icons
@@ -118,8 +118,6 @@ icon set and they're corresponding id/name.
                                                  ;; waits 0.5s between
                                                  ;; printing each one
 #+END_SRC
-
-
 
 ** Resource Fonts
 
