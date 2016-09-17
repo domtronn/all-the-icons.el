@@ -510,14 +510,18 @@ When F is provided, the info function is calculated with the format
 
 ;; Debug Helpers
 
-(defun all-the-icons-insert-icons-for (family)
-  "Insert all of the available icons associated with FAMILY."
+(defun all-the-icons-insert-icons-for (family &optional height)
+  "Insert all of the available icons associated with FAMILY.
+If a HEIGHT is provided it will render the icons at this height.
+This is useful both to see the icons more clearly and to test
+different height rendering."
   (let* ((data-f    (all-the-icons--data-name family))
          (insert-f  (all-the-icons--function-name family))
 
+         (height (or height 2.0))
          (data (funcall data-f)))
     (--map
-     (insert (format "%s - %s\n" (all-the-icons-octicon (car it)) (car it)))
+     (insert (format "%s - %s\n" (all-the-icons-octicon (car it) :height height) (car it)))
      data)))
 
 (defmacro define-icon (name alist family)
