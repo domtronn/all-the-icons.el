@@ -31,7 +31,7 @@ buffers, /e.g./
 #+BEGIN_SRC elisp
 (insert (all-the-icons-icon-for-file "foo.js"))
 ;; Inserts a javascript icon
-;; #("" 0 1 (display (raise -0.24) face (:family "dev-icons" :height 1.08 :foreground "#FFD446")))
+;; #("some-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 1.08 :foreground "#FFD446")))
 #+END_SRC
 
 *** Inserting Icons Directly
@@ -41,7 +41,6 @@ the icon you want for files and things, however, to insert the icons
 directly you will want to use these icons functions;
 
 + ~all-the-icons-alltheicon~
-+ ~all-the-icons-devicon~
 + ~all-the-icons-faicon~
 + ~all-the-icons-fileicon~
 + ~all-the-icons-oction~
@@ -100,14 +99,13 @@ All of the fonts provided in this packages as resources come with
 either the SIL Open Font License /(OFL)/ or an MIT License, below I
 will link to each of the fonts Sources and their Licenses.
 
-| Font Name               | Font                   | License         |
-|-------------------------+------------------------+-----------------|
-| =file-icons.ttf=        | [[https://atom.io/packages/file-icons][Atom File Icons Plugin]] | [[https://github.com/DanBrooker/file-icons/blob/master/LICENSE.md][MIT LICENSE]]     |
-| =iconmoon-devicons.ttf= | [[http://vorillaz.github.io/devicons/#/main][DevIcons]]               | [[https://github.com/vorillaz/devicons#an-iconic-font-made-for-developers-code-jedis-ninjas-httpsters-evangelists-and-nerds][MIT LICENSE]]     |
-| =fontawesome.ttf=       | [[http://fontawesome.io/][FontAwesome Icons]]      | [[https://github.com/FortAwesome/Font-Awesome#license][SIL OFL LICENSE]] |
-| =ocitcons.ttf=          | [[http://octicons.github.com][GitHub OctIcons]]        | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
-| =weathericons.ttf=      | [[https://erikflowers.github.io/weather-icons/][Weather Icons]]          | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
-| =all-the-icons.ttf=     | Custom Made Font       |                 |
+| Font Name           | Font                   | License         |
+|---------------------+------------------------+-----------------|
+| =file-icons.ttf=    | [[https://atom.io/packages/file-icons][Atom File Icons Plugin]] | [[https://github.com/DanBrooker/file-icons/blob/master/LICENSE.md][MIT LICENSE]]     |
+| =fontawesome.ttf=   | [[http://fontawesome.io/][FontAwesome Icons]]      | [[https://github.com/FortAwesome/Font-Awesome#license][SIL OFL LICENSE]] |
+| =ocitcons.ttf=      | [[http://octicons.github.com][GitHub OctIcons]]        | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
+| =weathericons.ttf=  | [[https://erikflowers.github.io/weather-icons/][Weather Icons]]          | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
+| =all-the-icons.ttf= | Custom Made Font       | MIT LICENSE     |
 
 The fonts provided with this packages are locked down to a version for
 unicode character mapping values. In the future, these may be
