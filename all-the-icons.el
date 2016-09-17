@@ -174,7 +174,7 @@
     ("\\.zip$"          all-the-icons-octicon "file-zip"                :v-adjust 0.0 :face all-the-icons-lmaroon)
     ("\\.7z$"           all-the-icons-octicon "file-zip"                :v-adjust 0.0 :face all-the-icons-lmaroon)
 
-
+    ("\\.dat$"          all-the-icons-faicon "area-chart"               :face all-the-icons-cyan)
     ;; lock files
     ("~$"               all-the-icons-octicon "lock"                    :v-adjust 0.0 :face all-the-icons-maroon)
 
