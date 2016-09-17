@@ -34,17 +34,6 @@ buffers, /e.g./
 ;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 1.08 :foreground "#FFD446")))
 #+END_SRC
 
-You can also override the /height/ ~:height~, /face/ ~:face~ and
-/vertical adjustment/ ~:v-adjust~ of the icon when calling
-~all-the-icons-icon-for-file~ or ~all-the-icons-icon-for-mode~ by
-calling them with these properties, /e.g./
-
-#+BEGIN_SRC elisp
-(insert (all-the-icons-icon-for-file "foo.js" :height 2 :face 'all-the-icons-lred))
-;; Inserts a RED Javascript icon with height 2
-;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 2.0 :foreground "red")))
-#+END_SRC
-
 *** Inserting Icons Directly
 
 The above is fine if you want this package to automatically decide on
@@ -90,6 +79,15 @@ So you would call, for example
 #+BEGIN_SRC elisp
 (all-the-icons-wicon "tornado" :face 'all-the-icons-blue)
 #+END_SRC
+
+These properties can also be used on the ~all-the-icons-icon-for-file~
+and ~all-the-icons-icon-for-mode~ functions as well, /i.e./
+
+#+begin_src emacs-lisp :tangle yes
+ (insert (all-the-icons-icon-for-file "foo.js" :height 2 :face 'all-the-icons-lred))
+ ;; Inserts a RED Javascript icon with height 2
+ ;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 2.0 :foreground "red")))
+#+end_src
 
 *** Propertizing icons yourself
 
