@@ -462,15 +462,23 @@ icon."
 
 ;; Icon Functions
 
-(defun all-the-icons-icon-for-file (file)
-  "Get the formatted icon for FILE."
-  (let ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist)))
-    (apply (car icon) (cdr icon))))
+(defun all-the-icons-icon-for-file (file &rest arg-overrides)
+  "Get the formatted icon for FILE.
+ARG-OVERRIDES should be a plist containining `:height',
+`:v-adjust' or `:face' properties like in the normal icon
+inserting functions."
+  (let* ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist))
+         (args (-flatten (-insert-at 1 arg-overrides (cdr icon)))))
+    (apply (car icon) args)))
 
-(defun all-the-icons-icon-for-mode (mode)
-  "Get the formatted icon for MODE."
-  (let ((icon (cdr (assoc mode all-the-icons-mode-icon-alist))))
-    (if icon (apply (car icon) (cdr icon)) mode)))
+(defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
+  "Get the formatted icon for MODE.
+ARG-OVERRIDES should be a plist containining `:height',
+`:v-adjust' or `:face' properties like in the normal icon
+inserting functions."
+  (let* ((icon (cdr (assoc mode all-the-icons-mode-icon-alist)))
+         (args (-flatten (-insert-at 1 arg-overrides (cdr icon)))))
+    (if icon (apply (car icon) args) mode)))
 
 ;; Family Face Functions
 (defun all-the-icons-icon-family-for-file (file)
