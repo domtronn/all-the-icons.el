@@ -521,7 +521,7 @@ different height rendering."
          (height (or height 2.0))
          (data (funcall data-f)))
     (--map
-     (insert (format "%s - %s\n" (all-the-icons-octicon (car it) :height height) (car it)))
+     (insert (format "%s - %s\n" (funcall insert-f (car it) :height height) (car it)))
      data)))
 
 (defmacro define-icon (name alist family)
