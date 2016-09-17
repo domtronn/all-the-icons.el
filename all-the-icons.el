@@ -188,10 +188,13 @@
 
     ("\\.elm"           all-the-icons-fileicon "elm"                    :face all-the-icons-blue)
 
-    ("\\.erl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-purple :v-adjust -0.1 :height 0.9)
-    ("\\.hrl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-dpurple :v-adjust -0.1 :height 0.9)
+    ("\\.erl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-red :v-adjust -0.1 :height 0.9)
+    ("\\.hrl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-dred :v-adjust -0.1 :height 0.9)
 
+    ("\\.eex$"          all-the-icons-alltheicon "elixir"               :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
     ("\\.ex$"           all-the-icons-alltheicon "elixir"               :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
+    ("\\.exs$"          all-the-icons-alltheicon "elixir"               :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
+    ("^mix.lock$"       all-the-icons-alltheicon "elixir"               :face all-the-icons-lyellow :v-adjust -0.1 :height 0.9)
 
     ("\\.java$"         all-the-icons-alltheicon "java"                 :height 1.0  :face all-the-icons-purple)
 
