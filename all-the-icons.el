@@ -149,6 +149,8 @@
     ("\\.git"           all-the-icons-alltheicon "git"                  :height 1.0  :face all-the-icons-lred)
     ("nginx"            all-the-icons-fileicon "nginx"                  :height 0.9  :face all-the-icons-dgreen)
     ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
+    ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
+    ("\\.mk$"           all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
 
     ("\\.dockerignore$" all-the-icons-fileicon "dockerfile"             :height 1.2  :face all-the-icons-dblue)
     ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile"             :face all-the-icons-blue)
@@ -238,6 +240,7 @@
     ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
 
     ("\\.clj$"          all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-blue)
+    ("\\.cljs$"         all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-dblue)
 
     ("\\.coffee$"       all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-maroon)
     ("\\.iced$"         all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-lmaroon)
