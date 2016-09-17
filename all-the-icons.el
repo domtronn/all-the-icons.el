@@ -186,6 +186,9 @@
 
     ("\\.elm"           all-the-icons-fileicon "elm"                    :face all-the-icons-blue)
 
+    ("\\.erl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-purple :v-adjust -0.1 :height 0.9)
+    ("\\.hrl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-dpurple :v-adjust -0.1 :height 0.9)
+
     ("\\.java$"         all-the-icons-alltheicon "java"                 :height 1.0  :face all-the-icons-purple)
 
     ("\\.go$"           all-the-icons-alltheicon "go"                   :height 1.0  :face all-the-icons-blue)
