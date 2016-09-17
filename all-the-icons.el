@@ -504,6 +504,22 @@ When F is provided, the info function is calculated with the format
   "Get the symbol for an icon family function for icon set NAME."
   (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-family")))
 
+(defun all-the-icons--data-name (name)
+  "Get the symbol for an icon family function for icon set NAME."
+  (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-data")))
+
+;; Debug Helpers
+
+(defun all-the-icons-insert-icons-for (family)
+  "Insert all of the available icons associated with FAMILY."
+  (let* ((data-f    (all-the-icons--data-name family))
+         (insert-f  (all-the-icons--function-name family))
+
+         (data (funcall data-f)))
+    (--map
+     (insert (format "%s - %s\n" (all-the-icons-octicon (car it)) (car it)))
+     data)))
+
 (defmacro define-icon (name alist family)
   "Macro to generate functions for inserting icons for icon set NAME.
 
@@ -517,6 +533,7 @@ directory of this package.
 FAMILY is the font family to use for the icons."
   `(prog1
        (defun ,(all-the-icons--family-name name) () ,family);
+       (defun ,(all-the-icons--data-name name) () ,alist)
        (defun ,(all-the-icons--function-name name) (icon-name &rest args)
          (let ((icon (cdr (assoc icon-name ,alist)))
                (other-face (if all-the-icons-color-icons (plist-get args :face) 'default))
