@@ -184,6 +184,8 @@
     ("\\.scpt$"         all-the-icons-fileicon "apple"                  :face all-the-icons-pink)
     ("\\.aup$"          all-the-icons-fileicon "audacity"               :face all-the-icons-yellow)
 
+    ("\\.elm"           all-the-icons-fileicon "elm"                    :face all-the-icons-blue)
+
     ("\\.java$"         all-the-icons-alltheicon "java"                 :height 1.0  :face all-the-icons-purple)
 
     ("\\.go$"           all-the-icons-alltheicon "go"                   :height 1.0  :face all-the-icons-blue)
