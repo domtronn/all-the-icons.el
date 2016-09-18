@@ -128,6 +128,7 @@
     ("\\.p12$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-dorange)
     ("\\.crt$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-lblue)
     ("\\.pub$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-blue)
+    ("\\.gpg$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-lblue)
 
     ("^TODO$"           all-the-icons-octicon "checklist"               :v-adjust 0.0 :face all-the-icons-lyellow)
     ("^LICENSE$"        all-the-icons-octicon "book"                    :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
@@ -216,6 +217,7 @@
     ("\\.prol?o?g?$"    all-the-icons-alltheicon "prolog"               :height 1.1  :face all-the-icons-lmaroon)
     ("\\.py$"           all-the-icons-alltheicon "python"               :height 1.0  :face all-the-icons-dblue)
 
+    ("\\.rkt$"          all-the-icons-fileicon "racket"                 :height 1.2 :face all-the-icons-red)
     ("\\.gem$"          all-the-icons-alltheicon "ruby-alt"             :face all-the-icons-red)
     ("\\.rb$"           all-the-icons-octicon "ruby"                    :v-adjust 0.0 :face all-the-icons-lred)
     ("\\.rs$"           all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-maroon)
@@ -223,7 +225,7 @@
     ("\\.r[ds]?x?$"     all-the-icons-fileicon "R"                      :face all-the-icons-lblue)
 
     ("\\.scala$"        all-the-icons-alltheicon "scala"                :face all-the-icons-red)
-
+    ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
     ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
 
     ("-?spec\\.js$"     all-the-icons-alltheicon "jasmine"              :height 0.9 :v-adjust -0.1 :face all-the-icons-lpurple)
