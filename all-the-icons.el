@@ -515,17 +515,18 @@ When F is provided, the info function is calculated with the format
 
 ;; Definitions
 
-(defun all-the-icons--function-name (name)
-  "Get the symbol for an icon function name for icon set NAME."
-  (intern (concat "all-the-icons-" (downcase (symbol-name name)))))
+(eval-and-compile
+  (defun all-the-icons--function-name (name)
+    "Get the symbol for an icon function name for icon set NAME."
+    (intern (concat "all-the-icons-" (downcase (symbol-name name)))))
 
-(defun all-the-icons--family-name (name)
-  "Get the symbol for an icon family function for icon set NAME."
-  (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-family")))
+  (defun all-the-icons--family-name (name)
+    "Get the symbol for an icon family function for icon set NAME."
+    (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-family")))
 
-(defun all-the-icons--data-name (name)
-  "Get the symbol for an icon family function for icon set NAME."
-  (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-data")))
+  (defun all-the-icons--data-name (name)
+    "Get the symbol for an icon family function for icon set NAME."
+    (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-data"))))
 
 ;; Debug Helpers
 
