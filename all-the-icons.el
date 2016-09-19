@@ -244,7 +244,7 @@
 
     ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
 
-    ("\\.clj$"          all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-blue)
+    ("\\.cljc?$"        all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-blue)
     ("\\.cljs$"         all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-dblue)
 
     ("\\.coffee$"       all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-maroon)
