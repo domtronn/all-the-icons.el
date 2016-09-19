@@ -568,7 +568,9 @@ FAMILY is the font family to use for the icons."
                (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
                (family ,family))
            (propertize icon
-                       'face `(:family ,family :height ,height :inherit ,other-face)
+                       'face (if other-face
+                               `(:family ,family :height ,height :inherit ,other-face)
+                               `(:family ,family :height ,height))
                        'display `(raise ,v-adjust))))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist "all-the-icons")
