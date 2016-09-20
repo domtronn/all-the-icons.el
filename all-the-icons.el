@@ -407,6 +407,9 @@
     (jenkins-mode              all-the-icons-fileicon "jenkins")
     (magit-popup-mode          all-the-icons-alltheicon "git")
     (magit-status-mode         all-the-icons-alltheicon "git")
+
+    ;; Special matcher for Web Mode based on the `web-mode-content-type' of the current buffer
+    (web-mode                 all-the-icons--web-mode-icon)
     ))
 
 ;; ====================
@@ -466,6 +469,24 @@ icon."
 (defun all-the-icons-icon-family-for-buffer ()
   "Get the icon font family for the current buffer."
   (all-the-icons--icon-info-for-buffer "family"))
+
+(defun all-the-icons--web-mode-icon () "Get icon for a `web-mode' buffer." (all-the-icons--web-mode))
+(defun all-the-icons--web-mode-icon-family () "Get icon faily for a `web-mode' buffer." (all-the-icons--web-mode t))
+(defun all-the-icons--web-mode (&optional family)
+  "Return icon or FAMILY for `web-mode' based on `web-mode-content-type'."
+  (cond
+   ((equal web-mode-content-type "jsx")
+    (if family (all-the-icons-fileicon-family) (all-the-icons-fileicon "jsx-2")))
+   ((equal web-mode-content-type "javascript")
+    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "javascript")))
+   ((equal web-mode-content-type "json")
+    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "less")))
+   ((equal web-mode-content-type "xml")
+    (if family (all-the-icons-faicon-family) (all-the-icons-faicon "file-code-o")))
+   ((equal web-mode-content-type "css")
+    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "css3")))
+   (t
+    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "html5")))))
 
 ;; Icon Functions
 
