@@ -457,9 +457,8 @@ directory contents"
                 ((file-exists-p (format "%s/.git" path))
                  (all-the-icons-octicon "repo" :height 1.2))
                 (t (apply (car matcher) (cdr matcher))))))
-    (if padding
-        (format "%s%s%s%s " padding chevron padding icon)
-      (format "\t%s\t%s " chevron icon))))
+    (let ((padding (or padding "\t")))
+      (format "%s%s%s%s " padding chevron padding icon))))
 
 (defun all-the-icons-icon-for-buffer ()
   "Get the formatted icon for the current buffer.
