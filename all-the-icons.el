@@ -440,7 +440,7 @@
         (search-forward-regexp module-search (point-max) t)))))
 
 ;; Icon functions
-(defun all-the-icons-icon-for-dir (dir &optional chevron)
+(defun all-the-icons-icon-for-dir (dir &optional chevron padding)
   "Format an icon for DIR with CHEVRON similar to tree based directories.
 
 Produces different symbols by inspeting DIR to distinguish
@@ -457,7 +457,8 @@ directory contents"
                 ((file-exists-p (format "%s/.git" path))
                  (all-the-icons-octicon "repo" :height 1.2))
                 (t (apply (car matcher) (cdr matcher))))))
-    (format "\t%s\t%s " chevron icon)))
+    (let ((padding (or padding "\t")))
+      (format "%s%s%s%s " padding chevron padding icon))))
 
 (defun all-the-icons-icon-for-buffer ()
   "Get the formatted icon for the current buffer.
