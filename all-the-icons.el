@@ -159,6 +159,8 @@
     ("\\.npmignore"     all-the-icons-fileicon "npm"                    :face all-the-icons-dred)
     ("^package.json$"   all-the-icons-fileicon "npm"                    :face all-the-icons-red)
 
+    ("\.xml$"           all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
+
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
 
