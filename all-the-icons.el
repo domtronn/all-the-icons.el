@@ -84,6 +84,7 @@
 ;;; Code:
 
 (require 'dash)
+(require 'font-lock+)
 
 (require 'data-alltheicons  "./data/data-alltheicons.el")
 (require 'data-faicons      "./data/data-faicons.el")
@@ -575,17 +576,17 @@ When F is provided, the info function is calculated with the format
               (let ((icon (cdr datum))
                     (icon-name (car datum)))
                 (concat
-                       ;; Add icon prefix to the entry.  'display property on the first character to
-                       ;; maintain match styling w/o adding foreign characters at the beginning of the line.
-                       ;; TODO: find a better method of doing this while maximizing compatibility with\
-                       ;; vanilla completing-read environments (i.e. no helm or ido).
-                       (propertize (substring icon-name 0 1) ;; TODO: 
-                                   'display (format "%s - %s" icon (substring icon-name 0 1)))
-                       (substring icon-name 1)
-                       ;; This would look best as demphasized parentheses, but vanilla environments with
-                       ;; sequential completion shouldn't have complicated / visually inconsistent completion
-                       ;; behavior.
-                       (if show-family (format " %s" (symbol-name family))))))
+                 ;; Add icon prefix to the entry.  'display property on the first character to
+                 ;; maintain match styling w/o adding foreign characters at the beginning of the line.
+                 ;; TODO: find a better method of doing this while maximizing compatibility with\
+                 ;; vanilla completing-read environments (i.e. no helm or ido).
+                 (propertize (substring icon-name 0 1)
+                             'display (format "%s - %s" (funcall (all-the-icons--function-name family) icon-name) (substring icon-name 0 1)))
+                 (substring icon-name 1)
+                 ;; This would look best as demphasized parentheses, but vanilla environments with
+                 ;; sequential completion shouldn't have complicated / visually inconsistent completion
+                 ;; behavior.
+                 (if show-family (format " %s" (symbol-name family))))))
             data)))
 
 (defun all-the-icons-insert (&optional family)
@@ -652,7 +653,8 @@ FAMILY is the font family to use for the icons."
                      'face (if other-face
                                `(:family ,family :height ,height :inherit ,other-face)
                              `(:family ,family :height ,height))
-                     'display `(raise ,v-adjust))))
+                     'display `(raise ,v-adjust)
+                     'font-lock-ignore t)))
      (defun ,(all-the-icons--insert-function-name name) ()
        ,(format "Insert a %s icon at point." family)
        (interactive) (all-the-icons-insert (quote ,name)))
