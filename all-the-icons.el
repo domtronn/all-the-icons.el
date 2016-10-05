@@ -589,9 +589,9 @@ When F is provided, the info function is calculated with the format
                  (if show-family (format " %s" (symbol-name family))))))
             data)))
 
-(defun all-the-icons-insert (&optional family)
+(defun all-the-icons-insert (&optional arg family)
   "Interactive icon insertion function.  Choose from icons in family represented by symbol FAMILY."
-  (interactive)
+  (interactive "P")
   (let* ((candidates (if family
                          (all-the-icons--family-data-as-read-candidates family)
                        (apply
@@ -608,7 +608,12 @@ When F is provided, the info function is calculated with the format
          (icon-family (or family (intern (cadr selection))))
          (data-function (all-the-icons--function-name icon-family))
          (icon (funcall data-function icon-name)))
-    (insert icon)))
+    (cond
+     (arg
+      (let ((standard-output (current-buffer)))
+        (prin1 icon)))
+     (t
+      (insert icon)))))
 
 ;; Debug Helpers
 
@@ -655,9 +660,9 @@ FAMILY is the font family to use for the icons."
                              `(:family ,family :height ,height))
                      'display `(raise ,v-adjust)
                      'font-lock-ignore t)))
-     (defun ,(all-the-icons--insert-function-name name) ()
+     (defun ,(all-the-icons--insert-function-name name) (&optional arg)
        ,(format "Insert a %s icon at point." family)
-       (interactive) (all-the-icons-insert (quote ,name)))
+       (interactive "P") (all-the-icons-insert arg (quote ,name)))
      (add-to-list 'all-the-icons-font-families (quote ,name))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist "all-the-icons")
