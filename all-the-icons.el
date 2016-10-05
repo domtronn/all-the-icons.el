@@ -414,6 +414,9 @@
     (web-mode                 all-the-icons--web-mode-icon)
     ))
 
+(defvar all-the-icons-font-families nil "List of defined icon font families.")
+
+
 ;; ====================
 ;;   Functions Start
 ;; ====================
@@ -557,7 +560,54 @@ When F is provided, the info function is calculated with the format
 
   (defun all-the-icons--data-name (name)
     "Get the symbol for an icon family function for icon set NAME."
-    (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-data"))))
+    (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-data")))
+
+  (defun all-the-icons--insert-function-name (name)
+    "Get the symbol for an icon insert function for icon set NAME."
+    (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-insert"))))
+
+;; Icon insertion functions
+
+(defun all-the-icons--family-data-as-read-candidates (family &optional show-family)
+  "Helper to build read candidates for FAMILY."
+  (let ((data (funcall (all-the-icons--data-name family))))
+    (mapcar (lambda (datum)
+              (let ((icon (cdr datum))
+                    (icon-name (car datum)))
+                (concat
+                       ;; Add icon prefix to the entry.  'display property on the first character to
+                       ;; maintain match styling w/o adding foreign characters at the beginning of the line.
+                       ;; TODO: find a better method of doing this while maximizing compatibility with\
+                       ;; vanilla completing-read environments (i.e. no helm or ido).
+                       (propertize (substring icon-name 0 1) ;; TODO: 
+                                   'display (format "%s - %s" icon (substring icon-name 0 1)))
+                       (substring icon-name 1)
+                       ;; This would look best as demphasized parentheses, but vanilla environments with
+                       ;; sequential completion shouldn't have complicated / visually inconsistent completion
+                       ;; behavior.
+                       (if show-family (format " %s" (symbol-name family))))))
+            data)))
+
+(defun all-the-icons-insert (&optional family)
+  "Interactive icon insertion function.  Choose from icons in family represented by symbol FAMILY."
+  (interactive)
+  (let* ((candidates (if family
+                         (all-the-icons--family-data-as-read-candidates family)
+                       (apply
+                        'append
+                        (mapcar
+                         (lambda (family) (all-the-icons--family-data-as-read-candidates family t))
+                         all-the-icons-font-families))))
+         (selection (split-string (completing-read (concat
+                                                    (if family (format "%s " (funcall (all-the-icons--family-name family))))
+                                                    "Icon: ")
+                                                   candidates
+                                                   nil t) " "))
+         (icon-name (car selection))
+         (icon-family (or family (intern (cadr selection))))
+         (data-function (all-the-icons--function-name icon-family))
+         (icon (funcall data-function icon-name)))
+    (insert icon)))
 
 ;; Debug Helpers
 
@@ -590,19 +640,23 @@ directory of this package.
 
 FAMILY is the font family to use for the icons."
   `(prog1
-       (defun ,(all-the-icons--family-name name) () ,family);
-       (defun ,(all-the-icons--data-name name) () ,alist)
-       (defun ,(all-the-icons--function-name name) (icon-name &rest args)
-         (let ((icon (cdr (assoc icon-name ,alist)))
-               (other-face (if all-the-icons-color-icons (plist-get args :face) 'default))
-               (height  (* all-the-icons-scale-factor (or (plist-get args :height) 1.0)))
-               (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
-               (family ,family))
-           (propertize icon
-                       'face (if other-face
+       (defun ,(all-the-icons--family-name name) () ,family)
+     (defun ,(all-the-icons--data-name name) () ,alist)
+     (defun ,(all-the-icons--function-name name) (icon-name &rest args)
+       (let ((icon (cdr (assoc icon-name ,alist)))
+             (other-face (if all-the-icons-color-icons (plist-get args :face) 'default))
+             (height  (* all-the-icons-scale-factor (or (plist-get args :height) 1.0)))
+             (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
+             (family ,family))
+         (propertize icon
+                     'face (if other-face
                                `(:family ,family :height ,height :inherit ,other-face)
-                               `(:family ,family :height ,height))
-                       'display `(raise ,v-adjust))))))
+                             `(:family ,family :height ,height))
+                     'display `(raise ,v-adjust))))
+     (defun ,(all-the-icons--insert-function-name name) ()
+       ,(format "Insert a %s icon at point." family)
+       (interactive) (all-the-icons-insert (quote ,name)))
+     (add-to-list 'all-the-icons-font-families (quote ,name))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist "all-the-icons")
 (define-icon octicon all-the-icons-data/octicons-alist       "github-octicons")
