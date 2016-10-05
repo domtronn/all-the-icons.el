@@ -565,7 +565,7 @@ When F is provided, the info function is calculated with the format
 
   (defun all-the-icons--insert-function-name (name)
     "Get the symbol for an icon insert function for icon set NAME."
-    (intern (concat "all-the-icons-" (downcase (symbol-name name)) "-insert"))))
+    (intern (concat "all-the-icons-insert-" (downcase (symbol-name name))))))
 
 ;; Icon insertion functions
 
