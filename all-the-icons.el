@@ -581,8 +581,9 @@ If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
     (--map
      (let* ((icon-name (car it))
             (icon-display (propertize " " 'display (funcall icon-f icon-name)))
+            (icon-family (if show-family (format "\t[%s]" family) ""))
 
-            (candidate-name (format "%s\t- %s %s" icon-display icon-name (if show-family family "")))
+            (candidate-name (format "%s\t%s%s" icon-display icon-name icon-family))
             (candidate-icon (funcall (all-the-icons--function-name family) icon-name)))
 
        (cons candidate-name candidate-icon))
