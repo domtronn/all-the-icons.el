@@ -635,8 +635,10 @@ UniCode for the character.  All of these can be found in the data
 directory of this package.
 
 FAMILY is the font family to use for the icons."
-  `(prog1
-       (defun ,(all-the-icons--family-name name) () ,family)
+  `(progn
+     (add-to-list 'all-the-icons-font-families (quote ,name))
+
+     (defun ,(all-the-icons--family-name name) () ,family)
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let ((icon (cdr (assoc icon-name ,alist)))
@@ -652,8 +654,8 @@ FAMILY is the font family to use for the icons."
                      'font-lock-ignore t)))
      (defun ,(all-the-icons--insert-function-name name) (&optional arg)
        ,(format "Insert a %s icon at point." family)
-       (interactive "P") (all-the-icons-insert arg (quote ,name)))
-     (add-to-list 'all-the-icons-font-families (quote ,name))))
+       (interactive "P")
+       (all-the-icons-insert arg (quote ,name)))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist "all-the-icons")
 (define-icon octicon all-the-icons-data/octicons-alist       "github-octicons")
