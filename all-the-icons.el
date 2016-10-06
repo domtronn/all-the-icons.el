@@ -580,10 +580,13 @@ If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
         (icon-f (all-the-icons--function-name family)))
     (--map
      (let* ((icon-name (car it))
-            (icon-display (propertize " " 'display (funcall icon-f icon-name)))
+            (icon-name-head (substring icon-name 0 1))
+            (icon-name-tail (substring icon-name 1))
+
+            (icon-display (propertize icon-name-head 'display (format "%s\t%s" (funcall icon-f icon-name) icon-name-head)))
             (icon-family (if show-family (format "\t[%s]" family) ""))
 
-            (candidate-name (format "%s\t%s%s" icon-display icon-name icon-family))
+            (candidate-name (format "%s%s%s" icon-display icon-name-tail icon-family))
             (candidate-icon (funcall (all-the-icons--function-name family) icon-name)))
 
        (cons candidate-name candidate-icon))
