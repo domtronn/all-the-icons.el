@@ -569,51 +569,45 @@ When F is provided, the info function is calculated with the format
 
 ;; Icon insertion functions
 
-(defun all-the-icons--family-data-as-read-candidates (family &optional show-family)
-  "Helper to build read candidates for FAMILY."
-  (let ((data (funcall (all-the-icons--data-name family))))
-    (mapcar (lambda (datum)
-              (let ((icon (cdr datum))
-                    (icon-name (car datum)))
-                (concat
-                 ;; Add icon prefix to the entry.  'display property on the first character to
-                 ;; maintain match styling w/o adding foreign characters at the beginning of the line.
-                 ;; TODO: find a better method of doing this while maximizing compatibility with\
-                 ;; vanilla completing-read environments (i.e. no helm or ido).
-                 (propertize (substring icon-name 0 1)
-                             'display (format "%s - %s" (funcall (all-the-icons--function-name family) icon-name) (substring icon-name 0 1)))
-                 (substring icon-name 1)
-                 ;; This would look best as demphasized parentheses, but vanilla environments with
-                 ;; sequential completion shouldn't have complicated / visually inconsistent completion
-                 ;; behavior.
-                 (if show-family (format " %s" (symbol-name family))))))
-            data)))
+(defun all-the-icons--read-candidates ()
+  "Helper to build a list of candidates for all families."
+  (--mapcat (all-the-icons--read-candidates-for-family it t) all-the-icons-font-families))
+
+(defun all-the-icons--read-candidates-for-family (family &optional show-family)
+  "Helper to build read candidates for FAMILY.
+If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
+  (let ((data   (funcall (all-the-icons--data-name family)))
+        (icon-f (all-the-icons--function-name family)))
+    (--map
+     (let* ((icon-name (car it))
+            (icon-name-head (substring icon-name 0 1))
+            (icon-name-tail (substring icon-name 1))
+
+            (icon-display (propertize icon-name-head 'display (format "%s\t%s" (funcall icon-f icon-name) icon-name-head)))
+            (icon-family (if show-family (format "\t[%s]" family) ""))
+
+            (candidate-name (format "%s%s%s" icon-display icon-name-tail icon-family))
+            (candidate-icon (funcall (all-the-icons--function-name family) icon-name)))
+
+       (cons candidate-name candidate-icon))
+     data)))
 
 (defun all-the-icons-insert (&optional arg family)
-  "Interactive icon insertion function.  Choose from icons in family represented by symbol FAMILY."
+  "Interactive icon insertion function.
+When Prefix ARG is non-nil, insert the propertized icon.
+When FAMILY is non-nil, limit the candidates to the icon set matching it."
   (interactive "P")
   (let* ((candidates (if family
-                         (all-the-icons--family-data-as-read-candidates family)
-                       (apply
-                        'append
-                        (mapcar
-                         (lambda (family) (all-the-icons--family-data-as-read-candidates family t))
-                         all-the-icons-font-families))))
-         (selection (split-string (completing-read (concat
-                                                    (if family (format "%s " (funcall (all-the-icons--family-name family))))
-                                                    "Icon: ")
-                                                   candidates
-                                                   nil t) " "))
-         (icon-name (car selection))
-         (icon-family (or family (intern (cadr selection))))
-         (data-function (all-the-icons--function-name icon-family))
-         (icon (funcall data-function icon-name)))
-    (cond
-     (arg
-      (let ((standard-output (current-buffer)))
-        (prin1 icon)))
-     (t
-      (insert icon)))))
+                         (all-the-icons--read-candidates-for-family family)
+                       (all-the-icons--read-candidates)))
+         (prompt     (if family
+                         (format "%s Icon: " (funcall (all-the-icons--family-name family)))
+                       "Icon : "))
+
+         (selection (completing-read prompt candidates nil t))
+         (result    (cdr (assoc selection candidates))))
+
+    (if arg (prin1 result) (insert result))))
 
 ;; Debug Helpers
 
@@ -645,8 +639,10 @@ UniCode for the character.  All of these can be found in the data
 directory of this package.
 
 FAMILY is the font family to use for the icons."
-  `(prog1
-       (defun ,(all-the-icons--family-name name) () ,family)
+  `(progn
+     (add-to-list 'all-the-icons-font-families (quote ,name))
+
+     (defun ,(all-the-icons--family-name name) () ,family)
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let ((icon (cdr (assoc icon-name ,alist)))
@@ -662,8 +658,8 @@ FAMILY is the font family to use for the icons."
                      'font-lock-ignore t)))
      (defun ,(all-the-icons--insert-function-name name) (&optional arg)
        ,(format "Insert a %s icon at point." family)
-       (interactive "P") (all-the-icons-insert arg (quote ,name)))
-     (add-to-list 'all-the-icons-font-families (quote ,name))))
+       (interactive "P")
+       (all-the-icons-insert arg (quote ,name)))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist "all-the-icons")
 (define-icon octicon all-the-icons-data/octicons-alist       "github-octicons")
