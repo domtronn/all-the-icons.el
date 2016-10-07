@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.1.0
+;; Version: 2.1.1
 ;; Package-Requires: ((dash "2.12.0") (emacs "24.3") (font-lock+ "0"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
@@ -597,7 +597,8 @@ If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
 When Prefix ARG is non-nil, insert the propertized icon.
 When FAMILY is non-nil, limit the candidates to the icon set matching it."
   (interactive "P")
-  (let* ((candidates (if family
+  (let* ((standard-output (current-buffer))
+         (candidates (if family
                          (all-the-icons--read-candidates-for-family family)
                        (all-the-icons--read-candidates)))
          (prompt     (if family
