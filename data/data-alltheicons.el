@@ -54,6 +54,16 @@
     ( "swift"              . "\xe92f" )
     ( "terminal"           . "\xe930" )
     ( "terminal-alt"       . "\xe931" )
+    ( "battery-charging"   . "\xe939" )
+
+    ( "arrow-left"  . "\xe93a" )
+    ( "arrow-right" . "\xe93b" )
+    ( "cup-left"    . "\xe93c" )
+    ( "cup-right"   . "\xe93d" )
+    ( "slant-left"  . "\xe93e" )
+    ( "slant-right" . "\xe93f" )
+    ( "wave-left"   . "\xe940" )
+    ( "wave-right"  . "\xe941" )
 
     ))
 

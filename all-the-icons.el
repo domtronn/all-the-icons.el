@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.1.1
+;; Version: 2.2.0
 ;; Package-Requires: ((dash "2.12.0") (emacs "24.3") (font-lock+ "0"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
@@ -393,7 +393,7 @@
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1)
     (org-mode                  all-the-icons-fileicon "org"                :v-adjust 0.0)
     (js2-mode                  all-the-icons-alltheicon "javascript"       :v-adjust -0.1)
-    (term-mode                 all-the-icons-octicon "terminal"            :v-adjust 0.0)
+    (term-mode                 all-the-icons-octicon "terminal"            :v-adjust 0.2)
     (eshell-mode               all-the-icons-octicon "terminal"            :v-adjust 0.0)
     (magit-refs-mode           all-the-icons-octicon "git-branch"          :v-adjust 0.0)
     (magit-process-mode        all-the-icons-octicon "mark-github"         :v-adjust 0.0)
@@ -455,7 +455,7 @@ symlinks and git repositories which do not depend on the
 directory contents"
   (let* ((matcher (all-the-icons-match-to-alist (file-name-base dir) all-the-icons-dir-icon-alist))
          (path (expand-file-name dir))
-         (chevron (or (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
+         (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
          (padding (or padding "\t"))
          (icon (cond
                 ((file-symlink-p path)
