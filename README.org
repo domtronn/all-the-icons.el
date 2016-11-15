@@ -15,7 +15,7 @@ to the load path and then calling
 
 *N.B.* In order for the icons to work you will *need to* install the
 Resource Fonts included in this package, they are available in the
-~fonts~ directory.
+[[/fonts][~fonts~]] directory.
 
 ** Usage
 
