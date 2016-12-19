@@ -393,6 +393,7 @@
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1)
     (org-mode                  all-the-icons-fileicon "org"                :v-adjust 0.0)
     (js2-mode                  all-the-icons-alltheicon "javascript"       :v-adjust -0.1)
+    (rjsx-mode                 all-the-icons-fileicon "jsx-2"              :v-adjust -0.1)
     (term-mode                 all-the-icons-octicon "terminal"            :v-adjust 0.2)
     (eshell-mode               all-the-icons-octicon "terminal"            :v-adjust 0.0)
     (magit-refs-mode           all-the-icons-octicon "git-branch"          :v-adjust 0.0)
