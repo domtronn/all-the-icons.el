@@ -35,11 +35,12 @@
 
 ;; Currently, this package provides an interface to the following Icon Fonts
 
-;; - Atom File Icons,   found at https://atom.io/packages/file-icons
-;; - FontAwesome Icons, found at http://fontawesome.io/
-;; - GitHub Octicons,   found at http://octicons.github.com
-;; - Weather Icons,     found at https://erikflowers.github.io/weather-icons/
-;; - AllTheIcons,       a custom Icon Font maintained as part of this package
+;; - Atom File Icons,       found at https://atom.io/packages/file-icons
+;; - FontAwesome Icons,     found at http://fontawesome.io/
+;; - GitHub Octicons,       found at http://octicons.github.com
+;; - Material Design Icons, found at http://google.github.io/material-design-icons/
+;; - Weather Icons,         found at https://erikflowers.github.io/weather-icons/
+;; - AllTheIcons,           a custom Icon Font maintained as part of this package
 
 ;; Requests for new icons will be accepted and added to the AllTheIcons Icon Font
 
@@ -69,6 +70,7 @@
 ;;   `all-the-icons-faicon'         // Font Awesome Icons
 ;;   `all-the-icons-fileicon'       // File Icons from the Atom File Icons package
 ;;   `all-the-icons-octicon'        // GitHub Octicons
+;;   `all-the-icons-material'       // Material Design Icons
 ;;   `all-the-icons-wicon'          // Weather Icons
 
 ;; You can call these functions with the icon name you want to insert, e.g.
@@ -91,6 +93,7 @@
 (require 'data-fileicons    "./data/data-fileicons.el")
 (require 'data-octicons     "./data/data-octicons.el")
 (require 'data-weathericons "./data/data-weathericons.el")
+(require 'data-material     "./data/data-material.el")
 
 (require 'all-the-icons-faces)
 
@@ -663,11 +666,12 @@ FAMILY is the font family to use for the icons."
        (interactive "P")
        (all-the-icons-insert arg (quote ,name)))))
 
-(define-icon alltheicon all-the-icons-data/alltheicons-alist "all-the-icons")
-(define-icon octicon all-the-icons-data/octicons-alist       "github-octicons")
-(define-icon fileicon all-the-icons-data/file-icon-alist     "file-icons")
-(define-icon faicon all-the-icons-data/fa-icon-alist         "FontAwesome")
-(define-icon wicon all-the-icons-data/weather-icons-alist    "Weather Icons")
+(define-icon alltheicon all-the-icons-data/alltheicons-alist    "all-the-icons")
+(define-icon octicon    all-the-icons-data/octicons-alist       "github-octicons")
+(define-icon fileicon   all-the-icons-data/file-icon-alist      "file-icons")
+(define-icon faicon     all-the-icons-data/fa-icon-alist        "FontAwesome")
+(define-icon wicon      all-the-icons-data/weather-icons-alist  "Weather Icons")
+(define-icon material   all-the-icons-data/material-icons-alist "Material Design Icons")
 
 (provide 'all-the-icons)
 
