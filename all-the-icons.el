@@ -671,7 +671,7 @@ FAMILY is the font family to use for the icons."
 (define-icon fileicon   all-the-icons-data/file-icon-alist      "file-icons")
 (define-icon faicon     all-the-icons-data/fa-icon-alist        "FontAwesome")
 (define-icon wicon      all-the-icons-data/weather-icons-alist  "Weather Icons")
-(define-icon material   all-the-icons-data/material-icons-alist "Material Design Icons")
+(define-icon material   all-the-icons-data/material-icons-alist "Material Icons")
 
 (provide 'all-the-icons)
 
