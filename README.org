@@ -129,13 +129,14 @@ All of the fonts provided in this packages as resources come with
 either the SIL Open Font License /(OFL)/ or an MIT License, below I
 will link to each of the fonts Sources and their Licenses.
 
-| Font Name           | Font                   | License         |
-|---------------------+------------------------+-----------------|
-| =file-icons.ttf=    | [[https://atom.io/packages/file-icons][Atom File Icons Plugin]] | [[https://github.com/DanBrooker/file-icons/blob/master/LICENSE.md][MIT LICENSE]]     |
-| =fontawesome.ttf=   | [[http://fontawesome.io/][FontAwesome Icons]]      | [[https://github.com/FortAwesome/Font-Awesome#license][SIL OFL LICENSE]] |
-| =ocitcons.ttf=      | [[http://octicons.github.com][GitHub OctIcons]]        | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
-| =weathericons.ttf=  | [[https://erikflowers.github.io/weather-icons/][Weather Icons]]          | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]] |
-| =all-the-icons.ttf= | Custom Made Font       | MIT LICENSE     |
+| Font Name                   | Font                   | License             |
+|-----------------------------+------------------------+---------------------|
+| =file-icons.ttf=            | [[https://atom.io/packages/file-icons][Atom File Icons Plugin]] | [[https://github.com/DanBrooker/file-icons/blob/master/LICENSE.md][MIT LICENSE]]         |
+| =fontawesome.ttf=           | [[http://fontawesome.io/][FontAwesome Icons]]      | [[https://github.com/FortAwesome/Font-Awesome#license][SIL OFL LICENSE]]     |
+| =ocitcons.ttf=              | [[http://octicons.github.com][GitHub OctIcons]]        | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]]     |
+| =weathericons.ttf=          | [[https://erikflowers.github.io/weather-icons/][Weather Icons]]          | [[https://github.com/primer/octicons/blob/master/LICENSE][SIL OFL LICENSE]]     |
+| =all-the-icons.ttf=         | Custom Made Font       | MIT LICENSE         |
+| =material-design-icons.ttf= | [[http://google.github.io/material-design-icons/][Material Icons]]         | [[http://www.apache.org/licenses/LICENSE-2.0.txt][APACHE LICENSE v2.0]] |
 
 The fonts provided with this packages are locked down to a version for
 unicode character mapping values. In the future, these may be
