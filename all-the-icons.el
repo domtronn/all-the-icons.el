@@ -245,8 +245,8 @@
     ("\\.c$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-blue)
     ("\\.h$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-purple)
 
-    ("\\.cpp$"          all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-blue)
-    ("\\.hpp$"          all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-purple)
+    ("\\.c\\(c\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-blue)
+    ("\\.h\\(h\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-purple)
 
     ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
 
