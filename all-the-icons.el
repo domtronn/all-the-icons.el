@@ -81,7 +81,7 @@
 
 ;; A list of all the icon names for the different font families can be
 ;; found in the data directory, or by inspecting the alist variables.
-;; All the alist varaiables are prefixed with `all-the-icons-data/'
+;; All the alist variables are prefixed with `all-the-icons-data/'
 
 ;;; Code:
 
@@ -110,7 +110,7 @@
   :type 'boolean)
 
 (defcustom all-the-icons-scale-factor 1.2
-  "The bsae Scale Factor for the `height' face property of an icon."
+  "The base Scale Factor for the `height' face property of an icon."
   :group 'all-the-icons
   :type 'number)
 
@@ -245,8 +245,8 @@
     ("\\.c$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-blue)
     ("\\.h$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-purple)
 
-    ("\\.cpp$"          all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-blue)
-    ("\\.hpp$"          all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-purple)
+    ("\\.c\\(c\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-blue)
+    ("\\.h\\(h\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-purple)
 
     ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
 
@@ -454,7 +454,7 @@
 If PADDING is provided, it will prepend and separate the chevron
 and directory with PADDING.
 
-Produces different symbols by inspeting DIR to distinguish
+Produces different symbols by inspecting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
   (let* ((matcher (all-the-icons-match-to-alist (file-name-base dir) all-the-icons-dir-icon-alist))
@@ -474,7 +474,7 @@ directory contents"
 (defun all-the-icons-icon-for-buffer ()
   "Get the formatted icon for the current buffer.
 
-This function priotises the use of the buffers file extension to
+This function prioritises the use of the buffers file extension to
 discern the icon when its `major-mode' matches its auto mode,
 otherwise it will use the buffers `major-mode' to decide its
 icon."
@@ -485,7 +485,7 @@ icon."
   (all-the-icons--icon-info-for-buffer "family"))
 
 (defun all-the-icons--web-mode-icon () "Get icon for a `web-mode' buffer." (all-the-icons--web-mode))
-(defun all-the-icons--web-mode-icon-family () "Get icon faily for a `web-mode' buffer." (all-the-icons--web-mode t))
+(defun all-the-icons--web-mode-icon-family () "Get icon family for a `web-mode' buffer." (all-the-icons--web-mode t))
 (defun all-the-icons--web-mode (&optional family)
   "Return icon or FAMILY for `web-mode' based on `web-mode-content-type'."
   (cond
