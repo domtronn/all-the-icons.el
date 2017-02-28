@@ -392,6 +392,9 @@
   '(
     (emacs-lisp-mode           all-the-icons-fileicon "elisp"              :v-adjust -0.1)
     (inferior-emacs-lisp-mode  all-the-icons-fileicon "elisp"              :v-adjust -0.1)
+    (clojure-mode              all-the-icons-alltheicon "clj"              :v-adjust -0.1)
+    (cider-repl-mode           all-the-icons-alltheicon "clj"              :v-adjust -0.1)
+    (clojurescript-mode        all-the-icons-alltheicon "cljs"             :v-adjust -0.1)
     (dired-mode                all-the-icons-octicon "file-directory"      :v-adjust 0.0)
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1)
     (org-mode                  all-the-icons-fileicon "org"                :v-adjust 0.0)
