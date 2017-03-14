@@ -250,8 +250,8 @@
 
     ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
 
-    ("\\.cljc?$"        all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-blue)
-    ("\\.cljs$"         all-the-icons-alltheicon "clojure"              :height 1.0  :face all-the-icons-dblue)
+    ("\\.cljc?$"        all-the-icons-alltheicon "clojure-line"              :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ("\\.cljs$"         all-the-icons-alltheicon "clojure-line"              :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
 
     ("\\.coffee$"       all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-maroon)
     ("\\.iced$"         all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-lmaroon)
