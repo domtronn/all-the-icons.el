@@ -2,6 +2,8 @@
 #+ATTR_HTML: title="All the Icons"
 [[file:logo.png]]
 
+[[https://melpa.org/#/all-the-icons][file:https://melpa.org/packages/all-the-icons-badge.svg]]
+
 ** Installation
 
 You should be able to install this package in the standard way, add it
