@@ -483,10 +483,9 @@
     (markdown-mode                      all-the-icons-octicon "markdown"          :v-adjust 0.0 :face all-the-icons-lblue)
     (bibtex-mode                        all-the-icons-fileicon "bib"              :face all-the-icons-maroon)
     (org-mode                           all-the-icons-fileicon "org"              :face all-the-icons-lgreen)
-
-
+    (compilation-mode                   all-the-icons-faicon "cogs"               :v-adjust 0.0 :height 1.0)
+    (objc-mode                          all-the-icons-faicon "apple"              :v-adjust 0.0 :height 1.0)
     ))
-
 (defvar all-the-icons-font-families nil "List of defined icon font families.")
 
 
