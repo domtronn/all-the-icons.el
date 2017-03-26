@@ -718,7 +718,7 @@ FAMILY is the font family to use for the icons."
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let ((icon (cdr (assoc icon-name ,alist)))
-             (other-face (if all-the-icons-color-icons (plist-get args :face) 'default))
+             (other-face (when all-the-icons-color-icons (plist-get args :face)))
              (height  (* all-the-icons-scale-factor (or (plist-get args :height) 1.0)))
              (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
              (family ,family))
