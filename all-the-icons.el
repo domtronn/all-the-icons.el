@@ -722,6 +722,8 @@ FAMILY is the font family to use for the icons."
              (height  (* all-the-icons-scale-factor (or (plist-get args :height) 1.0)))
              (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
              (family ,family))
+         (unless icon
+           (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
          (propertize icon
                      'face (if other-face
                                `(:family ,family :height ,height :inherit ,other-face)
