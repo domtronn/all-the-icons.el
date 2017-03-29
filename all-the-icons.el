@@ -3,8 +3,8 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.3.0
-;; Package-Requires: ((dash "2.12.0") (emacs "24.3") (font-lock+ "0"))
+;; Version: 2.4.0
+;; Package-Requires: ((emacs "24.3") (font-lock+ "0"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
 
@@ -84,8 +84,6 @@
 ;; All the alist variables are prefixed with `all-the-icons-data/'
 
 ;;; Code:
-
-(require 'dash)
 (require 'font-lock+)
 
 (require 'data-alltheicons  "./data/data-alltheicons.el")
@@ -501,7 +499,7 @@
 
 (defun all-the-icons-match-to-alist (file alist)
   "Match FILE against an entry in ALIST using `string-match'."
-  (cdr (--first (string-match (car it) file) alist)))
+  (cdr (find-if (lambda (it) (string-match (car it) file)) alist)))
 
 (defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
@@ -577,7 +575,8 @@ ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
   (let* ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist))
-         (args (-flatten (-insert-at 1 arg-overrides (cdr icon)))))
+         (args (cdr icon)))
+    (when arg-overrides (setcdr args (append arg-overrides (cdr args))))
     (apply (car icon) args)))
 
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
@@ -586,7 +585,8 @@ ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
   (let* ((icon (cdr (assoc mode all-the-icons-mode-icon-alist)))
-         (args (-flatten (-insert-at 1 arg-overrides (cdr icon)))))
+         (args (cdr icon)))
+    (when arg-overrides (setcdr args (append arg-overrides (cdr args))))
     (if icon (apply (car icon) args) mode)))
 
 ;; Family Face Functions
@@ -642,25 +642,26 @@ When F is provided, the info function is calculated with the format
 
 (defun all-the-icons--read-candidates ()
   "Helper to build a list of candidates for all families."
-  (--mapcat (all-the-icons--read-candidates-for-family it t) all-the-icons-font-families))
+  (reduce 'append (mapcar (lambda (it) (all-the-icons--read-candidates-for-family it t)) all-the-icons-font-families)))
 
 (defun all-the-icons--read-candidates-for-family (family &optional show-family)
   "Helper to build read candidates for FAMILY.
 If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
   (let ((data   (funcall (all-the-icons--data-name family)))
         (icon-f (all-the-icons--function-name family)))
-    (--map
-     (let* ((icon-name (car it))
-            (icon-name-head (substring icon-name 0 1))
-            (icon-name-tail (substring icon-name 1))
+    (mapcar
+     (lambda (it)
+       (let* ((icon-name (car it))
+              (icon-name-head (substring icon-name 0 1))
+              (icon-name-tail (substring icon-name 1))
 
-            (icon-display (propertize icon-name-head 'display (format "%s\t%s" (funcall icon-f icon-name) icon-name-head)))
-            (icon-family (if show-family (format "\t[%s]" family) ""))
+              (icon-display (propertize icon-name-head 'display (format "%s\t%s" (funcall icon-f icon-name) icon-name-head)))
+              (icon-family (if show-family (format "\t[%s]" family) ""))
 
-            (candidate-name (format "%s%s%s" icon-display icon-name-tail icon-family))
-            (candidate-icon (funcall (all-the-icons--function-name family) icon-name)))
+              (candidate-name (format "%s%s%s" icon-display icon-name-tail icon-family))
+              (candidate-icon (funcall (all-the-icons--function-name family) icon-name)))
 
-       (cons candidate-name candidate-icon))
+         (cons candidate-name candidate-icon)))
      data)))
 
 (defun all-the-icons-insert (&optional arg family)
@@ -694,8 +695,8 @@ pause for DURATION seconds between printing each character."
 
          (height (or height 2.0))
          (data (funcall data-f)))
-    (--map
-     (progn
+    (mapc
+     (lambda (it)
        (insert (format "%s - %s\n" (funcall insert-f (car it) :height height) (car it)))
        (when duration (sit-for duration 0)))
      data)))
