@@ -415,7 +415,8 @@
     (magit-popup-mode          all-the-icons-alltheicon "git"              :face all-the-icons-red)
     (magit-status-mode         all-the-icons-alltheicon "git"              :face all-the-icons-lred)
     (magit-log-mode            all-the-icons-alltheicon "git"              :face all-the-icons-green)
-
+    (Custom-mode               all-the-icons-octicon "settings")
+    
     ;; Special matcher for Web Mode based on the `web-mode-content-type' of the current buffer
     (web-mode             all-the-icons--web-mode-icon)
 
