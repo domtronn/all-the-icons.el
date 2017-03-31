@@ -446,6 +446,7 @@
     (go-mode                            all-the-icons-alltheicon "go"             :height 1.0  :face all-the-icons-blue)
     (matlab-mode                        all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
     (perl-mode                          all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
+    (cperl-mode                         all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
     (php-mode                           all-the-icons-fileicon "php"              :face all-the-icons-lsilver)
     (prolog-mode                        all-the-icons-alltheicon "prolog"         :height 1.1  :face all-the-icons-lmaroon)
     (python-mode                        all-the-icons-alltheicon "python"         :height 1.0  :face all-the-icons-dblue)
@@ -611,7 +612,7 @@ When F is provided, the info function is calculated with the format
          (mode-f (intern (concat base-f "-for-mode"))))
     (if (and (buffer-file-name)
              (all-the-icons-auto-mode-match?))
-      (funcall file-f (file-name-nondirectory (buffer-file-name)))
+        (funcall file-f (file-name-nondirectory (buffer-file-name)))
       (funcall mode-f major-mode))))
 
 ;; Weather icons
