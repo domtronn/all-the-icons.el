@@ -435,7 +435,7 @@
     (makefile-mode                      all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
     (dockerfile-mode                    all-the-icons-fileicon "docker"           :face all-the-icons-blue)
     (xml-mode                           all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
-    (json-mode                          all-the-icons-alltheicon "settings"       :face all-the-icons-yellow)
+    (json-mode                          all-the-icons-octicon "settings"       :face all-the-icons-yellow)
     (yaml-mode                          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
     (elisp-byte-code-mode               all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-dsilver)
     (archive-mode                       all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
@@ -501,7 +501,7 @@
 
 (defun all-the-icons-match-to-alist (file alist)
   "Match FILE against an entry in ALIST using `string-match'."
-  (cdr (find-if (lambda (it) (string-match (car it) file)) alist)))
+  (cdr (cl-find-if (lambda (it) (string-match (car it) file)) alist)))
 
 (defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
