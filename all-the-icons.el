@@ -242,6 +242,8 @@
     ;; case phi
     ("\\.c$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-blue)
     ("\\.h$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-purple)
+    ("\\.m$"            all-the-icons-fileicon "apple"                  :v-adjust 0.0 :height 1.0)
+    ("\\.mm$"           all-the-icons-fileicon "apple"                  :v-adjust 0.0 :height 1.0)
 
     ("\\.c\\(c\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-blue)
     ("\\.h\\(h\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-purple)
