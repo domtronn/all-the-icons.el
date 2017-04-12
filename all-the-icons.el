@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.4.0
+;; Version: 2.4.1
 ;; Package-Requires: ((emacs "24.3") (font-lock+ "0"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
@@ -603,6 +603,10 @@ inserting functions."
   "Get the icons font family for MODE."
   (let ((icon (cdr (assoc mode all-the-icons-mode-icon-alist))))
     (if icon (funcall (intern (format "%s-family" (car icon)))) nil)))
+
+(defun all-the-icons-icon-family (icon)
+  "Get a propertized ICON family programatically."
+  (plist-get (get-text-property 0 'face icon) :family))
 
 (defun all-the-icons--icon-info-for-buffer (&optional f)
   "Get icon info for the current buffer.
