@@ -212,7 +212,7 @@
     ("\\.jl$"           all-the-icons-fileicon "julia"                  :v-adjust 0.0 :face all-the-icons-purple)
     ("\\.matlab$"       all-the-icons-fileicon "matlab"                 :face all-the-icons-orange)
 
-    ("\\.pl$"           all-the-icons-alltheicon "perl"                 :face all-the-icons-lorange)
+    ("\\.p[ml]$"        all-the-icons-alltheicon "perl"                 :face all-the-icons-lorange)
     ("\\.pl6$"          all-the-icons-fileicon "perl6"                  :face all-the-icons-cyan)
     ("\\.pod$"          all-the-icons-alltheicon "perldocs"             :height 1.2  :face all-the-icons-lgreen)
 
