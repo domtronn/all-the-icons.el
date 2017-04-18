@@ -2,7 +2,11 @@
 #+ATTR_HTML: title="All the Icons"
 [[file:logo.png]]
 
-[[https://melpa.org/#/all-the-icons][file:https://melpa.org/packages/all-the-icons-badge.svg]]
+[[https://melpa.org/#/all-the-icons][file:shield:melpa-version]]
+[[https://img.shields.io/github/tag/domtronn/all-the-icons.el.svg][file:shield:tag]]
+[[https://img.shields.io/issuestats/i/github/domtronn/all-the-icons.el.svg][file:shield:issue-closure]]
+[[https://img.shields.io/issuestats/p/github/domtronn/all-the-icons.el.svg][file:shield:pull-closure]]
+[[https://img.shields.io/github/license/mashape/apistatus.svg][file:shield:license]]
 
 ** Installation
 
