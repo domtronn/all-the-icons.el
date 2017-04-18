@@ -23,6 +23,19 @@ to the load path and then calling
 Resource Fonts included in this package, they are available in the
 [[/fonts][ ~fonts~ ]] directory.
 
+To do you on osx you can run the following script:
+#+BEGIN_SRC sh
+mkdir /tmp/fonts
+cd /tmp/fonts
+
+fonts=(all-the-icons file-icons fontawesome material-design-icons octicons weathericons)
+for font in "${fonts[@]}"; do
+    wget "https://github.com/domtronn/all-the-icons.el/raw/master/fonts/$font.ttf"
+done
+
+mv *.ttf /Library/Fonts/  # or ~/.fonts for linux
+#+END_SRC
+
 ** Usage
 
 The simplest usage for this package is to use the following functions;
