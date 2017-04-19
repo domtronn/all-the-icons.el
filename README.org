@@ -20,12 +20,12 @@ to the load path and then calling
 #+END_SRC
 
 *N.B.* In order for the icons to work you will *need to* install the
-Resource Fonts included in this package, they are avail*scable in the
+Resource Fonts included in this package, they are available in the
 [[/fonts][ ~fonts~ ]] directory.
 
-There is a function which will download the latest fonts for this
-package and install them in the /(guessed)/ appropriate directory
-based on the OS. 
+You can install the latest fonts for this
+package in the /(guessed)/ appropriate directory
+based on the OS by calling the following function.
 
 #+BEGIN_SRC elisp
 M-x all-the-icons-install-fonts
