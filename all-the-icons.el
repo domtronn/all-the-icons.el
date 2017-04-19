@@ -695,6 +695,7 @@ When PFX is non-nil, ignore the prompt and just install"
       (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
                (all-the-icons-wicon "stars") (if known-dest? "installed" "downloaded") font-dest))))
 
+;;;###autoload
 (defun all-the-icons-insert (&optional arg family)
   "Interactive icon insertion function.
 When Prefix ARG is non-nil, insert the propertized icon.
