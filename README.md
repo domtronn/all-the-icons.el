@@ -16,7 +16,7 @@
   <a href="https://github.com/domtronn/all-the-icons.el/releases"><img src="https://img.shields.io/github/tag/domtronn/all-the-icons.el.svg"></a>
   <a href="https://github.com/domtronn/all-the-icons.el/issues"><img src="https://img.shields.io/issuestats/i/github/domtronn/all-the-icons.el.svg"></a>
   <a href="https://github.com/domtronn/all-the-icons.el/pulls"><img src="https://img.shields.io/issuestats/p/github/domtronn/all-the-icons.el.svg"></a>
-  <a href="https://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
+  <a href="https://github.com/domtronn/all-the-icons.el/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
 </p>
 
 # Installation
