@@ -3,10 +3,11 @@
 [[file:logo.png]]
 
 [[https://melpa.org/#/all-the-icons][file:https://melpa.org/packages/all-the-icons-badge.svg]]
-[[https://img.shields.io/github/tag/domtronn/all-the-icons.el.svg][file:https://img.shields.io/github/tag/domtronn/all-the-icons.el.svg]]
-[[https://img.shields.io/issuestats/i/github/domtronn/all-the-icons.el.svg][file:https://img.shields.io/issuestats/i/github/domtronn/all-the-icons.el.svg]]
-[[https://img.shields.io/issuestats/p/github/domtronn/all-the-icons.el.svg][file:https://img.shields.io/issuestats/p/github/domtronn/all-the-icons.el.svg]]
-[[https://img.shields.io/github/license/mashape/apistatus.svg][file:https://img.shields.io/github/license/mashape/apistatus.svg]]
+[[https://stable.melpa.org/#/all-the-icons][https://stable.melpa.org/packages/all-the-icons-badge.svg]]
+[[https://github.com/domtronn/all-the-icons.el/releases][file:https://img.shields.io/github/tag/domtronn/all-the-icons.el.svg]]
+[[https://github.com/domtronn/all-the-icons.el/issues][file:https://img.shields.io/issuestats/i/github/domtronn/all-the-icons.el.svg]]
+[[https://github.com/domtronn/all-the-icons.el/pulls][file:https://img.shields.io/issuestats/p/github/domtronn/all-the-icons.el.svg]]
+[[https://choosealicense.com/licenses/mit/][file:https://img.shields.io/github/license/mashape/apistatus.svg]]
 
 ** Installation
 
