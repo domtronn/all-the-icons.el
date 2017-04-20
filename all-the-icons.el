@@ -693,7 +693,7 @@ When PFX is non-nil, ignore the prompt and just install"
         (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
         (shell-command-to-string (format "fc-cache -f -v")))
       (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
-               (all-the-icons-wicon "stars") (if known-dest? "installed" "downloaded") font-dest))))
+               (all-the-icons-wicon "stars" :v-adjust 0.0) (if known-dest? "installed" "downloaded") font-dest))))
 
 ;;;###autoload
 (defun all-the-icons-insert (&optional arg family)
