@@ -18,6 +18,7 @@
   <a href="https://github.com/domtronn/all-the-icons.el/pulls"><img src="https://img.shields.io/issuestats/p/github/domtronn/all-the-icons.el.svg"></a>
   <a href="https://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
 </p>
+
 # Installation
 
 You should be able to install this package in the standard way, add it
@@ -171,3 +172,4 @@ Lastly, there is a
 should give you some ideas of ways to use this library to spruce up
 other Emacs packages.
 
+[▲ back to top](#readme)
