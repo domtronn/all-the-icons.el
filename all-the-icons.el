@@ -681,7 +681,7 @@ When PFX is non-nil, ignore the prompt and just install"
   (when (or pfx (yes-or-no-p "This will download and install fonts, are you sure you want to do this?"))
     (let* ((url-format "https://github.com/domtronn/all-the-icons.el/blob/master/fonts/%s?raw=true")
            (font-dest (cl-case window-system
-                        (x  (concat (getenv "HOME") "/.fonts/"))                ;; Default Linux install directory
+                        (x  (concat (getenv "HOME") "/.local/share/fonts/"))    ;; Default Linux install directory
                         (ns (concat (getenv "HOME") "/Library/Fonts/" ))))      ;; Default MacOS install directory
            (known-dest? (stringp font-dest)))
       (unless font-dest
