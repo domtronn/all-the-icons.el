@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.5.0
+;; Version: 2.5.1
 ;; Package-Requires: ((emacs "24.3") (font-lock+ "0"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
@@ -581,7 +581,7 @@ ARG-OVERRIDES should be a plist containining `:height',
 inserting functions."
   (let* ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist))
          (args (cdr icon)))
-    (when arg-overrides (setcdr args (append arg-overrides (cdr args))))
+    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
 
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
@@ -591,7 +591,7 @@ ARG-OVERRIDES should be a plist containining `:height',
 inserting functions."
   (let* ((icon (cdr (assoc mode all-the-icons-mode-icon-alist)))
          (args (cdr icon)))
-    (when arg-overrides (setcdr args (append arg-overrides (cdr args))))
+    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (if icon (apply (car icon) args) mode)))
 
 ;; Family Face Functions
