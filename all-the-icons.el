@@ -421,7 +421,7 @@
     (magit-status-mode         all-the-icons-alltheicon "git"              :face all-the-icons-lred)
     (magit-log-mode            all-the-icons-alltheicon "git"              :face all-the-icons-green)
     (Custom-mode               all-the-icons-octicon "settings")
-    
+
     ;; Special matcher for Web Mode based on the `web-mode-content-type' of the current buffer
     (web-mode             all-the-icons--web-mode-icon)
 
@@ -681,7 +681,9 @@ When PFX is non-nil, ignore the prompt and just install"
   (when (or pfx (yes-or-no-p "This will download and install fonts, are you sure you want to do this?"))
     (let* ((url-format "https://github.com/domtronn/all-the-icons.el/blob/master/fonts/%s?raw=true")
            (font-dest (cl-case window-system
-                        (x  (concat (getenv "XDG_DATA_HOME") "/fonts/"))    ;; Default Linux install directory
+                        (x  (concat (or (getenv "XDG_DATA_HOME")            ;; Default Linux install directories
+                                        (concat (getenv "HOME") "/.local/share"))
+                                    "/fonts/"))
                         (ns (concat (getenv "HOME") "/Library/Fonts/" ))))  ;; Default MacOS install directory
            (known-dest? (stringp font-dest)))
       (unless font-dest
