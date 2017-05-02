@@ -684,6 +684,7 @@ When PFX is non-nil, ignore the prompt and just install"
                         (x  (concat (or (getenv "XDG_DATA_HOME")            ;; Default Linux install directories
                                         (concat (getenv "HOME") "/.local/share"))
                                     "/fonts/"))
+                        (mac (concat (getenv "HOME") "/Library/Fonts/" ))
                         (ns (concat (getenv "HOME") "/Library/Fonts/" ))))  ;; Default MacOS install directory
            (known-dest? (stringp font-dest)))
       (unless font-dest
