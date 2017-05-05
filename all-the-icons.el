@@ -587,7 +587,6 @@ inserting functions."
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
-(memoize 'all-the-icons-icon-for-file)
 
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
   "Get the formatted icon for MODE.
@@ -598,6 +597,9 @@ inserting functions."
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (if icon (apply (car icon) args) mode)))
+
+(memoize 'all-the-icons-icon-for-file)
+(memoize 'all-the-icons-icon-for-mode)
 
 ;; Family Face Functions
 (defun all-the-icons-icon-family-for-file (file)
@@ -613,6 +615,10 @@ inserting functions."
 (defun all-the-icons-icon-family (icon)
   "Get a propertized ICON family programatically."
   (plist-get (get-text-property 0 'face icon) :family))
+
+(memoize 'all-the-icons-icon-family-for-file)
+(memoize 'all-the-icons-icon-family-for-mode)
+(memoize 'all-the-icons-icon-family)
 
 (defun all-the-icons--icon-info-for-buffer (&optional f)
   "Get icon info for the current buffer.
