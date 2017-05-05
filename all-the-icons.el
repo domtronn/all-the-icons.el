@@ -3,8 +3,8 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.5.1
-;; Package-Requires: ((emacs "24.3") (font-lock+ "0"))
+;; Version: 2.6.0
+;; Package-Requires: ((emacs "24.3") (font-lock+ "0") (memoize "1.0.1"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
 
@@ -85,6 +85,7 @@
 
 ;;; Code:
 (require 'font-lock+)
+(require 'memoize)
 
 (require 'data-alltheicons  "./data/data-alltheicons.el")
 (require 'data-faicons      "./data/data-faicons.el")
@@ -573,7 +574,6 @@ icon."
     (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "html5")))))
 
 ;; Icon Functions
-
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
   "Get the formatted icon for FILE.
 ARG-OVERRIDES should be a plist containining `:height',
@@ -583,6 +583,7 @@ inserting functions."
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
+(memoize 'all-the-icons-icon-for-file)
 
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
   "Get the formatted icon for MODE.
