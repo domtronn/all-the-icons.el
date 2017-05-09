@@ -25,9 +25,11 @@
 
 ;; Define all tests for mode icons
 (require 'f)
-(require 'all-the-icons
-         (expand-file-name "all-the-icons.el"
-                           (f-parent (f-dirname (f-this-file)))))
+
+(defvar all-the-icons--root-test (f-dirname (f-this-file)))
+(defvar all-the-icons--root-code (f-parent all-the-icons--root-test))
+
+(require 'all-the-icons (expand-file-name "all-the-icons.el" all-the-icons--root-code))
 
 (cl-loop
  for alist in (apropos-internal "^all-the-icons-[a-z\\-]*icon-alist$")
