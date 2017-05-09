@@ -31,4 +31,4 @@ script:
   # Run your tests
   - ls *
   - cask --version
-  - cask exec ert-runner -l "data/*.el" "*.el"
+  - cask exec ert-runner -l data/*.el *.el
