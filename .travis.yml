@@ -1,8 +1,7 @@
 language: emacs-lisp
-sudo: false
+sudo: required
 before_install:
   - curl -fsSkL https://gist.githubusercontent.com/rejeep/7736123/raw > travis.sh && source ./travis.sh
-  - evm install emacs-24.3-bin --skip
   - evm install $EVM_EMACS --use --skip
   - cask
 env:
