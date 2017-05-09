@@ -27,41 +27,18 @@
 (require 'all-the-icons)
 
 ;; Define all tests for mode icons
-(progn
-  (cl-loop
-   for config
-   in all-the-icons-mode-icon-alist
-   do (cl-destructuring-bind (mode f &optional icon &rest args) config
-        (when icon
-          (eval
-           `(ert-deftest ,(intern (format "all-the-icons--validate-mode-icon-for-%s" mode)) ()
-              (should (funcall ',f ,icon)))))))
-
-  (cl-loop
-   for config
-   in all-the-icons-weather-icon-alist
-   do (cl-destructuring-bind (matcher f icon &rest args) config
-        (eval
-         `(ert-deftest ,(intern (format "all-the-icons--validate-weather-icon-for-%s" matcher)) ()
-            (should (funcall ',f ,icon))))))
-
-  (cl-loop
-   for config
-   in all-the-icons-dir-icon-alist
-   do (cl-destructuring-bind (matcher f icon &rest args) config
-        (eval
-         `(ert-deftest ,(intern (format "all-the-icons--validate-dir-icon-for-%s" matcher)) ()
-            (should (funcall ',f ,icon))))))
-
-  (cl-loop
-   for config
-   in all-the-icons-icon-alist
-   do (cl-destructuring-bind (matcher f icon &rest args) config
-        (eval
-         `(ert-deftest ,(intern (format "all-the-icons--validate-icon-for-%s" matcher)) ()
-            (should (funcall ',f ,icon)))))))
+(cl-loop
+ for alist in (apropos-internal "^all-the-icons-[a-z\\-]*icon-alist$")
+ do (cl-loop
+     for config in (symbol-value alist)
+     do (cl-destructuring-bind (mode f &optional icon &rest args) config
+          (when icon
+            (eval
+             `(ert-deftest ,(intern (format "all-the-icons--validate:%s:%s" alist mode)) ()
+                ,(format "A test to validate that the config for %s in `%s' is correct" icon alist)
+                (should (funcall ',f ,icon))))))))
   
-(ert "all-the-icons--")
+(ert "all-the-icons--validate:")
 
 (provide 'all-the-icons-test)
 ;;; all-the-icons-test.el ends here
