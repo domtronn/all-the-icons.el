@@ -331,7 +331,7 @@
 
     ("\\.pp[st]$"       all-the-icons-fileicon "ppt"                    :face all-the-icons-orange)
     ("\\.pp[st]x$"      all-the-icons-fileicon "ppt"                    :face all-the-icons-red)
-    ("\\.knt$"          all-the-icons-fileicon "presentall-the-iconson" :face all-the-icons-cyan)
+    ("\\.knt$"          all-the-icons-fileicon "presentation"           :face all-the-icons-cyan)
 
     ("bookmark"         all-the-icons-octicon "bookmark"                :height 1.1 :v-adjust 0.0 :face all-the-icons-lpink)
     ("\\.cache$"        all-the-icons-octicon "database"                :height 1.0 :v-adjust 0.0 :face all-the-icons-green)
@@ -348,7 +348,7 @@
     ("trash"            all-the-icons-faicon "trash-o"          :height 1.2 :v-adjust -0.1)
     ("dropbox"          all-the-icons-faicon "dropbox"          :height 1.0 :v-adjust -0.1)
     ("google[ _-]drive" all-the-icons-alltheicon "google-drive" :height 1.3 :v-adjust -0.1)
-    ("^atom$"             all-the-icons-alltheicon "atom"         :height 1.2 :v-adjust -0.1)
+    ("^atom$"           all-the-icons-alltheicon "atom"         :height 1.2 :v-adjust -0.1)
     ("documents"        all-the-icons-faicon "book"             :height 1.0 :v-adjust -0.1)
     ("download"         all-the-icons-faicon "cloud-download"   :height 0.9 :v-adjust -0.2)
     ("desktop"          all-the-icons-octicon "device-desktop"  :height 1.0 :v-adjust -0.1)
@@ -445,7 +445,7 @@
     (makefile-mode                      all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
     (dockerfile-mode                    all-the-icons-fileicon "dockerfile"       :face all-the-icons-blue)
     (xml-mode                           all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
-    (json-mode                          all-the-icons-octicon "settings"       :face all-the-icons-yellow)
+    (json-mode                          all-the-icons-octicon "settings"          :face all-the-icons-yellow)
     (yaml-mode                          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
     (elisp-byte-code-mode               all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-dsilver)
     (archive-mode                       all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
