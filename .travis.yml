@@ -29,4 +29,6 @@ install:
   - cask install
 script:
   # Run your tests
+  - ls *
+  - cask --version
   - cask exec ert-runner -l "data/*.el" "*.el"
