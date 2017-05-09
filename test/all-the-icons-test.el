@@ -23,10 +23,12 @@
 
 ;; Test cases for `all-the-icons'
 
-;;; Code:
-(require 'all-the-icons)
-
 ;; Define all tests for mode icons
+(require 'f)
+(require 'all-the-icons
+         (expand-file-name "all-the-icons.el"
+                           (f-parent (f-dirname (f-this-file)))))
+
 (cl-loop
  for alist in (apropos-internal "^all-the-icons-[a-z\\-]*icon-alist$")
  do (cl-loop
@@ -37,7 +39,7 @@
              `(ert-deftest ,(intern (format "all-the-icons--validate:%s:%s" alist mode)) ()
                 ,(format "A test to validate that the config for %s in `%s' is correct" icon alist)
                 (should (funcall ',f ,icon))))))))
-  
+
 (ert "all-the-icons--validate:")
 
 (provide 'all-the-icons-test)

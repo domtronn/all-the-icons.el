@@ -1,0 +1,15 @@
+language: emacs-lisp
+sudo: false
+before_install:
+  - curl -fsSkL https://gist.githubusercontent.com/rejeep/7736123/raw > travis.sh && source ./travis.sh
+  - evm install $EVM_EMACS --use --skip
+  - cask
+env:
+  - EVM_EMACS=emacs-24.3-travis
+  - EVM_EMACS=emacs-24.4-travis
+  - EVM_EMACS=emacs-24.5-travis
+  - EVM_EMACS=emacs-25.1-travis
+  - EVM_EMACS=emacs-25.2-travis
+script:
+  - emacs --version
+  - cask exec ert-runner -l "*.el" "data/*.el"
