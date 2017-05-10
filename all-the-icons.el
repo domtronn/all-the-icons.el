@@ -698,12 +698,12 @@ When PFX is non-nil, ignore the prompt and just install"
                         (mac (concat (getenv "HOME") "/Library/Fonts/" ))
                         (ns (concat (getenv "HOME") "/Library/Fonts/" ))))  ;; Default MacOS install directory
            (known-dest? (stringp font-dest))
-           (font-dest (unless font-dest (read-directory-name "Font installation directory: " "~/"))))
+           (final-font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
 
-      (unless (file-directory-p font-dest) (mkdir font-dest t))
+      (unless (file-directory-p final-font-dest) (mkdir final-font-dest t))
 
       (mapc (lambda (font)
-              (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
+              (url-copy-file (format url-format font) (expand-file-name font final-font-dest) t))
             all-the-icons-font-names)
       (when known-dest?
         (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
@@ -711,7 +711,7 @@ When PFX is non-nil, ignore the prompt and just install"
       (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
                (all-the-icons-wicon "stars" :v-adjust 0.0)
                (if known-dest? "installed" "downloaded")
-               font-dest))))
+               final-font-dest))))
 
 ;;;###autoload
 (defun all-the-icons-insert (&optional arg family)
