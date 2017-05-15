@@ -578,6 +578,8 @@ icon."
     (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "html5")))))
 
 ;; Icon Functions
+
+;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
   "Get the formatted icon for FILE.
 ARG-OVERRIDES should be a plist containining `:height',
@@ -588,6 +590,7 @@ inserting functions."
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
 
+;;;###autoload
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
   "Get the formatted icon for MODE.
 ARG-OVERRIDES should be a plist containining `:height',
@@ -620,6 +623,7 @@ inserting functions."
 (memoize 'all-the-icons-icon-family-for-mode)
 (memoize 'all-the-icons-icon-family)
 
+;;;###autoload
 (defun all-the-icons--icon-info-for-buffer (&optional f)
   "Get icon info for the current buffer.
 
