@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.6.1
+;; Version: 2.6.4
 ;; Package-Requires: ((emacs "24.3") (font-lock+ "0") (memoize "1.0.1"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
@@ -86,6 +86,7 @@
 ;;; Code:
 (require 'font-lock+)
 (require 'memoize)
+(require 'cl-lib)
 
 (require 'data-alltheicons  "./data/data-alltheicons.el")
 (require 'data-faicons      "./data/data-faicons.el")
@@ -667,7 +668,7 @@ When F is provided, the info function is calculated with the format
 
 (defun all-the-icons--read-candidates ()
   "Helper to build a list of candidates for all families."
-  (reduce 'append (mapcar (lambda (it) (all-the-icons--read-candidates-for-family it t)) all-the-icons-font-families)))
+  (cl-reduce 'append (mapcar (lambda (it) (all-the-icons--read-candidates-for-family it t)) all-the-icons-font-families)))
 
 (defun all-the-icons--read-candidates-for-family (family &optional show-family)
   "Helper to build read candidates for FAMILY.
@@ -787,6 +788,7 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
                                `(:family ,family :height ,height :inherit ,other-face)
                              `(:family ,family :height ,height))
                      'display `(raise ,v-adjust)
+                     'rear-nonsticky t
                      'font-lock-ignore t)))
      (defun ,(all-the-icons--insert-function-name name) (&optional arg)
        ,(format "Insert a %s icon at point." family)
