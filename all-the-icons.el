@@ -173,7 +173,7 @@
 
 
     ("\\.[jc]son$"      all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.yml$"          all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
+    ("\\.ya?ml$"        all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
 
     ("\\.pkg$"          all-the-icons-octicon "package"                 :v-adjust 0.0 :face all-the-icons-dsilver)
     ("\\.rpm$"          all-the-icons-octicon "package"                 :v-adjust 0.0 :face all-the-icons-dsilver)
