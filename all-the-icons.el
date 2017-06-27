@@ -304,6 +304,7 @@
     ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 0.8  :face all-the-icons-dyellow)
     ("\\.njs$"          all-the-icons-alltheicon "nodejs"               :height 1.2  :face all-the-icons-lgreen)
     ("^webpack"         all-the-icons-fileicon "webpack"                :face all-the-icons-lblue)
+    ("\\.vue$"          all-the-icons-fileicon "vue"                    :face all-the-icons-lgreen)
 
     ;; File Types
     ("\\.ico$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-blue)
