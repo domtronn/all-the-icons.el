@@ -363,7 +363,7 @@
     ("movies"           all-the-icons-faicon "film"             :height 0.9 :v-adjust -0.1)
     ("code"             all-the-icons-octicon "code"            :height 1.1 :v-adjust -0.1)
     ("workspace"        all-the-icons-octicon "code"            :height 1.1 :v-adjust -0.1)
-    (".git"             all-the-icons-alltheicon "git"          :height 1.0)
+    ("\\.git"           all-the-icons-alltheicon "git"          :height 1.0)
     ("."                all-the-icons-octicon "file-directory"  :height 1.0 :v-adjust -0.1)
     ))
 
