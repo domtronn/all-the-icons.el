@@ -284,10 +284,13 @@
     ("\\.hs$"           all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
 
     ;; Web modes
+    ("\\.inky-haml$"    all-the-icons-fileicon "haml"                   :face all-the-icons-lyellow)
     ("\\.haml$"         all-the-icons-fileicon "haml"                   :face all-the-icons-lyellow)
     ("\\.html?$"        all-the-icons-alltheicon "html5"                :face all-the-icons-orange)
+    ("\\.inky-erb?$"    all-the-icons-alltheicon "html5"                :face all-the-icons-lred)
     ("\\.erb$"          all-the-icons-alltheicon "html5"                :face all-the-icons-lred)
     ("\\.hbs$"          all-the-icons-fileicon "moustache"              :face all-the-icons-green)
+    ("\\.inky-slim$"    all-the-icons-octicon "dashboard"               :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.slim$"         all-the-icons-octicon "dashboard"               :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.jade$"         all-the-icons-fileicon "jade"                   :face all-the-icons-red)
     ("\\.pug$"          all-the-icons-fileicon "pug"                    :face all-the-icons-red)
