@@ -179,4 +179,15 @@ Lastly, there is a
 should give you some ideas of ways to use this library to spruce up
 other Emacs packages.
 
+### Slow Rendering
+
+If you experience a slow down in performace when rendering multiple
+icons simultaneously, you can try setting the following variable
+
+```el
+(setq inhibit-compacting-font-caches t)
+```
+
+Some people have found that this [fixes the problem](https://github.com/domtronn/all-the-icons.el/issues/28)
+
 [▲ back to top](#readme)
