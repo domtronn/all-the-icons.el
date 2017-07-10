@@ -165,6 +165,8 @@
     ("^Brewfile$"       all-the-icons-faicon "beer"                     :face all-the-icons-lsilver)
     ("\\.npmignore"     all-the-icons-fileicon "npm"                    :face all-the-icons-dred)
     ("^package.json$"   all-the-icons-fileicon "npm"                    :face all-the-icons-red)
+    ("^package.lock.json$" all-the-icons-fileicon "npm"                 :face all-the-icons-dred)
+    ("^yarn\.lock"      all-the-icons-fileicon "yarn"                   :face all-the-icons-blue-alt)
 
     ("\.xml$"           all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
 
@@ -304,7 +306,7 @@
     ("\\.d3\\.?js"      all-the-icons-alltheicon "d3"                   :height 0.8  :face all-the-icons-lgreen)
 
     ("\\.ml"            all-the-icons-fileicon "reason"                 :height 1.0  :face all-the-icons-lpink)
-    
+
     ("\\.react"         all-the-icons-alltheicon "react"                :height 1.1  :face all-the-icons-lblue)
     ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 0.9  :face all-the-icons-yellow)
     ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 0.9  :face all-the-icons-yellow)

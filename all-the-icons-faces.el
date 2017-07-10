@@ -92,6 +92,11 @@
     (((background light)) :foreground "#6A9FB5"))
   "Face for blue icons"
   :group 'all-the-icons-faces)
+(defface all-the-icons-blue-alt
+  '((((background dark)) :foreground "#2188b6")
+    (((background light)) :foreground "#"))
+  "Face for blue icons"
+  :group 'all-the-icons-faces)
 (defface all-the-icons-lblue
   '((((background dark)) :foreground "#8FD7F4")
     (((background light)) :foreground "#677174"))
