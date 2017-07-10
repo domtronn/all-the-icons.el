@@ -303,6 +303,8 @@
 
     ("\\.d3\\.?js"      all-the-icons-alltheicon "d3"                   :height 0.8  :face all-the-icons-lgreen)
 
+    ("\\.ml"            all-the-icons-fileicon "reason"                 :height 1.0  :face all-the-icons-lpink)
+    
     ("\\.react"         all-the-icons-alltheicon "react"                :height 1.1  :face all-the-icons-lblue)
     ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 0.9  :face all-the-icons-yellow)
     ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 0.9  :face all-the-icons-yellow)
