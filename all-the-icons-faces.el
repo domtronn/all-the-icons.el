@@ -170,6 +170,11 @@
     (((background light)) :foreground "#75B5AA"))
   "Face for cyan icons"
   :group 'all-the-icons-faces)
+(defface all-the-icons-cyan-alt
+  '((((background dark)) :foreground "#61dafb")
+    (((background light)) :foreground "#0595bd"))
+  "Face for cyan icons"
+  :group 'all-the-icons-faces)
 (defface all-the-icons-lcyan
   '((((background dark)) :foreground "#A5FDEC")
     (((background light)) :foreground "#2C7D6E"))
