@@ -237,10 +237,12 @@
     ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
     ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
 
-    ("-?spec\\.js$"     all-the-icons-alltheicon "jasmine"              :height 0.9 :v-adjust -0.1 :face all-the-icons-lpurple)
-    ("-?test\\.js$"     all-the-icons-alltheicon "jasmine"              :height 0.9 :v-adjust -0.1 :face all-the-icons-lpurple)
-    ("-?spec\\."        all-the-icons-faicon "flask"                    :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
-    ("-?test\\."        all-the-icons-faicon "flask"                    :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
+    ("-?spec\\.js$"     all-the-icons-fileicon "test-js"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lpurple)
+    ("-?test\\.js$"     all-the-icons-fileicon "test-js"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lpurple)
+    ("-?spec\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-lred)
+    ("-?test\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-lred)
+    ("-?spec\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
+    ("-?test\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
 
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
@@ -293,7 +295,7 @@
     ("\\.inky-slim$"    all-the-icons-octicon "dashboard"               :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.slim$"         all-the-icons-octicon "dashboard"               :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.jade$"         all-the-icons-fileicon "jade"                   :face all-the-icons-red)
-    ("\\.pug$"          all-the-icons-fileicon "pug"                    :face all-the-icons-red)
+    ("\\.pug$"          all-the-icons-fileicon "pug-alt"                :face all-the-icons-red)
 
     ;; JavaScript
     ("^gulpfile"        all-the-icons-alltheicon "gulp"                 :height 1.0  :face all-the-icons-lred)
@@ -334,8 +336,8 @@
     ("\\.bib$"          all-the-icons-fileicon "bib"                    :face all-the-icons-maroon)
     ("\\.org$"          all-the-icons-fileicon "org"                    :face all-the-icons-lgreen)
 
-    ("\\.pp[st]$"       all-the-icons-fileicon "ppt"                    :face all-the-icons-orange)
-    ("\\.pp[st]x$"      all-the-icons-fileicon "ppt"                    :face all-the-icons-red)
+    ("\\.pp[st]$"       all-the-icons-fileicon "powerpoint"             :face all-the-icons-orange)
+    ("\\.pp[st]x$"      all-the-icons-fileicon "powerpoint"             :face all-the-icons-red)
     ("\\.knt$"          all-the-icons-fileicon "presentation"           :face all-the-icons-cyan)
 
     ("bookmark"         all-the-icons-octicon "bookmark"                :height 1.1 :v-adjust 0.0 :face all-the-icons-lpink)
@@ -363,6 +365,7 @@
     ("movies"           all-the-icons-faicon "film"             :height 0.9 :v-adjust -0.1)
     ("code"             all-the-icons-octicon "code"            :height 1.1 :v-adjust -0.1)
     ("workspace"        all-the-icons-octicon "code"            :height 1.1 :v-adjust -0.1)
+    ("test"             all-the-icons-fileicon "test-dir"       :height 1.0)
     ("\\.git"           all-the-icons-alltheicon "git"          :height 1.0)
     ("."                all-the-icons-octicon "file-directory"  :height 1.0 :v-adjust -0.1)
     ))
