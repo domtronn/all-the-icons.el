@@ -230,6 +230,8 @@
 
     ("\\.rkt$"          all-the-icons-fileicon "racket"                 :height 1.2 :face all-the-icons-red)
     ("\\.gem$"          all-the-icons-alltheicon "ruby-alt"             :face all-the-icons-red)
+    ("_?test\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
+    ("_?test_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
     ("\\.rb$"           all-the-icons-octicon "ruby"                    :v-adjust 0.0 :face all-the-icons-lred)
     ("\\.rs$"           all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-maroon)
     ("\\.rlib$"         all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-dmaroon)
@@ -243,6 +245,7 @@
     ("-?test\\.js$"     all-the-icons-fileicon "test-js"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lpurple)
     ("-?spec\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt)
     ("-?test\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt)
+
     ("-?spec\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
     ("-?test\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
 
