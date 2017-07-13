@@ -348,7 +348,7 @@
 
     ("\\.pp[st]$"       all-the-icons-fileicon "powerpoint"             :face all-the-icons-orange)
     ("\\.pp[st]x$"      all-the-icons-fileicon "powerpoint"             :face all-the-icons-red)
-    ("\\.knt$"          all-the-icons-fileicon "presentation"           :face all-the-icons-cyan)
+    ("\\.knt$"          all-the-icons-fileicon "powerpoint"             :face all-the-icons-cyan)
 
     ("bookmark"         all-the-icons-octicon "bookmark"                :height 1.1 :v-adjust 0.0 :face all-the-icons-lpink)
     ("\\.cache$"        all-the-icons-octicon "database"                :height 1.0 :v-adjust 0.0 :face all-the-icons-green)
