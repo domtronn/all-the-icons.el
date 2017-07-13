@@ -173,7 +173,8 @@
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
 
-
+    
+    ("^serverless\\.yml$" all-the-icons-faicon "bolt"                   :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.[jc]son$"      all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.ya?ml$"        all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
 
