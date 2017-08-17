@@ -242,6 +242,8 @@
     ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
     ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
 
+    ("-?spec\\.ts$"     all-the-icons-fileicon "test-typescript"        :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
+    ("-?test\\.ts$"     all-the-icons-fileicon "test-typescript"        :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
     ("-?spec\\.js$"     all-the-icons-fileicon "test-js"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lpurple)
     ("-?test\\.js$"     all-the-icons-fileicon "test-js"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lpurple)
     ("-?spec\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt)
@@ -316,6 +318,8 @@
     ("\\.mli$"           all-the-icons-fileicon "ocaml"                 :height 1.0  :face all-the-icons-dpink)
 
     ("\\.react"         all-the-icons-alltheicon "react"                :height 1.1  :face all-the-icons-lblue)
+    ("\\.d\\.ts$"       all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
+    ("\\.ts$"           all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-blue-alt)
     ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
@@ -422,6 +426,7 @@
     (dired-mode                all-the-icons-octicon "file-directory"      :v-adjust 0.0)
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1 :face all-the-icons-orange)
     (org-mode                  all-the-icons-fileicon "org"                :v-adjust 0.0 :face all-the-icons-lgreen)
+    (typescript-mode           all-the-icons-fileicon "typescript"         :v-adjust -0.1 :face all-the-icons-blue-alt)
     (js-mode                   all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
     (js-jsx-mode               all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
     (js2-mode                  all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
