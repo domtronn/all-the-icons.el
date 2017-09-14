@@ -277,7 +277,7 @@
 
     ;; Lisps
     ("\\.cl$"           all-the-icons-fileicon "clisp"                  :face all-the-icons-lorange)
-    ("\\.l$"            all-the-icons-fileicon "lisp"                   :face all-the-icons-orange)
+    ("\\.l\\(isp\\)?$"  all-the-icons-fileicon "lisp"                   :face all-the-icons-orange)
     ("\\.el$"           all-the-icons-fileicon "elisp"                  :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
 
     ;; Stylesheeting
