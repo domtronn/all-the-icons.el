@@ -3,7 +3,7 @@
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
-;; Version: 2.6.4
+;; Version: 3.1.4
 ;; Package-Requires: ((emacs "24.3") (font-lock+ "0") (memoize "1.0.1"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
