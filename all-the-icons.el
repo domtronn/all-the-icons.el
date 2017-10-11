@@ -585,23 +585,25 @@ icon."
   "Get the icon font family for the current buffer."
   (all-the-icons--icon-info-for-buffer "family"))
 
-(defun all-the-icons--web-mode-icon () "Get icon for a `web-mode' buffer." (all-the-icons--web-mode))
+(defun all-the-icons--web-mode-icon (&rest arg-overrides) "Get icon for a `web-mode' buffer with ARG-OVERRIDES." (all-the-icons--web-mode nil arg-overrides))
 (defun all-the-icons--web-mode-icon-family () "Get icon family for a `web-mode' buffer." (all-the-icons--web-mode t))
-(defun all-the-icons--web-mode (&optional family)
-  "Return icon or FAMILY for `web-mode' based on `web-mode-content-type'."
-  (cond
-   ((equal web-mode-content-type "jsx")
-    (if family (all-the-icons-fileicon-family) (all-the-icons-fileicon "jsx-2")))
-   ((equal web-mode-content-type "javascript")
-    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "javascript")))
-   ((equal web-mode-content-type "json")
-    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "less")))
-   ((equal web-mode-content-type "xml")
-    (if family (all-the-icons-faicon-family) (all-the-icons-faicon "file-code-o")))
-   ((equal web-mode-content-type "css")
-    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "css3")))
-   (t
-    (if family (all-the-icons-alltheicon-family) (all-the-icons-alltheicon "html5")))))
+(defun all-the-icons--web-mode (&optional family arg-overrides)
+  "Return icon or FAMILY for `web-mode' based on `web-mode-content-type'.
+Providing ARG-OVERRIDES will modify the creation of the icon."
+  (let ((non-nil-args (cl-reduce (lambda (acc it) (if it (append acc (list it)) acc)) arg-overrides :initial-value '())))
+    (cond
+     ((equal web-mode-content-type "jsx")
+      (if family (all-the-icons-fileicon-family) (apply 'all-the-icons-fileicon (append '("jsx-2") non-nil-args))))
+     ((equal web-mode-content-type "javascript")
+      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("javascript") non-nil-args))))
+     ((equal web-mode-content-type "json")
+      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("less") non-nil-args))))
+     ((equal web-mode-content-type "xml")
+      (if family (all-the-icons-faicon-family) (apply 'all-the-icons-faicon (append '("file-code-o") non-nil-args))))
+     ((equal web-mode-content-type "css")
+      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("css3") non-nil-args))))
+     (t
+      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("html5") non-nil-args)))))))
 
 ;; Icon Functions
 
