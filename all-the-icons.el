@@ -727,6 +727,7 @@ When PFX is non-nil, ignore the prompt and just install"
                         (x  (concat (or (getenv "XDG_DATA_HOME")            ;; Default Linux install directories
                                         (concat (getenv "HOME") "/.local/share"))
                                     "/fonts/"))
+                        (w32 (concat (getenv "TEMP") "\\Fonts/"))
                         (mac (concat (getenv "HOME") "/Library/Fonts/" ))
                         (ns (concat (getenv "HOME") "/Library/Fonts/" ))))  ;; Default MacOS install directory
            (known-dest? (stringp font-dest))
@@ -738,8 +739,17 @@ When PFX is non-nil, ignore the prompt and just install"
               (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
             all-the-icons-font-names)
       (when known-dest?
-        (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
-        (shell-command-to-string (format "fc-cache -f -v")))
+        (if (eq window-system 'w32)
+            (let ((default-directory (concat (getenv "TEMP"))))
+              (progn
+                (shell-command
+                 (format
+                  "%s \"%s; %s\"" "powershell.exe"
+                  "$fonts = (New-Object -ComObject Shell.Application).Namespace(0x14)"
+                  "dir Fonts/*.ttf | %{ $fonts.CopyHere($_.fullname) }"))
+                (message "Restart Emacs to see font changes in windows.")))
+          (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
+          (shell-command-to-string (format "fc-cache -f -v"))))
       (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
                (all-the-icons-wicon "stars" :v-adjust 0.0)
                (if known-dest? "installed" "downloaded")
