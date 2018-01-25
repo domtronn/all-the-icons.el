@@ -4,7 +4,7 @@
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
 ;; Version: 3.1.4
-;; Package-Requires: ((emacs "24.3") (font-lock+ "0") (memoize "1.0.1"))
+;; Package-Requires: ((emacs "24.3") (memoize "1.0.1"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
 
@@ -84,7 +84,6 @@
 ;; All the alist variables are prefixed with `all-the-icons-data/'
 
 ;;; Code:
-(require 'font-lock+)
 (require 'memoize)
 (require 'cl-lib)
 
