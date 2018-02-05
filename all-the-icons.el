@@ -88,6 +88,7 @@
 (require 'cl-lib)
 
 (require 'data-alltheicons  "./data/data-alltheicons.el")
+(require 'data-devicons     "./data/data-devicons.el")
 (require 'data-faicons      "./data/data-faicons.el")
 (require 'data-fileicons    "./data/data-fileicons.el")
 (require 'data-octicons     "./data/data-octicons.el")
@@ -172,7 +173,7 @@
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
 
-    
+
     ("^serverless\\.yml$" all-the-icons-faicon "bolt"                   :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.[jc]son$"      all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.ya?ml$"        all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
@@ -324,6 +325,9 @@
     ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
     ("\\.njs$"          all-the-icons-alltheicon "nodejs"               :height 1.2  :face all-the-icons-lgreen)
     ("\\.vue$"          all-the-icons-fileicon "vue"                    :face all-the-icons-lgreen)
+
+    ;; F#
+    ("\\.fs[ix]?$"      all-the-icons-devicon "fsharp"                  :face all-the-icons-blue-alt)
 
     ;; File Types
     ("\\.ico$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-blue)
@@ -821,6 +825,7 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
        (all-the-icons-insert arg (quote ,name)))))
 
 (define-icon alltheicon all-the-icons-data/alltheicons-alist    "all-the-icons")
+(define-icon devicon    all-the-icons-data/dev-icons-alist      "DevOpicons")
 (define-icon fileicon   all-the-icons-data/file-icon-alist      "file-icons")
 (define-icon faicon     all-the-icons-data/fa-icon-alist        "FontAwesome")
 (define-icon octicon    all-the-icons-data/octicons-alist       "github-octicons" "octicons")
