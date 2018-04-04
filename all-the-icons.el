@@ -520,6 +520,7 @@
     (org-mode                           all-the-icons-fileicon "org"              :face all-the-icons-lgreen)
     (compilation-mode                   all-the-icons-faicon "cogs"               :v-adjust 0.0 :height 1.0)
     (objc-mode                          all-the-icons-faicon "apple"              :v-adjust 0.0 :height 1.0)
+    (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
     ))
 
 ;; ====================
