@@ -237,6 +237,7 @@
     ("\\.rlib$"         all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-dmaroon)
     ("\\.r[ds]?x?$"     all-the-icons-fileicon "R"                      :face all-the-icons-lblue)
 
+    ("\\.sbt$"          all-the-icons-fileicon   "sbt"                  :face all-the-icons-red)
     ("\\.scala$"        all-the-icons-alltheicon "scala"                :face all-the-icons-red)
     ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
     ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
