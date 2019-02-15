@@ -51,6 +51,7 @@ The simplest usage for this package is to use the following functions;
 -   `all-the-icons-icon-for-buffer`
 -   `all-the-icons-icon-for-file`
 -   `all-the-icons-icon-for-mode`
+-   `all-the-icons-icon-for-url`
 
 Which can be used to get a formatted icon which you can insert into
 buffers, *e.g.*
@@ -85,7 +86,7 @@ You can then call these functions with the icon you want to insert,
 A list of all the icon names for a font family can be found in the
 `data` directory, or by inspecting the alist variables.
 
-The alist variables are all prefixed with 
+The alist variables are all prefixed with
 
 -   `all-the-icons-data/`
 
@@ -132,7 +133,7 @@ font family to add in to override the current font family being used,
 ## Debugging/Displaying Icon Sets
 
 Sometimes it can be useful to print out all of the icons in an icon
-set to ensure that 
+set to ensure that
 
 -   **(a)** they're the correct icon and
 -   **(b)** what icons are available and what name they have.
@@ -146,7 +147,7 @@ icon set and they're corresponding id/name.
 (all-the-icons-insert-icons-for 'octicon 10)   ;; Prints all the icons for the `octicon' family
                                                ;; and makes the icons height 10
 
-(all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons for the `faicon' family 
+(all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons for the `faicon' family
                                                ;; and also waits 0.5s between printing each one
 ```
 
