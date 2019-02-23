@@ -155,7 +155,7 @@ To check if you've misconfigured your Emacs font settings, you can try the follo
                                                ;; and also waits 0.5s between printing each one
 ```
 
-2. Now that you are certain which icon set is not displaying properly, check your default fontset.
+2. Now that you are certain which icon set is not displaying properly, check the fontset currently in effect.
   * Look up the hex code of the icon from the `data/data-[font-family].el` file. Write it down.
   * `M-x describe-fontset RET RET`
   * Now you are looking at the fontset for the current frame, search for the hex range for that icon. Usually it's `#xE000`, or `#xF0` `#xF2`, but there are a few outside of these offsets.
