@@ -138,7 +138,7 @@ If you see placeholders (AKA tofus) being rendered, or the wrong icons being dis
 2. On \*nix systems, make sure the font cache has been updated. `all-the-icons-install-fonts` should do this for you automatically, but sometimes it may fail due to misconfiguration.
 3. You've misconfigured your font settings in Emacs.
 
-To check if you've misconfigured your Emacs font settings. You can try the following steps:
+To check if you've misconfigured your Emacs font settings, you can try the following steps:
 
 1. print out all of the icons in an icon set and they're corresponding id/name.
 
