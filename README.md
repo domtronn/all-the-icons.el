@@ -39,10 +39,9 @@ the following function;
 
     M-x all-the-icons-install-fonts
 
-Bear in mind, this will also run `fc-cache -f -v` on **MacOS** and
-**Linux** which *can take some time* to complete. For **Windows**, this
-function will prompt for a *download* directory for you to install
-them manually.
+Bear in mind, if `fc-cache` is available, this will also run `fc-cache -f -v`,
+which *can take some time* to complete. For **Windows**, this function will
+prompt for a *download* directory for you to install them manually.
 
 # Usage
 
