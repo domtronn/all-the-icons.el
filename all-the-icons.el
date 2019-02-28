@@ -845,7 +845,9 @@ If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
 ;;;###autoload
 (defun all-the-icons-install-fonts (&optional pfx)
   "Helper function to download and install the latests fonts based on OS.
-When PFX is non-nil, ignore the prompt and just install"
+When PFX is non-nil or fonts have not been installed, this
+function will simply install the fonts.  If the fonts have been
+installed, the function will prompt for confirmation."
   (interactive "P")
   (let* ((font-dest (cl-case window-system
                       ;; Default Linux install directories
