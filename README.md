@@ -140,7 +140,7 @@ If you see placeholders (AKA tofus) being rendered, or the wrong icons being dis
 
 To check if you've misconfigured your Emacs font settings, you can try the following steps:
 
-1. print out all of the icons in an icon set and they're corresponding id/name.
+1. Print out all of the icons in an icon set and their corresponding id/name.
 
 ```el
 
