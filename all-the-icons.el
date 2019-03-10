@@ -455,7 +455,7 @@
     (magit-popup-mode          all-the-icons-alltheicon "git"              :face all-the-icons-red)
     (magit-status-mode         all-the-icons-alltheicon "git"              :face all-the-icons-lred)
     (magit-log-mode            all-the-icons-alltheicon "git"              :face all-the-icons-green)
-	(paradox-menu-mode         all-the-icons-faicon "archive"              :height 1.0 :v-adjust 0.0 :face all-the-icons-grey)
+    (paradox-menu-mode         all-the-icons-faicon "archive"              :height 1.0 :v-adjust 0.0 :face all-the-icons-grey)
     (Custom-mode               all-the-icons-octicon "settings")
 
     ;; Special matcher for Web Mode based on the `web-mode-content-type' of the current buffer
