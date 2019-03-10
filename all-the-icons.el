@@ -425,6 +425,7 @@
 (defvar all-the-icons-mode-icon-alist
   '(
     (emacs-lisp-mode           all-the-icons-fileicon "elisp"              :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
+    (erc-mode                  all-the-icons-faicon "commenting-o"         :height 1.0 :v-adjust 0.0 :face all-the-icons-white)
     (inferior-emacs-lisp-mode  all-the-icons-fileicon "elisp"              :height 1.0 :v-adjust -0.2 :face all-the-icons-lblue)
     (dired-mode                all-the-icons-octicon "file-directory"      :v-adjust 0.0)
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1 :face all-the-icons-orange)
