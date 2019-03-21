@@ -119,6 +119,13 @@
   :group 'all-the-icons
   :type 'number)
 
+(defcustom all-the-icons-fonts-destination nil
+  "The preferred installation location of fonts."
+  :group 'all-the-icons
+  :type '(choice
+          (string :tag "Path")
+          (const :tag "None" nil)))
+
 (defvar all-the-icons-font-families '() "List of defined icon font families.")
 (defvar all-the-icons-font-names '() "List of defined font file names this package was built with.")
 
@@ -842,6 +849,31 @@ If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
          (cons candidate-name candidate-icon)))
      data)))
 
+(defun all-the-icons-fonts-destination ()
+  "Selects a location to install the fonts.
+
+If `all-the-icons-fonts-destination' is non-nil, it is preferred,
+otherwise the path is selected automatically based on the
+windowing system."
+  (or all-the-icons-fonts-destination
+      (cl-case window-system
+        ;; Default Linux install directories
+        (x  (concat (or (getenv "XDG_DATA_HOME")
+                        (concat (getenv "HOME") "/.local/share"))
+                    "/fonts/"))
+        ;; Default MacOS install directory
+        (mac (concat (getenv "HOME") "/Library/Fonts/" ))
+        (ns (concat (getenv "HOME") "/Library/Fonts/" ))
+        (w32 (concat (getenv "windir") "\fonts")))))
+
+(defun all-the-icons-fonts-installedp ()
+  "Returns t if the font files are installed."
+  (let* ((font-dest (all-the-icons-fonts-destination)))
+    (and font-dest
+         (cl-every
+          (lambda (font-name) (file-exists-p (expand-file-name font-name font-dest)))
+          all-the-icons-font-names))))
+
 ;;;###autoload
 (defun all-the-icons-install-fonts (&optional pfx)
   "Helper function to download and install the latests fonts based on OS.
@@ -849,43 +881,25 @@ When PFX is non-nil or fonts have not been installed, this
 function will simply install the fonts.  If the fonts have been
 installed, the function will prompt for confirmation."
   (interactive "P")
-  (let* ((font-dest (cl-case window-system
-                      ;; Default Linux install directories
-                      (x  (concat (or (getenv "XDG_DATA_HOME")
-                                      (concat (getenv "HOME") "/.local/share"))
-                                  "/fonts/"))
-                      ;; Default MacOS install directory
-                      (mac (concat (getenv "HOME") "/Library/Fonts/" ))
-                      (ns (concat (getenv "HOME") "/Library/Fonts/" ))))
-         (fonts-installed
-          (and font-dest
-               (cl-every
-                (lambda (font-name) (file-exists-p (expand-file-name font-name font-dest)))
-                all-the-icons-font-names))))
+  (when (or pfx (not (all-the-icons-fonts-installedp)))
 
-    (when (or pfx
-              (not fonts-installed)
-              (and fonts-installed
-                   (yes-or-no-p "This will download and install the fonts, are you sure? ")))
+    (let* ((url-format "https://raw.githubusercontent.com/domtronn/all-the-icons.el/master/fonts/%s")
+           (font-dest (or (all-the-icons-fonts-destination)
+                          (read-directory-name "Font installation directory: " "~/"))))
 
-      (let* ((url-format "https://raw.githubusercontent.com/domtronn/all-the-icons.el/master/fonts/%s")
-             (known-dest? (stringp font-dest))
-             (font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
+      (unless (file-directory-p font-dest) (mkdir font-dest t))
 
-        (unless (file-directory-p font-dest) (mkdir font-dest t))
+      (mapc (lambda (font)
+              (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
+            all-the-icons-font-names)
 
-        (mapc (lambda (font)
-                (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
-              all-the-icons-font-names)
+      (when (executable-find "fc-cache")
+        (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
+        (shell-command-to-string (format "fc-cache -f -v")))
 
-        (when (executable-find "fc-cache")
-          (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
-          (shell-command-to-string (format "fc-cache -f -v")))
-
-        (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
-                 (all-the-icons-wicon "stars" :v-adjust 0.0)
-                 (if known-dest? "installed" "downloaded")
-                 font-dest)))))
+      (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
+               (all-the-icons-wicon "stars" :v-adjust 0.0)
+               "installed" font-dest))))
 
 ;;;###autoload
 (defun all-the-icons-insert (&optional arg family)
@@ -970,6 +984,8 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
 (define-icon octicon    all-the-icons-data/octicons-alist       "github-octicons" "octicons")
 (define-icon wicon      all-the-icons-data/weather-icons-alist  "Weather Icons"   "weathericons")
 (define-icon material   all-the-icons-data/material-icons-alist "Material Icons"  "material-design-icons")
+
+(all-the-icons-install-fonts)
 
 (provide 'all-the-icons)
 
