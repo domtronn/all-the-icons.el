@@ -877,9 +877,8 @@ windowing system."
 ;;;###autoload
 (defun all-the-icons-install-fonts (&optional pfx)
   "Helper function to download and install the latests fonts based on OS.
-When PFX is non-nil or fonts have not been installed, this
-function will simply install the fonts.  If the fonts have been
-installed, the function will prompt for confirmation."
+When PFX is non-nil or fonts have not been installed, this function will install
+the fonts."
   (interactive "P")
   (when (or pfx (not (all-the-icons-fonts-installedp)))
 
