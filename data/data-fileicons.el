@@ -1,6 +1,6 @@
 (defvar all-the-icons-data/file-icon-alist
   '(
-		
+
     ( "1c" . "\xa5ea" )
     ( "1c-alt" . "\xea28" )
     ( "MJML" . "\xea6f" )
@@ -267,7 +267,7 @@
     ( "moment" . "\x1f558" )
     ( "moment-tz" . "\x1f30d" )
     ( "monkey" . "\xe997" )
-    ( "moustache" . "\xe60f" )
+    ( "mustache" . "\xe60f" )
     ( "mruby" . "\xea18" )
     ( "mupad" . "\xe9ca" )
     ( "nano" . "\xea76" )
@@ -480,7 +480,7 @@
     ( "zbrush" . "\xe9f2" )
     ( "zephir" . "\xe9c7" )
     ( "zimpl" . "\xe9c8" )
-    
+
     )
   )
 
