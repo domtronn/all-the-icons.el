@@ -257,6 +257,10 @@
 
     ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
 
+    ;; Verilog and system verilog
+    ("\\.v$"             all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("\\.sv$"            all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
     ;; case phi
@@ -534,6 +538,7 @@
     (objc-mode                          all-the-icons-faicon "apple"              :v-adjust 0.0 :height 1.0)
     (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
     (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
+    (verilog-mode                       all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ))
 
 (defvar all-the-icons-url-alist
