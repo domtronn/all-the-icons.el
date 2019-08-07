@@ -224,6 +224,7 @@
 
     ("\\.p[ml]$"        all-the-icons-alltheicon "perl"                 :face all-the-icons-lorange)
     ("\\.pl6$"          all-the-icons-fileicon "perl6"                  :face all-the-icons-cyan)
+    ("\\.pm6$"          all-the-icons-fileicon "perl6"                  :face 'all-the-icons-pink)
     ("\\.pod$"          all-the-icons-alltheicon "perldocs"             :height 1.2  :face all-the-icons-lgreen)
 
     ("\\.php$"          all-the-icons-fileicon "php"                    :face all-the-icons-lsilver)
@@ -260,6 +261,43 @@
     ;; Verilog and system verilog
     ("\\.v$"             all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ("\\.sv$"            all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+
+    ;; Cabal
+    ("\\.cabal$"         all-the-icons-fileicon "cabal"                 :face 'all-the-icons-lblue)
+
+    ;; Kotlin
+    ("\\.kt$"            all-the-icons-fileicon "kotlin"                :face 'all-the-icons-orange)
+    ("\\.kts$"           all-the-icons-fileicon "kotlin"                :face 'all-the-icons-orange)
+
+    ;; Nimrod
+    ("\\.nim$"           all-the-icons-fileicon "nimrod"                :face 'all-the-icons-yellow)
+    ("\\.nims$"          all-the-icons-fileicon "nimrod"                :face 'all-the-icons-yellow)
+
+    ;; SQL
+    ("\\.sql$"           all-the-icons-octicon "database"               :face 'all-the-icons-silver)
+
+    ;; Styles
+    ("\\.styles$"        all-the-icons-material "style"                 :face 'all-the-icons-red)
+
+    ;; Lua
+    ("\\.lua$"           all-the-icons-fileicon "lua"                   :face 'all-the-icons-dblue)
+
+    ;; ASCII doc
+    ("\\.adoc$"          all-the-icons-fileicon "asciidoc"              :face 'all-the-icons-lblue)
+    ("\\.asciidoc$"      all-the-icons-fileicon "asciidoc"              :face 'all-the-icons-lblue)
+
+    ;; Puppet
+    ("\\.pp$"            all-the-icons-fileicon "puppet"                :face 'all-the-icons-yellow)
+
+    ;; Jinja
+    ("\\.j2$"            all-the-icons-fileicon "jinja"                 :face 'all-the-icons-silver)
+    ("\\.jinja2$"        all-the-icons-fileicon "jinja"                 :face 'all-the-icons-silver)
+
+    ;; Docker
+    ("\\.dockerfile$"    all-the-icons-fileicon "dockerfile"            :face 'all-the-icons-cyan)
+
+    ;; Vagrant
+    ("\\.vagrantfile$"   all-the-icons-fileicon "vagrant"               :face 'all-the-icons-blue)
 
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
@@ -539,6 +577,15 @@
     (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
     (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
     (verilog-mode                       all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    (haskell-cabal-mode                 all-the-icons-fileicon "cabal"            :face 'all-the-icons-lblue)
+    (kotlin-mode                        all-the-icons-fileicon "kotlin"           :face 'all-the-icons-orange)
+    (nim-mode                           all-the-icons-fileicon "nimrod"           :face 'all-the-icons-yellow)
+    (sql-mode                           all-the-icons-octicon  "database"         :face 'all-the-icons-silver)
+    (lua-mode                           all-the-icons-fileicon "lua"              :face 'all-the-icons-dblue)
+    (adoc-mode                          all-the-icons-fileicon "asciidoc"         :face 'all-the-icons-lblue)
+    (puppet-mode                        all-the-icons-fileicon "puppet"           :face 'all-the-icons-yellow)
+    (jinja2-mode                        all-the-icons-fileicon "jinja"            :face 'all-the-icons-silver)
+    (dockerfile-mode                    all-the-icons-fileicon "dockerfile"       :face 'all-the-icons-cyan)
     ))
 
 (defvar all-the-icons-url-alist
