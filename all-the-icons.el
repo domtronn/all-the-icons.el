@@ -536,6 +536,8 @@
     (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
     (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
     (powershell-mode                    all-the-icons-fileicon "powershell"       :face all-the-icons-blue)
+    (tex-mode                           all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    (latex-mode                         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     ))
 
 (defvar all-the-icons-url-alist
