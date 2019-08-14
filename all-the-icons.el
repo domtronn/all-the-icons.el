@@ -228,6 +228,7 @@
 
     ("\\.php$"          all-the-icons-fileicon "php"                    :face all-the-icons-lsilver)
     ("\\.pony$"         all-the-icons-fileicon "pony"                   :face all-the-icons-maroon)
+    ("\\.ps1$"          all-the-icons-fileicon "powershell"             :face all-the-icons-blue)
     ("\\.prol?o?g?$"    all-the-icons-alltheicon "prolog"               :height 1.1  :face all-the-icons-lmaroon)
     ("\\.py$"           all-the-icons-alltheicon "python"               :height 1.0  :face all-the-icons-dblue)
 
@@ -534,6 +535,7 @@
     (objc-mode                          all-the-icons-faicon "apple"              :v-adjust 0.0 :height 1.0)
     (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
     (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
+    (powershell-mode                    all-the-icons-fileicon "powershell"       :face all-the-icons-blue)
     ))
 
 (defvar all-the-icons-url-alist
