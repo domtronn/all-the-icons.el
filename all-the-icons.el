@@ -441,6 +441,7 @@
     (js3-mode                  all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
     (rjsx-mode                 all-the-icons-fileicon "jsx-2"              :v-adjust -0.1 :face all-the-icons-cyan-alt)
     (term-mode                 all-the-icons-octicon "terminal"            :v-adjust 0.2)
+    (vterm-mode                all-the-icons-octicon "terminal"            :v-adjust 0.2)
     (eshell-mode               all-the-icons-octicon "terminal"            :v-adjust 0.0 :face all-the-icons-purple)
     (magit-refs-mode           all-the-icons-octicon "git-branch"          :v-adjust 0.0 :face all-the-icons-red)
     (magit-process-mode        all-the-icons-octicon "mark-github"         :v-adjust 0.0)
