@@ -155,6 +155,7 @@
     ("\\.eslintignore"  all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-purple)
     ("\\.eslint"        all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-lpurple)
     ("\\.git"           all-the-icons-alltheicon "git"                  :height 1.0  :face all-the-icons-lred)
+    ("\\.toml"          all-the-icons-fileicon "toml"                   :height 1.0  :face all-the-icons-lpurple)
     ("nginx"            all-the-icons-fileicon "nginx"                  :height 0.9  :face all-the-icons-dgreen)
     ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
     ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
@@ -241,6 +242,7 @@
     ("\\.r[ds]?x?$"     all-the-icons-fileicon "R"                      :face all-the-icons-lblue)
 
     ("\\.sbt$"          all-the-icons-fileicon   "sbt"                  :face all-the-icons-red)
+    ("\\.scad$"         all-the-icons-fileicon "openscad"                        :face all-the-icons-yellow)
     ("\\.scala$"        all-the-icons-alltheicon "scala"                :face all-the-icons-red)
     ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
     ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
@@ -328,6 +330,7 @@
     ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
+    ("\\.tsx$"          all-the-icons-fileicon "tsx"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
     ("\\.njs$"          all-the-icons-alltheicon "nodejs"               :height 1.2  :face all-the-icons-lgreen)
     ("\\.vue$"          all-the-icons-fileicon "vue"                    :face all-the-icons-lgreen)
 

@@ -434,6 +434,7 @@
     ( "textmate" . "\x2122" )
     ( "thor" . "\xe9d8" )
     ( "tinymce" . "\xea01" )
+    ( "toml" . "\x1f143" )
     ( "tsx" . "\xe9d1" )
     ( "tsx-alt" . "\xe9e7" )
     ( "tt" . "\x54" )
