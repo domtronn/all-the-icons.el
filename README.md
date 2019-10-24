@@ -51,6 +51,7 @@ The simplest usage for this package is to use the following functions;
 -   `all-the-icons-icon-for-buffer`
 -   `all-the-icons-icon-for-file`
 -   `all-the-icons-icon-for-mode`
+-   `all-the-icons-icon-for-url`
 
 Which can be used to get a formatted icon which you can insert into
 buffers, *e.g.*
@@ -85,7 +86,7 @@ You can then call these functions with the icon you want to insert,
 A list of all the icon names for a font family can be found in the
 `data` directory, or by inspecting the alist variables.
 
-The alist variables are all prefixed with 
+The alist variables are all prefixed with
 
 -   `all-the-icons-data/`
 
@@ -129,26 +130,45 @@ font family to add in to override the current font family being used,
             'display '(raise -0.1))
 ```
 
-## Debugging/Displaying Icon Sets
+## Troubleshooting
 
-Sometimes it can be useful to print out all of the icons in an icon
-set to ensure that 
+If you see placeholders (AKA tofus) being rendered, or the wrong icons being displayed, the underlying cause generally falls into one of three categories:
 
--   **(a)** they're the correct icon and
--   **(b)** what icons are available and what name they have.
+1. Font installation failed due to networking issues. Check your OS' and Emacs' networking (`M-x customize-group RET gnutls/nsm/url/network RET`) and security settings (i.e. proxy, firewall, antivirus software...)
+2. On \*nix systems, make sure the font cache has been updated. `all-the-icons-install-fonts` should do this for you automatically, but sometimes it may fail due to misconfiguration.
+3. You've misconfigured your font settings in Emacs.
 
-There is a helper function which will print out all of the icons in an
-icon set and they're corresponding id/name.
+To check if you've misconfigured your Emacs font settings, you can try the following steps:
+
+1. Print out all of the icons in an icon set and their corresponding id/name.
 
 ```el
+
+;; Valid font families are 'material 'wicon 'octicon 'faicon 'fileicon and 'alltheicon
+
 (all-the-icons-insert-icons-for 'alltheicon)   ;; Prints all the icons for `alltheicon' font set
 
 (all-the-icons-insert-icons-for 'octicon 10)   ;; Prints all the icons for the `octicon' family
                                                ;; and makes the icons height 10
 
-(all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons for the `faicon' family 
+(all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons for the `faicon' family
                                                ;; and also waits 0.5s between printing each one
 ```
+
+2. Now that you are certain which icon set is not displaying properly, check the fontset currently in effect.
+  * Look up the hex code of the icon from the `data/data-[font-family].el` file. Write it down.
+  * `M-x describe-fontset RET RET`
+  * Now you are looking at the fontset for the current frame, search for the hex range for that icon. Usually it's `#xE000`, or `#xF0` `#xF2`, but there are a few outside of these offsets.
+  * If you don't see the font family in question in the list of fontspecs (i.e. `[-*-file-icons-...]`) below the range, or some other fontspecs in front of the one in question, you will have to add the families back to the fontset (scroll to the top to see which one is in effect), or arrange the fontspec order. For example:
+  
+```elisp
+(set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
+(set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
+(set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
+(set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
+(set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
+(set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
+```  
 
 # Resource Fonts
 

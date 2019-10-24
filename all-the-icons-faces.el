@@ -136,6 +136,11 @@
     (((background light)) :foreground "#68295B"))
   "Face for purple icons"
   :group 'all-the-icons-faces)
+(defface all-the-icons-purple-alt
+  '((((background dark)) :foreground "#5D54E1")
+    (((background light)) :foreground "#5D54E1"))
+  "Face for purple icons"
+  :group 'all-the-icons-faces)
 (defface all-the-icons-lpurple
   '((((background dark)) :foreground "#E69DD6")
     (((background light)) :foreground "#E69DD6"))

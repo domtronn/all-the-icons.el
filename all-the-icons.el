@@ -51,9 +51,10 @@
 ;;   `all-the-icons-icon-for-buffer'
 ;;   `all-the-icons-icon-for-file'
 ;;   `all-the-icons-icon-for-mode'
+;;   `all-the-icons-icon-for-url'
 
 ;; Which can be used to get a formatted icon for the current buffer, a
-;; file name or a major mode respectively.  e.g.
+;; file name, a major mode, or an URL respectively.  e.g.
 
 ;;   (insert (all-the-icons-icon-for-file "foo.js"))
 
@@ -172,7 +173,7 @@
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
 
-    
+
     ("^serverless\\.yml$" all-the-icons-faicon "bolt"                   :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.[jc]son$"      all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.ya?ml$"        all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
@@ -219,24 +220,31 @@
     ("\\.jl$"           all-the-icons-fileicon "julia"                  :v-adjust 0.0 :face all-the-icons-purple)
     ("\\.matlab$"       all-the-icons-fileicon "matlab"                 :face all-the-icons-orange)
 
+    ("\\.nix$"          all-the-icons-fileicon "nix"                    :face all-the-icons-blue)
+
     ("\\.p[ml]$"        all-the-icons-alltheicon "perl"                 :face all-the-icons-lorange)
     ("\\.pl6$"          all-the-icons-fileicon "perl6"                  :face all-the-icons-cyan)
     ("\\.pod$"          all-the-icons-alltheicon "perldocs"             :height 1.2  :face all-the-icons-lgreen)
 
     ("\\.php$"          all-the-icons-fileicon "php"                    :face all-the-icons-lsilver)
     ("\\.pony$"         all-the-icons-fileicon "pony"                   :face all-the-icons-maroon)
+    ("\\.ps1$"          all-the-icons-fileicon "powershell"             :face all-the-icons-blue)
     ("\\.prol?o?g?$"    all-the-icons-alltheicon "prolog"               :height 1.1  :face all-the-icons-lmaroon)
     ("\\.py$"           all-the-icons-alltheicon "python"               :height 1.0  :face all-the-icons-dblue)
 
     ("\\.rkt$"          all-the-icons-fileicon "racket"                 :height 1.2 :face all-the-icons-red)
+    ("^Gemfile\\(\\.lock\\)?$" all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
     ("\\.gem$"          all-the-icons-alltheicon "ruby-alt"             :face all-the-icons-red)
     ("_?test\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
     ("_?test_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
+    ("_?spec\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
+    ("_?spec_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
     ("\\.rb$"           all-the-icons-octicon "ruby"                    :v-adjust 0.0 :face all-the-icons-lred)
     ("\\.rs$"           all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-maroon)
     ("\\.rlib$"         all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-dmaroon)
     ("\\.r[ds]?x?$"     all-the-icons-fileicon "R"                      :face all-the-icons-lblue)
 
+    ("\\.sbt$"          all-the-icons-fileicon   "sbt"                  :face all-the-icons-red)
     ("\\.scala$"        all-the-icons-alltheicon "scala"                :face all-the-icons-red)
     ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
     ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
@@ -250,6 +258,8 @@
 
     ("-?spec\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
     ("-?test\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
+
+    ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
 
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
@@ -421,9 +431,12 @@
 (defvar all-the-icons-mode-icon-alist
   '(
     (emacs-lisp-mode           all-the-icons-fileicon "elisp"              :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
+    (erc-mode                  all-the-icons-faicon "commenting-o"         :height 1.0 :v-adjust 0.0)
     (inferior-emacs-lisp-mode  all-the-icons-fileicon "elisp"              :height 1.0 :v-adjust -0.2 :face all-the-icons-lblue)
     (dired-mode                all-the-icons-octicon "file-directory"      :v-adjust 0.0)
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1 :face all-the-icons-orange)
+    (sly-mrepl-mode            all-the-icons-fileicon "clisp"               :v-adjust -0.1 :face all-the-icons-orange)
+    (slime-repl-mode           all-the-icons-fileicon "clisp"               :v-adjust -0.1 :face all-the-icons-orange)
     (org-mode                  all-the-icons-fileicon "org"                :v-adjust 0.0 :face all-the-icons-lgreen)
     (typescript-mode           all-the-icons-fileicon "typescript"         :v-adjust -0.1 :face all-the-icons-blue-alt)
     (js-mode                   all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
@@ -432,6 +445,7 @@
     (js3-mode                  all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
     (rjsx-mode                 all-the-icons-fileicon "jsx-2"              :v-adjust -0.1 :face all-the-icons-cyan-alt)
     (term-mode                 all-the-icons-octicon "terminal"            :v-adjust 0.2)
+    (vterm-mode                all-the-icons-octicon "terminal"            :v-adjust 0.2)
     (eshell-mode               all-the-icons-octicon "terminal"            :v-adjust 0.0 :face all-the-icons-purple)
     (magit-refs-mode           all-the-icons-octicon "git-branch"          :v-adjust 0.0 :face all-the-icons-red)
     (magit-process-mode        all-the-icons-octicon "mark-github"         :v-adjust 0.0)
@@ -453,6 +467,7 @@
     (mu4e-headers-mode         all-the-icons-octicon "mail"                :v-adjust 0.0)
     (mu4e-main-mode            all-the-icons-octicon "mail"                :v-adjust 0.0)
     (mu4e-view-mode            all-the-icons-octicon "mail-read"           :v-adjust 0.0)
+    (paradox-menu-mode         all-the-icons-faicon "archive"              :height 1.0 :v-adjust 0.0 :face all-the-icons-silver)
     (Custom-mode               all-the-icons-octicon "settings")
 
     ;; Special matcher for Web Mode based on the `web-mode-content-type' of the current buffer
@@ -466,6 +481,7 @@
     (projectile-rails-compilation-mode  all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
     (rspec-compilation-mode             all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
     (rake-compilation-mode              all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
+    (sh-mode                            all-the-icons-alltheicon "terminal"       :face all-the-icons-purple)
     (shell-mode                         all-the-icons-alltheicon "terminal"       :face all-the-icons-purple)
     (fish-mode                          all-the-icons-alltheicon "terminal"       :face all-the-icons-lpink)
     (nginx-mode                         all-the-icons-fileicon "nginx"            :height 0.9  :face all-the-icons-dgreen)
@@ -489,6 +505,7 @@
     (php-mode                           all-the-icons-fileicon "php"              :face all-the-icons-lsilver)
     (prolog-mode                        all-the-icons-alltheicon "prolog"         :height 1.1  :face all-the-icons-lmaroon)
     (python-mode                        all-the-icons-alltheicon "python"         :height 1.0  :face all-the-icons-dblue)
+    (inferior-python-mode               all-the-icons-alltheicon "python"         :height 1.0  :face all-the-icons-dblue)
     (racket-mode                        all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-red)
     (rust-mode                          all-the-icons-alltheicon "rust"           :height 1.2  :face all-the-icons-maroon)
     (scala-mode                         all-the-icons-alltheicon "scala"          :face all-the-icons-red)
@@ -524,6 +541,111 @@
     (org-mode                           all-the-icons-fileicon "org"              :face all-the-icons-lgreen)
     (compilation-mode                   all-the-icons-faicon "cogs"               :v-adjust 0.0 :height 1.0)
     (objc-mode                          all-the-icons-faicon "apple"              :v-adjust 0.0 :height 1.0)
+    (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
+    (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
+    (powershell-mode                    all-the-icons-fileicon "powershell"       :face all-the-icons-blue)
+    (tex-mode                           all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    (latex-mode                         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    ))
+
+(defvar all-the-icons-url-alist
+  '(
+    ;; Social media and communities
+    ("^\\(https?://\\)?\\(www\\.\\)?del\\.icio\\.us" all-the-icons-faicon "delicious")
+    ("^\\(https?://\\)?\\(www\\.\\)?behance\\.net" all-the-icons-faicon "behance")
+    ("^\\(https?://\\)?\\(www\\.\\)?dribbble\\.com" all-the-icons-faicon "dribbble")
+    ("^\\(https?://\\)?\\(www\\.\\)?facebook\\.com" all-the-icons-faicon "facebook-official")
+    ("^\\(https?://\\)?\\(www\\.\\)?glide\\.me" all-the-icons-faicon "glide-g")
+    ("^\\(https?://\\)?\\(www\\.\\)?plus\\.google\\.com" all-the-icons-faicon "google-plus")
+    ("linkedin\\.com" all-the-icons-faicon "linkedin")
+    ("^\\(https?://\\)?\\(www\\.\\)?ok\\.ru" all-the-icons-faicon "odnoklassniki")
+    ("^\\(https?://\\)?\\(www\\.\\)?reddit\\.com" all-the-icons-faicon "reddit-alien")
+    ("^\\(https?://\\)?\\(www\\.\\)?slack\\.com" all-the-icons-faicon "slack")
+    ("^\\(https?://\\)?\\(www\\.\\)?snapchat\\.com" all-the-icons-faicon "snapchat-ghost")
+    ("^\\(https?://\\)?\\(www\\.\\)?weibo\\.com" all-the-icons-faicon "weibo")
+    ("^\\(https?://\\)?\\(www\\.\\)?twitter\\.com" all-the-icons-faicon "twitter")
+    ;; Blogging
+    ("joomla\\.org" all-the-icons-faicon "joomla")
+    ("^\\(https?://\\)?\\(www\\.\\)?medium\\.com" all-the-icons-faicon "medium")
+    ("tumblr\\.com" all-the-icons-faicon "tumblr")
+    ("^wordpress\\.com" all-the-icons-faicon "wordpress")
+    ;; Programming
+    ("^\\(https?://\\)?\\(www\\.\\)?bitbucket\\.org" all-the-icons-octicon "bitbucket")
+    ("^\\(https?://\\)?\\(www\\.\\)?codepen\\.io" all-the-icons-faicon "codepen")
+    ("^\\(https?://\\)?\\(www\\.\\)?codiepie\\.com" all-the-icons-faicon "codiepie")
+    ("^\\(https?://\\)?\\(www\\.\\)?gist\\.github\\.com" all-the-icons-octicon "gist")
+    ("^\\(https?://\\)?\\(www\\.\\)?github\\.com" all-the-icons-octicon "mark-github")
+    ("^\\(https?://\\)?\\(www\\.\\)?gitlab\\.com" all-the-icons-faicon "gitlab")
+    ("^\\(https?://\\)?\\(www\\.\\)?news\\.ycombinator\\.com" all-the-icons-faicon "hacker-news")
+    ("^\\(https?://\\)?\\(www\\.\\)?jsfiddle\\.net" all-the-icons-faicon "jsfiddle")
+    ("^\\(https?://\\)?\\(www\\.\\)?maxcdn\\.com" all-the-icons-faicon "maxcdn")
+    ("^\\(https?://\\)?\\(www\\.\\)?stackoverflow\\.com" all-the-icons-faicon "stack-overflow")
+    ;; Video
+    ("^\\(https?://\\)?\\(www\\.\\)?twitch\\.tv" all-the-icons-faicon "twitch")
+    ("^\\(https?://\\)?\\(www\\.\\)?vimeo\\.com" all-the-icons-faicon "vimeo")
+    ("^\\(https?://\\)?\\(www\\.\\)?youtube\\.com" all-the-icons-faicon "youtube")
+    ("^\\(https?://\\)?\\(www\\.\\)?youtu\\.be" all-the-icons-faicon "youtube")
+    ("^\\(https?://\\)?\\(www\\.\\)?vine\\.co" all-the-icons-faicon "vine")
+    ;; Sound
+    ("^\\(https?://\\)?\\(www\\.\\)?last\\.fm" all-the-icons-faicon "lastfm")
+    ("^\\(https?://\\)?\\(www\\.\\)?mixcloud\\.com" all-the-icons-faicon "mixcloud")
+    ("^\\(https?://\\)?\\(www\\.\\)?soundcloud\\.com" all-the-icons-faicon "soundcloud")
+    ("spotify\\.com" all-the-icons-faicon "spotify")
+    ;; Shopping
+    ("^\\(https?://\\)?\\(www\\.\\)?amazon\\." all-the-icons-faicon "amazon")
+    ("^\\(https?://\\)?\\(www\\.\\)?opencart\\.com" all-the-icons-faicon "opencart")
+    ("^\\(https?://\\)?\\(www\\.\\)?paypal\\.com" all-the-icons-faicon "paypal")
+    ("^\\(https?://\\)?\\(www\\.\\)?shirtsinbulk\\.com" all-the-icons-faicon "shitsinbulk")
+    ;; Images
+    ("^\\(https?://\\)?\\(www\\.\\)?500px\\.com" all-the-icons-faicon "500px")
+    ("^\\(https?://\\)?\\(www\\.\\)?deviantart\\.com" all-the-icons-faicon "deviantart")
+    ("^\\(https?://\\)?\\(www\\.\\)?flickr\\.com" all-the-icons-faicon "flickr")
+    ("^\\(https?://\\)?\\(www\\.\\)?instagram\\.com" all-the-icons-faicon "instagram")
+    ("^\\(https?://\\)?\\(www\\.\\)?pinterest\\." all-the-icons-faicon "pinterest")
+    ;; Information and books
+    ("^\\(https?://\\)?\\(www\\.\\)?digg\\.com" all-the-icons-faicon "digg")
+    ("^\\(https?://\\)?\\(www\\.\\)?foursquare\\.com" all-the-icons-faicon "foursquare")
+    ("^\\(https?://\\)?\\(www\\.\\)?getpocket\\.com" all-the-icons-faicon "get-pocket")
+    ("^\\(https?://\\)?\\(www\\.\\)?scribd\\.com" all-the-icons-faicon "scribd")
+    ("^\\(https?://\\)?\\(www\\.\\)?slideshare\\.net" all-the-icons-faicon "slideshare")
+    ("stackexchange\\.com" all-the-icons-faicon "stack-exchange")
+    ("^\\(https?://\\)?\\(www\\.\\)?stumbleupon\\.com" all-the-icons-faicon "stumbleupon")
+    ("^\\(https?://\\)?\\(www\\.\\)?tripadvisor\\." all-the-icons-faicon "tripadvisor")
+    ("^\\(https?://\\)?\\(www\\.\\)?yelp\\." all-the-icons-faicon "yelp")
+
+    ("wikipedia\\.org" all-the-icons-faicon "wikipedia-w")
+    ;; Various companies and tools
+    ("^\\(https?://\\)?\\(www\\.\\)?angel\\.co" all-the-icons-faicon "angellist")
+    ("^\\(https?://\\)?\\(www\\.\\)?apple\\.com" all-the-icons-faicon "apple")
+    ("^\\(https?://\\)?\\(www\\.\\)?buysellads\\.com" all-the-icons-faicon "buysellads")
+    ("^\\(https?://\\)?\\(www\\.\\)?connectdevelop\\.com" all-the-icons-faicon "connectdevelop")
+    ("^\\(https?://\\)?\\(www\\.\\)?dashcube\\.com" all-the-icons-faicon "dashcube")
+    ("^\\(https?://\\)?\\(www\\.\\)?dropbox\\.com" all-the-icons-faicon "dropbox")
+    ("^\\(https?://\\)?\\(www\\.\\)?enviragallery\\.com" all-the-icons-faicon "envira")
+    ("^\\(https?://\\)?\\(www\\.\\)?fortawesome\\.com" all-the-icons-faicon "fort-awesome")
+    ("^\\(https?://\\)?\\(www\\.\\)?forumbee\\.com" all-the-icons-faicon "forumbee")
+    ("^\\(https?://\\)?\\(www\\.\\)?gratipay\\.com" all-the-icons-faicon "gratipay")
+    ("^\\(https?://\\)?\\(www\\.\\)?modx\\.com" all-the-icons-faicon "modx")
+    ("^\\(https?://\\)?\\(www\\.\\)?pagelines\\.com" all-the-icons-faicon "pagelines")
+    ("^\\(https?://\\)?\\(www\\.\\)?producthunt\\.com" all-the-icons-faicon "product-hunt")
+    ("sellsy\\.com" all-the-icons-faicon "sellsy")
+    ("^\\(https?://\\)?\\(www\\.\\)?simplybuilt\\.com" all-the-icons-faicon "simplybuilt")
+    ("^\\(https?://\\)?\\(www\\.\\)?skyatlas\\.com" all-the-icons-faicon "skyatlas")
+    ("^\\(https?://\\)?\\(www\\.\\)?skype\\.com" all-the-icons-faicon "skype")
+    ("steampowered\\.com" all-the-icons-faicon "steam")
+    ("^\\(https?://\\)?\\(www\\.\\)?themeisle\\.com" all-the-icons-faicon "themeisle")
+    ("^\\(https?://\\)?\\(www\\.\\)?trello\\.com" all-the-icons-faicon "trello")
+    ("^\\(https?://\\)?\\(www\\.\\)?whatsapp\\.com" all-the-icons-faicon "whatsapp")
+    ("^\\(https?://\\)?\\(www\\.\\)?ycombinator\\.com" all-the-icons-faicon "y-combinator")
+    ("yahoo\\.com" all-the-icons-faicon "yahoo")
+    ("^\\(https?://\\)?\\(www\\.\\)?yoast\\.com" all-the-icons-faicon "yoast")
+    ;; Catch all
+    ("android" all-the-icons-faicon "android")
+    ("creativecommons" all-the-icons-faicon "creative-commons")
+    ("forums?" all-the-icons-octicon "comment-discussion")
+    ("\\.pdf$" all-the-icons-octicon "file-pdf" :v-adjust 0.0 :face all-the-icons-dred)
+    ("google" all-the-icons-faicon "google")
+    ("\\.rss" all-the-icons-faicon "rss")
     ))
 
 ;; ====================
@@ -561,7 +683,7 @@ and directory with PADDING.
 Produces different symbols by inspecting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
-  (let* ((matcher (all-the-icons-match-to-alist (file-name-base dir) all-the-icons-dir-icon-alist))
+  (let* ((matcher (all-the-icons-match-to-alist (file-name-base (directory-file-name dir)) all-the-icons-dir-icon-alist))
          (path (expand-file-name dir))
          (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
          (padding (or padding "\t"))
@@ -627,13 +749,30 @@ inserting functions."
 ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
-  (let* ((icon (cdr (assoc mode all-the-icons-mode-icon-alist)))
+  (let* ((icon (cdr (or (assoc mode all-the-icons-mode-icon-alist)
+                        (assoc (get mode 'derived-mode-parent) all-the-icons-mode-icon-alist))))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (if icon (apply (car icon) args) mode)))
 
+;;;###autoload
+(defun all-the-icons-icon-for-url (url &rest arg-overrides)
+  "Get the formatted icon for URL.
+If an icon for URL isn't found in `all-the-icons-url-alist', a globe is used.
+ARG-OVERRIDES should be a plist containining `:height',
+`:v-adjust' or `:face' properties like in the normal icon
+inserting functions."
+  (let* ((icon (all-the-icons-match-to-alist url all-the-icons-url-alist))
+         (args (cdr icon)))
+    (unless icon
+      (setq icon '(all-the-icons-faicon "globe"))
+      (setq args (cdr icon)))
+    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (apply (car icon) args)))
+
 (memoize 'all-the-icons-icon-for-file)
 (memoize 'all-the-icons-icon-for-mode)
+(memoize 'all-the-icons-icon-for-url)
 
 ;; Family Face Functions
 (defun all-the-icons-icon-family-for-file (file)
@@ -725,7 +864,7 @@ If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
 When PFX is non-nil, ignore the prompt and just install"
   (interactive "P")
   (when (or pfx (yes-or-no-p "This will download and install fonts, are you sure you want to do this?"))
-    (let* ((url-format "https://github.com/domtronn/all-the-icons.el/blob/master/fonts/%s?raw=true")
+    (let* ((url-format "https://raw.githubusercontent.com/domtronn/all-the-icons.el/master/fonts/%s")
            (font-dest (cl-case window-system
                         (x  (concat (or (getenv "XDG_DATA_HOME")            ;; Default Linux install directories
                                         (concat (getenv "HOME") "/.local/share"))
@@ -812,13 +951,14 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
              (family ,family))
          (unless icon
            (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
-         (propertize icon
-                     'face (if other-face
-                               `(:family ,family :height ,height :inherit ,other-face)
-                             `(:family ,family :height ,height))
-                     'display `(raise ,v-adjust)
-                     'rear-nonsticky t
-                     'font-lock-ignore t)))
+         (let ((face (if other-face
+                         `(:family ,family :height ,height :inherit ,other-face)
+                       `(:family ,family :height ,height))))
+           (propertize icon
+                       'face face           ;so that this works without `font-lock-mode' enabled
+                       'font-lock-face face ;so that `font-lock-mode' leaves this alone
+                       'display `(raise ,v-adjust)
+                       'rear-nonsticky t))))
      (defun ,(all-the-icons--insert-function-name name) (&optional arg)
        ,(format "Insert a %s icon at point." family)
        (interactive "P")
