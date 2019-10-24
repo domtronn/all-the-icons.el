@@ -228,13 +228,17 @@
 
     ("\\.php$"          all-the-icons-fileicon "php"                    :face all-the-icons-lsilver)
     ("\\.pony$"         all-the-icons-fileicon "pony"                   :face all-the-icons-maroon)
+    ("\\.ps1$"          all-the-icons-fileicon "powershell"             :face all-the-icons-blue)
     ("\\.prol?o?g?$"    all-the-icons-alltheicon "prolog"               :height 1.1  :face all-the-icons-lmaroon)
     ("\\.py$"           all-the-icons-alltheicon "python"               :height 1.0  :face all-the-icons-dblue)
 
     ("\\.rkt$"          all-the-icons-fileicon "racket"                 :height 1.2 :face all-the-icons-red)
+    ("^Gemfile\\(\\.lock\\)?$" all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
     ("\\.gem$"          all-the-icons-alltheicon "ruby-alt"             :face all-the-icons-red)
     ("_?test\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
     ("_?test_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
+    ("_?spec\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
+    ("_?spec_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
     ("\\.rb$"           all-the-icons-octicon "ruby"                    :v-adjust 0.0 :face all-the-icons-lred)
     ("\\.rs$"           all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-maroon)
     ("\\.rlib$"         all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-dmaroon)
@@ -427,7 +431,7 @@
 (defvar all-the-icons-mode-icon-alist
   '(
     (emacs-lisp-mode           all-the-icons-fileicon "elisp"              :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
-    (erc-mode                  all-the-icons-faicon "commenting-o"         :height 1.0 :v-adjust 0.0 :face all-the-icons-white)
+    (erc-mode                  all-the-icons-faicon "commenting-o"         :height 1.0 :v-adjust 0.0)
     (inferior-emacs-lisp-mode  all-the-icons-fileicon "elisp"              :height 1.0 :v-adjust -0.2 :face all-the-icons-lblue)
     (dired-mode                all-the-icons-octicon "file-directory"      :v-adjust 0.0)
     (lisp-interaction-mode     all-the-icons-fileicon "lisp"               :v-adjust -0.1 :face all-the-icons-orange)
@@ -441,6 +445,7 @@
     (js3-mode                  all-the-icons-alltheicon "javascript"       :v-adjust -0.1 :face all-the-icons-yellow)
     (rjsx-mode                 all-the-icons-fileicon "jsx-2"              :v-adjust -0.1 :face all-the-icons-cyan-alt)
     (term-mode                 all-the-icons-octicon "terminal"            :v-adjust 0.2)
+    (vterm-mode                all-the-icons-octicon "terminal"            :v-adjust 0.2)
     (eshell-mode               all-the-icons-octicon "terminal"            :v-adjust 0.0 :face all-the-icons-purple)
     (magit-refs-mode           all-the-icons-octicon "git-branch"          :v-adjust 0.0 :face all-the-icons-red)
     (magit-process-mode        all-the-icons-octicon "mark-github"         :v-adjust 0.0)
@@ -458,6 +463,10 @@
     (magit-popup-mode          all-the-icons-alltheicon "git"              :face all-the-icons-red)
     (magit-status-mode         all-the-icons-alltheicon "git"              :face all-the-icons-lred)
     (magit-log-mode            all-the-icons-alltheicon "git"              :face all-the-icons-green)
+    (mu4e-compose-mode         all-the-icons-octicon "pencil"              :v-adjust 0.0)
+    (mu4e-headers-mode         all-the-icons-octicon "mail"                :v-adjust 0.0)
+    (mu4e-main-mode            all-the-icons-octicon "mail"                :v-adjust 0.0)
+    (mu4e-view-mode            all-the-icons-octicon "mail-read"           :v-adjust 0.0)
     (paradox-menu-mode         all-the-icons-faicon "archive"              :height 1.0 :v-adjust 0.0 :face all-the-icons-silver)
     (Custom-mode               all-the-icons-octicon "settings")
 
@@ -534,6 +543,9 @@
     (objc-mode                          all-the-icons-faicon "apple"              :v-adjust 0.0 :height 1.0)
     (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
     (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
+    (powershell-mode                    all-the-icons-fileicon "powershell"       :face all-the-icons-blue)
+    (tex-mode                           all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    (latex-mode                         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     ))
 
 (defvar all-the-icons-url-alist
