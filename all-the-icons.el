@@ -166,9 +166,9 @@
     ("\\.npmignore"     all-the-icons-fileicon "npm"                    :face all-the-icons-dred)
     ("^package.json$"   all-the-icons-fileicon "npm"                    :face all-the-icons-red)
     ("^package.lock.json$" all-the-icons-fileicon "npm"                 :face all-the-icons-dred)
-    ("^yarn\.lock"      all-the-icons-fileicon "yarn"                   :face all-the-icons-blue-alt)
+    ("^yarn\\.lock"     all-the-icons-fileicon "yarn"                   :face all-the-icons-blue-alt)
 
-    ("\.xml$"           all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
+    ("\\.xml$"          all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
 
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
@@ -533,7 +533,7 @@
     (makefile-mode                      all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
     (dockerfile-mode                    all-the-icons-fileicon "dockerfile"       :face all-the-icons-blue)
     (docker-compose-mode                all-the-icons-fileicon "dockerfile"       :face all-the-icons-lblue)
-    (xml-mode                           all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
+    (nxml-mode                          all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
     (json-mode                          all-the-icons-octicon "settings"          :face all-the-icons-yellow)
     (yaml-mode                          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
     (elisp-byte-code-mode               all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-dsilver)
