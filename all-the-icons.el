@@ -212,7 +212,6 @@
     ("\\.java$"         all-the-icons-alltheicon "java"                 :height 1.0  :face all-the-icons-purple)
 
     ("\\.go$"           all-the-icons-alltheicon "go"                   :height 1.0  :face all-the-icons-blue)
-    ("\\.lua$"          all-the-icons-fileicon "lua"                    :face all-the-icons-dblue)
 
     ("\\.mp3$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
     ("\\.wav$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
@@ -543,7 +542,6 @@
     (elixir-mode                        all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
     (java-mode                          all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
     (go-mode                            all-the-icons-alltheicon "go"             :height 1.0  :face all-the-icons-blue)
-    (lua-mode                           all-the-icons-fileicon "lua"              :face all-the-icons-dblue)
     (matlab-mode                        all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
     (perl-mode                          all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
     (cperl-mode                         all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
