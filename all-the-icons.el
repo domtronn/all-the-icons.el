@@ -741,12 +741,12 @@ directory contents"
          (padding (or padding "\t"))
          (icon (cond
                 ((file-symlink-p path)
-                 (all-the-icons-octicon "file-symlink-directory" :height 1.0))
+                 (all-the-icons-octicon "file-symlink-directory" :height 1.0 :v-adjust 0.01))
                 ((all-the-icons-dir-is-submodule path)
-                 (all-the-icons-octicon "file-submodule" :height 1.0))
+                 (all-the-icons-octicon "file-submodule" :height 1.0 :v-adjust 0.01))
                 ((file-exists-p (format "%s/.git" path))
-                 (format "%s" (all-the-icons-octicon "repo" :height 1.1)))
-                (t (apply (car matcher) (cdr matcher))))))
+                 (format "%s" (all-the-icons-octicon "repo" :height 1.1 :v-adjust 0.01)))
+                (t (apply (car matcher) (list (cadr matcher) :v-adjust 0.01))))))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
 
 (defun all-the-icons-icon-for-buffer ()
