@@ -840,7 +840,7 @@ inserting functions."
     (if icon (funcall (intern (format "%s-family" (car icon)))) nil)))
 
 (defun all-the-icons-icon-family (icon)
-  "Get a propertized ICON family programatically."
+  "Get a propertized ICON family programmatically."
   (plist-get (get-text-property 0 'face icon) :family))
 
 (memoize 'all-the-icons-icon-family-for-file)
