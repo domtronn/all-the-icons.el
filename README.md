@@ -201,7 +201,7 @@ other Emacs packages.
 
 ### Slow Rendering
 
-If you experience a slow down in performace when rendering multiple
+If you experience a slow down in performance when rendering multiple
 icons simultaneously, you can try setting the following variable
 
 ```el
