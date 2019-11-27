@@ -166,9 +166,9 @@
     ("\\.npmignore"     all-the-icons-fileicon "npm"                    :face all-the-icons-dred)
     ("^package.json$"   all-the-icons-fileicon "npm"                    :face all-the-icons-red)
     ("^package.lock.json$" all-the-icons-fileicon "npm"                 :face all-the-icons-dred)
-    ("^yarn\.lock"      all-the-icons-fileicon "yarn"                   :face all-the-icons-blue-alt)
+    ("^yarn\\.lock"     all-the-icons-fileicon "yarn"                   :face all-the-icons-blue-alt)
 
-    ("\.xml$"           all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
+    ("\\.xml$"          all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
 
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
@@ -212,7 +212,6 @@
     ("\\.java$"         all-the-icons-alltheicon "java"                 :height 1.0  :face all-the-icons-purple)
 
     ("\\.go$"           all-the-icons-alltheicon "go"                   :height 1.0  :face all-the-icons-blue)
-    ("\\.lua$"          all-the-icons-fileicon "lua"                    :face all-the-icons-dblue)
 
     ("\\.mp3$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
     ("\\.wav$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
@@ -533,7 +532,7 @@
     (makefile-mode                      all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
     (dockerfile-mode                    all-the-icons-fileicon "dockerfile"       :face all-the-icons-blue)
     (docker-compose-mode                all-the-icons-fileicon "dockerfile"       :face all-the-icons-lblue)
-    (xml-mode                           all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
+    (nxml-mode                          all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
     (json-mode                          all-the-icons-octicon "settings"          :face all-the-icons-yellow)
     (yaml-mode                          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
     (elisp-byte-code-mode               all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-dsilver)
@@ -543,7 +542,6 @@
     (elixir-mode                        all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
     (java-mode                          all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
     (go-mode                            all-the-icons-alltheicon "go"             :height 1.0  :face all-the-icons-blue)
-    (lua-mode                           all-the-icons-fileicon "lua"              :face all-the-icons-dblue)
     (matlab-mode                        all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
     (perl-mode                          all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
     (cperl-mode                         all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
