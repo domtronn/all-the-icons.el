@@ -162,12 +162,12 @@ To check if you've misconfigured your Emacs font settings, you can try the follo
   * If you don't see the font family in question in the list of fontspecs (i.e. `[-*-file-icons-...]`) below the range, or some other fontspecs in front of the one in question, you will have to add the families back to the fontset (scroll to the top to see which one is in effect), or arrange the fontspec order. For example:
   
 ```elisp
-(set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
+(set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'prepend)
+(set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'prepend)
+(set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'prepend)
+(set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'prepend)
+(set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'prepend)
+(set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'prepend)
 ```  
 
 # Resource Fonts
