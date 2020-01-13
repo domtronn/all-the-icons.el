@@ -49,6 +49,7 @@ them manually.
 The simplest usage for this package is to use the following functions;
 
 -   `all-the-icons-icon-for-buffer`
+-   `all-the-icons-icon-for-dir`
 -   `all-the-icons-icon-for-file`
 -   `all-the-icons-icon-for-mode`
 -   `all-the-icons-icon-for-url`
