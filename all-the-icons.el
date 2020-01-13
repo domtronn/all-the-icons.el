@@ -726,7 +726,7 @@
         (search-forward-regexp module-search (point-max) t)))))
 
 ;; Icon functions
-(defun all-the-icons-icon-for-dir (dir &optional chevron padding)
+(defun all-the-icons-icon-for-dir-with-chevron (dir &optional chevron padding)
   "Format an icon for DIR with CHEVRON similar to tree based directories.
 
 If PADDING is provided, it will prepend and separate the chevron
@@ -735,18 +735,9 @@ and directory with PADDING.
 Produces different symbols by inspecting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
-  (let* ((matcher (all-the-icons-match-to-alist (file-name-base (directory-file-name dir)) all-the-icons-dir-icon-alist))
-         (path (expand-file-name dir))
-         (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
-         (padding (or padding "\t"))
-         (icon (cond
-                ((file-symlink-p path)
-                 (all-the-icons-octicon "file-symlink-directory" :height 1.0))
-                ((all-the-icons-dir-is-submodule path)
-                 (all-the-icons-octicon "file-submodule" :height 1.0))
-                ((file-exists-p (format "%s/.git" path))
-                 (format "%s" (all-the-icons-octicon "repo" :height 1.1)))
-                (t (apply (car matcher) (cdr matcher))))))
+  (let ((icon (all-the-icons-icon-for-dir dir))
+        (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
+        (padding (or padding "\t")))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
 
 (defun all-the-icons-icon-for-buffer ()
@@ -783,6 +774,28 @@ Providing ARG-OVERRIDES will modify the creation of the icon."
       (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("html5") non-nil-args)))))))
 
 ;; Icon Functions
+
+;;;###autoload
+(defun all-the-icons-icon-for-dir (dir &rest arg-overrides)
+  "Get the formatted icon for DIR.
+ARG-OVERRIDES should be a plist containining `:height',
+`:v-adjust' or `:face' properties like in the normal icon
+inserting functions.
+
+Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
+  (let* ((dirname (file-name-base (directory-file-name dir)))
+         (path (expand-file-name dir))
+         (icon (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist))
+         (args (cdr icon)))
+    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (cond
+     ((file-symlink-p path)
+      (apply #'all-the-icons-octicon "file-symlink-directory" args))
+     ((all-the-icons-dir-is-submodule path)
+      (apply #'all-the-icons-octicon "file-submodule" args))
+     ((file-exists-p (format "%s/.git" path))
+      (apply #'all-the-icons-octicon "repo" args))
+     (t (apply (car icon) args)))))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
