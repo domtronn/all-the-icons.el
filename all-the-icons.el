@@ -119,6 +119,23 @@
   :group 'all-the-icons
   :type 'number)
 
+
+(defcustom all-the-icons-mode-repositories
+  '(".git"        ; Git VCS root dir
+    ".hg"         ; Mercurial VCS root dir
+    ".fslckout"   ; Fossil VCS root dir
+    "_FOSSIL_"    ; Fossil VCS root DB on Windows
+    ".bzr"        ; Bazaar VCS root dir
+    "_darcs"      ; Darcs VCS root dir
+    ".svn" ; Svn VCS root dir
+    "CVS"  ; Csv VCS root dir
+    )
+  "A list of files considered to mark the root of a repository."
+  :group 'all-the-icons
+  :type '(repeat string))
+
+
+
 (defvar all-the-icons-font-families '() "List of defined icon font families.")
 (defvar all-the-icons-font-names '() "List of defined font file names this package was built with.")
 
@@ -704,6 +721,12 @@
 ;;   Functions Start
 ;; ====================
 
+(defun* all-the-icons-is-repo (path)
+  "Check if PATH is a repository."
+  (dolist (repo all-the-icons-mode-repositories)
+    (when (file-exists-p (format "%s/%s" path repo))
+      (return-from all-the-icons-is-repo t))))
+
 (defun all-the-icons-auto-mode-match? (&optional file)
   "Whether or not FILE's `major-mode' match against its `auto-mode-alist'."
   (let* ((file (or file (buffer-file-name) (buffer-name)))
@@ -744,7 +767,7 @@ directory contents"
                  (all-the-icons-octicon "file-symlink-directory" :height 1.0))
                 ((all-the-icons-dir-is-submodule path)
                  (all-the-icons-octicon "file-submodule" :height 1.0))
-                ((file-exists-p (format "%s/.git" path))
+                ((all-the-icons-is-repo path)
                  (format "%s" (all-the-icons-octicon "repo" :height 1.1)))
                 (t (apply (car matcher) (cdr matcher))))))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
