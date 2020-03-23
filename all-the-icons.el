@@ -266,6 +266,11 @@
     ("\\.v$"             all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ("\\.sv$"            all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
 
+    ;; VHDL(-AMS)
+    ("\\.vhd$"           all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
+    ("\\.vhdl$"          all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
+    ("\\.vhms$"          all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
+
     ;; Cabal
     ("\\.cabal$"         all-the-icons-fileicon "cabal"                 :face all-the-icons-lblue)
 
@@ -587,6 +592,7 @@
     (tuareg-mode                        all-the-icons-fileicon "ocaml"            :v-adjust 0.0 :height 1.0)
     (purescript-mode                    all-the-icons-fileicon "purescript"       :v-adjust 0.0 :height 1.0)
     (verilog-mode                       all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    (vhdl-mode                          all-the-icons-fileicon "vhdl"             :face all-the-icons-blue)
     (haskell-cabal-mode                 all-the-icons-fileicon "cabal"            :face all-the-icons-lblue)
     (kotlin-mode                        all-the-icons-fileicon "kotlin"           :face all-the-icons-orange)
     (nim-mode                           all-the-icons-fileicon "nimrod"           :face all-the-icons-yellow)
