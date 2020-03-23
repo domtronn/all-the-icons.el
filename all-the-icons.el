@@ -414,7 +414,7 @@
     ("^\\*new-tab\\*$"  all-the-icons-material "star"                     :face all-the-icons-cyan)
 
     ("^\\."             all-the-icons-octicon "gear"                    :v-adjust 0.0)
-    ("."                all-the-icons-faicon "file-o"                   :height 0.8 :v-adjust 0.0 :face all-the-icons-dsilver)))
+    ("."                all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)))
 
 (defvar all-the-icons-dir-icon-alist
   '(
