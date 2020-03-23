@@ -855,7 +855,6 @@ inserting functions."
 (memoize 'all-the-icons-icon-family-for-mode)
 (memoize 'all-the-icons-icon-family)
 
-;;;###autoload
 (defun all-the-icons--icon-info-for-buffer (&optional f)
   "Get icon info for the current buffer.
 
@@ -987,7 +986,7 @@ pause for DURATION seconds between printing each character."
        (when duration (sit-for duration 0)))
      data)))
 
-(defmacro define-icon (name alist family &optional font-name)
+(defmacro all-the-icons-define-icon (name alist family &optional font-name)
   "Macro to generate functions for inserting icons for icon set NAME.
 
 NAME defines is the name of the iconset and will produce a
@@ -1026,12 +1025,14 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
        (interactive "P")
        (all-the-icons-insert arg (quote ,name)))))
 
-(define-icon alltheicon all-the-icons-data/alltheicons-alist    "all-the-icons")
-(define-icon fileicon   all-the-icons-data/file-icon-alist      "file-icons")
-(define-icon faicon     all-the-icons-data/fa-icon-alist        "FontAwesome")
-(define-icon octicon    all-the-icons-data/octicons-alist       "github-octicons" "octicons")
-(define-icon wicon      all-the-icons-data/weather-icons-alist  "Weather Icons"   "weathericons")
-(define-icon material   all-the-icons-data/material-icons-alist "Material Icons"  "material-design-icons")
+(define-obsolete-function-alias 'define-icon 'all-the-icons-define-icon)
+
+(all-the-icons-define-icon alltheicon all-the-icons-data/alltheicons-alist    "all-the-icons")
+(all-the-icons-define-icon fileicon   all-the-icons-data/file-icon-alist      "file-icons")
+(all-the-icons-define-icon faicon     all-the-icons-data/fa-icon-alist        "FontAwesome")
+(all-the-icons-define-icon octicon    all-the-icons-data/octicons-alist       "github-octicons" "octicons")
+(all-the-icons-define-icon wicon      all-the-icons-data/weather-icons-alist  "Weather Icons"   "weathericons")
+(all-the-icons-define-icon material   all-the-icons-data/material-icons-alist "Material Icons"  "material-design-icons")
 
 (provide 'all-the-icons)
 
