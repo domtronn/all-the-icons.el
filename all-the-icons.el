@@ -262,9 +262,13 @@
 
     ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
 
-    ;; Verilog and system verilog
+    ;; Verilog(-AMS) and SystemVerilog(-AMS)
     ("\\.v$"             all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("\\.vams$"          all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ("\\.sv$"            all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("\\.sva$"           all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("\\.svh$"           all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("\\.svams$"         all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
 
     ;; VHDL(-AMS)
     ("\\.vhd$"           all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
