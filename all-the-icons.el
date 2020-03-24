@@ -353,9 +353,9 @@
     ("\\.csv$"          all-the-icons-octicon "graph"                   :v-adjust 0.0 :face all-the-icons-dblue)
 
     ("\\.hs$"           all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
-	("\\.chs$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
+    ("\\.chs$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
     ("\\.lhs$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
-	("\\.hsc$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
+    ("\\.hsc$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
 
     ;; Web modes
     ("\\.inky-haml$"    all-the-icons-fileicon "haml"                   :face all-the-icons-lyellow)
@@ -582,8 +582,8 @@
     (stylus-mode                        all-the-icons-alltheicon "stylus"         :face all-the-icons-lgreen)
     (csv-mode                           all-the-icons-octicon "graph"             :v-adjust 0.0 :face all-the-icons-dblue)
     (haskell-mode                       all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
-	(haskell-c2hs-mode                  all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
-	(literate-haskell-mode              all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
+    (haskell-c2hs-mode                  all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
+    (literate-haskell-mode              all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
     (haml-mode                          all-the-icons-fileicon "haml"             :face all-the-icons-lyellow)
     (html-mode                          all-the-icons-alltheicon "html5"          :face all-the-icons-orange)
     (rhtml-mode                         all-the-icons-alltheicon "html5"          :face all-the-icons-lred)
