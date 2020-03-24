@@ -746,7 +746,7 @@ and directory with PADDING.
 Produces different symbols by inspecting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
-  (let ((icon (all-the-icons-icon-for-dir dir))
+  (let ((icon (or (all-the-icons-icon-for-dir dir) ""))
         (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
         (padding (or padding "\t")))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
@@ -801,12 +801,13 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (cond
      ((file-symlink-p path)
-      (apply #'all-the-icons-octicon "file-symlink-directory" args))
+      (apply #'all-the-icons-octicon "file-symlink-directory" (cdr args)))
      ((all-the-icons-dir-is-submodule path)
-      (apply #'all-the-icons-octicon "file-submodule" args))
+      (apply #'all-the-icons-octicon "file-submodule" (cdr args)))
      ((file-exists-p (format "%s/.git" path))
-      (apply #'all-the-icons-octicon "repo" args))
-     (t (apply (car icon) args)))))
+      (apply #'all-the-icons-octicon "repo" (cdr args)))
+     ((functionp (car icon)) (apply (car icon) args))
+     (t (apply #'all-the-icons-octicon "file-directory" (cdr args))))))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
