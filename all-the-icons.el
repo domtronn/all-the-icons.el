@@ -847,6 +847,7 @@ inserting functions."
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
 
+(memoize 'all-the-icons-icon-for-dir)
 (memoize 'all-the-icons-icon-for-file)
 (memoize 'all-the-icons-icon-for-mode)
 (memoize 'all-the-icons-icon-for-url)
