@@ -801,11 +801,11 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (cond
      ((file-symlink-p path)
-      (apply #'all-the-icons-octicon "file-symlink-directory" args))
+      (apply #'all-the-icons-octicon "file-symlink-directory" (cdr args)))
      ((all-the-icons-dir-is-submodule path)
-      (apply #'all-the-icons-octicon "file-submodule" args))
+      (apply #'all-the-icons-octicon "file-submodule" (cdr args)))
      ((file-exists-p (format "%s/.git" path))
-      (apply #'all-the-icons-octicon "repo" args))
+      (apply #'all-the-icons-octicon "repo" (cdr args)))
      (t (apply (car icon) args)))))
 
 ;;;###autoload
