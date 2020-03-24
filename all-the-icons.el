@@ -806,7 +806,8 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
       (apply #'all-the-icons-octicon "file-submodule" args))
      ((file-exists-p (format "%s/.git" path))
       (apply #'all-the-icons-octicon "repo" args))
-     (t (apply (car icon) args)))))
+     ((not icon)
+      (apply (car icon) args)))))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
