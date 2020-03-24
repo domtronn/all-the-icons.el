@@ -94,6 +94,7 @@
 (require 'data-octicons     "./data/data-octicons.el")
 (require 'data-weathericons "./data/data-weathericons.el")
 (require 'data-material     "./data/data-material.el")
+(require 'data-nerdfont     "./data/data-nerdfont.el")
 
 (require 'all-the-icons-faces)
 
@@ -1022,6 +1023,7 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
 (define-icon octicon    all-the-icons-data/octicons-alist       "github-octicons" "octicons")
 (define-icon wicon      all-the-icons-data/weather-icons-alist  "Weather Icons"   "weathericons")
 (define-icon material   all-the-icons-data/material-icons-alist "Material Icons"  "material-design-icons")
+(define-icon nf         all-the-icons-data/nf-icon-alist        "NerdFont Icons")
 
 (provide 'all-the-icons)
 
