@@ -401,6 +401,8 @@
     ("\\.mov"           all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.mp4"           all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.ogv"           all-the-icons-faicon "film"                     :face all-the-icons-dblue)
+    ("\\.mkv"           all-the-icons-faicon "film"                     :face all-the-icons-blue)
+    ("\\.webm"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
 
     ;; Fonts
     ("\\.ttf$"          all-the-icons-fileicon "font"                   :v-adjust 0.0 :face all-the-icons-dcyan)
