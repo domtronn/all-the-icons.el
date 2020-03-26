@@ -435,10 +435,10 @@
   '(
     ("trash"            all-the-icons-faicon "trash-o"          :height 1.2 :v-adjust -0.1)
     ("dropbox"          all-the-icons-faicon "dropbox"          :height 1.0 :v-adjust -0.1)
-    ("google[ _-]drive" all-the-icons-alltheicon "google-drive" :height 1.3 :v-adjust -0.1)
+    ("google[ _-]drive" all-the-icons-alltheicon "google-drive" :height 1.0 :v-adjust -0.1)
     ("^atom$"           all-the-icons-alltheicon "atom"         :height 1.2 :v-adjust -0.1)
     ("documents"        all-the-icons-faicon "book"             :height 1.0 :v-adjust -0.1)
-    ("download"         all-the-icons-faicon "cloud-download"   :height 0.9 :v-adjust -0.2)
+    ("download"         all-the-icons-faicon "cloud-download"   :height 0.9 :v-adjust -0.1)
     ("desktop"          all-the-icons-octicon "device-desktop"  :height 1.0 :v-adjust -0.1)
     ("pictures"         all-the-icons-faicon "picture-o"        :height 0.9 :v-adjust -0.2)
     ("photos"           all-the-icons-faicon "camera-retro"     :height 1.0 :v-adjust -0.1)
