@@ -332,6 +332,8 @@
     ("\\.coffee$"       all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-maroon)
     ("\\.iced$"         all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-lmaroon)
 
+    ("\\.dart$"         all-the-icons-fileicon "dart"                   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+
     ;; Git
     ("^MERGE_"          all-the-icons-octicon "git-merge"               :v-adjust 0.0 :face all-the-icons-red)
     ("^COMMIT_EDITMSG"  all-the-icons-octicon "git-commit"              :v-adjust 0.0 :face all-the-icons-red)
@@ -616,6 +618,7 @@
     (powershell-mode                    all-the-icons-fileicon "powershell"       :face all-the-icons-blue)
     (tex-mode                           all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     (latex-mode                         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    (dart-mode                          all-the-icons-fileicon "dart"             :height 1.0  :face all-the-icons-blue)
     ))
 
 (defvar all-the-icons-url-alist

@@ -105,6 +105,7 @@
     ( "cython" . "\xe963" )
     ( "d3" . "\xea10" )
     ( "darcs" . "\xe964" )
+    ( "dart" . "\xe698" )
     ( "dashboard" . "\xf07d" )
     ( "dbase" . "\xe9f1" )
     ( "default" . "\x1f5cc" )
