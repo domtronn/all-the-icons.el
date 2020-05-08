@@ -431,7 +431,7 @@
     ("^\\*new-tab\\*$"  all-the-icons-material "star"                     :face all-the-icons-cyan)
 
     ("^\\."             all-the-icons-octicon "gear"                    :v-adjust 0.0)
-    ("."                all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)))
+    (".?"               all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)))
 
 (defvar all-the-icons-dir-icon-alist
   '(
@@ -450,7 +450,7 @@
     ("workspace"        all-the-icons-octicon "code"            :height 1.1 :v-adjust -0.1)
     ("test"             all-the-icons-fileicon "test-dir"       :height 0.9)
     ("\\.git"           all-the-icons-alltheicon "git"          :height 1.0)
-    ("."                all-the-icons-octicon "file-directory"  :height 1.0 :v-adjust -0.1)
+    (".?"               all-the-icons-octicon "file-directory"  :height 1.0 :v-adjust -0.1)
     ))
 
 (defvar all-the-icons-weather-icon-alist
