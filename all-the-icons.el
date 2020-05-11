@@ -206,6 +206,7 @@
     ("\\.hrl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-dred :v-adjust -0.1 :height 0.9)
 
     ("\\.eex$"          all-the-icons-alltheicon "elixir"               :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
+    ("\\.leex$"         all-the-icons-alltheicon "elixir"               :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
     ("\\.ex$"           all-the-icons-alltheicon "elixir"               :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
     ("\\.exs$"          all-the-icons-alltheicon "elixir"               :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
     ("^mix.lock$"       all-the-icons-alltheicon "elixir"               :face all-the-icons-lyellow :v-adjust -0.1 :height 0.9)
