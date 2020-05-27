@@ -393,6 +393,9 @@
     ("\\.njs$"          all-the-icons-alltheicon "nodejs"               :height 1.2  :face all-the-icons-lgreen)
     ("\\.vue$"          all-the-icons-fileicon "vue"                    :face all-the-icons-lgreen)
 
+    ;; F#
+    ("\\.fs[ix]?$"      all-the-icons-fileicon "fsharp"                 :face all-the-icons-blue-alt)
+
     ;; File Types
     ("\\.ico$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-blue)
     ("\\.png$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-orange)
@@ -620,6 +623,7 @@
     (tex-mode                           all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     (latex-mode                         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     (dart-mode                          all-the-icons-fileicon "dart"             :height 1.0  :face all-the-icons-blue)
+    (fsharp-mode                        all-the-icons-fileicon "fsharp"           :height 1.0  :face all-the-icons-blue)
     ))
 
 (defvar all-the-icons-url-alist
