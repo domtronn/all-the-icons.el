@@ -158,6 +158,7 @@
     ( "franca" . "\xea56" )
     ( "freemarker" . "\xe970" )
     ( "frege" . "\xe96e" )
+    ( "fsharp" . "\xe6a7" )
     ( "fuel-ux" . "\xea09" )
     ( "gams" . "\xe973" )
     ( "gap" . "\xe971" )
