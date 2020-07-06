@@ -327,7 +327,7 @@
 
     ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
 
-    ("\\.cljc?$"        all-the-icons-alltheicon "clojure-line"         :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ("\\.cljc?$"        all-the-icons-alltheicon "clojure"              :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
     ("\\.cljs$"         all-the-icons-fileicon "cljs"                   :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
 
     ("\\.coffee$"       all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-maroon)
@@ -578,8 +578,8 @@
     (c-mode                             all-the-icons-alltheicon "c-line"         :face all-the-icons-blue)
     (c++-mode                           all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-blue)
     (csharp-mode                        all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
-    (clojure-mode                       all-the-icons-alltheicon "clojure-line"   :height 1.0  :face all-the-icons-blue)
-    (cider-repl-mode                    all-the-icons-alltheicon "clojure-line"   :height 1.0  :face all-the-icons-dblue)
+    (clojure-mode                       all-the-icons-alltheicon "clojure"        :height 1.0  :face all-the-icons-blue)
+    (cider-repl-mode                    all-the-icons-alltheicon "clojure"        :height 1.0  :face all-the-icons-green)
     (clojurescript-mode                 all-the-icons-fileicon "cljs"             :height 1.0  :face all-the-icons-dblue)
     (coffee-mode                        all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-maroon)
     (lisp-mode                          all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
