@@ -98,6 +98,7 @@
 
 (require 'all-the-icons-faces)
 
+(defvar web-mode-content-type) ;silence byte-compiler warning
 ;;; Custom Variables
 (defgroup all-the-icons nil
   "Manage how All The Icons formats icons."
