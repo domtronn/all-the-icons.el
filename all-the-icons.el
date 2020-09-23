@@ -240,6 +240,7 @@
     ("\\.ps1$"          all-the-icons-fileicon "powershell"             :face all-the-icons-blue)
     ("\\.prol?o?g?$"    all-the-icons-alltheicon "prolog"               :height 1.1  :face all-the-icons-lmaroon)
     ("\\.py$"           all-the-icons-alltheicon "python"               :height 1.0  :face all-the-icons-dblue)
+    ("\\.ipynb$"        all-the-icons-fileicon "jupyter"                :height 1.0  :face all-the-icons-dorange)
 
     ("\\.rkt$"          all-the-icons-fileicon "racket"                 :height 1.2 :face all-the-icons-red)
     ("^Gemfile\\(\\.lock\\)?$" all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
