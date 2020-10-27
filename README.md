@@ -118,6 +118,13 @@ and `all-the-icons-icon-for-mode` functions as well, *i.e.*
     ;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 2.0 :foreground "red")))
 ```
 
+The default icon `:height` and `:v-adjust` properties can be set with
+the `all-the-icons-scale-factor` and `all-the-icons-default-adjust`
+variables. Additional adjustments can be made per font family via the
+`all-the-icons-{familyname}-scale-factor` and
+`all-the-icons-default-{familyname}-adjust` variables, where
+`{familyname}` is any member of `all-the-icons-font-families`.
+
 ## Propertizing icons yourself
 
 However, sometimes when propertizing these icons *(for example if you
@@ -161,7 +168,7 @@ To check if you've misconfigured your Emacs font settings, you can try the follo
   * `M-x describe-fontset RET RET`
   * Now you are looking at the fontset for the current frame, search for the hex range for that icon. Usually it's `#xE000`, or `#xF0` `#xF2`, but there are a few outside of these offsets.
   * If you don't see the font family in question in the list of fontspecs (i.e. `[-*-file-icons-...]`) below the range, or some other fontspecs in front of the one in question, you will have to add the families back to the fontset (scroll to the top to see which one is in effect), or arrange the fontspec order. For example:
-  
+
 ```elisp
 ;; Use 'prepend for the NS and Mac ports or Emacs will crash.
 (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
@@ -170,7 +177,7 @@ To check if you've misconfigured your Emacs font settings, you can try the follo
 (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
 (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
-```  
+```
 
 # Resource Fonts
 
