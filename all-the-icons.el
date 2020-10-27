@@ -1,10 +1,10 @@
-;;; all-the-icons.el --- A library for inserting Developer icons
+;;; all-the-icons.el --- A library for inserting Developer icons -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016  Dominic Charlesworth <dgc336@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
 ;; Version: 4.0.0
-;; Package-Requires: ((emacs "24.3") (memoize "1.0.1"))
+;; Package-Requires: ((emacs "24.3"))
 ;; URL: https://github.com/domtronn/all-the-icons.el
 ;; Keywords: convenient, lisp
 
@@ -86,7 +86,6 @@
 ;; All the alist variables are prefixed with `all-the-icons-data/'
 
 ;;; Code:
-(require 'memoize)
 (require 'cl-lib)
 
 (require 'data-alltheicons  "./data/data-alltheicons.el")
@@ -868,10 +867,31 @@ inserting functions."
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
 
-(memoize 'all-the-icons-icon-for-dir)
-(memoize 'all-the-icons-icon-for-file)
-(memoize 'all-the-icons-icon-for-mode)
-(memoize 'all-the-icons-icon-for-url)
+(defcustom all-the-icons--cache-limit 2048
+  "Maximum cache size for functions cached by `all-the-icons-cache'."
+  :type 'integer)
+
+(defun all-the-icons-cache (func)
+  "Set a cache for FUNC. Does not work on interactive functions."
+  (unless (get func 'all-the-icons--cached)
+    (let ((cache (make-hash-table :test #'equal
+                                  :size all-the-icons--cache-limit))
+          (orig-fn (symbol-function func)))
+      (fset func
+            (lambda (&rest args)
+              (or (gethash args cache)
+                  (progn
+                    (when (> (hash-table-count cache)
+                             all-the-icons--cache-limit)
+                      (clrhash cache))
+                    (puthash args (apply orig-fn args) cache)))))))
+
+  (put func 'all-the-icons--cached t))
+
+(all-the-icons-cache #'all-the-icons-icon-for-dir)
+(all-the-icons-cache #'all-the-icons-icon-for-file)
+(all-the-icons-cache #'all-the-icons-icon-for-mode)
+(all-the-icons-cache #'all-the-icons-icon-for-url)
 
 ;; Family Face Functions
 (defun all-the-icons-icon-family-for-file (file)
@@ -888,9 +908,9 @@ inserting functions."
   "Get a propertized ICON family programmatically."
   (plist-get (get-text-property 0 'face icon) :family))
 
-(memoize 'all-the-icons-icon-family-for-file)
-(memoize 'all-the-icons-icon-family-for-mode)
-(memoize 'all-the-icons-icon-family)
+(all-the-icons-cache #'all-the-icons-icon-family-for-file)
+(all-the-icons-cache #'all-the-icons-icon-family-for-mode)
+(all-the-icons-cache #'all-the-icons-icon-family)
 
 (defun all-the-icons--icon-info-for-buffer (&optional f)
   "Get icon info for the current buffer.
