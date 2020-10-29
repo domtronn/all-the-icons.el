@@ -123,47 +123,265 @@
 (defvar all-the-icons-font-families '() "List of defined icon font families.")
 (defvar all-the-icons-font-names '() "List of defined font file names this package was built with.")
 
-(defvar all-the-icons-icon-alist
+(defvar all-the-icons-extension-icon-alist
   '(
+    ("fish"         all-the-icons-alltheicon "terminal"       :face all-the-icons-lpink)
+    ("zsh"          all-the-icons-alltheicon "terminal"       :face all-the-icons-lcyan)
+    ("sh"           all-the-icons-alltheicon "terminal"       :face all-the-icons-purple)
     ;; Meta
-    ("\\.tags"          all-the-icons-octicon "tag"                     :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
-    ("^TAGS$"           all-the-icons-octicon "tag"                     :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
-    ("\\.log$"          all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)
-
+    ("tags"         all-the-icons-octicon "tag"               :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
+    ("log"          all-the-icons-octicon "bug"               :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon)
+    ;; Config
+    ("node"         all-the-icons-alltheicon "nodejs"         :height 1.0  :face all-the-icons-green)
+    ("babelrc"      all-the-icons-fileicon "babel"            :face all-the-icons-yellow)
+    ("bashrc"       all-the-icons-alltheicon "script"         :height 0.9  :face all-the-icons-dpink)
+    ("bowerrc"      all-the-icons-alltheicon "bower"          :height 1.0 :v-adjust 0.0 :face all-the-icons-silver)
+    ("ini"          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-yellow)
+    ("eslintignore" all-the-icons-fileicon "eslint"           :height 0.9  :face all-the-icons-purple)
+    ("eslint"       all-the-icons-fileicon "eslint"           :height 0.9  :face all-the-icons-lpurple)
+    ("git"          all-the-icons-alltheicon "git"            :height 1.0  :face all-the-icons-lred)
+    ("mk"           all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
+    ("cmake"        all-the-icons-fileicon "cmake"            :face all-the-icons-red)
+    ("dockerignore" all-the-icons-fileicon "dockerfile"       :height 1.2  :face all-the-icons-dblue)
+    ("xml"          all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
+    ("json"         all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-yellow)
+    ("cson"         all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-yellow)
+    ("yml"          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
+    ("yaml"         all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
+    ;; ?
+    ("pkg"          all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
+    ("rpm"          all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
+    ("elc"          all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-dsilver)
+    ("gz"           all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-lmaroon)
+    ("zip"          all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
+    ("7z"           all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
+    ("dat"          all-the-icons-faicon "bar-chart"          :face all-the-icons-cyan :height 0.9)
+    ("dmg"          all-the-icons-octicon "tools"             :v-adjust 0.0 :face all-the-icons-lsilver)
+    ("dll"          all-the-icons-faicon "cogs"               :face all-the-icons-silver)
+    ("DS_STORE"     all-the-icons-faicon "cogs"               :face all-the-icons-silver)
+    ;; Source Codes
+    ("scpt"         all-the-icons-fileicon "apple"            :face all-the-icons-pink)
+    ("aup"          all-the-icons-fileicon "audacity"         :face all-the-icons-yellow)
+    ("elm"          all-the-icons-fileicon "elm"              :face all-the-icons-blue)
+    ("erl"          all-the-icons-alltheicon "erlang"         :face all-the-icons-red :v-adjust -0.1 :height 0.9)
+    ("hrl"          all-the-icons-alltheicon "erlang"         :face all-the-icons-dred :v-adjust -0.1 :height 0.9)
+    ("eex"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
+    ("leex"         all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
+    ("ex"           all-the-icons-alltheicon "elixir"         :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
+    ("exs"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
+    ("java"         all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
+    ("go"           all-the-icons-alltheicon "go"             :height 1.0  :face all-the-icons-blue)
+    ("jl"           all-the-icons-fileicon "julia"            :face all-the-icons-purple :v-adjust 0.0)
+    ("matlab"       all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
+    ("nix"          all-the-icons-fileicon "nix"              :face all-the-icons-blue)
+    ("pl"           all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
+    ("pm"           all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
+    ("pl6"          all-the-icons-fileicon "perl6"            :face all-the-icons-cyan)
+    ("pm6"          all-the-icons-fileicon "perl6"            :face all-the-icons-pink)
+    ("pod"          all-the-icons-alltheicon "perldocs"       :height 1.2  :face all-the-icons-lgreen)
+    ("php"          all-the-icons-fileicon "php"              :face all-the-icons-lsilver)
+    ("pony"         all-the-icons-fileicon "pony"             :face all-the-icons-maroon)
+    ("ps1"          all-the-icons-fileicon "powershell"       :face all-the-icons-blue)
+    ("pro"          all-the-icons-alltheicon "prolog"         :height 1.1  :face all-the-icons-lmaroon)
+    ("proog"        all-the-icons-alltheicon "prolog"         :height 1.1  :face all-the-icons-lmaroon)
+    ("py"           all-the-icons-alltheicon "python"         :height 1.0  :face all-the-icons-dblue)
+    ("ipynb"        all-the-icons-fileicon "jupyter"          :height 1.0  :face all-the-icons-dorange)
+    ("rkt"          all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-red)
+    ("gem"          all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
+    ("rb"           all-the-icons-octicon "ruby"              :v-adjust 0.0 :face all-the-icons-lred)
+    ("rs"           all-the-icons-alltheicon "rust"           :height 1.2  :face all-the-icons-maroon)
+    ("rlib"         all-the-icons-alltheicon "rust"           :height 1.2  :face all-the-icons-dmaroon)
+    ("r"            all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ("rd"           all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ("rdx"          all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ("rs"           all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ("rsx"          all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ;; There seems to be a a bug with this font icon which does not
+    ;; let you propertise it without it reverting to being a lower
+    ;; case phi
+    ("c"            all-the-icons-alltheicon "c-line"         :face all-the-icons-blue)
+    ("h"            all-the-icons-alltheicon "c-line"         :face all-the-icons-purple)
+    ("m"            all-the-icons-fileicon "apple"            :v-adjust 0.0 :height 1.0)
+    ("mm"           all-the-icons-fileicon "apple"            :v-adjust 0.0 :height 1.0)
     ;;
-    ("\\.key$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-lblue)
-    ("\\.pem$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-orange)
-    ("\\.p12$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-dorange)
-    ("\\.crt$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-lblue)
-    ("\\.pub$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-blue)
-    ("\\.gpg$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-lblue)
+    ("cc"           all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-blue)
+    ("cpp"          all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-blue)
+    ("cxx"          all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-blue)
+    ("hh"           all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-purple)
+    ("hpp"          all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-purple)
+    ("hxx"          all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-purple)
+    ;; Lisps
+    ("cl"           all-the-icons-fileicon "clisp"            :face all-the-icons-lorange)
+    ("l"            all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
+    ("lisp"         all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
+    ("el"           all-the-icons-fileicon "elisp"            :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
+    ("cs"           all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
+    ("csx"          all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
+    ("clj"          all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ("cljc"         all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ("cljs"         all-the-icons-fileicon "cljs"             :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
+    ("coffee"       all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-maroon)
+    ("iced"         all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-lmaroon)
+    ("dart"         all-the-icons-fileicon "dart"             :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ;; Stylesheeting
+    ("css"          all-the-icons-alltheicon "css3"           :face all-the-icons-yellow)
+    ("scss"         all-the-icons-alltheicon "sass"           :face all-the-icons-pink)
+    ("sass"         all-the-icons-alltheicon "sass"           :face all-the-icons-dpink)
+    ("less"         all-the-icons-alltheicon "less"           :height 0.8  :face all-the-icons-dyellow)
+    ("postcss"      all-the-icons-fileicon "postcss"          :face all-the-icons-dred)
+    ("sss"          all-the-icons-fileicon "postcss"          :face all-the-icons-dred)
+    ("styl"         all-the-icons-alltheicon "stylus"         :face all-the-icons-lgreen)
+    ("csv"          all-the-icons-octicon "graph"             :v-adjust 0.0 :face all-the-icons-dblue)
+    ;; haskell
+    ("hs"           all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
+    ("chs"          all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
+    ("lhs"          all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
+    ("hsc"          all-the-icons-alltheicon "haskell"        :height 1.0  :face all-the-icons-red)
+    ;; Web modes
+    ("inky-haml"    all-the-icons-fileicon "haml"             :face all-the-icons-lyellow)
+    ("haml"         all-the-icons-fileicon "haml"             :face all-the-icons-lyellow)
+    ("htm"          all-the-icons-alltheicon "html5"          :face all-the-icons-orange)
+    ("html"         all-the-icons-alltheicon "html5"          :face all-the-icons-orange)
+    ("inky-er"      all-the-icons-alltheicon "html5"          :face all-the-icons-lred)
+    ("inky-erb"     all-the-icons-alltheicon "html5"          :face all-the-icons-lred)
+    ("erb"          all-the-icons-alltheicon "html5"          :face all-the-icons-lred)
+    ("hbs"          all-the-icons-fileicon "moustache"        :face all-the-icons-green)
+    ("inky-slim"    all-the-icons-octicon "dashboard"         :v-adjust 0.0 :face all-the-icons-yellow)
+    ("slim"         all-the-icons-octicon "dashboard"         :v-adjust 0.0 :face all-the-icons-yellow)
+    ("jade"         all-the-icons-fileicon "jade"             :face all-the-icons-red)
+    ("pug"          all-the-icons-fileicon "pug-alt"          :face all-the-icons-red)
+    ;; Javascript
+    ("d3js"         all-the-icons-alltheicon "d3"             :height 0.8  :face all-the-icons-lgreen)
+    ("re"           all-the-icons-fileicon "reason"           :height 1.0  :face all-the-icons-red-alt)
+    ("rei"          all-the-icons-fileicon "reason"           :height 1.0  :face all-the-icons-dred)
+    ("ml"           all-the-icons-fileicon "ocaml"            :height 1.0  :face all-the-icons-lpink)
+    ("mli"          all-the-icons-fileicon "ocaml"            :height 1.0  :face all-the-icons-dpink)
+    ("react"        all-the-icons-alltheicon "react"          :height 1.1  :face all-the-icons-lblue)
+    ("ts"           all-the-icons-fileicon "typescript"       :height 1.0 :v-adjust -0.1 :face all-the-icons-blue-alt)
+    ("js"           all-the-icons-alltheicon "javascript"     :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
+    ("es"           all-the-icons-alltheicon "javascript"     :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
+    ("jsx"          all-the-icons-fileicon "jsx-2"            :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
+    ("njs"          all-the-icons-alltheicon "nodejs"         :height 1.2  :face all-the-icons-lgreen)
+    ("vue"          all-the-icons-fileicon "vue"              :face all-the-icons-lgreen)
 
+    ("sbt"          all-the-icons-fileicon   "sbt"            :face all-the-icons-red)
+    ("scala"        all-the-icons-alltheicon "scala"          :face all-the-icons-red)
+    ("scm"          all-the-icons-fileicon   "scheme"         :height 1.2 :face all-the-icons-red)
+    ("swift"        all-the-icons-alltheicon "swift"          :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
+    ;; Verilog(-AMS) and SystemVerilog(-AMS)
+    ("v"            all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("vams"         all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("sv"           all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("sva"          all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("svh"          all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ("svams"        all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
+    ;; VHDL(-AMS)
+    ("vhd"          all-the-icons-fileicon "vhdl"             :face all-the-icons-blue)
+    ("vhdl"         all-the-icons-fileicon "vhdl"             :face all-the-icons-blue)
+    ("vhms"         all-the-icons-fileicon "vhdl"             :face all-the-icons-blue)
+    ;; Cabal
+    ("cabal"        all-the-icons-fileicon "cabal"            :face all-the-icons-lblue)
+    ;; Kotlin
+    ("kt"           all-the-icons-fileicon "kotlin"           :face all-the-icons-orange)
+    ("kts"          all-the-icons-fileicon "kotlin"           :face all-the-icons-orange)
+    ;; Nimrod
+    ("nim"          all-the-icons-fileicon "nimrod"           :face all-the-icons-yellow)
+    ("nims"         all-the-icons-fileicon "nimrod"           :face all-the-icons-yellow)
+    ;; SQL
+    ("sql"          all-the-icons-octicon "database"          :face all-the-icons-silver)
+    ;; Styles
+    ("styles"       all-the-icons-material "style"            :face all-the-icons-red)
+    ;; Lua
+    ("lua"          all-the-icons-fileicon "lua"              :face all-the-icons-dblue)
+    ;; ASCII doc
+    ("adoc"         all-the-icons-fileicon "asciidoc"         :face all-the-icons-lblue)
+    ("asciidoc"     all-the-icons-fileicon "asciidoc"         :face all-the-icons-lblue)
+    ;; Puppet
+    ("pp"           all-the-icons-fileicon "puppet"           :face all-the-icons-yellow)
+    ;; Jinja
+    ("j2"           all-the-icons-fileicon "jinja"            :face all-the-icons-silver)
+    ("jinja2"       all-the-icons-fileicon "jinja"            :face all-the-icons-silver)
+    ;; Docker
+    ("dockerfile"   all-the-icons-fileicon "dockerfile"       :face all-the-icons-cyan)
+    ;; Vagrant
+    ("vagrantfile"  all-the-icons-fileicon "vagrant"          :face all-the-icons-blue)
+    ;; F#
+    ("fs"           all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
+    ("fsi"          all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
+    ("fsx"          all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
+    ("fsscript"     all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
+    ;; File Types
+    ("ico"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-blue)
+    ("png"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-orange)
+    ("gif"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-green)
+    ("jpeg"         all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dblue)
+    ("jpg"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dblue)
+    ;; Audio
+    ("mp3"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("wav"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("m4a"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("ogg"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("flac"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("opus"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("au"           all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("aif"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("aifc"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("aiff"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("svg"          all-the-icons-alltheicon "svg"            :height 0.9  :face all-the-icons-lgreen)
+    ;; Video
+    ("mov"          all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ("mp4"          all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ("ogv"          all-the-icons-faicon "film"               :face all-the-icons-dblue)
+    ("mkv"          all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ("webm"         all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ;; Fonts
+    ("ttf"          all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-dcyan)
+    ("woff"         all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-cyan)
+    ("woff2"        all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-cyan)
+    ;; Doc
+    ("pdf"          all-the-icons-octicon "file-pdf"          :v-adjust 0.0 :face all-the-icons-dred)
+    ("text"         all-the-icons-octicon "file-text"         :v-adjust 0.0 :face all-the-icons-cyan)
+    ("txt"          all-the-icons-octicon "file-text"         :v-adjust 0.0 :face all-the-icons-cyan)
+    ("doc"          all-the-icons-fileicon "word"             :face all-the-icons-blue)
+    ("docx"         all-the-icons-fileicon "word"             :face all-the-icons-blue)
+    ("docm"         all-the-icons-fileicon "word"             :face all-the-icons-blue)
+    ("texi"         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    ("tex"          all-the-icons-fileicon "tex"              :face all-the-icons-lred)
+    ("md"           all-the-icons-octicon "markdown"          :v-adjust 0.0 :face all-the-icons-lblue)
+    ("bib"          all-the-icons-fileicon "bib"              :face all-the-icons-maroon)
+    ("org"          all-the-icons-fileicon "org"              :face all-the-icons-lgreen)
+    ("pps"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
+    ("ppt"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
+    ("pptsx"        all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
+    ("ppttx"        all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
+    ("knt"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-cyan)
+    ;;
+    ("key"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
+    ("pem"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-orange)
+    ("p12"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-dorange)
+    ("crt"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
+    ("pub"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-blue)
+    ("gpg"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
+    ("cache"        all-the-icons-octicon "database"          :height 1.0 :v-adjust 0.0 :face all-the-icons-green)))
+
+
+
+(defvar all-the-icons-regexp-icon-alist
+  '(
+    ;;
+    ("^TAGS$"           all-the-icons-octicon "tag"                     :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
     ("^TODO$"           all-the-icons-octicon "checklist"               :v-adjust 0.0 :face all-the-icons-lyellow)
     ("^LICENSE$"        all-the-icons-octicon "book"                    :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
     ("^readme"          all-the-icons-octicon "book"                    :height 1.0 :v-adjust 0.0 :face all-the-icons-lcyan)
 
-    ("\\.fish$"         all-the-icons-alltheicon "terminal"             :face all-the-icons-lpink)
-    ("\\.zsh$"          all-the-icons-alltheicon "terminal"             :face all-the-icons-lcyan)
-    ("\\.sh$"           all-the-icons-alltheicon "terminal"             :face all-the-icons-purple)
-
     ;; Config
-    ("\\.node$"         all-the-icons-alltheicon "nodejs"               :height 1.0  :face all-the-icons-green)
-    ("\\.babelrc$"      all-the-icons-fileicon "babel"                  :face all-the-icons-yellow)
-    ("\\.bashrc$"       all-the-icons-alltheicon "script"               :height 0.9  :face all-the-icons-dpink)
-    ("\\.bowerrc$"      all-the-icons-alltheicon "bower"                :height 1.0 :v-adjust 0.0 :face all-the-icons-silver)
     ("^bower.json$"     all-the-icons-alltheicon "bower"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lorange)
-    ("\\.eslintignore$" all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-purple)
-    ("\\.eslint"        all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-lpurple)
-    ("\\.git"           all-the-icons-alltheicon "git"                  :height 1.0  :face all-the-icons-lred)
     ("nginx"            all-the-icons-fileicon "nginx"                  :height 0.9  :face all-the-icons-dgreen)
     ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
     ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
-    ("\\.mk$"           all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
     ("^CMakeLists.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-red)
     ("^CMakeCache.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-blue)
-    ("\\.cmake$"        all-the-icons-fileicon "cmake"                  :face all-the-icons-red)
 
-    ("\\.dockerignore$" all-the-icons-fileicon "dockerfile"             :height 1.2  :face all-the-icons-dblue)
     ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile"             :face all-the-icons-blue)
     ("^Brewfile$"       all-the-icons-faicon "beer"                     :face all-the-icons-lsilver)
     ("\\.npmignore$"    all-the-icons-fileicon "npm"                    :face all-the-icons-dred)
@@ -171,96 +389,23 @@
     ("^package.lock.json$" all-the-icons-fileicon "npm"                 :face all-the-icons-dred)
     ("^yarn\\.lock"     all-the-icons-fileicon "yarn"                   :face all-the-icons-blue-alt)
 
-    ("\\.xml$"          all-the-icons-faicon "file-code-o"              :height 0.95 :face all-the-icons-lorange)
-
     ;; ;; AWS
     ("^stack.*.json$"   all-the-icons-alltheicon "aws"                  :face all-the-icons-orange)
 
 
     ("^serverless\\.yml$" all-the-icons-faicon "bolt"                   :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.ini$"          all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.[jc]son$"      all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.ya?ml$"        all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
-    ("\\.toml$"         all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-dyellow)
 
-    ("\\.pkg$"          all-the-icons-octicon "package"                 :v-adjust 0.0 :face all-the-icons-dsilver)
-    ("\\.rpm$"          all-the-icons-octicon "package"                 :v-adjust 0.0 :face all-the-icons-dsilver)
-
-    ("\\.elc$"          all-the-icons-octicon "file-binary"             :v-adjust 0.0 :face all-the-icons-dsilver)
-
-    ("\\.gz$"           all-the-icons-octicon "file-binary"             :v-adjust 0.0 :face all-the-icons-lmaroon)
-    ("\\.zip$"          all-the-icons-octicon "file-zip"                :v-adjust 0.0 :face all-the-icons-lmaroon)
-    ("\\.7z$"           all-the-icons-octicon "file-zip"                :v-adjust 0.0 :face all-the-icons-lmaroon)
-
-    ("\\.dat$"          all-the-icons-faicon "bar-chart"                :face all-the-icons-cyan :height 0.9)
     ;; lock files
     ("~$"               all-the-icons-octicon "lock"                    :v-adjust 0.0 :face all-the-icons-maroon)
 
-    ("\\.dmg$"          all-the-icons-octicon "tools"                   :v-adjust 0.0 :face all-the-icons-lsilver)
-    ("\\.dll$"          all-the-icons-faicon "cogs"                     :face all-the-icons-silver)
-    ("\\.DS_STORE$"     all-the-icons-faicon "cogs"                     :face all-the-icons-silver)
-
     ;; Source Codes
-    ("\\.scpt$"         all-the-icons-fileicon "apple"                  :face all-the-icons-pink)
-    ("\\.aup$"          all-the-icons-fileicon "audacity"               :face all-the-icons-yellow)
-
-    ("\\.elm$"          all-the-icons-fileicon "elm"                    :face all-the-icons-blue)
-
-    ("\\.erl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-red :v-adjust -0.1 :height 0.9)
-    ("\\.hrl$"          all-the-icons-alltheicon "erlang"               :face all-the-icons-dred :v-adjust -0.1 :height 0.9)
-
-    ("\\.eex$"          all-the-icons-alltheicon "elixir"               :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
-    ("\\.leex$"         all-the-icons-alltheicon "elixir"               :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
-    ("\\.ex$"           all-the-icons-alltheicon "elixir"               :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
-    ("\\.exs$"          all-the-icons-alltheicon "elixir"               :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
     ("^mix.lock$"       all-the-icons-alltheicon "elixir"               :face all-the-icons-lyellow :v-adjust -0.1 :height 0.9)
 
-    ("\\.java$"         all-the-icons-alltheicon "java"                 :height 1.0  :face all-the-icons-purple)
-
-    ("\\.go$"           all-the-icons-fileicon "go"                     :height 1.0  :face all-the-icons-blue)
-
-    ("\\.mp3$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.wav$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.m4a$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.ogg$"          all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.flac$"         all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.opus$"         all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.au$"           all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-    ("\\.aif[fc]?$"     all-the-icons-faicon "volume-up"                :face all-the-icons-dred)
-
-    ("\\.jl$"           all-the-icons-fileicon "julia"                  :v-adjust 0.0 :face all-the-icons-purple)
-    ("\\.matlab$"       all-the-icons-fileicon "matlab"                 :face all-the-icons-orange)
-
-    ("\\.nix$"          all-the-icons-fileicon "nix"                    :face all-the-icons-blue)
-
-    ("\\.p[ml]$"        all-the-icons-alltheicon "perl"                 :face all-the-icons-lorange)
-    ("\\.pl6$"          all-the-icons-fileicon "perl6"                  :face all-the-icons-cyan)
-    ("\\.pm6$"          all-the-icons-fileicon "perl6"                  :face all-the-icons-pink)
-    ("\\.pod$"          all-the-icons-alltheicon "perldocs"             :height 1.2  :face all-the-icons-lgreen)
-
-    ("\\.php$"          all-the-icons-fileicon "php"                    :face all-the-icons-lsilver)
-    ("\\.pony$"         all-the-icons-fileicon "pony"                   :face all-the-icons-maroon)
-    ("\\.ps1$"          all-the-icons-fileicon "powershell"             :face all-the-icons-blue)
-    ("\\.prol?o?g?$"    all-the-icons-alltheicon "prolog"               :height 1.1  :face all-the-icons-lmaroon)
-    ("\\.py$"           all-the-icons-alltheicon "python"               :height 1.0  :face all-the-icons-dblue)
-    ("\\.ipynb$"        all-the-icons-fileicon "jupyter"                :height 1.0  :face all-the-icons-dorange)
-
-    ("\\.rkt$"          all-the-icons-fileicon "racket"                 :height 1.2 :face all-the-icons-red)
     ("^Gemfile\\(\\.lock\\)?$" all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
-    ("\\.gem$"          all-the-icons-alltheicon "ruby-alt"             :face all-the-icons-red)
     ("_?test\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
     ("_?test_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
     ("_?spec\\.rb$"        all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-red)
     ("_?spec_helper\\.rb$" all-the-icons-fileicon "test-ruby"            :height 1.0 :v-adjust 0.0 :face all-the-icons-dred)
-    ("\\.rb$"           all-the-icons-octicon "ruby"                    :v-adjust 0.0 :face all-the-icons-lred)
-    ("\\.rs$"           all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-maroon)
-    ("\\.rlib$"         all-the-icons-alltheicon "rust"                 :height 1.2  :face all-the-icons-dmaroon)
-    ("\\.r[ds]?x?$"     all-the-icons-fileicon "R"                      :face all-the-icons-lblue)
-
-    ("\\.sbt$"          all-the-icons-fileicon   "sbt"                  :face all-the-icons-red)
-    ("\\.scala$"        all-the-icons-alltheicon "scala"                :face all-the-icons-red)
-    ("\\.scm$"          all-the-icons-fileicon   "scheme"               :height 1.2 :face all-the-icons-red)
-    ("\\.swift$"        all-the-icons-alltheicon "swift"                :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
 
     ("-?spec\\.ts$"     all-the-icons-fileicon "test-typescript"        :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
     ("-?test\\.ts$"     all-the-icons-fileicon "test-typescript"        :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
@@ -273,199 +418,19 @@
 
     ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
 
-    ("\\.asm$"          all-the-icons-fileicon "assembly"               :height 1.0 :face all-the-icons-blue)
-
-    ;; Verilog(-AMS) and SystemVerilog(-AMS)
-    ("\\.v$"             all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
-    ("\\.vams$"          all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
-    ("\\.sv$"            all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
-    ("\\.sva$"           all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
-    ("\\.svh$"           all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
-    ("\\.svams$"         all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
-
-    ;; VHDL(-AMS)
-    ("\\.vhd$"           all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
-    ("\\.vhdl$"          all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
-    ("\\.vhms$"          all-the-icons-fileicon "vhdl"                  :face all-the-icons-blue)
-
-    ;; Cabal
-    ("\\.cabal$"         all-the-icons-fileicon "cabal"                 :face all-the-icons-lblue)
-
-    ;; Kotlin
-    ("\\.kt$"            all-the-icons-fileicon "kotlin"                :face all-the-icons-orange)
-    ("\\.kts$"           all-the-icons-fileicon "kotlin"                :face all-the-icons-orange)
-
-    ;; Nimrod
-    ("\\.nim$"           all-the-icons-fileicon "nimrod"                :face all-the-icons-yellow)
-    ("\\.nims$"          all-the-icons-fileicon "nimrod"                :face all-the-icons-yellow)
-
-    ;; SQL
-    ("\\.sql$"           all-the-icons-octicon "database"               :face all-the-icons-silver)
-
-    ;; Styles
-    ("\\.styles$"        all-the-icons-material "style"                 :face all-the-icons-red)
-
-    ;; Lua
-    ("\\.lua$"           all-the-icons-fileicon "lua"                   :face all-the-icons-dblue)
-
-    ;; ASCII doc
-    ("\\.adoc$"          all-the-icons-fileicon "asciidoc"              :face all-the-icons-lblue)
-    ("\\.asciidoc$"      all-the-icons-fileicon "asciidoc"              :face all-the-icons-lblue)
-
-    ;; Puppet
-    ("\\.pp$"            all-the-icons-fileicon "puppet"                :face all-the-icons-yellow)
-
-    ;; Jinja
-    ("\\.j2$"            all-the-icons-fileicon "jinja"                 :face all-the-icons-silver)
-    ("\\.jinja2$"        all-the-icons-fileicon "jinja"                 :face all-the-icons-silver)
-
-    ;; Docker
-    ("\\.dockerfile$"    all-the-icons-fileicon "dockerfile"            :face all-the-icons-cyan)
-
-    ;; Vagrant
-    ("\\.vagrantfile$"   all-the-icons-fileicon "vagrant"               :face all-the-icons-blue)
-
-    ;; GLSL
-    ("\\.glsl$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-blue)
-    ("\\.vert$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-blue)
-    ("\\.tesc$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-purple)
-    ("\\.tese$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-dpurple)
-    ("\\.geom$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-green)
-    ("\\.frag$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-red)
-    ("\\.comp$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-dblue)
-
-    ;; CUDA
-    ("\\.cuh?$"          all-the-icons-fileicon "nvidia"                :face all-the-icons-green)
-
-    ;; There seems to be a a bug with this font icon which does not
-    ;; let you propertise it without it reverting to being a lower
-    ;; case phi
-    ("\\.c$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-blue)
-    ("\\.h$"            all-the-icons-alltheicon "c-line"               :face all-the-icons-purple)
-    ("\\.m$"            all-the-icons-fileicon "apple"                  :v-adjust 0.0 :height 1.0)
-    ("\\.mm$"           all-the-icons-fileicon "apple"                  :v-adjust 0.0 :height 1.0)
-
-    ("\\.c\\(c\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-blue)
-    ("\\.h\\(h\\|pp\\|xx\\)$"   all-the-icons-alltheicon "cplusplus-line"       :v-adjust -0.2 :face all-the-icons-purple)
-
-    ("\\.csx?$"         all-the-icons-alltheicon "csharp-line"          :face all-the-icons-dblue)
-
-    ("\\.cljc?$"        all-the-icons-alltheicon "clojure"              :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
-    ("\\.cljs$"         all-the-icons-fileicon "cljs"                   :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
-
-    ("\\.coffee$"       all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-maroon)
-    ("\\.iced$"         all-the-icons-alltheicon "coffeescript"         :height 1.0  :face all-the-icons-lmaroon)
-
-    ("\\.dart$"         all-the-icons-fileicon "dart"                   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
 
     ;; Git
     ("^MERGE_"          all-the-icons-octicon "git-merge"               :v-adjust 0.0 :face all-the-icons-red)
     ("^COMMIT_EDITMSG"  all-the-icons-octicon "git-commit"              :v-adjust 0.0 :face all-the-icons-red)
 
-    ;; Lisps
-    ("\\.cl$"           all-the-icons-fileicon "clisp"                  :face all-the-icons-lorange)
-    ("\\.l\\(isp\\)?$"  all-the-icons-fileicon "lisp"                   :face all-the-icons-orange)
-    ("\\.el$"           all-the-icons-fileicon "elisp"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-purple)
-
     ;; Stylesheeting
-    ("\\.css$"          all-the-icons-alltheicon "css3"                 :face all-the-icons-yellow)
-    ("\\.scss$"         all-the-icons-alltheicon "sass"                 :face all-the-icons-pink)
-    ("\\.sass$"         all-the-icons-alltheicon "sass"                 :face all-the-icons-dpink)
-    ("\\.less$"         all-the-icons-alltheicon "less"                 :height 0.8  :face all-the-icons-dyellow)
-    ("\\.postcss$"      all-the-icons-fileicon "postcss"                :face all-the-icons-dred)
-    ("\\.sss$"          all-the-icons-fileicon "postcss"                :face all-the-icons-dred)
-    ("\\.styl$"         all-the-icons-alltheicon "stylus"               :face all-the-icons-lgreen)
     ("stylelint"        all-the-icons-fileicon "stylelint"              :face all-the-icons-lyellow)
-    ("\\.csv$"          all-the-icons-octicon "graph"                   :v-adjust 0.0 :face all-the-icons-dblue)
-
-    ("\\.hs$"           all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
-    ("\\.chs$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
-    ("\\.lhs$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
-    ("\\.hsc$"          all-the-icons-alltheicon "haskell"              :height 1.0  :face all-the-icons-red)
-
-    ;; Web modes
-    ("\\.inky-haml$"    all-the-icons-fileicon "haml"                   :face all-the-icons-lyellow)
-    ("\\.haml$"         all-the-icons-fileicon "haml"                   :face all-the-icons-lyellow)
-    ("\\.html?$"        all-the-icons-alltheicon "html5"                :face all-the-icons-orange)
-    ("\\.inky-erb?$"    all-the-icons-alltheicon "html5"                :face all-the-icons-lred)
-    ("\\.erb$"          all-the-icons-alltheicon "html5"                :face all-the-icons-lred)
-    ("\\.hbs$"          all-the-icons-fileicon "moustache"              :face all-the-icons-green)
-    ("\\.inky-slim$"    all-the-icons-octicon "dashboard"               :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.slim$"         all-the-icons-octicon "dashboard"               :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.jade$"         all-the-icons-fileicon "jade"                   :face all-the-icons-red)
-    ("\\.pug$"          all-the-icons-fileicon "pug-alt"                :face all-the-icons-red)
-
     ;; JavaScript
     ("^gulpfile"        all-the-icons-alltheicon "gulp"                 :height 1.0  :face all-the-icons-lred)
     ("^gruntfile"       all-the-icons-alltheicon "grunt"                :height 1.0 :v-adjust -0.1 :face all-the-icons-lyellow)
     ("^webpack"         all-the-icons-fileicon "webpack"                :face all-the-icons-lblue)
 
-    ("\\.d3\\.?js"      all-the-icons-alltheicon "d3"                   :height 0.8  :face all-the-icons-lgreen)
-
-    ("\\.re$"            all-the-icons-fileicon "reason"                :height 1.0  :face all-the-icons-red-alt)
-    ("\\.rei$"           all-the-icons-fileicon "reason"                :height 1.0  :face all-the-icons-dred)
-    ("\\.ml$"            all-the-icons-fileicon "ocaml"                 :height 1.0  :face all-the-icons-lpink)
-    ("\\.mli$"           all-the-icons-fileicon "ocaml"                 :height 1.0  :face all-the-icons-dpink)
-
-    ("\\.react"         all-the-icons-alltheicon "react"                :height 1.1  :face all-the-icons-lblue)
-    ("\\.d\\.ts$"       all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
-    ("\\.ts$"           all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-blue-alt)
-    ("\\.tsx$"          all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-blue-alt)
-    ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
-    ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
-    ("\\.vue$"          all-the-icons-fileicon "vue"                    :face all-the-icons-lgreen)
-    ("\\.ejs$"          all-the-icons-fileicon "ejs"                    :face all-the-icons-red)
-
-    ;; F#
-    ("\\.fs[ix]?$"      all-the-icons-fileicon "fsharp"                 :face all-the-icons-blue-alt)
-
-    ;; zig
-    ("\\.zig$"          all-the-icons-fileicon "zig"                    :face all-the-icons-orange)
-
-    ;; File Types
-    ("\\.ico$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-blue)
-    ("\\.png$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-orange)
-    ("\\.gif$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-green)
-    ("\\.jpe?g$"        all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-dblue)
-    ("\\.cr2$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-dblue)
-    ("\\.svg$"          all-the-icons-alltheicon "svg"                  :height 0.9  :face all-the-icons-lgreen)
-
-    ;; Video
-    ("\\.mov$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.mp4$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.m4v$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.mpe?g$"        all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.flv$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.ogv$"          all-the-icons-faicon "film"                     :face all-the-icons-dblue)
-    ("\\.mkv$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.webm$"         all-the-icons-faicon "film"                     :face all-the-icons-blue)
-
-    ;; Fonts
-    ("\\.ttf$"          all-the-icons-fileicon "font"                   :v-adjust 0.0 :face all-the-icons-dcyan)
-    ("\\.woff2?$"       all-the-icons-fileicon "font"                   :v-adjust 0.0 :face all-the-icons-cyan)
-
-    ;; Doc
-    ("\\.pdf$"          all-the-icons-octicon "file-pdf"                :v-adjust 0.0 :face all-the-icons-dred)
-    ("\\.te?xt$"        all-the-icons-octicon "file-text"               :v-adjust 0.0 :face all-the-icons-cyan)
-    ("\\.doc[xm]?$"     all-the-icons-fileicon "word"                   :face all-the-icons-blue)
-    ("\\.texi?$"        all-the-icons-fileicon "tex"                    :face all-the-icons-lred)
-    ("\\.r?md$"         all-the-icons-octicon "markdown"                :v-adjust 0.0 :face all-the-icons-lblue)
-    ("\\.bib$"          all-the-icons-fileicon "bib"                    :face all-the-icons-maroon)
-    ("\\.org$"          all-the-icons-fileicon "org"                    :face all-the-icons-lgreen)
-
-    ("\\.pp[st]$"       all-the-icons-fileicon "powerpoint"             :face all-the-icons-orange)
-    ("\\.pp[st]x$"      all-the-icons-fileicon "powerpoint"             :face all-the-icons-red)
-    ("\\.knt$"          all-the-icons-fileicon "powerpoint"             :face all-the-icons-cyan)
-
-    ("\\.xlsx$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
-    ("\\.xlsm$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
-    ("\\.xlsb$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
-    ("\\.xltx$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
-    ("\\.xltm$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
-
     ("bookmark"         all-the-icons-octicon "bookmark"                :height 1.1 :v-adjust 0.0 :face all-the-icons-lpink)
-    ("\\.cache$"        all-the-icons-octicon "database"                :height 1.0 :v-adjust 0.0 :face all-the-icons-green)
 
     ("^\\*scratch\\*$"  all-the-icons-faicon "sticky-note"              :face all-the-icons-lyellow)
     ("^\\*scratch.*"    all-the-icons-faicon "sticky-note"              :face all-the-icons-yellow)
@@ -875,7 +840,9 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
 ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
-  (let* ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist))
+  (let* ((icon (or (cdr (assoc (file-name-extension file)
+                               all-the-icons-extension-icon-alist))
+                   (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
@@ -936,7 +903,7 @@ inserting functions."
 ;; Family Face Functions
 (defun all-the-icons-icon-family-for-file (file)
   "Get the icons font family for FILE."
-  (let ((icon (all-the-icons-match-to-alist file all-the-icons-icon-alist)))
+  (let ((icon (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)))
     (funcall (intern (format "%s-family" (car icon))))))
 
 (defun all-the-icons-icon-family-for-mode (mode)
