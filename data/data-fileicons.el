@@ -541,7 +541,7 @@
     ("netlify" . "\xeabf")
     ("netlinx" . "\xe99b")
     ("netlogo" . "\xe99c")
-    (("" . ""w-relic" . "\xe9d7)"")
+    ("new-relic" . "\xe9d7")
     ("nextflow" . "\xeaa5")
     ("nextjs" . "\x24c3")
     ("nginx" . "\xf146b")
@@ -902,7 +902,6 @@
     ("zilog" . "\xeb56")
     ("zimpl" . "\xe9c8")
     ("zorinos" . "\xeb01")
-    ("zork" . "\x1b6")
-    ))
+    ("zork" . "\x1b6")))
 
 (provide 'data-fileicons)
