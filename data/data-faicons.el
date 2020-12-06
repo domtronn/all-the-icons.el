@@ -262,7 +262,7 @@
     ("clone" . "\xf24d")
     ("closed-captioning" . "\xf20a")
     ("cloud" . "\xf0c2")
-    ("cloud-download-alt" . "\xf381")
+    ("cloud-download" . "\xf381")
     ("cloud-meatball" . "\xf73b")
     ("cloud-moon" . "\xf6c3")
     ("cloud-moon-rain" . "\xf73c")
