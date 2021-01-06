@@ -928,7 +928,13 @@ When F is provided, the info function is calculated with the format
 
   (defun all-the-icons--insert-function-name (name)
     "Get the symbol for an icon insert function for icon set NAME."
-    (intern (concat "all-the-icons-insert-" (downcase (symbol-name name))))))
+    (intern (concat "all-the-icons-insert-" (downcase (symbol-name name)))))
+
+  (defun all-the-icons--family-scale-factor (family)
+    (intern (concat "all-the-icons-" (symbol-name family) "-scale-factor")))
+
+  (defun all-the-icons--family-adjust (family)
+    (intern (concat "all-the-icons-default-" (symbol-name family) "-adjust"))))
 
 ;; Icon insertion functions
 
@@ -1038,14 +1044,27 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
   `(progn
      (add-to-list 'all-the-icons-font-families (quote ,name))
      (add-to-list 'all-the-icons-font-names (quote ,(downcase (format "%s.ttf" (or font-name family)))))
-
+     (defcustom ,(all-the-icons--family-scale-factor name) 1.0
+       ,(format "The additional Scale Factor for the `height' face property of all %s icons."
+                (symbol-name name))
+       :group 'all-the-icons
+       :type 'number)
+     (defcustom ,(all-the-icons--family-adjust name) 0.0
+       ,(format "The additional adjustment to be made to the `raise' display property of all %s icons."
+                (symbol-name name))
+       :group 'all-the-icons
+       :type 'number)
      (defun ,(all-the-icons--family-name name) () ,family)
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let ((icon (cdr (assoc icon-name ,alist)))
              (other-face (when all-the-icons-color-icons (plist-get args :face)))
-             (height  (* all-the-icons-scale-factor (or (plist-get args :height) 1.0)))
-             (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
+             (height   (* all-the-icons-scale-factor
+                          ,(all-the-icons--family-scale-factor name)
+                          (or (plist-get args :height) 1.0)))
+             (v-adjust (* all-the-icons-scale-factor ,(all-the-icons--family-scale-factor name)
+                          (+ (or (plist-get args :v-adjust) all-the-icons-default-adjust)
+                             ,(all-the-icons--family-adjust name))))
              (family ,family))
          (unless icon
            (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
