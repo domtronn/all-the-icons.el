@@ -171,7 +171,7 @@
     ( "glyphs" . "\x47" )
     ( "gn" . "\xea25" )
     ( "gnu" . "\xe679" )
-    ( "go" . "\xe624" )
+    ( "go" . "\xeaae" )
     ( "godot" . "\xe974" )
     ( "golo" . "\xe979" )
     ( "gosu" . "\xe97a" )
