@@ -412,6 +412,8 @@
     ;; Video
     ("\\.mov$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.mp4$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
+    ("\\.mpg$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
+    ("\\.mpeg$"         all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.ogv$"          all-the-icons-faicon "film"                     :face all-the-icons-dblue)
     ("\\.mkv$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.webm$"         all-the-icons-faicon "film"                     :face all-the-icons-blue)
