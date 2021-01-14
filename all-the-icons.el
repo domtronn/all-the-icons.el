@@ -154,7 +154,7 @@
     ("^bower.json$"     all-the-icons-alltheicon "bower"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lorange)
     ("\\.ini$"          all-the-icons-octicon "settings"                :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.eslintignore$" all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-purple)
-    ("\\.eslint$"       all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-lpurple)
+    ("\\.eslint"        all-the-icons-fileicon "eslint"                 :height 0.9  :face all-the-icons-lpurple)
     ("\\.git"           all-the-icons-alltheicon "git"                  :height 1.0  :face all-the-icons-lred)
     ("nginx"            all-the-icons-fileicon "nginx"                  :height 0.9  :face all-the-icons-dgreen)
     ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
