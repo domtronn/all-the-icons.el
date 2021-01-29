@@ -42,7 +42,7 @@ the following function;
 Bear in mind, this will also run `fc-cache -f -v` on **MacOS** and
 **Linux** which *can take some time* to complete. For **Windows**, this
 function will prompt for a *download* directory for you to install
-them manually.
+them manually (by going right-clicking on each file and selecting install).
 
 # Usage
 
