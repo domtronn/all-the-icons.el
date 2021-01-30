@@ -393,6 +393,7 @@
     ("\\.react"         all-the-icons-alltheicon "react"                :height 1.1  :face all-the-icons-lblue)
     ("\\.d\\.ts$"       all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
     ("\\.ts$"           all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-blue-alt)
+    ("\\.tsx$"          all-the-icons-fileicon "typescript"             :height 1.0 :v-adjust -0.1 :face all-the-icons-blue-alt)
     ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
