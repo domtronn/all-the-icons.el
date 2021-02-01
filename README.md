@@ -72,7 +72,7 @@ directly you will want to use these icons functions;
 -   `all-the-icons-alltheicon`
 -   `all-the-icons-faicon`
 -   `all-the-icons-fileicon`
--   `all-the-icons-oction`
+-   `all-the-icons-octicon`
 -   `all-the-icons-wicon`
 
 You can then call these functions with the icon you want to insert,
