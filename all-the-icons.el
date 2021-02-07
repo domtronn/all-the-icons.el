@@ -271,6 +271,8 @@
 
     ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
 
+    ("\\.asm$"          all-the-icons-fileicon "assembly"               :height 1.0 :face all-the-icons-blue)
+
     ;; Verilog(-AMS) and SystemVerilog(-AMS)
     ("\\.v$"             all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ("\\.vams$"          all-the-icons-fileicon "verilog"               :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
@@ -636,6 +638,8 @@
     (latex-mode                         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     (dart-mode                          all-the-icons-fileicon "dart"             :height 1.0  :face all-the-icons-blue)
     (fsharp-mode                        all-the-icons-fileicon "fsharp"           :height 1.0  :face all-the-icons-blue)
+    (asm-mode                           all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
+    (nasm-mode                          all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
     ))
 
 (defvar all-the-icons-url-alist
