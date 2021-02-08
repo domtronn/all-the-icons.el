@@ -34,6 +34,7 @@
     ( "arduino" . "\xe930" )
     ( "arttext" . "\x24d0" )
     ( "asciidoc" . "\xe918" )
+    ( "assembly" . "\xEB4F" )
     ( "ats" . "\xe934" )
     ( "audacity" . "\xe9f9" )
     ( "augeas" . "\xe931" )
