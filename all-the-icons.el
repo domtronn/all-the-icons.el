@@ -128,7 +128,7 @@
     ;; Meta
     ("\\.tags"          all-the-icons-octicon "tag"                     :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
     ("^TAGS$"           all-the-icons-octicon "tag"                     :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
-    ("\\.log$"          all-the-icons-octicon "bug"                     :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon)
+    ("\\.log$"          all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)
 
     ;;
     ("\\.key$"          all-the-icons-octicon "key"                     :v-adjust 0.0 :face all-the-icons-lblue)
@@ -533,7 +533,7 @@
     (org-agenda-mode           all-the-icons-octicon "checklist"           :v-adjust 0.0 :face all-the-icons-lgreen)
     (cfw:calendar-mode         all-the-icons-octicon "calendar"            :v-adjust 0.0)
     (ibuffer-mode              all-the-icons-faicon "files-o"              :v-adjust 0.0 :face all-the-icons-dsilver)
-    (messages-buffer-mode      all-the-icons-faicon "stack-overflow"       :v-adjust -0.1)
+    (messages-buffer-mode      all-the-icons-faicon "file-o"               :v-adjust 0.0 :face all-the-icons-dsilver)
     (help-mode                 all-the-icons-faicon "info"                 :v-adjust -0.1 :face all-the-icons-purple)
     (benchmark-init/tree-mode  all-the-icons-octicon "dashboard"           :v-adjust 0.0)
     (jenkins-mode              all-the-icons-fileicon "jenkins"            :face all-the-icons-blue)
