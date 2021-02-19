@@ -269,6 +269,8 @@
     ("-?spec\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
     ("-?test\\."        all-the-icons-fileicon "test-generic"           :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen)
 
+    ("\\.tcl$"          all-the-icons-fileicon "tcl"                    :height 1.0 :face all-the-icons-dred)
+
     ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
 
     ("\\.asm$"          all-the-icons-fileicon "assembly"               :height 1.0 :face all-the-icons-blue)
@@ -640,6 +642,7 @@
     (fsharp-mode                        all-the-icons-fileicon "fsharp"           :height 1.0  :face all-the-icons-blue)
     (asm-mode                           all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
     (nasm-mode                          all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
+    (tcl-mode                           all-the-icons-fileicon "tcl"              :height 1.0  :face all-the-icons-dred)
     ))
 
 (defvar all-the-icons-url-alist
