@@ -547,7 +547,7 @@
     (mu4e-main-mode            all-the-icons-octicon "mail"                :v-adjust 0.0)
     (mu4e-view-mode            all-the-icons-octicon "mail-read"           :v-adjust 0.0)
     (paradox-menu-mode         all-the-icons-faicon "archive"              :height 1.0 :v-adjust 0.0 :face all-the-icons-silver)
-    (Custom-mode               all-the-icons-octicon "settings")
+    (Custom-mode               all-the-icons-octicon "settings"            :v-adjust -0.1)
 
     ;; Special matcher for Web Mode based on the `web-mode-content-type' of the current buffer
     (web-mode             all-the-icons--web-mode-icon)
