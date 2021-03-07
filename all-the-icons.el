@@ -668,7 +668,7 @@
     ("tumblr\\.com" all-the-icons-faicon "tumblr")
     ("^wordpress\\.com" all-the-icons-faicon "wordpress")
     ;; Programming
-    ("^\\(https?://\\)?\\(www\\.\\)?bitbucket\\.org" all-the-icons-octicon "bitbucket")
+    ("^\\(https?://\\)?\\(www\\.\\)?bitbucket\\.org" all-the-icons-faicon "bitbucket")
     ("^\\(https?://\\)?\\(www\\.\\)?codepen\\.io" all-the-icons-faicon "codepen")
     ("^\\(https?://\\)?\\(www\\.\\)?codiepie\\.com" all-the-icons-faicon "codiepie")
     ("^\\(https?://\\)?\\(www\\.\\)?gist\\.github\\.com" all-the-icons-octicon "gist")
