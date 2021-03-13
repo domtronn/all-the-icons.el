@@ -159,7 +159,6 @@
     ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
     ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
     ("\\.mk$"           all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
-    ("\\.ejs$"          all-the-icons-fileicon "ejs"                    :face all-the-icons-red)
 
     ("\\.dockerignore$" all-the-icons-fileicon "dockerfile"             :height 1.2  :face all-the-icons-dblue)
     ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile"             :face all-the-icons-blue)
@@ -403,8 +402,8 @@
     ("\\.js$"           all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.es[0-9]$"      all-the-icons-alltheicon "javascript"           :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
     ("\\.jsx$"          all-the-icons-fileicon "jsx-2"                  :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
-    ("\\.njs$"          all-the-icons-alltheicon "nodejs"               :height 1.2  :face all-the-icons-lgreen)
     ("\\.vue$"          all-the-icons-fileicon "vue"                    :face all-the-icons-lgreen)
+    ("\\.ejs$"          all-the-icons-fileicon "ejs"                    :face all-the-icons-red)
 
     ;; F#
     ("\\.fs[ix]?$"      all-the-icons-fileicon "fsharp"                 :face all-the-icons-blue-alt)
