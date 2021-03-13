@@ -159,6 +159,7 @@
     ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
     ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
     ("\\.mk$"           all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
+    ("\\.ejs$"          all-the-icons-fileicon "ejs"                    :face all-the-icons-red)
 
     ("\\.dockerignore$" all-the-icons-fileicon "dockerfile"             :height 1.2  :face all-the-icons-dblue)
     ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile"             :face all-the-icons-blue)
