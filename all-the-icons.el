@@ -324,6 +324,9 @@
 
     ;; Vagrant
     ("\\.vagrantfile$"   all-the-icons-fileicon "vagrant"               :face all-the-icons-blue)
+    
+    ;; CUDA
+    ("\\.cu$"            all-the-icons-fileicon "nvidia"                :face all-the-icons-green)
 
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
