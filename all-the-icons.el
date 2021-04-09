@@ -325,6 +325,15 @@
     ;; Vagrant
     ("\\.vagrantfile$"   all-the-icons-fileicon "vagrant"               :face all-the-icons-blue)
     
+    ;; GLSL
+    ("\\.glsl$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-blue)
+    ("\\.vert$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-blue)
+    ("\\.tesc$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-purple)
+    ("\\.tese$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-dpurple)
+    ("\\.geom$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-green)
+    ("\\.frag$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-red)
+    ("\\.comp$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-dblue)
+    
     ;; CUDA
     ("\\.cu$"            all-the-icons-fileicon "nvidia"                :face all-the-icons-green)
 
