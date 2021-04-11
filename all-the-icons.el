@@ -425,6 +425,7 @@
     ("\\.png$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-orange)
     ("\\.gif$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-green)
     ("\\.jpe?g$"        all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-dblue)
+    ("\\.cr2$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-dblue)
     ("\\.svg$"          all-the-icons-alltheicon "svg"                  :height 0.9  :face all-the-icons-lgreen)
 
     ;; Video
@@ -432,6 +433,7 @@
     ("\\.mp4$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.m4v$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.mpe?g$"        all-the-icons-faicon "film"                     :face all-the-icons-blue)
+    ("\\.flv$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.ogv$"          all-the-icons-faicon "film"                     :face all-the-icons-dblue)
     ("\\.mkv$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.webm$"         all-the-icons-faicon "film"                     :face all-the-icons-blue)
