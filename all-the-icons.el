@@ -335,7 +335,7 @@
     ("\\.comp$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-dblue)
     
     ;; CUDA
-    ("\\.cu$"            all-the-icons-fileicon "nvidia"                :face all-the-icons-green)
+    ("\\.cuh?$"          all-the-icons-fileicon "nvidia"                :face all-the-icons-green)
 
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
