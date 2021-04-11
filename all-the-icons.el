@@ -324,7 +324,7 @@
 
     ;; Vagrant
     ("\\.vagrantfile$"   all-the-icons-fileicon "vagrant"               :face all-the-icons-blue)
-    
+
     ;; GLSL
     ("\\.glsl$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-blue)
     ("\\.vert$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-blue)
@@ -333,7 +333,7 @@
     ("\\.geom$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-green)
     ("\\.frag$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-red)
     ("\\.comp$"          all-the-icons-fileicon "vertex-shader"         :face all-the-icons-dblue)
-    
+
     ;; CUDA
     ("\\.cuh?$"          all-the-icons-fileicon "nvidia"                :face all-the-icons-green)
 
@@ -430,8 +430,8 @@
     ;; Video
     ("\\.mov$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.mp4$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.mpg$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
-    ("\\.mpeg$"         all-the-icons-faicon "film"                     :face all-the-icons-blue)
+    ("\\.m4v$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
+    ("\\.mpe?g$"        all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.ogv$"          all-the-icons-faicon "film"                     :face all-the-icons-dblue)
     ("\\.mkv$"          all-the-icons-faicon "film"                     :face all-the-icons-blue)
     ("\\.webm$"         all-the-icons-faicon "film"                     :face all-the-icons-blue)
