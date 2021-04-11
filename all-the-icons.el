@@ -656,7 +656,8 @@
     (asm-mode                           all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
     (nasm-mode                          all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
     (tcl-mode                           all-the-icons-fileicon "tcl"              :height 1.0  :face all-the-icons-dred)
-    ))
+    (cuda-mode                          all-the-icons-fileicon "nvidia"           :face all-the-icons-green)
+    (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)))
 
 (defvar all-the-icons-url-alist
   '(
