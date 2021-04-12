@@ -15,6 +15,11 @@ env:
   - EMACS_VERSION=24.5
   - EMACS_VERSION=25.1
   - EMACS_VERSION=25.2
+  - EMACS_VERSION=26.1
+  - EMACS_VERSION=26.2
+  - EMACS_VERSION=26.3
+  - EMACS_VERSION=27.1
+  - EMACS_VERSION=27.2
   - EMACS_VERSION=snapshot
 before_install:
   # Configure $PATH: Executables are installed to $HOME/bin
