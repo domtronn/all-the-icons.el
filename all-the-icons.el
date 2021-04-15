@@ -452,6 +452,12 @@
     ("\\.pp[st]x$"      all-the-icons-fileicon "powerpoint"             :face all-the-icons-red)
     ("\\.knt$"          all-the-icons-fileicon "powerpoint"             :face all-the-icons-cyan)
 
+    ("\\.xlsx$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
+    ("\\.xlsm$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
+    ("\\.xlsb$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
+    ("\\.xltx$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
+    ("\\.xltm$"         all-the-icons-fileicon "excel"                  :face all-the-icons-dgreen)
+
     ("bookmark"         all-the-icons-octicon "bookmark"                :height 1.1 :v-adjust 0.0 :face all-the-icons-lpink)
     ("\\.cache$"        all-the-icons-octicon "database"                :height 1.0 :v-adjust 0.0 :face all-the-icons-green)
 
