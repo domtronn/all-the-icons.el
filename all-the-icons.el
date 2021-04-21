@@ -417,6 +417,9 @@
     ;; F#
     ("\\.fs[ix]?$"      all-the-icons-fileicon "fsharp"                 :face all-the-icons-blue-alt)
 
+    ;; zig
+    ("\\.zig$"          all-the-icons-fileicon "zig"                    :face all-the-icons-orange)
+
     ;; File Types
     ("\\.ico$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-blue)
     ("\\.png$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-orange)
