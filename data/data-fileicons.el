@@ -482,6 +482,7 @@
     ( "yui" . "\xea00" )
     ( "zbrush" . "\xe9f2" )
     ( "zephir" . "\xe9c7" )
+    ("zig" . "\x7A")
     ( "zimpl" . "\xe9c8" )
     
     )

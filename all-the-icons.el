@@ -417,6 +417,9 @@
     ;; F#
     ("\\.fs[ix]?$"      all-the-icons-fileicon "fsharp"                 :face all-the-icons-blue-alt)
 
+    ;; zig
+    ("\\.zig$"          all-the-icons-fileicon "zig"                    :face all-the-icons-orange)
+
     ;; File Types
     ("\\.ico$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-blue)
     ("\\.png$"          all-the-icons-octicon "file-media"              :v-adjust 0.0 :face all-the-icons-orange)
@@ -662,7 +665,8 @@
     (nasm-mode                          all-the-icons-fileicon "assembly"         :height 1.0  :face all-the-icons-blue)
     (tcl-mode                           all-the-icons-fileicon "tcl"              :height 1.0  :face all-the-icons-dred)
     (cuda-mode                          all-the-icons-fileicon "nvidia"           :face all-the-icons-green)
-    (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)))
+    (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)
+    (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)))
 
 (defvar all-the-icons-url-alist
   '(
