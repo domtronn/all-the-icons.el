@@ -163,7 +163,6 @@
     ("^CMakeCache.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-blue)
     ("\\.cmake$"        all-the-icons-fileicon "cmake"                  :face all-the-icons-red)
 
-
     ("\\.dockerignore$" all-the-icons-fileicon "dockerfile"             :height 1.2  :face all-the-icons-dblue)
     ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile"             :face all-the-icons-blue)
     ("^Brewfile$"       all-the-icons-faicon "beer"                     :face all-the-icons-lsilver)
@@ -592,6 +591,7 @@
     (nginx-mode                         all-the-icons-fileicon "nginx"            :height 0.9  :face all-the-icons-dgreen)
     (apache-mode                        all-the-icons-alltheicon "apache"         :height 0.9  :face all-the-icons-dgreen)
     (makefile-mode                      all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
+    (cmake-mode                         all-the-icons-fileicon "cmake"            :face all-the-icons-red)
     (dockerfile-mode                    all-the-icons-fileicon "dockerfile"       :face all-the-icons-blue)
     (docker-compose-mode                all-the-icons-fileicon "dockerfile"       :face all-the-icons-lblue)
     (nxml-mode                          all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-lorange)
