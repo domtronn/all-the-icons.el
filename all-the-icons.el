@@ -365,6 +365,12 @@
     ("cache"        all-the-icons-octicon "database"          :height 1.0 :v-adjust 0.0 :face all-the-icons-green)))
 
 
+(define-obsolete-variable-alias 'all-the-icons-icon-alist
+  'all-the-icons-regexp-icon-alist
+  "5.0.0"
+  "`all-the-icons-icon-alist' has been split to
+`all-the-icons-extension-icon-alist' and `all-the-icons-regexp-icon-alist'
+for performance sake.")
 
 (defvar all-the-icons-regexp-icon-alist
   '(
