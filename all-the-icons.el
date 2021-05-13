@@ -1108,12 +1108,12 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
      (add-to-list 'all-the-icons-font-families (quote ,name))
      (add-to-list 'all-the-icons-font-names (quote ,(downcase (format "%s.ttf" (or font-name family)))))
      (defcustom ,(all-the-icons--family-scale-factor name) 1.0
-       ,(format "The additional Scale Factor for the `height' face property of all %s icons."
+       ,(format "The additional `height' face property Scale Factor for %s icons."
                 (symbol-name name))
        :group 'all-the-icons
        :type 'number)
      (defcustom ,(all-the-icons--family-adjust name) 0.0
-       ,(format "The additional adjustment to be made to the `raise' display property of all %s icons."
+       ,(format "The additional `raise' display property adjustment for %s icons."
                 (symbol-name name))
        :group 'all-the-icons
        :type 'number)
