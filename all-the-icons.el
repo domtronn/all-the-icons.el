@@ -215,8 +215,6 @@
     ("l"            all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
     ("lisp"         all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
     ("el"           all-the-icons-fileicon "elisp"            :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
-    ("cs"           all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
-    ("csx"          all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
     ("clj"          all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
     ("cljc"         all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
     ("cljs"         all-the-icons-fileicon "cljs"             :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
@@ -268,6 +266,14 @@
     ("scala"        all-the-icons-alltheicon "scala"          :face all-the-icons-red)
     ("scm"          all-the-icons-fileicon   "scheme"         :height 1.2 :face all-the-icons-red)
     ("swift"        all-the-icons-alltheicon "swift"          :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
+
+    ("tcl"          all-the-icons-fileicon "tcl"              :height 1.0 :face all-the-icons-dred)
+
+    ("tf"           all-the-icons-fileicon "terraform"        :height 1.0 :face all-the-icons-purple-alt)
+    ("tfvars"       all-the-icons-fileicon "terraform"        :height 1.0 :face all-the-icons-purple-alt)
+    ("tfstate"      all-the-icons-fileicon "terraform"        :height 1.0 :face all-the-icons-purple-alt)
+
+    ("asm"          all-the-icons-fileicon "assembly"         :height 1.0 :face all-the-icons-blue)
     ;; Verilog(-AMS) and SystemVerilog(-AMS)
     ("v"            all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ("vams"         all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
@@ -305,11 +311,27 @@
     ("dockerfile"   all-the-icons-fileicon "dockerfile"       :face all-the-icons-cyan)
     ;; Vagrant
     ("vagrantfile"  all-the-icons-fileicon "vagrant"          :face all-the-icons-blue)
+    ;; GLSL
+    ("glsl"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-blue)
+    ("vert"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-blue)
+    ("tesc"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-purple)
+    ("tese"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-dpurple)
+    ("geom"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-green)
+    ("frag"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-red)
+    ("comp"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-dblue)
+    ;; CUDA
+    ("cu"       all-the-icons-fileicon "nvidia"               :face all-the-icons-green)
+    ("cuh"      all-the-icons-fileicon "nvidia"               :face all-the-icons-green)
+    ;; C#
+    ("cs"           all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
+    ("csx"          all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
     ;; F#
     ("fs"           all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
     ("fsi"          all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
     ("fsx"          all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
     ("fsscript"     all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
+    ;; zig
+    ("zig"          all-the-icons-fileicon "zig"              :face all-the-icons-orange)
     ;; File Types
     ("ico"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-blue)
     ("png"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-orange)
@@ -332,6 +354,10 @@
     ("mov"          all-the-icons-faicon "film"               :face all-the-icons-blue)
     ("mp4"          all-the-icons-faicon "film"               :face all-the-icons-blue)
     ("ogv"          all-the-icons-faicon "film"               :face all-the-icons-dblue)
+    ("mpg"          all-the-icons-faicon "film"                :face all-the-icons-blue)
+    ("mpeg"         all-the-icons-faicon "film"                :face all-the-icons-blue)
+    ("flv"          all-the-icons-faicon "film"                :face all-the-icons-blue)
+    ("ogv"          all-the-icons-faicon "film"                :face all-the-icons-dblue)
     ("mkv"          all-the-icons-faicon "film"               :face all-the-icons-blue)
     ("webm"         all-the-icons-faicon "film"               :face all-the-icons-blue)
     ;; Fonts
@@ -355,6 +381,11 @@
     ("pptsx"        all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
     ("ppttx"        all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
     ("knt"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-cyan)
+    ("xlsx"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("xlsm"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("xlsb"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("xltx"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("xltm"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
     ;;
     ("key"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
     ("pem"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-orange)
@@ -419,11 +450,6 @@ for performance sake.")
     ("-?test\\.js$"     all-the-icons-fileicon "test-js"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lpurple)
     ("-?spec\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt)
     ("-?test\\.jsx$"    all-the-icons-fileicon "test-react"             :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt)
-
-    ("\\.tcl$"          all-the-icons-fileicon "tcl"                    :height 1.0 :face all-the-icons-dred)
-
-    ("\\.tf\\(vars\\|state\\)?$" all-the-icons-fileicon "terraform"     :height 1.0 :face all-the-icons-purple-alt)
-
 
     ;; Git
     ("^MERGE_"          all-the-icons-octicon "git-merge"               :v-adjust 0.0 :face all-the-icons-red)
