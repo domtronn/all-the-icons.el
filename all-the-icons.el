@@ -215,8 +215,6 @@
     ("l"            all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
     ("lisp"         all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
     ("el"           all-the-icons-fileicon "elisp"            :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
-    ("cs"           all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
-    ("csx"          all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
     ("clj"          all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
     ("cljc"         all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
     ("cljs"         all-the-icons-fileicon "cljs"             :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
@@ -324,7 +322,9 @@
     ;; CUDA
     ("cu"       all-the-icons-fileicon "nvidia"               :face all-the-icons-green)
     ("cuh"      all-the-icons-fileicon "nvidia"               :face all-the-icons-green)
-
+    ;; C#
+    ("cs"           all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
+    ("csx"          all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
     ;; F#
     ("fs"           all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
     ("fsi"          all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
