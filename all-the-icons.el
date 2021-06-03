@@ -872,8 +872,10 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
 ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
-  (let* ((icon (or (cdr (assoc (downcase (file-name-extension file))
-                               all-the-icons-extension-icon-alist))
+  (let* ((ext (file-name-extension file))
+         (icon (or (and ext
+                        (cdr (assoc (downcase ext)
+                                    all-the-icons-extension-icon-alist)))
                    (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
