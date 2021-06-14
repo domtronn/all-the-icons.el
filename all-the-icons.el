@@ -170,7 +170,7 @@
     ("ex"           all-the-icons-alltheicon "elixir"         :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
     ("exs"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
     ("java"         all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
-    ("go"           all-the-icons-alltheicon "go"             :height 1.0  :face all-the-icons-blue)
+    ("go"           all-the-icons-fileicon "go"               :height 1.0  :face all-the-icons-blue)
     ("jl"           all-the-icons-fileicon "julia"            :face all-the-icons-purple :v-adjust 0.0)
     ("matlab"       all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
     ("nix"          all-the-icons-fileicon "nix"              :face all-the-icons-blue)
