@@ -196,6 +196,8 @@
     ("rdx"          all-the-icons-fileicon "R"                :face all-the-icons-lblue)
     ("rs"           all-the-icons-fileicon "R"                :face all-the-icons-lblue)
     ("rsx"          all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ("beancount"    all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)
+    ("ledger"       all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
     ;; case phi
@@ -667,7 +669,9 @@ for performance sake.")
     (tcl-mode                           all-the-icons-fileicon "tcl"              :height 1.0  :face all-the-icons-dred)
     (cuda-mode                          all-the-icons-fileicon "nvidia"           :face all-the-icons-green)
     (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)
-    (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)))
+    (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)
+    (beancount-mode                     all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)
+    (ledger-mode                        all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)))
 
 (defvar all-the-icons-url-alist
   '(
