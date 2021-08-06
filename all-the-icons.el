@@ -337,6 +337,7 @@
     ("gif"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-green)
     ("jpeg"         all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dblue)
     ("jpg"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dblue)
+    ("webp"         all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dblue)
     ;; Audio
     ("mp3"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("wav"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
