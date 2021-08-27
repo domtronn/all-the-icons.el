@@ -20,7 +20,6 @@
     ( "dlang"              . "\xe935" )
     ( "elixir"             . "\xe936" )
     ( "erlang"             . "\xe934" )
-    ( "gentoo"             . "\xe96d" )
     ( "git"                . "\xe907" )
     ( "go"                 . "\xe91d" )
     ( "google-drive"       . "\xe91e" )
