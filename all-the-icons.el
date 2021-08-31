@@ -88,12 +88,12 @@
 ;;; Code:
 (require 'cl-lib)
 
-(require 'data-alltheicons  "./data/data-alltheicons.el")
-(require 'data-faicons      "./data/data-faicons.el")
-(require 'data-fileicons    "./data/data-fileicons.el")
-(require 'data-octicons     "./data/data-octicons.el")
-(require 'data-weathericons "./data/data-weathericons.el")
-(require 'data-material     "./data/data-material.el")
+(require 'data-alltheicons  "./data/data-alltheicons")
+(require 'data-faicons      "./data/data-faicons")
+(require 'data-fileicons    "./data/data-fileicons")
+(require 'data-octicons     "./data/data-octicons")
+(require 'data-weathericons "./data/data-weathericons")
+(require 'data-material     "./data/data-material")
 
 (require 'all-the-icons-faces)
 
