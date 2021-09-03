@@ -1,5 +1,6 @@
 # Compiled
 *.elc
+all-the-icons-autoloads.el
 
 # Packaging
 .cask
