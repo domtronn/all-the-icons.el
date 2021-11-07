@@ -473,8 +473,12 @@ for performance sake.")
     ("^\\*scratch.*"    all-the-icons-faicon "sticky-note"              :face all-the-icons-yellow)
     ("^\\*new-tab\\*$"  all-the-icons-material "star"                     :face all-the-icons-cyan)
 
-    ("^\\."             all-the-icons-octicon "gear"                    :v-adjust 0.0)
-    (".?"               all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)))
+    ("^\\."             all-the-icons-octicon "gear"                    :v-adjust 0.0)))
+
+(defvar all-the-icons-default-icon '(all-the-icons-faicon "file-o" :v-adjust 0.0 :face all-the-icons-dsilver)
+	"Default icon to be used if none is found in:
+`all-the-icons-regexp-icon-alist' or `all-the-icons-extension-icon-alist'")
+
 
 (defvar all-the-icons-dir-icon-alist
   '(
@@ -878,12 +882,16 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
   "Get the formatted icon for FILE.
 ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
-inserting functions."
-  (let* ((ext (file-name-extension file))
-         (icon (or (and ext
-                        (cdr (assoc (downcase ext)
-                                    all-the-icons-extension-icon-alist)))
-                   (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)))
+inserting functions.
+It will search for icons in the following order:
+`all-the-icons-regexp-icon-alist'
+`all-the-icons-extension-icon-alist'
+If none is found it will use `all-the-icons-default-icon'."
+  (let* ((ext? (file-name-extension file))
+				 (ext (and ext? (downcase ext?)))
+         (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
+									 (assoc-default ext all-the-icons-extension-icon-alist)
+									 all-the-icons-default-icon))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
