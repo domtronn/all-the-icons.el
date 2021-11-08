@@ -674,7 +674,8 @@ for performance sake.")
     (f90-mode                           all-the-icons-fileicon "fortran"          :face all-the-icons-purple)
     (hy-mode                            all-the-icons-fileicon "hy"               :face all-the-icons-blue)
     (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)
-    (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)))
+    (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)
+    (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)))
 
 (defvar all-the-icons-url-alist
   '(
