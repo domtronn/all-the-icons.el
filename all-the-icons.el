@@ -167,6 +167,7 @@
     ("hrl"          all-the-icons-alltheicon "erlang"         :face all-the-icons-dred :v-adjust -0.1 :height 0.9)
     ("eex"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
     ("leex"         all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
+    ("heex"         all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
     ("ex"           all-the-icons-alltheicon "elixir"         :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
     ("exs"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
     ("java"         all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
