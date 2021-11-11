@@ -155,7 +155,7 @@
     ("gz"           all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-lmaroon)
     ("zip"          all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
     ("7z"           all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
-    ("dat"          all-the-icons-faicon "bar-chart"          :face all-the-icons-cyan :height 0.9)
+    ("dat"          all-the-icons-faicon "bar-chart"          :height   0.9 :face all-the-icons-cyan)
     ("dmg"          all-the-icons-octicon "tools"             :v-adjust 0.0 :face all-the-icons-lsilver)
     ("dll"          all-the-icons-faicon "cogs"               :face all-the-icons-silver)
     ("ds_store"     all-the-icons-faicon "cogs"               :face all-the-icons-silver)
@@ -163,18 +163,17 @@
     ("scpt"         all-the-icons-fileicon "apple"            :face all-the-icons-pink)
     ("aup"          all-the-icons-fileicon "audacity"         :face all-the-icons-yellow)
     ("elm"          all-the-icons-fileicon "elm"              :face all-the-icons-blue)
-    ("erl"          all-the-icons-alltheicon "erlang"         :face all-the-icons-red :v-adjust -0.1 :height 0.9)
-    ("hrl"          all-the-icons-alltheicon "erlang"         :face all-the-icons-dred :v-adjust -0.1 :height 0.9)
-    ("eex"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
-    ("leex"         all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
-    ("heex"         all-the-icons-alltheicon "elixir"         :face all-the-icons-lorange :v-adjust -0.1 :height 0.9)
-    ("ex"           all-the-icons-alltheicon "elixir"         :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
-    ("exs"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
+    ("erl"          all-the-icons-alltheicon "erlang"         :v-adjust -0.1 :height 0.9 :face all-the-icons-red )
+    ("hrl"          all-the-icons-alltheicon "erlang"         :v-adjust -0.1 :height 0.9 :face all-the-icons-dred )
+    ("eex"          all-the-icons-alltheicon "elixir"         :v-adjust -0.1 :height 0.9 :face all-the-icons-lorange )
+    ("leex"         all-the-icons-alltheicon "elixir"         :v-adjust -0.1 :height 0.9 :face all-the-icons-lorange )
+    ("ex"           all-the-icons-alltheicon "elixir"         :v-adjust -0.1 :height 0.9 :face all-the-icons-lpurple )
+    ("exs"          all-the-icons-alltheicon "elixir"         :v-adjust -0.1 :height 0.9 :face all-the-icons-lred )
     ("java"         all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
     ("ebuild"       all-the-icons-fileicon "gentoo"           :face all-the-icons-cyan)
     ("eclass"       all-the-icons-fileicon "gentoo"           :face all-the-icons-blue)
     ("go"           all-the-icons-fileicon "go"               :height 1.0  :face all-the-icons-blue)
-    ("jl"           all-the-icons-fileicon "julia"            :face all-the-icons-purple :v-adjust 0.0)
+    ("jl"           all-the-icons-fileicon "julia"            :v-adjust 0.0 :face all-the-icons-purple)
     ("matlab"       all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
     ("nix"          all-the-icons-fileicon "nix"              :face all-the-icons-blue)
     ("pl"           all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
@@ -203,8 +202,8 @@
     ;; case phi
     ("c"            all-the-icons-alltheicon "c-line"         :face all-the-icons-blue)
     ("h"            all-the-icons-alltheicon "c-line"         :face all-the-icons-purple)
-    ("m"            all-the-icons-fileicon "apple"            :v-adjust 0.0 :height 1.0)
-    ("mm"           all-the-icons-fileicon "apple"            :v-adjust 0.0 :height 1.0)
+    ("m"            all-the-icons-fileicon "apple"            :v-adjust 0.0 :height 1.0 :face all-the-icons-silver)
+    ("mm"           all-the-icons-fileicon "apple"            :v-adjust 0.0 :height 1.0 :face all-the-icons-silver)
     ;;
     ("cc"           all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-blue)
     ("cpp"          all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-blue)
@@ -218,12 +217,13 @@
     ("lisp"         all-the-icons-fileicon "lisp"             :face all-the-icons-orange)
     ("hy"           all-the-icons-fileicon "hy"               :face all-the-icons-blue)
     ("el"           all-the-icons-fileicon "elisp"            :height 1.0 :v-adjust -0.2 :face all-the-icons-purple)
-    ("clj"          all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
-    ("cljc"         all-the-icons-alltheicon "clojure-line"   :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
-    ("cljs"         all-the-icons-fileicon "cljs"             :height 1.0 :face all-the-icons-dblue :v-adjust 0.0)
-    ("coffee"       all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-maroon)
-    ("iced"         all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-lmaroon)
-    ("dart"         all-the-icons-fileicon "dart"             :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ("clj"          all-the-icons-alltheicon "clojure-line"   :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
+    ("cljc"         all-the-icons-alltheicon "clojure-line"   :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
+    ("cljs"         all-the-icons-fileicon "cljs"             :height 1.0 :v-adjust 0.0 :face all-the-icons-dblue)
+    ("edn"          all-the-icons-alltheicon "clojure-line"   :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
+    ("coffee"       all-the-icons-alltheicon "coffeescript"   :height 1.0 :face all-the-icons-maroon)
+    ("iced"         all-the-icons-alltheicon "coffeescript"   :height 1.0 :face all-the-icons-lmaroon)
+    ("dart"         all-the-icons-fileicon "dart"             :height 1.0 :v-adjust 0.0 :face all-the-icons-blue)
     ;; Stylesheeting
     ("css"          all-the-icons-alltheicon "css3"           :face all-the-icons-yellow)
     ("scss"         all-the-icons-alltheicon "sass"           :face all-the-icons-pink)
@@ -315,18 +315,18 @@
     ;; Vagrant
     ("vagrantfile"  all-the-icons-fileicon "vagrant"          :face all-the-icons-blue)
     ;; GLSL
-    ("glsl"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-blue)
-    ("vert"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-blue)
-    ("tesc"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-purple)
-    ("tese"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-dpurple)
-    ("geom"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-green)
-    ("frag"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-red)
-    ("comp"     all-the-icons-fileicon "vertex-shader"        :face all-the-icons-dblue)
+    ("glsl"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-blue)
+    ("vert"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-blue)
+    ("tesc"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-purple)
+    ("tese"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-dpurple)
+    ("geom"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)
+    ("frag"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-red)
+    ("comp"         all-the-icons-fileicon "vertex-shader"    :face all-the-icons-dblue)
     ;; CUDA
-    ("cu"       all-the-icons-fileicon "nvidia"               :face all-the-icons-green)
-    ("cuh"      all-the-icons-fileicon "nvidia"               :face all-the-icons-green)
+    ("cu"           all-the-icons-fileicon "nvidia"           :face all-the-icons-green)
+    ("cuh"          all-the-icons-fileicon "nvidia"           :face all-the-icons-green)
     ;; Fortran
-    ("f90"      all-the-icons-fileicon "fortran"              :face all-the-icons-purple)
+    ("f90"          all-the-icons-fileicon "fortran"          :face all-the-icons-purple)
     ;; C#
     ("cs"           all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
     ("csx"          all-the-icons-alltheicon "csharp-line"    :face all-the-icons-dblue)
@@ -355,15 +355,16 @@
     ("aif"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("aifc"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("aiff"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("midi"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("svg"          all-the-icons-alltheicon "svg"            :height 0.9  :face all-the-icons-lgreen)
     ;; Video
     ("mov"          all-the-icons-faicon "film"               :face all-the-icons-blue)
     ("mp4"          all-the-icons-faicon "film"               :face all-the-icons-blue)
     ("ogv"          all-the-icons-faicon "film"               :face all-the-icons-dblue)
-    ("mpg"          all-the-icons-faicon "film"                :face all-the-icons-blue)
-    ("mpeg"         all-the-icons-faicon "film"                :face all-the-icons-blue)
-    ("flv"          all-the-icons-faicon "film"                :face all-the-icons-blue)
-    ("ogv"          all-the-icons-faicon "film"                :face all-the-icons-dblue)
+    ("mpg"          all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ("mpeg"         all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ("flv"          all-the-icons-faicon "film"               :face all-the-icons-blue)
+    ("ogv"          all-the-icons-faicon "film"               :face all-the-icons-dblue)
     ("mkv"          all-the-icons-faicon "film"               :face all-the-icons-blue)
     ("webm"         all-the-icons-faicon "film"               :face all-the-icons-blue)
     ;; Fonts
@@ -399,7 +400,190 @@
     ("crt"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
     ("pub"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-blue)
     ("gpg"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
-    ("cache"        all-the-icons-octicon "database"          :height 1.0 :v-adjust 0.0 :face all-the-icons-green)))
+    ("cache"        all-the-icons-octicon "database"          :height 1.0 :v-adjust 0.0 :face all-the-icons-green)
+    ;; Microsoft Access
+    ("accdb"        all-the-icons-fileicon "access"           :v-adjust 0 :face all-the-icons-red)
+    ("accdt"        all-the-icons-fileicon "access"           :v-adjust 0 :face all-the-icons-red)
+    ;; Ansible
+    ("ansible"      all-the-icons-fileicon "ansible"          :v-adjust 0 :face all-the-icons-dsilver)
+    ;; Antlr
+    ("antlr"        all-the-icons-fileicon "antlr"            :v-adjust 0 :face all-the-icons-orange)
+    ;; Apple
+    ("applescript"  all-the-icons-fileicon "apple"            :v-adjust 0 :face all-the-icons-lsilver)
+    ;; Arduino
+    ("ino"          all-the-icons-fileicon "arduino"          :v-adjust 0 :face all-the-icons-dgreen)
+    ("pde"          all-the-icons-fileicon "arduino"          :v-adjust 0 :face all-the-icons-dgreen)
+    ;; Babel
+    ("babelignore"  all-the-icons-fileicon "babel"            :face all-the-icons-yellow)
+    ;; Bazel
+    ("bazelrc"      all-the-icons-fileicon "bazel"            :v-adjust 0 :face all-the-icons-green)
+    ("bazel"        all-the-icons-fileicon "bazel"            :v-adjust 0 :face all-the-icons-green)
+    ;; Bundler
+    ("gemfile"      all-the-icons-fileicon "bundler"          :v-adjust 0 :face all-the-icons-lblue)
+    ;; Batch
+    ("bat"          all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ;; Cobol
+    ("cobol"        all-the-icons-fileicon "cobol"            :v-adjust 0 :face all-the-icons-dblue)
+    ;; Certificates
+    ("csr"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("cer"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("der"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("pfx"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("p7b"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("p7r"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("src"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("crl"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("sst"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("stl"          all-the-icons-faicon "certificate"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ;; more Config
+    ("conf"         all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("properties"   all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("config"       all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("cfg"          all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("xdefaults"    all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("xresources"   all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("terminalrc"   all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("ledgerrc"     all-the-icons-octicon "gear"              :v-adjust 0 :face all-the-icons-lsilver)
+    ("ledger"       all-the-icons-faicon "balance-scale"      :v-adjust 0 :face all-the-icons-purple)
+    ;; Cython
+    ("pyx"          all-the-icons-fileicon "cython"           :v-adjust 0 :face all-the-icons-dblue)
+    ("pyd"          all-the-icons-fileicon "cython"           :v-adjust 0 :face all-the-icons-dblue)
+    ;; D
+    ("d"            all-the-icons-alltheicon "dlang"          :v-adjust 0 :face all-the-icons-red)
+    ("dml"          all-the-icons-alltheicon "dlang"          :v-adjust 0 :face all-the-icons-red)
+    ;; Diff
+    ("diff"         all-the-icons-octicon "diff"              :v-adjust 0 :face all-the-icons-lsilver)
+    ;; Editor config
+    ("editorconfig" all-the-icons-fileicon "editorconfig"     :v-adjust 0 :face all-the-icons-lsilver)
+    ;; Wrench
+    ("envrc"        all-the-icons-faicon "wrench"             :v-adjust 0 :face all-the-icons-lpurple)
+    ;; eslint
+    ("eslintrc"     all-the-icons-fileicon "eslint"           :height 0.9  :face all-the-icons-lpurple)
+    ("eslintcache"  all-the-icons-fileicon "eslint"           :height 0.9  :face all-the-icons-purple)
+    ;; File Binaries
+    ("exe"          all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-lsilver)
+    ("obj"          all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-lsilver)
+    ("so"           all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-lsilver)
+    ("o"            all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-lsilver)
+    ;; Feature
+    ("feature"      all-the-icons-fileicon "cucumber"         :v-adjust 0 :face all-the-icons-dgreen)
+    ;; Fortran
+    ("f90"          all-the-icons-fileicon "fortran"          :face all-the-icons-purple)
+    ;; Godot
+    ("gdscript"     all-the-icons-fileicon "godot"            :v-adjust 0 :face all-the-icons-dblue)
+    ;; Git
+    ("gitmodules"   all-the-icons-alltheicon "git"            :height 1.0  :face all-the-icons-lred)
+    ("gitconfig"    all-the-icons-alltheicon "git"            :height 1.0  :face all-the-icons-lred)
+    ("gitignore"    all-the-icons-alltheicon "git"            :height 1.0  :face all-the-icons-lred)
+    ("gitattributes" all-the-icons-alltheicon "git"           :height 1.0  :face all-the-icons-lred)
+    ;; Gradle
+    ("gradle"       all-the-icons-fileicon "gradle"           :v-adjust 0 :face all-the-icons-dblue)
+    ;; Graphql
+    ("gql"          all-the-icons-fileicon "graphql"          :v-adjust 0 :face all-the-icons-pink)
+    ;; Idris
+    ("idr"          all-the-icons-fileicon "idris"            :height 1.0 :v-adjust -0.2 :face all-the-icons-dred)
+    ;; Jar
+    ("jar"          all-the-icons-alltheicon "java"           :v-adjust 0 :face all-the-icons-orange)
+    ;; License
+    ("license"      all-the-icons-octicon "key"               :v-adjust 0 :face all-the-icons-yellow)
+    ;; Lock
+    ("lock"         all-the-icons-material "lock"             :v-adjust 0 :face all-the-icons-dred)
+    ;; Video
+    ("avi"          all-the-icons-faicon "file-video-o"       :v-adjust 0 :face all-the-icons-lgreen)
+    ;; NPM
+    ("npmignore"    all-the-icons-fileicon "npm"              :v-adjust 0 :face all-the-icons-red)
+    ("npmrc"        all-the-icons-fileicon "npm"              :v-adjust 0 :face all-the-icons-red)
+    ;; Patch
+    ("patch"        all-the-icons-fileicon "patch"            :v-adjust 0 :face all-the-icons-orange)
+    ;; Powerpoint
+    ("pot"          all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("potx"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("potm"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("ppsx"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("ppsm"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("pptx"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("pptm"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("pa"           all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("ppam"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("sldm"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ("sldx"         all-the-icons-fileicon "powerpoint"       :v-adjust 0 :face all-the-icons-orange)
+    ;; Racket
+    ("plt"          all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-red)
+    ;; SQLite
+    ("sqlite"       all-the-icons-fileicon "sqlite"           :v-adjust 0 :face all-the-icons-blue)
+    ("sqlite3"      all-the-icons-fileicon "sqlite"           :v-adjust 0 :face all-the-icons-blue)
+    ("db3"          all-the-icons-fileicon "sqlite"           :v-adjust 0 :face all-the-icons-blue)
+    ;; Typescript
+    ("tsx"          all-the-icons-fileicon "tsx-alt"           :v-adjust 0 :face all-the-icons-blue)
+    ;; Excel
+    ("xls"          all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("ods"          all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("fods"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ;; Web assembly
+    ("wasm"         all-the-icons-fileicon "wasm"             :v-adjust 0 :face all-the-icons-lpurple)
+    ;; Fonts
+    ("otf"          all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-dcyan)
+    ("eot"          all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-dcyan)
+    ("pfa"          all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-dcyan)
+    ("pfb"          all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-dcyan)
+    ("sfd"          all-the-icons-fileicon "font"             :v-adjust 0.0 :face all-the-icons-dcyan)
+    ;; Code
+    ("xsl"          all-the-icons-faicon "file-code-o"        :height 0.95 :face all-the-icons-orange)
+    ;; file-media
+    ("tif"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-cyan)
+    ("tiff"         all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-cyan-alt)
+    ("bmp"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-yellow)
+    ("psd"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dblue)
+    ("ai"           all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-dcyan)
+    ("eps"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-lcyan)
+    ("indd"         all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-lgreen)
+    ;; file-code
+    ("toml"         all-the-icons-octicon "file-code"         :v-adjust 0 :face all-the-icons-red)
+    ("vh"           all-the-icons-octicon "file-code"         :v-adjust 0 :face all-the-icons-blue)
+    ;; book
+    ("lrf"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("lrx"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("cbr"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("cbz"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("cb7"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("cbt"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("cba"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("chm"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("djvu"         all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("pdb"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("fb2"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("xeb"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("ceb"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("inf"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("azw"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("azw3"         all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("kf8"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("kfx"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("lit"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("prc"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("mobi"         all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("or"           all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("opf"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("ps"           all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("rtf"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("pdg"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("tr2"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("tr3"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("oxps"         all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ("xps"          all-the-icons-octicon "book"              :v-adjust 0 :face all-the-icons-green)
+    ;; file-text
+    ("rst"          all-the-icons-octicon "file-text"         :v-adjust 0 :face all-the-icons-green)
+    ;; file-binary
+    ("class"        all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-blue)
+    ("out"          all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-green)
+    ("pyc"          all-the-icons-octicon "file-binary"       :v-adjust 0 :face all-the-icons-lmaroon)
+    ;; Zip
+    ("tar"          all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
+    ("rar"          all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
+    ("tgz"          all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-lmaroon)
+    ;; Other
+    ("tpp"          all-the-icons-alltheicon "cplusplus-line" :v-adjust -0.2 :face all-the-icons-purple)
+    ))
 
 
 (define-obsolete-variable-alias 'all-the-icons-icon-alist
