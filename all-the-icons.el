@@ -190,7 +190,6 @@
     ("py"           all-the-icons-alltheicon "python"         :height 1.0  :face all-the-icons-dblue)
     ("idr"          all-the-icons-fileicon "idris"            :face all-the-icons-red)
     ("ipynb"        all-the-icons-fileicon "jupyter"          :height 1.0  :face all-the-icons-dorange)
-    ("rkt"          all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-red)
     ("gem"          all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
     ("rb"           all-the-icons-octicon "ruby"              :v-adjust 0.0 :face all-the-icons-lred)
     ("rs"           all-the-icons-alltheicon "rust"           :height 1.2  :face all-the-icons-maroon)
@@ -225,6 +224,8 @@
     ("coffee"       all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-maroon)
     ("iced"         all-the-icons-alltheicon "coffeescript"   :height 1.0  :face all-the-icons-lmaroon)
     ("dart"         all-the-icons-fileicon "dart"             :height 1.0 :face all-the-icons-blue :v-adjust 0.0)
+    ("rkt"          all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-red)
+    ("scrbl"        all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-blue)
     ;; Stylesheeting
     ("css"          all-the-icons-alltheicon "css3"           :face all-the-icons-yellow)
     ("scss"         all-the-icons-alltheicon "sass"           :face all-the-icons-pink)
