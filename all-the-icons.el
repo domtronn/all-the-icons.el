@@ -188,6 +188,7 @@
     ("pro"          all-the-icons-alltheicon "prolog"         :height 1.1  :face all-the-icons-lmaroon)
     ("proog"        all-the-icons-alltheicon "prolog"         :height 1.1  :face all-the-icons-lmaroon)
     ("py"           all-the-icons-alltheicon "python"         :height 1.0  :face all-the-icons-dblue)
+    ("idr"          all-the-icons-fileicon "idris"            :face all-the-icons-red)
     ("ipynb"        all-the-icons-fileicon "jupyter"          :height 1.0  :face all-the-icons-dorange)
     ("rkt"          all-the-icons-fileicon "racket"           :height 1.2 :face all-the-icons-red)
     ("gem"          all-the-icons-alltheicon "ruby-alt"       :face all-the-icons-red)
