@@ -419,8 +419,8 @@ for performance sake.")
 
     ;; Config
     ("^bower.json$"     all-the-icons-alltheicon "bower"                :height 1.0 :v-adjust 0.0 :face all-the-icons-lorange)
-    ("nginx"            all-the-icons-fileicon "nginx"                  :height 0.9  :face all-the-icons-dgreen)
-    ("apache"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
+    ("nginx$"            all-the-icons-fileicon "nginx"                  :height 0.9  :face all-the-icons-dgreen)
+    ("apache$"           all-the-icons-alltheicon "apache"               :height 0.9  :face all-the-icons-dgreen)
     ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
     ("^CMakeLists.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-red)
     ("^CMakeCache.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-blue)
@@ -475,7 +475,10 @@ for performance sake.")
     ("^\\*new-tab\\*$"  all-the-icons-material "star"                     :face all-the-icons-cyan)
 
     ("^\\."             all-the-icons-octicon "gear"                    :v-adjust 0.0)
-    (".?"               all-the-icons-faicon "file-o"                   :v-adjust 0.0 :face all-the-icons-dsilver)))
+    ))
+
+(defvar all-the-icons-default-file-icon
+  '(all-the-icons-faicon "file-o" :v-adjust 0.0 :face all-the-icons-dsilver))
 
 (defvar all-the-icons-dir-icon-alist
   '(
@@ -882,10 +885,11 @@ ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
   (let* ((ext (file-name-extension file))
-         (icon (or (and ext
+         (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
+                   (and ext
                         (cdr (assoc (downcase ext)
                                     all-the-icons-extension-icon-alist)))
-                   (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)))
+                   all-the-icons-default-file-icon))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (apply (car icon) args)))
