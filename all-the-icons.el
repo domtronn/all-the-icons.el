@@ -678,7 +678,9 @@ for performance sake.")
     (hy-mode                            all-the-icons-fileicon "hy"               :face all-the-icons-blue)
     (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)
     (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)
-    (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)))
+    (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)
+    (elfeed-search-mode                 all-the-icons-faicon   "rss-square"       :face all-the-icons-orange)
+    (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)))
 
 (defvar all-the-icons-url-alist
   '(
