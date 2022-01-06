@@ -873,6 +873,8 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (cond
+     ((file-remote-p path)
+      (apply #'all-the-icons-octicon "terminal" (cdr args)))
      ((file-symlink-p path)
       (apply #'all-the-icons-octicon "file-symlink-directory" (cdr args)))
      ((all-the-icons-dir-is-submodule path)
