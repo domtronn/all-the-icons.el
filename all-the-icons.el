@@ -397,6 +397,7 @@
     ("xlsb"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
     ("xltx"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
     ("xltm"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
+    ("ly"           all-the-icons-faicon   "music"            :face all-the-icons-green)
     ;;
     ("key"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-lblue)
     ("pem"          all-the-icons-octicon "key"               :v-adjust 0.0 :face all-the-icons-orange)
@@ -687,7 +688,8 @@ for performance sake.")
     (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)
     (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)
     (elfeed-search-mode                 all-the-icons-faicon   "rss-square"       :face all-the-icons-orange)
-    (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)))
+    (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)
+    (lilypond-mode                      all-the-icons-faicon   "music"            :face all-the-icons-green)))
 
 (defvar all-the-icons-url-alist
   '(
