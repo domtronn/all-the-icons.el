@@ -175,6 +175,7 @@
     ("eclass"       all-the-icons-fileicon "gentoo"           :face all-the-icons-blue)
     ("go"           all-the-icons-fileicon "go"               :height 1.0  :face all-the-icons-blue)
     ("jl"           all-the-icons-fileicon "julia"            :face all-the-icons-purple :v-adjust 0.0)
+    ("magik"        all-the-icons-faicon "magic"              :face all-the-icons-blue)
     ("matlab"       all-the-icons-fileicon "matlab"           :face all-the-icons-orange)
     ("nix"          all-the-icons-fileicon "nix"              :face all-the-icons-blue)
     ("pl"           all-the-icons-alltheicon "perl"           :face all-the-icons-lorange)
@@ -689,7 +690,10 @@ for performance sake.")
     (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)
     (elfeed-search-mode                 all-the-icons-faicon   "rss-square"       :face all-the-icons-orange)
     (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)
-    (lilypond-mode                      all-the-icons-faicon   "music"            :face all-the-icons-green)))
+    (lilypond-mode                      all-the-icons-faicon   "music"            :face all-the-icons-green)
+    (magik-mode                         all-the-icons-alltheicon "magic"          :face all-the-icons-blue)
+    (magik-session-mode                 all-the-icons-alltheicon "terminal"       :face all-the-icons-blue)
+    (magik-cb-mode                      all-the-icons-faicon "book"               :face all-the-icons-blue)))
 
 (defvar all-the-icons-url-alist
   '(
