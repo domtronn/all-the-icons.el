@@ -323,7 +323,7 @@
     ( "pawn" . "\x265f" )
     ( "pb" . "\xea14" )
     ( "pegjs" . "\xea74" )
-    ( "perl6" . "\xe96c" )
+    ( "raku" . "\xe96c" )
     ( "phalcon" . "\xe94a" )
     ( "phoenix" . "\xea5f" )
     ( "php" . "\xf147" )
