@@ -171,6 +171,7 @@
     ("ex"           all-the-icons-alltheicon "elixir"         :face all-the-icons-lpurple :v-adjust -0.1 :height 0.9)
     ("exs"          all-the-icons-alltheicon "elixir"         :face all-the-icons-lred :v-adjust -0.1 :height 0.9)
     ("java"         all-the-icons-alltheicon "java"           :height 1.0  :face all-the-icons-purple)
+    ("gradle"       all-the-icons-fileicon "gradle"           :height 1.0  :face all-the-icons-silver)
     ("ebuild"       all-the-icons-fileicon "gentoo"           :face all-the-icons-cyan)
     ("eclass"       all-the-icons-fileicon "gentoo"           :face all-the-icons-blue)
     ("go"           all-the-icons-fileicon "go"               :height 1.0  :face all-the-icons-blue)
