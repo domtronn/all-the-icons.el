@@ -693,7 +693,6 @@ for performance sake.")
     (elfeed-search-mode                 all-the-icons-faicon   "rss-square"       :face all-the-icons-orange)
     (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)
     (lilypond-mode                      all-the-icons-faicon   "music"            :face all-the-icons-green)
-    (magik-mode                         all-the-icons-alltheicon "magic"          :face all-the-icons-blue)
     (magik-session-mode                 all-the-icons-alltheicon "terminal"       :face all-the-icons-blue)
     (magik-cb-mode                      all-the-icons-faicon "book"               :face all-the-icons-blue)))
 
