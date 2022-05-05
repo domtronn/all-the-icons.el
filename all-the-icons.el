@@ -204,6 +204,7 @@
     ("rd"           all-the-icons-fileicon "R"                :face all-the-icons-lblue)
     ("rdx"          all-the-icons-fileicon "R"                :face all-the-icons-lblue)
     ("rsx"          all-the-icons-fileicon "R"                :face all-the-icons-lblue)
+    ("svelte"       all-the-icons-fileicon "svelte"           :v-adjust 0.0 :face all-the-icons-red)
     ;; There seems to be a a bug with this font icon which does not
     ;; let you propertise it without it reverting to being a lower
     ;; case phi
