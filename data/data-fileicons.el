@@ -1,6 +1,6 @@
 (defvar all-the-icons-data/file-icon-alist
   '(
-		
+
     ( "1c" . "\xa5ea" )
     ( "1c-alt" . "\xea28" )
     ( "MJML" . "\xea6f" )
@@ -415,6 +415,7 @@
     ( "stylus-orb" . "\x53" )
     ( "sublime" . "\xe986" )
     ( "sv" . "\xe9c3" )
+    ( "svelte" . "\x33dc" )
     ( "svn" . "\xea17" )
     ( "swagger" . "\xea29" )
     ( "tag" . "\xf015" )
