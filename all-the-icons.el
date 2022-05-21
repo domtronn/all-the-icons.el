@@ -120,6 +120,11 @@
   :group 'all-the-icons
   :type 'number)
 
+(defcustom all-the-icons-fonts-subdirectory "all-the-icons/"
+  "The subdirectory within the system fonts folder where the icons are installed."
+  :group 'all-the-icons
+  :type 'directory)
+
 (defvar all-the-icons-font-families '() "List of defined icon font families.")
 (defvar all-the-icons-font-names '() "List of defined font file names this package was built with.")
 
@@ -1065,30 +1070,33 @@ When PFX is non-nil, ignore the prompt and just install"
   (interactive "P")
   (when (or pfx (yes-or-no-p "This will download and install fonts, are you sure you want to do this?"))
     (let* ((url-format "https://raw.githubusercontent.com/domtronn/all-the-icons.el/master/fonts/%s")
-           (font-dest (cond
-                       ;; Default Linux install directories
-                       ((member system-type '(gnu gnu/linux gnu/kfreebsd))
-                        (concat (or (getenv "XDG_DATA_HOME")
-                                    (concat (getenv "HOME") "/.local/share"))
-                                "/fonts/"))
-                       ;; Default MacOS install directory
-                       ((eq system-type 'darwin)
-                        (concat (getenv "HOME") "/Library/Fonts/"))))
-           (known-dest? (stringp font-dest))
-           (font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
+	   (font-dest (cond
+		       ;; Default Linux install directories
+		       ((member system-type '(gnu gnu/linux gnu/kfreebsd))
+			(concat (or (getenv "XDG_DATA_HOME")
+				    (concat (getenv "HOME") "/.local/share"))
+				"/fonts/"
+				all-the-icons-fonts-subdirectory))
+		       ;; Default MacOS install directory
+		       ((eq system-type 'darwin)
+			(concat (getenv "HOME")
+				"/Library/Fonts/"
+				all-the-icons-fonts-subdirectory))))
+	   (known-dest? (stringp font-dest))
+	   (font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
 
       (unless (file-directory-p font-dest) (mkdir font-dest t))
 
       (mapc (lambda (font)
-              (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
-            all-the-icons-font-names)
+	      (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
+	    all-the-icons-font-names)
       (when known-dest?
-        (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
-        (shell-command-to-string (format "fc-cache -f -v")))
+	(message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
+	(shell-command-to-string (format "fc-cache -f -v")))
       (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
-               (all-the-icons-wicon "stars" :v-adjust 0.0)
-               (if known-dest? "installed" "downloaded")
-               font-dest))))
+	       (all-the-icons-wicon "stars" :v-adjust 0.0)
+	       (if known-dest? "installed" "downloaded")
+	       font-dest))))
 
 ;;;###autoload
 (defun all-the-icons-insert (&optional arg family)
