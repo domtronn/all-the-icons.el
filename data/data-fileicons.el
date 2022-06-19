@@ -176,6 +176,7 @@
     ( "godot" . "\xe974" )
     ( "golo" . "\xe979" )
     ( "gosu" . "\xe97a" )
+    ( "gql" . "\xe97c" )
     ( "gradle" . "\xe903" )
     ( "graphql" . "\xe97c" )
     ( "graphviz" . "\xe97d" )
