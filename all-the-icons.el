@@ -120,7 +120,7 @@
   :group 'all-the-icons
   :type 'number)
 
-(defcustom all-the-icons-fonts-subdirectory "all-the-icons/"
+(defcustom all-the-icons-fonts-subdirectory nil
   "The subdirectory within the system fonts folder where the icons are installed."
   :group 'all-the-icons
   :type 'directory)
@@ -1088,15 +1088,15 @@ When PFX is non-nil, ignore the prompt and just install"
       (unless (file-directory-p font-dest) (mkdir font-dest t))
 
       (mapc (lambda (font)
-	      (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
-	    all-the-icons-font-names)
+              (url-copy-file (format url-format font) (expand-file-name font font-dest) t))
+            all-the-icons-font-names)
       (when known-dest?
-	(message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
-	(shell-command-to-string (format "fc-cache -f -v")))
+        (message "Fonts downloaded, updating font cache... <fc-cache -f -v> ")
+        (shell-command-to-string (format "fc-cache -f -v")))
       (message "%s Successfully %s `all-the-icons' fonts to `%s'!"
-	       (all-the-icons-wicon "stars" :v-adjust 0.0)
-	       (if known-dest? "installed" "downloaded")
-	       font-dest))))
+               (all-the-icons-wicon "stars" :v-adjust 0.0)
+               (if known-dest? "installed" "downloaded")
+               font-dest))))
 
 ;;;###autoload
 (defun all-the-icons-insert (&optional arg family)
