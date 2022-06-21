@@ -1073,20 +1073,20 @@ When PFX is non-nil, ignore the prompt and just install"
   (interactive "P")
   (when (or pfx (yes-or-no-p "This will download and install fonts, are you sure you want to do this?"))
     (let* ((url-format "https://raw.githubusercontent.com/domtronn/all-the-icons.el/master/fonts/%s")
-	   (font-dest (cond
-		       ;; Default Linux install directories
-		       ((member system-type '(gnu gnu/linux gnu/kfreebsd))
-			(concat (or (getenv "XDG_DATA_HOME")
-				    (concat (getenv "HOME") "/.local/share"))
-				"/fonts/"
-				all-the-icons-fonts-subdirectory))
-		       ;; Default MacOS install directory
-		       ((eq system-type 'darwin)
-			(concat (getenv "HOME")
-				"/Library/Fonts/"
-				all-the-icons-fonts-subdirectory))))
-	   (known-dest? (stringp font-dest))
-	   (font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
+           (font-dest (cond
+                       ;; Default Linux install directories
+                       ((member system-type '(gnu gnu/linux gnu/kfreebsd))
+                        (concat (or (getenv "XDG_DATA_HOME")
+                                    (concat (getenv "HOME") "/.local/share"))
+                                "/fonts/"
+                                all-the-icons-fonts-subdirectory))
+                       ;; Default MacOS install directory
+                       ((eq system-type 'darwin)
+                        (concat (getenv "HOME")
+                                "/Library/Fonts/"
+                                all-the-icons-fonts-subdirectory))))
+           (known-dest? (stringp font-dest))
+           (font-dest (or font-dest (read-directory-name "Font installation directory: " "~/"))))
 
       (unless (file-directory-p font-dest) (mkdir font-dest t))
 
