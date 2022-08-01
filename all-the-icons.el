@@ -354,6 +354,8 @@
     ("fsscript"     all-the-icons-fileicon "fsharp"           :face all-the-icons-blue-alt)
     ;; zig
     ("zig"          all-the-icons-fileicon "zig"              :face all-the-icons-orange)
+    ;; odin
+    ("odin"         all-the-icons-fileicon "odin"             :height 1.1 :face all-the-icons-lblue)
     ;; File Types
     ("ico"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-blue)
     ("png"          all-the-icons-octicon "file-media"        :v-adjust 0.0 :face all-the-icons-orange)
@@ -715,6 +717,7 @@ for performance sake.")
     (hy-mode                            all-the-icons-fileicon "hy"               :face all-the-icons-blue)
     (glsl-mode                          all-the-icons-fileicon "vertex-shader"    :face all-the-icons-green)
     (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)
+    (odin-mode                          all-the-icons-fileicon "odin"             :height 1.1 :face all-the-icons-lblue)
     (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)
     (elfeed-search-mode                 all-the-icons-faicon   "rss-square"       :face all-the-icons-orange)
     (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)
