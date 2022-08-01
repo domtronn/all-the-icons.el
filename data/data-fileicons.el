@@ -312,6 +312,7 @@
     ( "objective-j" . "\xe99e" )
     ( "ocaml" . "\xe91a" )
     ( "octave" . "\xea33" )
+    ( "odin" . "\eb36" )
     ( "onenote" . "\xe9eb" )
     ( "ooc" . "\xe9cb" )
     ( "opa" . "\x2601" )
@@ -495,8 +496,6 @@
     ( "zephir" . "\xe9c7" )
     ( "zig" . "\x7A" )
     ( "zimpl" . "\xe9c8" )
-    ( "odin" . "\eb36" )
-
     )
   )
 
