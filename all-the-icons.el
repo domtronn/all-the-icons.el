@@ -445,6 +445,8 @@ for performance sake.")
     ("^Makefile$"       all-the-icons-fileicon "gnu"                    :face all-the-icons-dorange)
     ("^CMakeLists.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-red)
     ("^CMakeCache.txt$" all-the-icons-fileicon "cmake"                  :face all-the-icons-blue)
+    ("^meson.build$"    all-the-icons-fileicon "meson"                  :face all-the-icons-purple)
+    ("^meson_options.txt$" all-the-icons-fileicon "meson"               :face all-the-icons-purple)
 
     ;; Docker
     ("^\\.?Dockerfile"  all-the-icons-fileicon "dockerfile"             :face all-the-icons-blue)
@@ -723,7 +725,8 @@ for performance sake.")
     (elfeed-show-mode                   all-the-icons-faicon   "rss"              :face all-the-icons-orange)
     (lilypond-mode                      all-the-icons-faicon   "music"            :face all-the-icons-green)
     (magik-session-mode                 all-the-icons-alltheicon "terminal"       :face all-the-icons-blue)
-    (magik-cb-mode                      all-the-icons-faicon "book"               :face all-the-icons-blue)))
+    (magik-cb-mode                      all-the-icons-faicon "book"               :face all-the-icons-blue)
+    (meson-mode                         all-the-icons-fileicon "meson"            :face all-the-icons-purple)))
 
 (defvar all-the-icons-url-alist
   '(

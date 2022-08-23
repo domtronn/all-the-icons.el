@@ -267,7 +267,7 @@
     ( "maya" . "\xe9f6" )
     ( "mediawiki" . "\xe954" )
     ( "mercury" . "\xe994" )
-    ( "meson" . "\xea54" )
+    ( "meson" . "\xeafe" )
     ( "metal" . "\x4d" )
     ( "meteor" . "\xe6a5" )
     ( "microsoft-infopath" . "\xea35" )
