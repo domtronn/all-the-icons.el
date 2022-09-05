@@ -999,7 +999,12 @@ inserting functions."
 ;; Family Face Functions
 (defun all-the-icons-icon-family-for-file (file)
   "Get the icons font family for FILE."
-  (let ((icon (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)))
+  (let* ((ext (file-name-extension file))
+	(icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
+                   (and ext
+                        (cdr (assoc (downcase ext)
+                                    all-the-icons-extension-icon-alist)))
+                   all-the-icons-default-file-icon)))
     (funcall (intern (format "%s-family" (car icon))))))
 
 (defun all-the-icons-icon-family-for-mode (mode)
