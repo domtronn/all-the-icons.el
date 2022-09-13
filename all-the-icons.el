@@ -1024,7 +1024,12 @@ pause for DURATION seconds between printing each character."
 (defun all-the-icons--remove-style (doc)
   ""
   (dolist (node (dom-by-tag doc 'style))
-    (dom-remove-node doc node))
+    (save-match-data
+      (let ((text (dom-text node)))
+        (while (string-match "\\(fill:[^;]+;\\)" text)
+          (setq text (string-replace (match-string 1 text) "" text)))
+        (setcar (dom-children node) text)
+        (setcdr (dom-children node) nil))))
   doc)
 
 (defun all-the-icons--normalize-svg-doc (doc)
