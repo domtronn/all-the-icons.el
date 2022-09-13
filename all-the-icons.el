@@ -1003,7 +1003,7 @@ pause for DURATION seconds between printing each character."
     (string-match "[+-]?[0-9]*\.[0-9]+" s)
     (string-to-number (match-string 0 s))))
 
-(defun all-the-icons-load-svg (path)
+(defun all-the-icons--load-svg (path)
   ""
   (with-temp-buffer
     (insert-file-contents path)
@@ -1012,7 +1012,7 @@ pause for DURATION seconds between printing each character."
         (libxml-parse-xml-region (point-min) (point-max))
       (car (xml-parse-region (point-min) (point-max))))))
 
-(defun all-the-icons-process-fluentui-svg-doc (doc)
+(defun all-the-icons--remove-fill (doc)
   ""
   (dolist (node (dom-search doc (lambda (node) (dom-attr node 'fill))))
     ;; remove file attribute
@@ -1021,7 +1021,13 @@ pause for DURATION seconds between printing each character."
         (setcar (cdr node) (delq old (cadr node))))))
   doc)
 
-(defun all-the-icons-normalize-svg-doc (doc)
+(defun all-the-icons--remove-style (doc)
+  ""
+  (dolist (node (dom-by-tag doc 'style))
+    (dom-remove-node doc node))
+  doc)
+
+(defun all-the-icons--normalize-svg-doc (doc)
   ""
   (let* ((viewbox (dom-attr doc 'viewBox))
          (vw (and viewbox (all-the-icons-parse-number (nth 2 (split-string viewbox)))))
@@ -1063,9 +1069,9 @@ FIND-ICON-IMAGE-FUNCTION."
               (face (when all-the-icons-color-icons (plist-get args :face))))
          (unless (and file-name (file-exists-p image-path))
            (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
-         (let* ((icon (all-the-icons-normalize-svg-doc
+         (let* ((icon (all-the-icons--normalize-svg-doc
                        (funcall ,process-svg-doc-function
-                                (all-the-icons-load-svg image-path)))))
+                                (all-the-icons--load-svg image-path)))))
            (setf (image-property icon :max-width) (- size (* ,padding 2)))
            (setf (image-property icon :max-height) (- size (* ,padding 2)))
            (setf (image-property icon :ascent) 'center)
@@ -1135,11 +1141,17 @@ FIND-ICON-IMAGE-FUNCTION."
   ""
   (format "wi-%s.svg" name))
 
-(all-the-icons-define-icon devopicons all-the-icons-data/devopicons-alist :padding 1)
+(all-the-icons-define-icon devopicons all-the-icons-data/devopicons-alist
+                           :process-svg-doc-function 'all-the-icons--remove-style
+                           :padding 1)
 
-(all-the-icons-define-icon file-icons all-the-icons-data/file-icons-alist :padding 1)
+(all-the-icons-define-icon file-icons all-the-icons-data/file-icons-alist
+                           :process-svg-doc-function 'all-the-icons--remove-style
+                           :padding 1)
 
-(all-the-icons-define-icon mfixx all-the-icons-data/mfixx-alist :padding 1)
+(all-the-icons-define-icon mfixx all-the-icons-data/mfixx-alist
+                           :process-svg-doc-function 'all-the-icons--remove-style
+                           :padding 1)
 
 (all-the-icons-define-icon octicons all-the-icons-data/octicons-alist
                            :find-icon-image-function 'all-the-icons-find-octicons-image
@@ -1154,7 +1166,7 @@ FIND-ICON-IMAGE-FUNCTION."
 
 (all-the-icons-define-icon fluentui-system-icons all-the-icons-data/fluentui-system-icons-alist
                            :find-icon-image-function 'all-the-icons-find-fluentui-system-icons-image
-                           :process-svg-doc-function 'all-the-icons-process-fluentui-svg-doc)
+                           :process-svg-doc-function 'all-the-icons--remove-fill)
 
 (all-the-icons-define-icon material-icons all-the-icons-data/material-icons-alist
                            :find-icon-image-function 'all-the-icons-find-material-icons-image)
