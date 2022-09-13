@@ -997,7 +997,7 @@ pause for DURATION seconds between printing each character."
        (when duration (sit-for duration)))
      data)))
 
-(defun all-the-icons-parse-number (s)
+(defun all-the-icons--parse-number (s)
   ""
   (save-match-data
     (string-match "[+-]?[0-9]*\.[0-9]+" s)
@@ -1030,12 +1030,12 @@ pause for DURATION seconds between printing each character."
 (defun all-the-icons--normalize-svg-doc (doc)
   ""
   (let* ((viewbox (dom-attr doc 'viewBox))
-         (vw (and viewbox (all-the-icons-parse-number (nth 2 (split-string viewbox)))))
-         (vh (and viewbox (all-the-icons-parse-number (nth 3 (split-string viewbox)))))
+         (vw (and viewbox (all-the-icons--parse-number (nth 2 (split-string viewbox)))))
+         (vh (and viewbox (all-the-icons--parse-number (nth 3 (split-string viewbox)))))
          (width (dom-attr doc 'width))
          (height (dom-attr doc 'height))
-         (w (and width (all-the-icons-parse-number width)))
-         (h (and height (all-the-icons-parse-number height)))
+         (w (and width (all-the-icons--parse-number width)))
+         (h (and height (all-the-icons--parse-number height)))
          (size (apply 'max (seq-filter 'numberp (list w h vw vh)))))
     (dom-set-attribute doc 'width (format "%s" size))
     (dom-set-attribute doc 'height (format "%s" size))
@@ -1093,7 +1093,7 @@ FIND-ICON-IMAGE-FUNCTION."
      ;;   (all-the-icons-insert arg (quote ,name)))
      ))
 
-(defun all-the-icons-find-octicons-image (name dir size &rest _)
+(defun all-the-icons--octicons-path (name dir size &rest _)
   ""
   (let* ((path-format (apply-partially 'format "%s/%s-%s.svg" dir name))
          (size (car
@@ -1107,7 +1107,7 @@ FIND-ICON-IMAGE-FUNCTION."
                           b))))))
     (format "%s-%s.svg" name size)))
 
-(defun all-the-icons-find-fluentui-system-icons-image (name dir size &rest args)
+(defun all-the-icons--find-fluentui-system-icons-path (name dir size &rest args)
   ""
   (let* ((style (or (plist-get args :style) 'regular))
          (path-format (lambda (size) (format "%s/ic_fluent_%s_%s_%s.svg" dir name size style)))
@@ -1122,7 +1122,7 @@ FIND-ICON-IMAGE-FUNCTION."
                           b))))))
     (format "ic_fluent_%s_%s_%s.svg" name size style)))
 
-(defun all-the-icons-find-material-icons-image (name dir size &rest args)
+(defun all-the-icons--find-material-icons-path (name dir size &rest args)
   ""
   (let* ((style (or (plist-get args :style) ""))
          (path-format (lambda (size) (format "%s/%s/materialicons%s/%spx.svg" dir name style size)))
@@ -1154,7 +1154,7 @@ FIND-ICON-IMAGE-FUNCTION."
                            :padding 1)
 
 (all-the-icons-define-icon octicons all-the-icons-data/octicons-alist
-                           :find-icon-image-function 'all-the-icons-find-octicons-image
+                           :find-icon-image-function 'all-the-icons--octicons-path
                            :padding 1)
 
 (all-the-icons-define-icon weather-icons all-the-icons-data/weather-icons-alist
@@ -1165,11 +1165,11 @@ FIND-ICON-IMAGE-FUNCTION."
 (all-the-icons-define-icon fontawesome-4 all-the-icons-data/fontawesome-4-alist :padding 1)
 
 (all-the-icons-define-icon fluentui-system-icons all-the-icons-data/fluentui-system-icons-alist
-                           :find-icon-image-function 'all-the-icons-find-fluentui-system-icons-image
+                           :find-icon-image-function 'all-the-icons--find-fluentui-system-icons-path
                            :process-svg-doc-function 'all-the-icons--remove-fill)
 
 (all-the-icons-define-icon material-icons all-the-icons-data/material-icons-alist
-                           :find-icon-image-function 'all-the-icons-find-material-icons-image)
+                           :find-icon-image-function 'all-the-icons--find-material-icons-path)
 
 ;;;###autoload
 (defun all-the-icons-debug ()
