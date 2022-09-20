@@ -1012,7 +1012,7 @@ pause for DURATION seconds between printing each character."
         (libxml-parse-xml-region (point-min) (point-max))
       (car (xml-parse-region (point-min) (point-max))))))
 
-(defun all-the-icons--remove-fill (doc)
+(defun all-the-icons--remove-fill-attr (doc)
   ""
   (dolist (node (dom-search doc (lambda (node) (dom-attr node 'fill))))
     ;; remove file attribute
@@ -1021,7 +1021,7 @@ pause for DURATION seconds between printing each character."
         (setcar (cdr node) (delq old (cadr node))))))
   doc)
 
-(defun all-the-icons--remove-style (doc)
+(defun all-the-icons--remove-fill-style (doc)
   ""
   (dolist (node (dom-by-tag doc 'style))
     (save-match-data
@@ -1051,7 +1051,7 @@ pause for DURATION seconds between printing each character."
                                                 (/ (- size (or h vh)) 2))))
     (svg-image doc)))
 
-(cl-defmacro all-the-icons-define-icon (name alist &key find-icon-image-function (process-svg-doc-function ''identity) (padding 0))
+(cl-defmacro all-the-icons-define-icon (name alist &key svg-path-finder (svg-doc-processor ''identity) (padding 0))
   "Macro to generate functions for inserting icons for icon set NAME.
 
 NAME defines is the name of the iconset and will produce a
@@ -1068,14 +1068,14 @@ FIND-ICON-IMAGE-FUNCTION."
        (let* ((file-name (cdr (assoc icon-name ,alist))) ;; remap icons
               (size (window-default-font-height))
               (lib-dir (concat (file-name-directory (locate-library "all-the-icons")) ,(format "svg/%s/" name)))
-              (image-path (concat lib-dir ,(or (and find-icon-image-function
-                                                    `(apply ,find-icon-image-function file-name lib-dir size args))
+              (image-path (concat lib-dir ,(or (and svg-path-finder
+                                                    `(apply ,svg-path-finder file-name lib-dir size args))
                                                '(format "%s.svg" file-name))))
               (face (when all-the-icons-color-icons (plist-get args :face))))
          (unless (and file-name (file-exists-p image-path))
            (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
          (let* ((icon (all-the-icons--normalize-svg-doc
-                       (funcall ,process-svg-doc-function
+                       (funcall ,svg-doc-processor
                                 (all-the-icons--load-svg image-path)))))
            (setf (image-property icon :max-width) (- size (* ,padding 2)))
            (setf (image-property icon :max-height) (- size (* ,padding 2)))
@@ -1112,7 +1112,7 @@ FIND-ICON-IMAGE-FUNCTION."
                           b))))))
     (format "%s-%s.svg" name size)))
 
-(defun all-the-icons--find-fluentui-system-icons-path (name dir size &rest args)
+(defun all-the-icons--fluentui-system-icons-path (name dir size &rest args)
   ""
   (let* ((style (or (plist-get args :style) 'regular))
          (path-format (lambda (size) (format "%s/ic_fluent_%s_%s_%s.svg" dir name size style)))
@@ -1127,7 +1127,7 @@ FIND-ICON-IMAGE-FUNCTION."
                           b))))))
     (format "ic_fluent_%s_%s_%s.svg" name size style)))
 
-(defun all-the-icons--find-material-icons-path (name dir size &rest args)
+(defun all-the-icons--material-icons-path (name dir size &rest args)
   ""
   (let* ((style (or (plist-get args :style) ""))
          (path-format (lambda (size) (format "%s/%s/materialicons%s/%spx.svg" dir name style size)))
@@ -1142,39 +1142,34 @@ FIND-ICON-IMAGE-FUNCTION."
                           b))))))
     (format "%s/materialicons%s/%spx.svg" name style size)))
 
-(defun all-the-icons-find-weather-icons-image (name &rest _)
-  ""
-  (format "wi-%s.svg" name))
-
 (all-the-icons-define-icon devopicons all-the-icons-data/devopicons-alist
-                           :process-svg-doc-function 'all-the-icons--remove-style
+                           :svg-doc-processor 'all-the-icons--remove-fill-style
                            :padding 1)
 
 (all-the-icons-define-icon file-icons all-the-icons-data/file-icons-alist
-                           :process-svg-doc-function 'all-the-icons--remove-style
+                           :svg-doc-processor 'all-the-icons--remove-fill-style
                            :padding 1)
 
 (all-the-icons-define-icon mfixx all-the-icons-data/mfixx-alist
-                           :process-svg-doc-function 'all-the-icons--remove-style
+                           :svg-doc-processor 'all-the-icons--remove-fill-style
                            :padding 1)
 
 (all-the-icons-define-icon octicons all-the-icons-data/octicons-alist
-                           :find-icon-image-function 'all-the-icons--octicons-path
+                           :svg-path-finder 'all-the-icons--octicons-path
                            :padding 1)
 
-(all-the-icons-define-icon weather-icons all-the-icons-data/weather-icons-alist
-                           :find-icon-image-function 'all-the-icons-find-weather-icons-image)
+(all-the-icons-define-icon weather-icons all-the-icons-data/weather-icons-alist)
 
 (all-the-icons-define-icon vscode-codicons all-the-icons-data/vscode-codicons-alist)
 
 (all-the-icons-define-icon fontawesome-4 all-the-icons-data/fontawesome-4-alist :padding 1)
 
 (all-the-icons-define-icon fluentui-system-icons all-the-icons-data/fluentui-system-icons-alist
-                           :find-icon-image-function 'all-the-icons--find-fluentui-system-icons-path
-                           :process-svg-doc-function 'all-the-icons--remove-fill)
+                           :svg-path-finder 'all-the-icons--fluentui-system-icons-path
+                           :svg-doc-processor 'all-the-icons--remove-fill-attr)
 
 (all-the-icons-define-icon material-icons all-the-icons-data/material-icons-alist
-                           :find-icon-image-function 'all-the-icons--find-material-icons-path)
+                           :svg-path-finder 'all-the-icons--material-icons-path)
 
 ;;;###autoload
 (defun all-the-icons-debug ()
