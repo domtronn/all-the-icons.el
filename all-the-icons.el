@@ -537,7 +537,7 @@ for performance sake.")
     ("\\.[^.]+"         all-the-icons-fluentui-system-icons "folder"  )))
 
 (defvar all-the-icons-default-dir-icon
-  '(all-the-icons-fontawesome-4 "folder"))
+  '(all-the-icons-fluentui-system-icons "folder" :style filled))
 
 (defvar all-the-icons-weather-icon-alist
   '(
