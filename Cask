@@ -3,7 +3,7 @@
 
 (package-file "all-the-icons.el")
 
-(files "*.el" "data/data-*.el" "svg")
+(files "*.el" "data" "svg")
 
 (development
  (depends-on "f")
