@@ -533,8 +533,10 @@ for performance sake.")
     ("test"             all-the-icons-file-icons "test-directory"     )
     ("\\.git"           all-the-icons-devopicons "git"                )
     ("\\.hg"            all-the-icons-file-icons "mercurial"          )
-    ("\\.svn"           all-the-icons-file-icons "svn"                )
-    (".?"               all-the-icons-fontawesome-4 "folder"          )))
+    ("\\.svn"           all-the-icons-file-icons "svn"                )))
+
+(defvar all-the-icons-default-dir-icon
+  (all-the-icons-fontawesome-4 "folder"))
 
 (defvar all-the-icons-weather-icon-alist
   '(
