@@ -848,7 +848,8 @@ inserting functions.
 
 Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
   (let* ((dirname (file-name-base (directory-file-name dir)))
-         (icon (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist))
+         (icon (or (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist)
+                   all-the-icons-default-dir-icon))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
     (if (file-remote-p dir) ;; don't call expand-file-name on a remote dir as this can make emacs hang
