@@ -726,7 +726,8 @@ for performance sake.")
     (lilypond-mode                      all-the-icons-faicon   "music"            :face all-the-icons-green)
     (magik-session-mode                 all-the-icons-alltheicon "terminal"       :face all-the-icons-blue)
     (magik-cb-mode                      all-the-icons-faicon "book"               :face all-the-icons-blue)
-    (meson-mode                         all-the-icons-fileicon "meson"            :face all-the-icons-purple)))
+    (meson-mode                         all-the-icons-fileicon "meson"            :face all-the-icons-purple)
+    (man-common                         all-the-icons-fileicon "man-page"         :face all-the-icons-blue)))
 
 (defvar all-the-icons-url-alist
   '(
