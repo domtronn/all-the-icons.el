@@ -158,6 +158,7 @@
     ;; ?
     ("pkg"          all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
     ("rpm"          all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
+    ("pkgbuild"     all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
     ("elc"          all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-dsilver)
     ("gz"           all-the-icons-octicon "file-binary"       :v-adjust 0.0 :face all-the-icons-lmaroon)
     ("zip"          all-the-icons-octicon "file-zip"          :v-adjust 0.0 :face all-the-icons-lmaroon)
