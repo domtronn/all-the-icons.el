@@ -56,11 +56,6 @@
     (((background light)) :foreground "#AC4142"))
   "Face for auto-red icons."
   :group 'all-the-icons-faces)
-(defface all-the-icons-red-alt
-  '((((background dark)) :foreground "#ce5643")
-    (((background light)) :foreground "#843031"))
-  "Face for dred icons."
-  :group 'all-the-icons-faces)
 
 ;; green
 (defface all-the-icons-green
@@ -127,11 +122,6 @@
     (((background light)) :foreground "#6A9FB5"))
   "Face for auto-blue icons."
   :group 'all-the-icons-faces)
-(defface all-the-icons-blue-alt
-  '((((background dark)) :foreground "#2188b6")
-    (((background light)) :foreground "#2188b6"))
-  "Face for blue icons."
-  :group 'all-the-icons-faces)
 
 ;; maroon
 (defface all-the-icons-maroon
@@ -176,11 +166,6 @@
     (((background light)) :foreground "#AA759F"))
   "Face for auto-purple icons."
   :group 'all-the-icons-faces)
-(defface all-the-icons-purple-alt
-  '((((background dark)) :foreground "#5D54E1")
-    (((background light)) :foreground "#5D54E1"))
-  "Face for purple icons."
-  :group 'all-the-icons-faces)
 
 ;; orange
 (defface all-the-icons-orange
@@ -224,11 +209,6 @@
   '((((background dark)) :foreground "#4D9085")
     (((background light)) :foreground "#75B5AA"))
   "Face for auto-cyan icons."
-  :group 'all-the-icons-faces)
-(defface all-the-icons-cyan-alt
-  '((((background dark)) :foreground "#61dafb")
-    (((background light)) :foreground "#0595bd"))
-  "Face for cyan icons."
   :group 'all-the-icons-faces)
 
 ;; pink
@@ -275,9 +255,13 @@
   "Face for auto-silver icons."
   :group 'all-the-icons-faces)
 
-(define-obsolete-face-alias 'all-the-icons-grey 'all-the-icons-silver "6.0.0")
-(define-obsolete-face-alias 'all-the-icons-lgrey 'all-the-icons-lsilver "6.0.0")
-(define-obsolete-face-alias 'all-the-icons-dgrey 'all-the-icons-dsilver "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-silver 'all-the-icons-grey "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-lsilver 'all-the-icons-lgrey "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-dsilver 'all-the-icons-dgrey "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-red-alt 'all-the-icons-auto-red "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-blue-alt 'all-the-icons-auto-blue "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-purple-alt 'all-the-icons-auto-purple "6.0.0")
+(define-obsolete-face-alias 'all-the-icons-cyan-alt 'all-the-icons-auto-cyan "6.0.0")
 
 (provide 'all-the-icons-faces)
 ;;; all-the-icons-faces.el ends here
