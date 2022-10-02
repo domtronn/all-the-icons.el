@@ -37,222 +37,192 @@
 
 ;; red
 (defface all-the-icons-red
-  '((((background dark)) :foreground "#AC4142")
-    (((background light)) :foreground "#AC4142"))
-  "Face for red icons."
+  '((t :foreground "#AC4142"))
+  "Face for medium red icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lred
-  '((((background dark)) :foreground "#C97071")
-    (((background light)) :foreground "#C97071"))
-  "Face for lred icons."
+  '((t :foreground "#C97071"))
+  "Face for light red icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dred
-  '((((background dark)) :foreground "#BE2F31")
-    (((background light)) :foreground "#BE2F31"))
-  "Face for dred icons."
+  '((t :foreground "#BE2F31"))
+  "Face for dark red icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-red
-  '((((background dark)) :foreground "#BE2F31")
-    (((background light)) :foreground "#AC4142"))
-  "Face for auto-red icons."
+  '((((background dark)) :inherit all-the-icons-dred)
+    (((background light)) :inherit all-the-icons-red))
+  "Face for background-color-dependent red icons."
   :group 'all-the-icons-faces)
 
 ;; green
 (defface all-the-icons-green
-  '((((background dark)) :foreground "#90A959")
-    (((background light)) :foreground "#90A959"))
-  "Face for green icons."
+  '((t :foreground "#90A959"))
+  "Face for medium green icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lgreen
-  '((((background dark)) :foreground "#B2C38B")
-    (((background light)) :foreground "#B2C38B"))
-  "Face for lgreen icons."
+  '((t :foreground "#B2C38B"))
+  "Face for light green icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dgreen
-  '((((background dark)) :foreground "#66783E")
-    (((background light)) :foreground "#66783E"))
-  "Face for dgreen icons."
+  '((t :foreground "#66783E"))
+  "Face for dark green icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-green
-  '((((background dark)) :foreground "#66783E")
-    (((background light)) :foreground "#90A959"))
-  "Face for auto-green icons."
+  '((((background dark)) :inherit all-the-icons-dgreen)
+    (((background light)) :inherit all-the-icons-green))
+  "Face for background-color-dependent green icons."
   :group 'all-the-icons-faces)
 
 ;; yellow
 (defface all-the-icons-yellow
-  '((((background dark)) :foreground "#F4BF75")
-    (((background light)) :foreground "#F4BF75"))
-  "Face for yellow icons."
+  '((t :foreground "#F4BF75"))
+  "Face for medium yellow icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lyellow
-  '((((background dark)) :foreground "#FAE0BC")
-    (((background light)) :foreground "#FAE0BC"))
-  "Face for lyellow icons."
+  '((t :foreground "#FAE0BC"))
+  "Face for light yellow icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dyellow
-  '((((background dark)) :foreground "#EE9E2E")
-    (((background light)) :foreground "#EE9E2E"))
-  "Face for dyellow icons."
+  '((t :foreground "#EE9E2E"))
+  "Face for dark yellow icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-yellow
-  '((((background dark)) :foreground "#EE9E2E")
-    (((background light)) :foreground "#F4BF75"))
-  "Face for auto-yellow icons."
+  '((((background dark)) :inherit all-the-icons-dyellow)
+    (((background light)) :inherit all-the-icons-yellow))
+  "Face for background-color-dependent yellow icons."
   :group 'all-the-icons-faces)
 
 ;; blue
 (defface all-the-icons-blue
-  '((((background dark)) :foreground "#6A9FB5")
-    (((background light)) :foreground "#6A9FB5"))
-  "Face for blue icons."
+  '((t :foreground "#6A9FB5"))
+  "Face for medium blue icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lblue
-  '((((background dark)) :foreground "#9DC0CE")
-    (((background light)) :foreground "#9DC0CE"))
-  "Face for lblue icons."
+  '((t :foreground "#9DC0CE"))
+  "Face for light blue icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dblue
-  '((((background dark)) :foreground "#46788d")
-    (((background light)) :foreground "#46788d"))
-  "Face for dblue icons."
+  '((t :foreground "#46788d"))
+  "Face for dark blue icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-blue
-  '((((background dark)) :foreground "#46788d")
-    (((background light)) :foreground "#6A9FB5"))
-  "Face for auto-blue icons."
+  '((((background dark)) :inherit all-the-icons-dblue)
+    (((background light)) :inherit all-the-icons-blue))
+  "Face for background-color-dependent blue icons."
   :group 'all-the-icons-faces)
 
 ;; maroon
 (defface all-the-icons-maroon
-  '((((background dark)) :foreground "#8F5536")
-    (((background light)) :foreground "#8F5536"))
-  "Face for maroon icons."
+  '((t :foreground "#8F5536"))
+  "Face for medium maroon icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lmaroon
-  '((((background dark)) :foreground "#BE7953")
-    (((background light)) :foreground "#BE7953"))
-  "Face for lmaroon icons."
+  '((t :foreground "#BE7953"))
+  "Face for light maroon icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dmaroon
-  '((((background dark)) :foreground "#7C4426")
-    (((background light)) :foreground "#7C4426"))
-  "Face for dmaroon icons."
+  '((t :foreground "#7C4426"))
+  "Face for dark maroon icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-maroon
-  '((((background dark)) :foreground "#7C4426")
-    (((background light)) :foreground "#8F5536"))
-  "Face for auto-maroon icons."
+  '((((background dark)) :inherit all-the-icons-dmaroon)
+    (((background light)) :inherit all-the-icons-maroon))
+  "Face for background-color-dependent maroon icons."
   :group 'all-the-icons-faces)
 
 ;; purple
 (defface all-the-icons-purple
-  '((((background dark)) :foreground "#AA759F")
-    (((background light)) :foreground "#AA759F"))
-  "Face for purple icons."
+  '((t :foreground "#AA759F"))
+  "Face for medium purple icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lpurple
-  '((((background dark)) :foreground "#C7A4C0")
-    (((background light)) :foreground "#C7A4C0"))
-  "Face for lpurple icons."
+  '((t :foreground "#C7A4C0"))
+  "Face for light purple icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dpurple
-  '((((background dark)) :foreground "#825078")
-    (((background light)) :foreground "#825078"))
-  "Face for dpurple icons."
+  '((t :foreground "#825078"))
+  "Face for dark purple icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-purple
-  '((((background dark)) :foreground "#825078")
-    (((background light)) :foreground "#AA759F"))
-  "Face for auto-purple icons."
+  '((((background dark)) :inherit all-the-icons-dpurple)
+    (((background light)) :inherit all-the-icons-purple))
+  "Face for background-color-dependent purple icons."
   :group 'all-the-icons-faces)
 
 ;; orange
 (defface all-the-icons-orange
-  '((((background dark)) :foreground "#D28445")
-    (((background light)) :foreground "#D28445"))
-  "Face for orange icons."
+  '((t :foreground "#D28445"))
+  "Face for medium orange icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lorange
-  '((((background dark)) :foreground "#E1AD83")
-    (((background light)) :foreground "#E1AD83"))
-  "Face for lorange icons."
+  '((t :foreground "#E1AD83"))
+  "Face for light orange icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dorange
-  '((((background dark)) :foreground "#A35F27")
-    (((background light)) :foreground "#A35F27"))
-  "Face for dorange icons."
+  '((t :foreground "#A35F27"))
+  "Face for dark orange icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-orange
-  '((((background dark)) :foreground "#A35F27")
-    (((background light)) :foreground "#D28445"))
-  "Face for auto-orange icons."
+  '((((background dark)) :inherit all-the-icons-dorange)
+    (((background light)) :inherit all-the-icons-orange))
+  "Face for background-color-dependent orange icons."
   :group 'all-the-icons-faces)
 
 ;; cyan
 (defface all-the-icons-cyan
-  '((((background dark)) :foreground "#75B5AA")
-    (((background light)) :foreground "#75B5AA"))
-  "Face for cyan icons."
+  '((t :foreground "#75B5AA"))
+  "Face for medium cyan icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lcyan
-  '((((background dark)) :foreground "#A7D0C9")
-    (((background light)) :foreground "#A7D0C9"))
-  "Face for lcyan icons."
+  '((t :foreground "#A7D0C9"))
+  "Face for light cyan icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dcyan
-  '((((background dark)) :foreground "#4D9085")
-    (((background light)) :foreground "#4D9085"))
-  "Face for dcyan icons."
+  '((t :foreground "#4D9085"))
+  "Face for dark cyan icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-cyan
-  '((((background dark)) :foreground "#4D9085")
-    (((background light)) :foreground "#75B5AA"))
-  "Face for auto-cyan icons."
+  '((((background dark)) :inherit all-the-icons-dcyan)
+    (((background light)) :inherit all-the-icons-cyan))
+  "Face for background-color-dependent cyan icons."
   :group 'all-the-icons-faces)
 
 ;; pink
 (defface all-the-icons-pink
-  '((((background dark)) :foreground "#FF00CC")
-    (((background light)) :foreground "#FF00CC"))
-  "Face for pink icons."
+  '((t :foreground "#FF00CC"))
+  "Face for medium pink icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-lpink
-  '((((background dark)) :foreground "#FF4DDB")
-    (((background light)) :foreground "#FF4DDB"))
-  "Face for lpink icons."
+  '((t :foreground "#FF4DDB"))
+  "Face for light pink icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-dpink
-  '((((background dark)) :foreground "#CC00A3")
-    (((background light)) :foreground "#CC00A3"))
-  "Face for dpink icons."
+  '((t :foreground "#CC00A3"))
+  "Face for dark pink icons."
   :group 'all-the-icons-faces)
 (defface all-the-icons-auto-pink
-  '((((background dark)) :foreground "#CC00A3")
-    (((background light)) :foreground "#FF00CC"))
-  "Face for auto-pink icons."
+  '((((background dark)) :inherit all-the-icons-dpink)
+    (((background light)) :inherit all-the-icons-pink))
+  "Face for background-color-dependent pink icons."
   :group 'all-the-icons-faces)
 
-;; silver
-(defface all-the-icons-silver
-  '((((background dark)) :foreground "#A5A5A5")
-    (((background light)) :foreground "#A5A5A5"))
-  "Face for silver icons."
+;; grey
+(defface all-the-icons-grey
+  '((t :foreground "#A5A5A5"))
+  "Face for medium grey icons."
   :group 'all-the-icons-faces)
-(defface all-the-icons-lsilver
-  '((((background dark)) :foreground "#7F7F7F")
-    (((background light)) :foreground "#7F7F7F"))
-  "Face for lsilver icons."
+(defface all-the-icons-lgrey
+  '((t :foreground "#7F7F7F"))
+  "Face for light grey icons."
   :group 'all-the-icons-faces)
-(defface all-the-icons-dsilver
-  '((((background dark)) :foreground "#7F7F7F")
-    (((background light)) :foreground "#7F7F7F"))
-  "Face for dsilver icons."
+(defface all-the-icons-dgrey
+  '((t :foreground "#7F7F7F"))
+  "Face for dark grey icons."
   :group 'all-the-icons-faces)
-(defface all-the-icons-auto-silver
-  '((((background dark)) :foreground "#7F7F7F")
-    (((background light)) :foreground "#7F7F7F"))
-  "Face for auto-silver icons."
+(defface all-the-icons-auto-grey
+  '((((background dark)) :inherit all-the-icons-dgrey)
+    (((background light)) :inherit all-the-icons-grey))
+  "Face for background-color-dependent grey icons."
   :group 'all-the-icons-faces)
 
 (define-obsolete-face-alias 'all-the-icons-silver 'all-the-icons-grey "6.0.0")
