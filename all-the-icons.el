@@ -424,7 +424,7 @@
     ("crt"             all-the-icons-octicons "key"                    :face all-the-icons-lblue)
     ("pub"             all-the-icons-octicons "key"                    :face all-the-icons-blue)
     ("gpg"             all-the-icons-octicons "key"                    :face all-the-icons-lblue)
-    ("cache"           all-the-icons-material-icons "cache"            :face all-the-icons-green)
+    ("cache"           all-the-icons-material-icons "cached"           :face all-the-icons-green)
     ("csv"             all-the-icons-octicons "graph"                  :face all-the-icons-dblue)))
 
 
