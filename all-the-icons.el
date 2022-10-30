@@ -146,6 +146,8 @@
     ("ini"          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-yellow)
     ("eslintignore" all-the-icons-fileicon "eslint"           :height 0.9  :face all-the-icons-purple)
     ("eslint"       all-the-icons-fileicon "eslint"           :height 0.9  :face all-the-icons-lpurple)
+    ("el"           all-the-icons-fileicon "elisp"            :height 1.0 :v-adjust -0.1
+     :face all-the-icons-purple)
     ("git"          all-the-icons-alltheicon "git"            :height 1.0  :face all-the-icons-lred)
     ("mk"           all-the-icons-fileicon "gnu"              :face all-the-icons-dorange)
     ("cmake"        all-the-icons-fileicon "cmake"            :face all-the-icons-red)
