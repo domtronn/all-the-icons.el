@@ -1164,7 +1164,7 @@ pause for DURATION seconds between printing each character."
     (mapc
      (lambda (it)
        (insert (format "%s - %s\n" (funcall insert-f (car it) :height height) (car it)))
-       (when duration (sit-for duration 0)))
+       (when duration (sit-for duration)))
      data)))
 
 (defmacro all-the-icons-define-icon (name alist family &optional font-name)
