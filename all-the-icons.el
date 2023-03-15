@@ -399,6 +399,8 @@
     ("doc"          all-the-icons-fileicon "word"             :face all-the-icons-blue)
     ("docx"         all-the-icons-fileicon "word"             :face all-the-icons-blue)
     ("docm"         all-the-icons-fileicon "word"             :face all-the-icons-blue)
+    ("eml"          all-the-icons-faicon "envelope"              :face all-the-icons-blue)
+    ("msg"          all-the-icons-faicon "envelope"              :face all-the-icons-blue)
     ("texi"         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     ("tex"          all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     ("md"           all-the-icons-octicon "markdown"          :v-adjust 0.0 :face all-the-icons-lblue)
