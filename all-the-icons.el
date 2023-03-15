@@ -247,6 +247,7 @@
     ("sass"         all-the-icons-alltheicon "sass"           :face all-the-icons-dpink)
     ("less"         all-the-icons-alltheicon "less"           :height 0.8  :face all-the-icons-dyellow)
     ("postcss"      all-the-icons-fileicon "postcss"          :face all-the-icons-dred)
+    ("pcss"         all-the-icons-fileicon "postcss"          :face all-the-icons-dred)
     ("sss"          all-the-icons-fileicon "postcss"          :face all-the-icons-dred)
     ("styl"         all-the-icons-alltheicon "stylus"         :face all-the-icons-lgreen)
     ("csv"          all-the-icons-octicon "graph"             :v-adjust 0.0 :face all-the-icons-dblue)
