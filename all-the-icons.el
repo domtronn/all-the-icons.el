@@ -933,20 +933,21 @@ inserting functions.
 
 Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
   (let* ((dirname (file-name-base (directory-file-name dir)))
-         (path (expand-file-name dir))
          (icon (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist))
          (args (cdr icon)))
     (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
-    (cond
-     ((file-remote-p path)
-      (apply #'all-the-icons-octicon "terminal" (cdr args)))
-     ((file-symlink-p path)
-      (apply #'all-the-icons-octicon "file-symlink-directory" (cdr args)))
-     ((all-the-icons-dir-is-submodule path)
-      (apply #'all-the-icons-octicon "file-submodule" (cdr args)))
-     ((file-exists-p (format "%s/.git" path))
-      (apply #'all-the-icons-octicon "repo" (cdr args)))
-     (t (apply (car icon) args)))))
+    (if (file-remote-p dir) ;; don't call expand-file-name on a remote dir as this can make emacs hang
+        (apply #'all-the-icons-octicon "terminal" (cdr args))
+      (let
+          ((path (expand-file-name dir)))
+        (cond
+         ((file-symlink-p path)
+          (apply #'all-the-icons-octicon "file-symlink-directory" (cdr args)))
+         ((all-the-icons-dir-is-submodule path)
+          (apply #'all-the-icons-octicon "file-submodule" (cdr args)))
+         ((file-exists-p (format "%s/.git" path))
+          (apply #'all-the-icons-octicon "repo" (cdr args)))
+         (t (apply (car icon) args)))))))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
@@ -1021,7 +1022,7 @@ inserting functions."
 (defun all-the-icons-icon-family-for-file (file)
   "Get the icons font family for FILE."
   (let* ((ext (file-name-extension file))
-	(icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
+	     (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
                    (and ext
                         (cdr (assoc (downcase ext)
                                     all-the-icons-extension-icon-alist)))
