@@ -284,6 +284,8 @@
     ("tsx"          all-the-icons-fileicon "tsx"              :height 1.0 :v-adjust -0.1 :face all-the-icons-cyan-alt)
     ("njs"          all-the-icons-alltheicon "nodejs"         :height 1.2  :face all-the-icons-lgreen)
     ("vue"          all-the-icons-fileicon "vue"              :face all-the-icons-lgreen)
+    ("wasm"         all-the-icons-fileicon "wasm"             :height 1.0 :face all-the-icons-purple-alt)
+    ("wat"          all-the-icons-fileicon "wasm"             :height 1.0 :face all-the-icons-purple-alt)
 
     ("sbt"          all-the-icons-fileicon   "sbt"            :face all-the-icons-red)
     ("scala"        all-the-icons-alltheicon "scala"          :face all-the-icons-red)
