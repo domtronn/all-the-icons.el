@@ -155,6 +155,7 @@
     ("cson"         all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-yellow)
     ("yml"          all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
     ("yaml"         all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
+    ("rasi"         all-the-icons-octicon "settings"          :v-adjust 0.0 :face all-the-icons-dyellow)
     ;; ?
     ("pkg"          all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
     ("rpm"          all-the-icons-octicon "package"           :v-adjust 0.0 :face all-the-icons-dsilver)
@@ -1042,7 +1043,7 @@ inserting functions."
 (defun all-the-icons-icon-family-for-file (file)
   "Get the icons font family for FILE."
   (let* ((ext (file-name-extension file))
-	     (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
+         (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
                    (and ext
                         (cdr (assoc (downcase ext)
                                     all-the-icons-extension-icon-alist)))
