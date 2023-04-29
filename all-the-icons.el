@@ -1017,7 +1017,7 @@ inserting functions."
   :type 'integer)
 
 (defun all-the-icons-cache (func)
-  "Set a cache for FUNC. Does not work on interactive functions."
+  "Set a cache for FUNC.  Does not work on interactive functions."
   (unless (get func 'all-the-icons--cached)
     (let ((cache (make-hash-table :test #'equal
                                   :size all-the-icons--cache-limit))
