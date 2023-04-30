@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="1000"
+   width="1000"
+   version="1.1"
+   id="clock"
+   viewBox="0 0 1000 1000"
+   sodipodi:docname="clock_10_25.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050" />
+  <g
+     id="container">
+    <g
+       transform="translate(500,500) rotate(270)"
+       id="g4">
+      <path
+         id="clock_10_25"
+         style="color:#000000;fill:#000000;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none"
+         d="m 93.916016,-185.62891 a 30,30 0 0 0 -29.896485,14.74414 L -21.960937,-21.960937 -248.82617,109.01953 A 30,30 0 0 0 -259.80859,150 a 30,30 0 0 0 40.98242,10.98047 L 15,25.980469 A 30.003,30.003 0 0 0 25.980469,15 L 115.98047,-140.88477 A 30,30 0 0 0 105,-181.86523 30,30 0 0 0 93.916016,-185.62891 Z M 370,0 C 370,-203.98981 203.98981,-370 0,-370 -203.98981,-370 -370,-203.98981 -370,0 -370,203.98981 -203.98981,370 0,370 203.98981,370 370,203.98981 370,0 Z M 310,0 C 310,171.56344 171.56344,310 0,310 -171.56344,310 -310,171.56344 -310,0 c 0,-171.56344 138.43656,-310 310,-310 171.56344,0 310,138.43656 310,310 z" />
+    </g>
+  </g>
+</svg>

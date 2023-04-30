@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="1000"
+   width="1000"
+   version="1.1"
+   id="h00m00"
+   viewBox="0 0 1000 1000"
+   sodipodi:docname="solid_clock_06_20.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050" />
+  <path
+     id="path14"
+     style="color:#000000;fill:#000000;stroke-width:60;-inkscape-stroke:none"
+     d="M 500 130 C 296.01059 130 130 296.01059 130 500 C 130 703.98941 296.01059 870 500 870 C 703.98941 870 870 703.98941 870 500 C 870 296.01059 703.98941 130 500 130 z M 500 470.00195 A 30.003 30.003 0 0 1 515 474.01953 L 748.82617 609.01953 A 30 30 0 0 1 759.80859 650 A 30 30 0 0 1 718.82617 660.98047 L 530 551.96094 L 530 680 A 30 30 0 0 1 500 710 A 30 30 0 0 1 470 680 L 470 500 A 30.003 30.003 0 0 1 500 470.00195 z " />
+</svg>
