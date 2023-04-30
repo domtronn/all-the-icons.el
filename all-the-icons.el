@@ -1035,26 +1035,6 @@ When F is provided, the info function is calculated with the format
         (libxml-parse-xml-region (point-min) (point-max))
       (car (xml-parse-region (point-min) (point-max))))))
 
-(defun all-the-icons--remove-fill-attr (doc)
-  ""
-  (dolist (node (dom-search doc (lambda (node) (dom-attr node 'fill))))
-    ;; remove fill attribute
-    (let ((node (dom-ensure-node node)))
-      (when-let ((old (assoc 'fill (cadr node))))
-        (setcar (cdr node) (delq old (cadr node))))))
-  doc)
-
-(defun all-the-icons--remove-fill-style (doc)
-  ""
-  (dolist (node (dom-by-tag doc 'style))
-    (save-match-data
-      (let ((text (dom-text node)))
-        (while (string-match "\\(fill:[^;]+;\\)" text)
-          (setq text (string-replace (match-string 1 text) "" text)))
-        (setcar (dom-children node) text)
-        (setcdr (dom-children node) nil))))
-  doc)
-
 (defun all-the-icons--normalize-svg-doc (doc)
   ""
   (let* ((viewbox (dom-attr doc 'viewBox))
