@@ -850,9 +850,8 @@ Providing ARG-OVERRIDES will modify the creation of the icon."
 ;;;###autoload
 (defun all-the-icons-icon-for-dir (dir &rest arg-overrides)
   "Get the formatted icon for DIR.
-ARG-OVERRIDES should be a plist containining `:height',
-`:v-adjust' or `:face' properties like in the normal icon
-inserting functions.
+ARG-OVERRIDES should be a plist containining properties like in
+the normal icon inserting functions.
 
 Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
   (let* ((dirname (file-name-base (directory-file-name dir)))
@@ -875,9 +874,8 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
   "Get the formatted icon for FILE.
-ARG-OVERRIDES should be a plist containining `:height',
-`:v-adjust' or `:face' properties like in the normal icon
-inserting functions."
+ARG-OVERRIDES should be a plist containining properties like in
+the normal icon inserting functions."
   (let* ((ext (file-name-extension file))
          (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
                    (and ext
@@ -891,9 +889,8 @@ inserting functions."
 ;;;###autoload
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
   "Get the formatted icon for MODE.
-ARG-OVERRIDES should be a plist containining `:height',
-`:v-adjust' or `:face' properties like in the normal icon
-inserting functions."
+ARG-OVERRIDES should be a plist containining properties like in
+the normal icon inserting functions."
   (let* ((icon (cdr (or (assoc mode all-the-icons-mode-icon-alist)
                         (assoc (get mode 'derived-mode-parent) all-the-icons-mode-icon-alist))))
          (args (cdr icon)))
