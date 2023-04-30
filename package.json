@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "svgo": "^3.0.2"
+  }
+}
