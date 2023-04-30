@@ -1017,12 +1017,12 @@ When F is provided, the info function is calculated with the format
 ;;        (when duration (sit-for duration)))
 ;;      data)))
 
-;; SVG postprocessing functions
+;; SVG helper functions
 
 (defun all-the-icons--parse-number (s)
   ""
   (save-match-data
-    (string-match "[+-]?[0-9]*\.[0-9]+" s)
+    (string-match "[+-]?[0-9]*\(\.[0-9]+\)" s)
     (string-to-number (match-string 0 s))))
 
 (defun all-the-icons--load-svg (path)
