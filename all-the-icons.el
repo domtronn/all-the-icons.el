@@ -1166,7 +1166,6 @@ FIND-ICON-IMAGE-FUNCTION."
     (format "clockface%s/clock_%s.svg" style name)))
 
 (all-the-icons-define-icon devopicons all-the-icons-data/devopicons-alist
-                           :svg-doc-processor 'all-the-icons--remove-fill-style
                            :padding 1)
 
 (all-the-icons-define-icon file-icons all-the-icons-data/file-icons-alist

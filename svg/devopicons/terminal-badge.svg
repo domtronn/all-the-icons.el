@@ -1,1 +1,1 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px"><rect x="255.9999847" y="383.9999084" width="256" height="63.9999886"/><polygon points="63.9999695,447.9999695 255.9999695,256 64.0000076,64.0000381 0.000019,128.0000305 127.9999924,256 0,383.9999695 "/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><path d="M256 384h256v64H256zM64 448l192-192L64 64 0 128l128 128L0 384z"/></svg>
