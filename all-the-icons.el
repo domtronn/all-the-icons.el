@@ -414,8 +414,8 @@
 
 
     ;; Email
-    ("eml"          all-the-icons-fontawesome-4 "envelope"          :face all-the-icons-blue)
-    ("msg"          all-the-icons-fontawesome-4 "envelope"          :face all-the-icons-blue)
+    ("eml"             all-the-icons-fontawesome-4 "envelope"          :face all-the-icons-blue)
+    ("msg"             all-the-icons-fontawesome-4 "envelope"          :face all-the-icons-blue)
 
     ;;
     ("key"             all-the-icons-octicons "key"                    :face all-the-icons-lblue)
@@ -1003,22 +1003,24 @@ When F is provided, the info function is calculated with the format
 
 ;; Debug Helpers
 
-(defun all-the-icons-insert-icons-for (icon-set &optional height duration)
-  "Insert all of the available icons associated with ICON-SET.
-If a HEIGHT is provided it will render the icons at this height.
-This is useful both to see the icons more clearly and to test
-different height rendering.  If DURATION is provided, it will
-pause for DURATION seconds between printing each character."
-  (let* ((data-f    (all-the-icons--data-name icon-set))
-         (insert-f  (all-the-icons--function-name icon-set))
+;; (defun all-the-icons-insert-icons-for (icon-set &optional height duration)
+;;   "Insert all of the available icons associated with ICON-SET.
+;; If a HEIGHT is provided it will render the icons at this height.
+;; This is useful both to see the icons more clearly and to test
+;; different height rendering.  If DURATION is provided, it will
+;; pause for DURATION seconds between printing each character."
+;;   (let* ((data-f    (all-the-icons--data-name icon-set))
+;;          (insert-f  (all-the-icons--function-name icon-set))
 
-         (height (or height 2.0))
-         (data (funcall data-f)))
-    (mapc
-     (lambda (it)
-       (insert (format "%s - %s\n" (funcall insert-f (car it) :height height) (car it)))
-       (when duration (sit-for duration)))
-     data)))
+;;          (height (or height 2.0))
+;;          (data (funcall data-f)))
+;;     (mapc
+;;      (lambda (it)
+;;        (insert (format "%s - %s\n" (funcall insert-f (car it) :height height) (car it)))
+;;        (when duration (sit-for duration)))
+;;      data)))
+
+;; SVG postprocessing functions
 
 (defun all-the-icons--parse-number (s)
   ""
@@ -1114,12 +1116,7 @@ FIND-ICON-IMAGE-FUNCTION."
                        'fontified t
                        'display icon
                        'front-sticky nil
-                       'rear-nonsticky t))))
-     ;; (defun ,(all-the-icons--insert-function-name name) (&optional arg)
-     ;;   ,(format "Insert a %s icon at point." name)
-     ;;   (interactive "P")
-     ;;   (all-the-icons-insert arg (quote ,name)))
-     ))
+                       'rear-nonsticky t))))))
 
 (defun all-the-icons--octicons-path (name dir size &rest _)
   ""
@@ -1193,65 +1190,6 @@ FIND-ICON-IMAGE-FUNCTION."
 
 (all-the-icons-define-icon material-icons all-the-icons-data/material-icons-alist
                            :svg-path-finder 'all-the-icons--material-icons-path)
-
-;;;###autoload
-(defun all-the-icons-debug ()
-  (interactive)
-
-  (dolist (entry all-the-icons-extension-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-mode-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-regexp-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-weather-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-dir-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-data/file-icons-alist)
-    (insert (all-the-icons-file-icons (car entry))))
-
-  (dolist (entry all-the-icons-data/mfixx-alist)
-    (insert (all-the-icons-mfixx (car entry))))
-
-  (dolist (entry all-the-icons-data/devopicons-alist)
-    (insert (all-the-icons-devopicons (car entry))))
-
-  (dolist (entry all-the-icons-data/vscode-codicons-alist)
-    (insert (all-the-icons-vscode-codicons (car entry))))
-
-  (dolist (entry all-the-icons-data/octicons-alist)
-    (insert (all-the-icons-octicons (car entry))))
-
-  (dolist (entry all-the-icons-data/weather-icons-alist)
-    (insert (all-the-icons-weather-icons (car entry))))
-
-  (dolist (entry all-the-icons-data/fontawesome-4-alist)
-    (insert (all-the-icons-fontawesome-4 (car entry))))
-
-  (dolist (entry all-the-icons-data/fluentui-system-icons-alist)
-    (when-let ((icon (ignore-errors (all-the-icons-fluentui-system-icons (car entry)))))
-      (insert icon)))
-
-  (dolist (style '(filled regular))
-    (dolist (entry all-the-icons-data/fluentui-system-icons-alist)
-      (when-let ((icon (ignore-errors (all-the-icons-fluentui-system-icons (car entry) :style style))))
-        (insert icon))))
-
-  (dolist (style '(nil outlined round sharp twotone))
-    (dolist (entry all-the-icons-data/material-icons-alist)
-      (when-let ((icon (ignore-errors (all-the-icons-material-icons (car entry) :style style))))
-        (insert icon)))))
-
-(provide 'all-the-icons)
-
-;;; all-the-icons.el ends here
-
 
 ;;;###autoload
 (defun all-the-icons-debug ()
