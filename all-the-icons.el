@@ -1160,7 +1160,7 @@ FIND-ICON-IMAGE-FUNCTION."
                           b))))))
     (format "%s/materialicons%s/%spx.svg" name style size)))
 
-(defun all-the-icons--clockface-path (name dir _ &rest args)
+(defun all-the-icons--clockface-path (name _ _ &rest args)
   ""
   (let* ((style (or (plist-get args :style) "")))
     (format "clockface%s/clock_%s.svg" style name)))
