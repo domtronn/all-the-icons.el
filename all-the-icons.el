@@ -1174,7 +1174,6 @@ FIND-ICON-IMAGE-FUNCTION."
                            :padding 1)
 
 (all-the-icons-define-icon mfixx all-the-icons-data/mfixx-alist
-                           :svg-doc-processor 'all-the-icons--remove-fill-style
                            :padding 1)
 
 (all-the-icons-define-icon octicons all-the-icons-data/octicons-alist
