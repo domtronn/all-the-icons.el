@@ -1038,7 +1038,7 @@ When F is provided, the info function is calculated with the format
 (defun all-the-icons--remove-fill-attr (doc)
   ""
   (dolist (node (dom-search doc (lambda (node) (dom-attr node 'fill))))
-    ;; remove file attribute
+    ;; remove fill attribute
     (let ((node (dom-ensure-node node)))
       (when-let ((old (assoc 'fill (cadr node))))
         (setcar (cdr node) (delq old (cadr node))))))
