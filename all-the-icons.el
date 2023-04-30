@@ -1214,10 +1214,6 @@ FIND-ICON-IMAGE-FUNCTION."
   (dolist (entry all-the-icons-data/fontawesome-4-alist)
     (insert (all-the-icons-fontawesome-4 (car entry))))
 
-  (dolist (entry all-the-icons-data/fluentui-system-icons-alist)
-    (when-let ((icon (ignore-errors (all-the-icons-fluentui-system-icons (car entry)))))
-      (insert icon)))
-
   (dolist (style '(filled regular))
     (dolist (entry all-the-icons-data/fluentui-system-icons-alist)
       (when-let ((icon (ignore-errors (all-the-icons-fluentui-system-icons (car entry) :style style))))
