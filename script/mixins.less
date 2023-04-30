@@ -1,0 +1,77 @@
+// Specify a default to enable Less compilation outside Atom
+@tree-view-background-color: #303030;
+@import (optional) "ui-variables";
+
+
+/*============================================================================*
+	MIXINS
+	Moved from `colours.less` to avoid flooding stylesheet with documentation.
+/*============================================================================*/
+@theme-colour: @tree-view-background-color;
+
+
+/**
+ * Brighten a colour if it would be too dim to see with a dark-coloured theme.
+ *
+ * @colour: CSS colour value
+ * @amount: Percentile value controlling the increase
+ *          to the colour's luminosity and saturation.
+ *
+ * HACK: Saturation will be increased slightly to account for the "washed out"
+ *       look when brightening a colour will high luminosity. This will destroy
+ *       achromatic values, turning shades of grey into into a pale cyan.
+ *       Use `.brighten-grey-if-needed` to brighten monochromatic colours.
+ */
+.brighten-if-needed(@colour, @amount: 25%)
+	when(lightness(@theme-colour) < 50%){
+		color: saturate(lighten(@colour, @amount), @amount);
+	}
+.brighten-if-needed(@colour, @amount: 25%)
+	when(lightness(@theme-colour) >= 50%){
+		color: @colour;
+	}
+
+
+/**
+ * Brighten a greyscale colour if it's too close to the theme's background colour.
+ *
+ * @colour: An acromatic CSS colour value
+ * @amount: Percentile value determining how far to increase the shade's brightness.
+ *
+ * NOTE: This mixin is identical to `.brighten-if-needed`, except that saturation
+ *       won't be modified. This should theoretically be handled by the current
+ *       mixin, except Less's syntax for branching sucks and I hate this language
+ *       enough already without being forced to spoonfeed it.
+ */
+.brighten-grey-if-needed(@colour, @amount: 25%)
+	when(lightness(@theme-colour) < 50%){
+		color: lighten(@colour, @amount);
+	}
+
+
+/**
+ * Darken a colour if it would be too bright to see with a light-coloured theme.
+ *
+ * @colour: CSS colour value
+ * @amount: Percentile value controlling the decrease in luminosity.
+ *
+ * NOTE: There's no accompanying `.darken-grey-if-needed`, because
+ *       the colour's saturation is not modified when darkening.
+ */
+.darken-if-needed(@colour, @amount: 25%)
+	when(lightness(@theme-colour) >= 50%){
+		color: darken(@colour, @amount);
+	}
+.darken-if-needed(@colour, @amount: 25%)
+	when(lightness(@theme-colour) < 50%){
+		color: @colour;
+	}
+
+
+/**
+ * Utility class to provide JavaScript with a reliable brightness indicator.
+ * Not a Less mixin, but the ruleset doesn't belong in `colours.less` either.
+ */
+.theme-colour-check{
+	background: @theme-colour;
+}

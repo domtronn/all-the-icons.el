@@ -1,0 +1,116 @@
+@import "./mixins";
+
+/*============================================================================*
+	PALETTE	
+	Base16 colours from https://github.com/chriskempson/base16
+/*============================================================================*/
+
+@adjust-tone: 15%;
+
+@red:     #ac4142;
+@green:   #90a959;
+@yellow:  #f4bf75;
+@blue:    #6a9fb5;
+@maroon:  #8f5536;
+@purple:  #aa759f;
+@orange:  #d28445;
+@cyan:    #75b5aa;
+@pink:    #ff00cc;
+@grey:    #7f7f7f;
+
+
+// Red
+@medium-red: @red;
+@light-red: lighten(@red, @adjust-tone);
+@dark-red:   darken(@red, @adjust-tone);
+
+// Green
+@medium-green: @green;
+@light-green: lighten(@green, @adjust-tone);
+@dark-green:   darken(@green, @adjust-tone);
+
+// Yellow
+@medium-yellow: @yellow;
+@light-yellow: lighten(@yellow, @adjust-tone);
+@dark-yellow:   darken(@yellow, @adjust-tone);
+
+// Blue
+@medium-blue: @blue;
+@light-blue: lighten(@blue, @adjust-tone);
+@dark-blue:   darken(@blue, @adjust-tone);
+
+// Maroon
+@medium-maroon: @maroon;
+@light-maroon: lighten(@maroon, @adjust-tone);
+@dark-maroon:   darken(@maroon, @adjust-tone);
+
+// Purple
+@medium-purple: @purple;
+@light-purple: lighten(@purple, @adjust-tone);
+@dark-purple:   darken(@purple, @adjust-tone);
+
+// Orange
+@medium-orange: @orange;
+@light-orange: lighten(@orange, @adjust-tone);
+@dark-orange:   darken(@orange, @adjust-tone);
+
+// Cyan
+@medium-cyan: @cyan;
+@light-cyan: lighten(@cyan, @adjust-tone);
+@dark-cyan:   darken(@cyan, @adjust-tone);
+
+// Pink
+@medium-pink: @pink;
+@light-pink: lighten(@pink, @adjust-tone);
+@dark-pink:   darken(@pink, @adjust-tone);
+
+// Grey
+@medium-grey: @grey;
+@light-grey: lighten(@grey, @adjust-tone);
+@dark-grey:   darken(@grey, @adjust-tone);
+
+
+
+/*============================================================================*
+	CSS CLASSES
+/*============================================================================*/
+
+.light-red:before     { color: @light-red; }
+.medium-red:before    { color: @medium-red; }
+.dark-red:before      { .brighten-if-needed(@dark-red, 15%); }
+
+.light-green:before   { .darken-if-needed(@light-green, 5%); }
+.medium-green:before  { color: @medium-green; }
+.dark-green:before    { color: @dark-green; }
+
+.light-yellow:before  { .darken-if-needed(@light-yellow, 23%); }
+.medium-yellow:before { .darken-if-needed(@medium-yellow, 15%); }
+.dark-yellow:before   { .darken-if-needed(@dark-yellow, 10%); }
+
+.light-blue:before    { .darken-if-needed(@light-blue, 18%); }
+.medium-blue:before   { color: @medium-blue; }
+.dark-blue:before     { color: @dark-blue; }
+
+.light-maroon:before  { color: @light-maroon; }
+.medium-maroon:before { color: @medium-maroon; }
+.dark-maroon:before   { .brighten-if-needed(@dark-maroon, 8%); }
+
+.light-purple:before  { color: @light-purple; }
+.medium-purple:before { color: @medium-purple; }
+.dark-purple:before   { color: @dark-purple; }
+
+.light-orange:before  { .darken-if-needed(@light-orange, 8%); }
+.medium-orange:before { color: @medium-orange; }
+.dark-orange:before   { color: @dark-orange; }
+
+.light-cyan:before    { .darken-if-needed(@light-cyan, 18%); }
+.medium-cyan:before   { color: @medium-cyan; }
+.dark-cyan:before     { color: @dark-cyan; }
+
+.light-pink:before    { color: @light-pink; }
+.medium-pink:before   { color: @medium-pink; }
+.dark-pink:before     { .brighten-if-needed(@dark-pink, 5%); }
+
+.light-grey:before    { color: @light-grey; }
+.medium-grey:before   { color: @medium-grey; }
+.dark-grey:before     { .brighten-grey-if-needed(@dark-grey, 15%); }
