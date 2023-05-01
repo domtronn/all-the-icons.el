@@ -115,6 +115,8 @@
   :group 'all-the-icons
   :type 'boolean)
 
+(defvar all-the-icons-sets '() "List of defined icon sets.")
+
 (defvar all-the-icons-extension-icon-alist
   '(
     ("fish"            all-the-icons-octicons "terminal"               :face all-the-icons-lpink)
@@ -958,67 +960,128 @@ When F is provided, the info function is calculated with the format
   "Get the symbol for an icon insert function for icon set NAME."
   (intern (concat "all-the-icons-insert-" (downcase (symbol-name name)))))
 
-;; (defun all-the-icons--read-candidates ()
-;;   "Helper to build a list of candidates for all families."
-;;   (cl-reduce 'append (mapcar (lambda (it) (all-the-icons--read-candidates-for-family it t)) all-the-icons-font-families)))
+;; Icon insertion functions
 
-;; (defun all-the-icons--read-candidates-for-family (family &optional show-family)
-;;   "Helper to build read candidates for FAMILY.
-;; If SHOW-FAMILY is non-nil, displays the icons family in the candidate string."
-;;   (let ((data   (funcall (all-the-icons--data-name family)))
-;;         (icon-f (all-the-icons--function-name family)))
-;;     (mapcar
-;;      (lambda (it)
-;;        (let* ((icon-name (car it))
-;;               (icon-name-head (substring icon-name 0 1))
-;;               (icon-name-tail (substring icon-name 1))
+(defun all-the-icons--read-candidates ()
+  "Helper to build a list of candidates for all icon set."
+  (cl-reduce 'append (mapcar (lambda (it) (all-the-icons--read-candidates-for-icon-set it t)) all-the-icons-sets)))
 
-;;               (icon-display (propertize icon-name-head 'display (format "%s\t%s" (funcall icon-f icon-name) icon-name-head)))
-;;               (icon-family (if show-family (format "\t[%s]" family) ""))
+(defun all-the-icons--read-candidates-for-icon-set (icon-set &optional show-icon-set style)
+  "Helper to build read candidates for ICON-SET.
 
-;;               (candidate-name (format "%s%s%s" icon-display icon-name-tail icon-family))
-;;               (candidate-icon (funcall (all-the-icons--function-name family) icon-name)))
+If SHOW-ICON-SET is non-nil, displays the icons set name in the
+candidate string.
 
-;;          (cons candidate-name candidate-icon)))
-;;      data)))
+If STYLE is non-nil, displays the chosen style for the icon in
+the icon set."
+  (let ((data   (funcall (all-the-icons--data-name icon-set)))
+        (icon-f (all-the-icons--function-name icon-set)))
+    (mapcar
+     (lambda (it)
+       (let* ((icon-name (car it))
+              (icon-name-head (substring icon-name 0 1))
+              (icon-name-tail (substring icon-name 1))
 
-;;;;###autoload
-;; (defun all-the-icons-insert (&optional arg family)
-;;   "Interactive icon insertion function.
-;; When Prefix ARG is non-nil, insert the propertized icon.
-;; When FAMILY is non-nil, limit the candidates to the icon set matching it."
-;;   (interactive "P")
-;;   (let* ((standard-output (current-buffer))
-;;          (candidates (if family
-;;                          (all-the-icons--read-candidates-for-family family)
-;;                        (all-the-icons--read-candidates)))
-;;          (prompt     (if family
-;;                          (format "%s Icon: " (funcall (all-the-icons--family-name family)))
-;;                        "Icon : "))
+              (icon-display (propertize icon-name-head 'display
+                                        (format "%s\t%s"
+                                                (funcall icon-f icon-name :style style :raise-error nil)
+                                                icon-name-head)))
+              (icon-set-name (if show-icon-set (format "\t[%s]" icon-set) ""))
+              (icon-style (if style (format " (%s) " style) ""))
 
-;;          (selection (completing-read prompt candidates nil t))
-;;          (result    (cdr (assoc selection candidates))))
+              (candidate-name (format "%s%s%s%s" icon-display icon-name-tail icon-style icon-set-name))
+              (candidate-icon (funcall icon-f icon-name :style style :raise-error nil)))
 
-;;     (if arg (prin1 result) (insert result))))
+         (cons candidate-name candidate-icon)))
+     data)))
+
+(defun all-the-icons-insert (&optional arg icon-set)
+  "Interactive icon insertion function.
+
+When Prefix ARG is non-nil, print the icon, else insert it.
+When ICON-SET is non-nil, limit the candidates to the icon set matching it.
+When STYLE is non-nil, limit the candidates to the style matching the icon set."
+  (interactive "P")
+  (let* ((standard-output (current-buffer))
+         (candidates (cond ((eq icon-set 'fluentui-system-icons)
+                            (flatten-list
+                             (cl-remove
+                              nil
+                              (mapcar
+                               (lambda (style) (all-the-icons--read-candidates-for-icon-set icon-set nil style))
+                               '(filled regular)))))
+                           ((eq icon-set 'material-icons)
+                            (flatten-list
+                             (cl-remove
+                              nil
+                              (mapcar
+                               (lambda (style) (all-the-icons--read-candidates-for-icon-set icon-set nil style))
+                               '(nil outlined round sharp twotone)))))
+                           ((eq icon-set 'clockface)
+                            (flatten-list
+                             (cl-remove
+                              nil
+                              (mapcar
+                               (lambda (style) (all-the-icons--read-candidates-for-icon-set icon-set nil style))
+                               '(nil fathands fatrect fatrectsolid fatsolid fatsquare fatsquaresolid rect rectsolid solid square squaresolid)))))
+                           (icon-set (all-the-icons--read-candidates-for-icon-set icon-set))
+                           (t (all-the-icons--read-candidates))))
+         (prompt    (if icon-set
+                        (format "%s Icon: " icon-set)
+                      "Icon : "))
+
+         (selection (completing-read prompt candidates nil t))
+         (result    (cdr (assoc selection candidates))))
+
+    (if arg (prin1 result) (insert result))))
 
 ;; Debug Helpers
 
-;; (defun all-the-icons-insert-icons-for (icon-set &optional height duration)
-;;   "Insert all of the available icons associated with ICON-SET.
-;; If a HEIGHT is provided it will render the icons at this height.
-;; This is useful both to see the icons more clearly and to test
-;; different height rendering.  If DURATION is provided, it will
-;; pause for DURATION seconds between printing each character."
-;;   (let* ((data-f    (all-the-icons--data-name icon-set))
-;;          (insert-f  (all-the-icons--function-name icon-set))
+(defun all-the-icons-insert-icons-for (icon-set &optional duration)
+  "Insert all of the available icons associated with ICON-SET.
 
-;;          (height (or height 2.0))
-;;          (data (funcall data-f)))
-;;     (mapc
-;;      (lambda (it)
-;;        (insert (format "%s - %s\n" (funcall insert-f (car it) :height height) (car it)))
-;;        (when duration (sit-for duration)))
-;;      data)))
+If DURATION is provided, it will pause for DURATION seconds
+between printing each character."
+  (let* ((data-f    (all-the-icons--data-name icon-set))
+         (insert-f  (all-the-icons--function-name icon-set))
+         (data      (funcall data-f)))
+    (mapc
+     (lambda (it)
+       (let* ((icon-name (car it)))
+         (cond ((eq icon-set 'fluentui-system-icons)
+                (dolist (style '(filled regular))
+                  (when-let ((icon (funcall insert-f icon-name :style style :raise-error nil)))
+                    (insert (format "%s - %s-%s\n" icon icon-name style)))))
+               ((eq icon-set 'material-icons)
+                (dolist (style '(nil outlined round sharp twotone))
+                  (when-let ((icon (funcall insert-f icon-name :style style :raise-error nil)))
+                    (insert (format "%s - %s%s\n" icon icon-name (or (and style (format "-%s" style)) ""))))))
+               ((eq icon-set 'clockface)
+                (dolist (style '(nil fathands fatrect fatrectsolid fatsolid fatsquare fatsquaresolid rect rectsolid solid square squaresolid))
+                  (when-let ((icon (funcall insert-f icon-name :style style :raise-error nil)))
+                    (insert (format "%s - %s%s\n" icon icon-name (or (and style (format "-%s" style)) ""))))))
+               (t (insert (format "%s - %s\n" (funcall insert-f icon-name) icon-name)))))
+       (when duration (sit-for duration)))
+     data)))
+
+;; ###autoload
+;; (defun all-the-icons-debug ()
+;;   (interactive)
+
+;;   (dolist (entry all-the-icons-extension-icon-alist)
+;;     (insert (apply (cadr entry) (cddr entry))))
+
+;;   (dolist (entry all-the-icons-mode-icon-alist)
+;;     (insert (apply (cadr entry) (cddr entry))))
+
+;;   (dolist (entry all-the-icons-regexp-icon-alist)
+;;     (insert (apply (cadr entry) (cddr entry))))
+
+;;   (dolist (entry all-the-icons-weather-icon-alist)
+;;     (insert (apply (cadr entry) (cddr entry))))
+
+;;   (dolist (entry all-the-icons-dir-icon-alist)
+;;     (insert (apply (cadr entry) (cddr entry)))))
 
 ;; SVG helper functions
 
@@ -1062,11 +1125,20 @@ NAME defines is the name of the iconset and will produce a
 function of the for `all-the-icons-NAME'.
 
 ALIST is the alist containing maps between icon names and the
-UniCode for the character.  All of these can be found in the data
+Unicode for the character.  All of these can be found in the data
 directory of this package.
 
-FIND-ICON-IMAGE-FUNCTION."
+SVG-PATH-FINDER is function that takes the icon name, the icon
+set subdirectory, a desired size and a plist specific to the icon
+set and returns the path of an SVG image from the icon set
+subdirectory.
+
+SVG-DOC-PROCESSOR is a function that takes an SVG document,
+processes it arbitrarily and returns the processed document.
+
+PADDING is the number of pixels to be applied to the SVG image."
   `(progn
+     (add-to-list 'all-the-icons-sets (quote ,name))
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let* ((file-name (cdr (assoc icon-name ,alist))) ;; remap icons
@@ -1075,30 +1147,39 @@ FIND-ICON-IMAGE-FUNCTION."
               (image-path (concat lib-dir ,(or (and svg-path-finder
                                                     `(apply ,svg-path-finder file-name lib-dir size args))
                                                '(format "%s.svg" file-name))))
-              (face (when all-the-icons-color-icons (plist-get args :face))))
-         (unless (and file-name (file-exists-p image-path))
-           (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
-         (let* ((icon (all-the-icons--normalize-svg-doc
-                       (funcall ,svg-doc-processor
-                                (all-the-icons--load-svg image-path)))))
-           (setf (image-property icon :max-width) (- size (* ,padding 2)))
-           (setf (image-property icon :max-height) (- size (* ,padding 2)))
-           (setf (image-property icon :ascent) 'center)
-           (setf (image-property icon :margin) ,padding)
-           (when face
-             (setf (image-property icon :foreground) (face-foreground face))
-             (setf (image-property icon :background) (face-background face)))
+              (face (when all-the-icons-color-icons (plist-get args :face)))
+              (raise-error (plist-get args :raise-error)))
+         (if (and file-name (file-exists-p image-path))
+             (let* ((icon (all-the-icons--normalize-svg-doc
+                           (funcall ,svg-doc-processor
+                                    (all-the-icons--load-svg image-path)))))
+               (setf (image-property icon :max-width) (- size (* ,padding 2)))
+               (setf (image-property icon :max-height) (- size (* ,padding 2)))
+               (setf (image-property icon :ascent) 'center)
+               (setf (image-property icon :margin) ,padding)
+               (when face
+                 (setf (image-property icon :foreground) (face-foreground face))
+                 (setf (image-property icon :background) (face-background face)))
 
-           (propertize "￼"
-                       'face (or face 'default)           ;so that this works without `font-lock-mode' enabled
-                       'font-lock-face (or face 'default) ;so that `font-lock-mode' leaves this alone
-                       'fontified t
-                       'display icon
-                       'front-sticky nil
-                       'rear-nonsticky t))))))
+               (propertize "￼"
+                           'face (or face 'default)           ;so that this works without `font-lock-mode' enabled
+                           'font-lock-face (or face 'default) ;so that `font-lock-mode' leaves this alone
+                           'fontified t
+                           'display icon
+                           'front-sticky nil
+                           'rear-nonsticky t))
+           (when raise-error
+             (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name)))))))
+     (defun ,(all-the-icons--insert-function-name name) (&optional arg)
+       ,(format "Insert a %s icon at point." name)
+       (interactive "P")
+       (all-the-icons-insert arg (quote ,name)))))
 
 (defun all-the-icons--octicons-path (name dir size &rest _)
-  ""
+  "SVG path finder function for Octicons.
+
+See `all-the-icons-define-icon' for the meaning of NAME, DIR and
+SIZE."
   (let* ((path-format (apply-partially 'format "%s/%s-%s.svg" dir name))
          (size (car
                 (sort (cl-loop for s in '(12 16 24 48 96)
@@ -1112,7 +1193,10 @@ FIND-ICON-IMAGE-FUNCTION."
     (format "%s-%s.svg" name size)))
 
 (defun all-the-icons--fluentui-system-icons-path (name dir size &rest args)
-  ""
+  "SVG path finder function for FluentUI System Icons.
+
+See `all-the-icons-define-icon' for the meaning of NAME, DIR and
+SIZE, and ARGS."
   (let* ((style (or (plist-get args :style) 'regular))
          (path-format (lambda (size) (format "%s/ic_fluent_%s_%s_%s.svg" dir name size style)))
          (size (car
@@ -1127,7 +1211,10 @@ FIND-ICON-IMAGE-FUNCTION."
     (format "ic_fluent_%s_%s_%s.svg" name size style)))
 
 (defun all-the-icons--material-icons-path (name dir size &rest args)
-  ""
+  "SVG path finder function for Material Icons.
+
+See `all-the-icons-define-icon' for the meaning of NAME, DIR and
+SIZE, and ARGS."
   (let* ((style (or (plist-get args :style) ""))
          (path-format (lambda (size) (format "%s/%s/materialicons%s/%spx.svg" dir name style size)))
          (size (car
@@ -1142,7 +1229,9 @@ FIND-ICON-IMAGE-FUNCTION."
     (format "%s/materialicons%s/%spx.svg" name style size)))
 
 (defun all-the-icons--clockface-path (name _ _ &rest args)
-  ""
+  "SVG path finder function for Clockface.
+
+See `all-the-icons-define-icon' for the meaning of NAME and ARGS."
   (let* ((style (or (plist-get args :style) "")))
     (format "clockface%s/clock_%s.svg" style name)))
 
@@ -1175,61 +1264,6 @@ FIND-ICON-IMAGE-FUNCTION."
 
 (all-the-icons-define-icon clockface all-the-icons-data/clockface-alist
                            :svg-path-finder 'all-the-icons--clockface-path)
-
-;;;###autoload
-(defun all-the-icons-debug ()
-  (interactive)
-
-  (dolist (entry all-the-icons-extension-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-mode-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-regexp-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-weather-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-dir-icon-alist)
-    (insert (apply (cadr entry) (cddr entry))))
-
-  (dolist (entry all-the-icons-data/file-icons-alist)
-    (insert (all-the-icons-file-icons (car entry))))
-
-  (dolist (entry all-the-icons-data/mfixx-alist)
-    (insert (all-the-icons-mfixx (car entry))))
-
-  (dolist (entry all-the-icons-data/devopicons-alist)
-    (insert (all-the-icons-devopicons (car entry))))
-
-  (dolist (entry all-the-icons-data/vscode-codicons-alist)
-    (insert (all-the-icons-vscode-codicons (car entry))))
-
-  (dolist (entry all-the-icons-data/octicons-alist)
-    (insert (all-the-icons-octicons (car entry))))
-
-  (dolist (entry all-the-icons-data/weather-icons-alist)
-    (insert (all-the-icons-weather-icons (car entry))))
-
-  (dolist (entry all-the-icons-data/fontawesome-4-alist)
-    (insert (all-the-icons-fontawesome-4 (car entry))))
-
-  (dolist (style '(filled regular))
-    (dolist (entry all-the-icons-data/fluentui-system-icons-alist)
-      (when-let ((icon (ignore-errors (all-the-icons-fluentui-system-icons (car entry) :style style))))
-        (insert icon))))
-
-  (dolist (style '(nil outlined round sharp twotone))
-    (dolist (entry all-the-icons-data/material-icons-alist)
-      (when-let ((icon (ignore-errors (all-the-icons-material-icons (car entry) :style style))))
-        (insert icon))))
-
-  (dolist (style '(nil fathands fatrect fatrectsolid fatsolid fatsquare fatsquaresolid rect rectsolid solid square squaresolid))
-    (dolist (entry all-the-icons-data/clockface-alist)
-      (when-let ((icon (ignore-errors (all-the-icons-clockface (car entry) :style style))))
-        (insert icon)))))
 
 (provide 'all-the-icons)
 
