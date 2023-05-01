@@ -8,10 +8,18 @@ module.exports = {
           inlineStyles: {
             onlyMatchedOnce: false,
           },
+          removeUselessStrokeAndFill: {
+            removeNone: true,
+          },
+          removeViewBox: false,
         },
       },
     },
     { name: "convertStyleToAttrs", params: { keepImportant: true } },
     { name: "removeAttrs", params: { attrs: "(fill|color)" } },
+    "removeOffCanvasPaths",
+    "removeRasterImages",
+    "removeScriptElement",
+    "removeStyleElement",
   ],
 };
