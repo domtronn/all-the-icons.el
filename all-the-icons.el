@@ -1161,7 +1161,8 @@ FIND-ICON-IMAGE-FUNCTION."
 
 (all-the-icons-define-icon weather-icons all-the-icons-data/weather-icons-alist)
 
-(all-the-icons-define-icon vscode-codicons all-the-icons-data/vscode-codicons-alist)
+(all-the-icons-define-icon vscode-codicons all-the-icons-data/vscode-codicons-alist
+                           :padding 1)
 
 (all-the-icons-define-icon fontawesome-4 all-the-icons-data/fontawesome-4-alist
                            :padding 1)
