@@ -1030,7 +1030,6 @@ When F is provided, the info function is calculated with the format
   ""
   (with-temp-buffer
     (insert-file-contents path)
-    (xml-remove-comments (point-min) (point-max))
     (if (libxml-available-p)
         (libxml-parse-xml-region (point-min) (point-max))
       (car (xml-parse-region (point-min) (point-max))))))
