@@ -1064,24 +1064,29 @@ between printing each character."
        (when duration (sit-for duration)))
      data)))
 
-;; ###autoload
-;; (defun all-the-icons-debug ()
-;;   (interactive)
+(defun all-the-icons-insert-icons-for-extensions ()
+  "Insert all of the icons for `all-the-icons-extension-icon-alist'."
+  (interactive)
+  (dolist (entry (cl-sort (copy-sequence all-the-icons-extension-icon-alist) 'string< :key 'car))
+    (insert (format "%s - %s\n" (apply (cadr entry) (cddr entry)) (car entry)))))
 
-;;   (dolist (entry all-the-icons-extension-icon-alist)
-;;     (insert (apply (cadr entry) (cddr entry))))
+(defun all-the-icons-insert-icons-for-modes ()
+  "Insert all of the icons for `all-the-icons-mode-icon-alist'."
+  (interactive)
+  (dolist (entry (cl-sort (copy-sequence all-the-icons-mode-icon-alist) 'string< :key 'car))
+    (insert (format "%s - %s\n" (apply (cadr entry) (cddr entry)) (car entry)))))
 
-;;   (dolist (entry all-the-icons-mode-icon-alist)
-;;     (insert (apply (cadr entry) (cddr entry))))
+(defun all-the-icons-insert-icons-for-regexp ()
+  "Insert all of the icons for `all-the-icons-regexp-icon-alist'."
+  (interactive)
+  (dolist (entry (cl-sort (copy-sequence all-the-icons-regexp-icon-alist) 'string< :key 'car))
+    (insert (format "%s - %s\n" (apply (cadr entry) (cddr entry)) (car entry)))))
 
-;;   (dolist (entry all-the-icons-regexp-icon-alist)
-;;     (insert (apply (cadr entry) (cddr entry))))
-
-;;   (dolist (entry all-the-icons-weather-icon-alist)
-;;     (insert (apply (cadr entry) (cddr entry))))
-
-;;   (dolist (entry all-the-icons-dir-icon-alist)
-;;     (insert (apply (cadr entry) (cddr entry)))))
+(defun all-the-icons-insert-icons-for-dirs ()
+  "Insert all of the icons for `all-the-icons-dir-icon-alist'."
+  (interactive)
+  (dolist (entry (cl-sort (copy-sequence all-the-icons-dir-icon-alist) 'string< :key 'car))
+    (insert (format "%s - %s\n" (apply (cadr entry) (cddr entry)) (car entry)))))
 
 ;; SVG helper functions
 
