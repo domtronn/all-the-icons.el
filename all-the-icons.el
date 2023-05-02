@@ -1091,13 +1091,13 @@ between printing each character."
 ;; SVG helper functions
 
 (defun all-the-icons--parse-number (s)
-  ""
+  "Parse a number from the string S and convert it to a number."
   (save-match-data
     (string-match "[+-]?[0-9]*\\(\\.[0-9]+\\)?" s)
     (string-to-number (match-string 0 s))))
 
 (defun all-the-icons--load-svg (path)
-  ""
+  "Load the SVG file at PATH as an XML document."
   (with-temp-buffer
     (insert-file-contents path)
     (if (libxml-available-p)
@@ -1105,7 +1105,21 @@ between printing each character."
       (car (xml-parse-region (point-min) (point-max))))))
 
 (defun all-the-icons--normalize-svg-doc (doc)
-  ""
+  "Normalize the dimension of a SVG document.
+
+Some icon set icons do not all have the same width. When
+displayed, they result in variable widths, which is usually not
+desired in a monospaced text editor.
+
+To deal with this issue, the max of the width, height, and the
+width and height components of viewBox attribute in the SVG
+document DOC are used to calculate the size of the image.
+
+The size is then used to reset the width, height and the viewBox.
+
+Finally, the paths of the image is then translated back to the
+middle of the offset between the size and the original width and
+height."
   (let* ((viewbox (dom-attr doc 'viewBox))
          (vw (and viewbox (all-the-icons--parse-number (nth 2 (split-string viewbox)))))
          (vh (and viewbox (all-the-icons--parse-number (nth 3 (split-string viewbox)))))
