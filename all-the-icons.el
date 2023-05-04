@@ -412,7 +412,7 @@
     ("pps"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
     ("ppt"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
     ("pptsx"        all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
-    ("ppttx"        all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
+    ("pptx"         all-the-icons-fileicon "powerpoint"       :face all-the-icons-orange)
     ("knt"          all-the-icons-fileicon "powerpoint"       :face all-the-icons-cyan)
     ("xlsx"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
     ("xlsm"         all-the-icons-fileicon "excel"            :face all-the-icons-dgreen)
