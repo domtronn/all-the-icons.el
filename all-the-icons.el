@@ -384,37 +384,29 @@
     ("woff"            all-the-icons-file-icons "font"                 :face all-the-icons-cyan)
     ("woff2"           all-the-icons-file-icons "font"                 :face all-the-icons-cyan)
     ;; Doc
-    ("pdf"          all-the-icons-vscode-codicons "file-pdf"        :face all-the-icons-dred)
-    ("text"         all-the-icons-fontawesome-4 "file-text-o"       :face all-the-icons-cyan)
-    ("txt"          all-the-icons-fontawesome-4 "file-text-o"       :face all-the-icons-cyan)
-    ("doc"          all-the-icons-file-icons "microsoft-word"       :face all-the-icons-blue)
-    ("docx"         all-the-icons-file-icons "microsoft-word"       :face all-the-icons-blue)
-    ("docm"         all-the-icons-file-icons "microsoft-word"       :face all-the-icons-blue)
-    ("texi"         all-the-icons-file-icons "gnu"                  :face all-the-icons-lred)
-    ("tex"          all-the-icons-file-icons "latex"                :face all-the-icons-lred)
-    ("md"           all-the-icons-octicons "markdown"               :face all-the-icons-lblue)
-    ("rst"          all-the-icons-file-icons "restructuredtext"     :face all-the-icons-lblue)
-    ("bib"          all-the-icons-file-icons "bibtex"               :face all-the-icons-maroon)
-    ("org"          all-the-icons-file-icons "org"                  :face all-the-icons-lgreen)
-    ("pps"          all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
-    ("ppt"          all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
-    ("pptsx"        all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
-    ("pptx"         all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
-    ("knt"          all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-cyan)
-    ("xlsx"         all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
-    ("xlsm"         all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
-    ("xlsb"         all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
-    ("xltx"         all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
-    ("xltm"         all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
-    ("ly"           all-the-icons-fontawesome-4 "music"             :face all-the-icons-green)
-
-
-
-
-
-
-
-
+    ("pdf"             all-the-icons-vscode-codicons "file-pdf"        :face all-the-icons-dred)
+    ("text"            all-the-icons-fontawesome-4 "file-text-o"       :face all-the-icons-cyan)
+    ("txt"             all-the-icons-fontawesome-4 "file-text-o"       :face all-the-icons-cyan)
+    ("doc"             all-the-icons-file-icons "microsoft-word"       :face all-the-icons-blue)
+    ("docx"            all-the-icons-file-icons "microsoft-word"       :face all-the-icons-blue)
+    ("docm"            all-the-icons-file-icons "microsoft-word"       :face all-the-icons-blue)
+    ("texi"            all-the-icons-file-icons "gnu"                  :face all-the-icons-lred)
+    ("tex"             all-the-icons-file-icons "latex"                :face all-the-icons-lred)
+    ("md"              all-the-icons-octicons "markdown"               :face all-the-icons-lblue)
+    ("rst"             all-the-icons-file-icons "restructuredtext"     :face all-the-icons-lblue)
+    ("bib"             all-the-icons-file-icons "bibtex"               :face all-the-icons-maroon)
+    ("org"             all-the-icons-file-icons "org"                  :face all-the-icons-lgreen)
+    ("pps"             all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
+    ("ppt"             all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
+    ("pptsx"           all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
+    ("pptx"            all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-orange)
+    ("knt"             all-the-icons-file-icons "microsoft-powerpoint" :face all-the-icons-cyan)
+    ("xlsx"            all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
+    ("xlsm"            all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
+    ("xlsb"            all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
+    ("xltx"            all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
+    ("xltm"            all-the-icons-file-icons "microsoft-excel"      :face all-the-icons-dgreen)
+    ("ly"              all-the-icons-fontawesome-4 "music"             :face all-the-icons-green)
 
     ;; Email
     ("eml"             all-the-icons-fontawesome-4 "envelope"          :face all-the-icons-blue)
