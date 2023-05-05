@@ -429,4 +429,4 @@
     )
   )
 
-(provide 'data-vscode-codicons)
+(provide 'all-the-icons-data-vscode-codicons)

@@ -2332,4 +2332,4 @@
     )
   )
 
-(provide 'data-fluentui-system-icons)
+(provide 'all-the-icons-data-fluentui-system-icons)

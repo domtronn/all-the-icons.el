@@ -313,4 +313,4 @@
     )
   )
 
-(provide 'data-octicons)
+(provide 'all-the-icons-data-octicons)

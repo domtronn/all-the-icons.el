@@ -194,4 +194,4 @@
     )
   )
 
-(provide 'data-devopicons)
+(provide 'all-the-icons-data-devopicons)

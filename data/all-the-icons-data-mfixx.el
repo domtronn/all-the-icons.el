@@ -110,4 +110,4 @@
     )
   )
 
-(provide 'data-mfixx)
+(provide 'all-the-icons-data-mfixx)

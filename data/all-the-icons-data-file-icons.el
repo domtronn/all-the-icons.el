@@ -935,4 +935,4 @@
     ("xmake" . "xmake")
     )
   )
-(provide 'data-file-icons)
+(provide 'all-the-icons-data-file-icons)

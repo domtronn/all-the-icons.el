@@ -147,4 +147,4 @@
     )
   )
 
-(provide 'data-clockface)
+(provide 'all-the-icons-data-clockface)

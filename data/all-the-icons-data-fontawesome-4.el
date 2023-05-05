@@ -789,4 +789,4 @@
     )
   )
 
-(provide 'data-fontawesome-4)
+(provide 'all-the-icons-data-fontawesome-4)

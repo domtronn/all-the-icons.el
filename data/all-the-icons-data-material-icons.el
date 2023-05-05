@@ -2212,4 +2212,4 @@
     )
   )
 
-(provide 'data-material-icons)
+(provide 'all-the-icons-data-material-icons)

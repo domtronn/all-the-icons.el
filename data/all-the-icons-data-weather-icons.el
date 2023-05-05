@@ -222,4 +222,4 @@
     )
   )
 
-(provide 'data-weather-icons)
+(provide 'all-the-icons-data-weather-icons)
