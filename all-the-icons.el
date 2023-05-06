@@ -89,6 +89,9 @@
 (require 'cl-lib)
 (require 'svg)
 
+(when load-in-progress
+  (add-to-list 'load-path (file-name-directory load-file-name)))
+
 (require 'all-the-icons-data-devopicons)
 (require 'all-the-icons-data-file-icons)
 (require 'all-the-icons-data-mfixx)
