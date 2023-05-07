@@ -102,7 +102,6 @@
 (require 'all-the-icons-data-fontawesome-4)
 (require 'all-the-icons-data-fluentui-system-icons)
 (require 'all-the-icons-data-material-icons)
-(require 'all-the-icons-data-clockface)
 
 (require 'all-the-icons-faces)
 
@@ -959,13 +958,6 @@ When STYLE is non-nil, limit the candidates to the style matching the icon set."
                               (mapcar
                                (lambda (style) (all-the-icons--read-candidates-for-icon-set icon-set nil style))
                                '(nil outlined round sharp twotone)))))
-                           ((eq icon-set 'clockface)
-                            (flatten-list
-                             (cl-remove
-                              nil
-                              (mapcar
-                               (lambda (style) (all-the-icons--read-candidates-for-icon-set icon-set nil style))
-                               '(nil fathands fatrect fatrectsolid fatsolid fatsquare fatsquaresolid rect rectsolid solid square squaresolid)))))
                            (icon-set (all-the-icons--read-candidates-for-icon-set icon-set))
                            (t (all-the-icons--read-candidates))))
          (prompt    (if icon-set
@@ -996,10 +988,6 @@ between printing each character."
                     (insert (format "%s - %s-%s\n" icon icon-name style)))))
                ((eq icon-set 'material-icons)
                 (dolist (style '(nil outlined round sharp twotone))
-                  (when-let ((icon (funcall insert-f icon-name :style style :raise-error nil)))
-                    (insert (format "%s - %s%s\n" icon icon-name (or (and style (format "-%s" style)) ""))))))
-               ((eq icon-set 'clockface)
-                (dolist (style '(nil fathands fatrect fatrectsolid fatsolid fatsquare fatsquaresolid rect rectsolid solid square squaresolid))
                   (when-let ((icon (funcall insert-f icon-name :style style :raise-error nil)))
                     (insert (format "%s - %s%s\n" icon icon-name (or (and style (format "-%s" style)) ""))))))
                (t (insert (format "%s - %s\n" (funcall insert-f icon-name) icon-name)))))
@@ -1223,13 +1211,6 @@ SIZE, and ARGS."
                           b))))))
     (format "%s/materialicons%s/%spx.svg" name style size)))
 
-(defun all-the-icons--clockface-path (name _ _ &rest args)
-  "SVG path finder function for Clockface.
-
-See `all-the-icons-define-icon' for the meaning of NAME and ARGS."
-  (let* ((style (or (plist-get args :style) "")))
-    (format "clockface%s/clock_%s.svg" style name)))
-
 (all-the-icons-define-icon alltheicon all-the-icons-data-alltheicons-alist
                            :padding 1)
 
@@ -1259,9 +1240,6 @@ See `all-the-icons-define-icon' for the meaning of NAME and ARGS."
 
 (all-the-icons-define-icon material-icons all-the-icons-data-material-icons-alist
                            :svg-path-finder 'all-the-icons--material-icons-path)
-
-(all-the-icons-define-icon clockface all-the-icons-data-clockface-alist
-                           :svg-path-finder 'all-the-icons--clockface-path)
 
 (provide 'all-the-icons)
 
