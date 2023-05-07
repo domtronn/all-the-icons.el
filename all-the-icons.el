@@ -426,13 +426,6 @@
     ("csv"             all-the-icons-octicons "graph"                  :face all-the-icons-dblue)))
 
 
-(define-obsolete-variable-alias 'all-the-icons-icon-alist
-  'all-the-icons-regexp-icon-alist
-  "5.0.0"
-  "`all-the-icons-icon-alist' has been split to
-`all-the-icons-extension-icon-alist' and `all-the-icons-regexp-icon-alist'
-for performance sake.")
-
 (defvar all-the-icons-regexp-icon-alist
   '(
     ;;
