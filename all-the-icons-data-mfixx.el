@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/mfixx-alist
+(defvar all-the-icons-data-mfixx-alist
   '(
     ("3dprint" . "3dprint")
     ("angular" . "angular")

@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/fontawesome-4-alist
+(defvar all-the-icons-data-fontawesome-4-alist
   '(
     ("500px" . "500px")
     ("address-book-o" . "address-book-o")

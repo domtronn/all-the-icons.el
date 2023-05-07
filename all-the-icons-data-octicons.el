@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/octicons-alist
+(defvar all-the-icons-data-octicons-alist
   '(
     ("accessibility" . "accessibility")
     ("accessibility-inset" . "accessibility-inset")
@@ -310,6 +310,40 @@
     ("zap" . "zap")
     ("zoom-in" . "zoom-in")
     ("zoom-out" . "zoom-out")
+    )
+  )
+
+(defvar all-the-icons-data-octicons-compat-alist
+  '(
+    ("arrow-small-down"       vscode-codicons "arrow-small-down")
+    ("arrow-small-left"       vscode-codicons "arrow-small-left")
+    ("arrow-small-right"      vscode-codicons "arrow-small-right")
+    ("arrow-small-up"         vscode-codicons "arrow-small-up")
+    ("circuit-board"          vscode-codicons "circuit-board")
+    ("clippy"                 vscode-codicons "clippy")
+    ("cloud-download"         vscode-codicons "cloud-download")
+    ("cloud-upload"           vscode-codicons "cloud-upload")
+    ("dashboard"              vscode-codicons "dashboard")
+    ("file-pdf"               vscode-codicons "file-pdf")
+    ("file-symlink-directory" vscode-codicons "file-symlink-directory")
+    ("file-text"              fontawesome-4   "file-text-o")
+    ("gist"                   vscode-codicons "gist")
+    ("gist-secret"            vscode-codicons "gist-secret")
+    ("jersey"                 vscode-codicons "jersey")
+    ("keyboard"               fontawesome-4   "keyboard-o")
+    ("mail-read"              octicons        "read")
+    ("mail-reply"             octicons        "reply")
+    ("no-newline"             vscode-codicons "no-newline")
+    ("octoface"               octicons        "mark-github")
+    ("paintcan"               vscode-codicons "paintcan")
+    ("primitive-dot"          octicons        "dot-fill")
+    ("primitive-square"       octicons        "square-fill")
+    ("puzzle"                 fontawesome-4   "puzzle-piece")
+    ("radio-tower"            vscode-codicons "radio-tower")
+    ("repo-force-push"        vscode-codicons "repo-force-push")
+    ("settings"               vscode-codicons "settings")
+    ;; ("steps")
+    ("trashcan"               octicons        "trash")
     )
   )
 

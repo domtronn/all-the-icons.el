@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/weather-icons-alist
+(defvar all-the-icons-data-weather-icons-alist
   '(
     ("alien" . "wi-alien")
     ("barometer" . "wi-barometer")

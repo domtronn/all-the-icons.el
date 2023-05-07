@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/vscode-codicons-alist
+(defvar all-the-icons-data-vscode-codicons-alist
   '(
     ("account" . "account")
     ("activate-breakpoints" . "activate-breakpoints")

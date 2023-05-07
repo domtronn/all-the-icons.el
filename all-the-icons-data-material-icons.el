@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/material-icons-alist
+(defvar all-the-icons-data-material-icons-alist
   '(
     ("10k" . "10k")
     ("10mp" . "10mp")

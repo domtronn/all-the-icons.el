@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/fluentui-system-icons-alist
+(defvar all-the-icons-data-fluentui-system-icons-alist
   '(
     ("access_time" . "access_time")
     ("accessibility" . "accessibility")

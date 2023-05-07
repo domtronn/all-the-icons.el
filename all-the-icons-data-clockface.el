@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/clockface-alist
+(defvar all-the-icons-data-clockface-alist
   '(
     ("00_00" . "00_00")
     ("00_05" . "00_05")

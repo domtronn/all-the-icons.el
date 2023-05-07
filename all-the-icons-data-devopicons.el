@@ -1,4 +1,4 @@
-(defvar all-the-icons-data/devopicons-alist
+(defvar all-the-icons-data-devopicons-alist
   '(
     ("android" . "android")
     ("angular" . "angular")

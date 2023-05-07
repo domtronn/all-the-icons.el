@@ -92,6 +92,7 @@
 (when load-in-progress
   (add-to-list 'load-path (file-name-directory load-file-name)))
 
+(require 'all-the-icons-data-alltheicons)
 (require 'all-the-icons-data-devopicons)
 (require 'all-the-icons-data-file-icons)
 (require 'all-the-icons-data-mfixx)
@@ -106,6 +107,29 @@
 (require 'all-the-icons-faces)
 
 (defvar web-mode-content-type) ;silence byte-compiler warning
+
+;; Obsolete stuff
+
+(define-obsolete-function-alias 'all-the-icons-fileicon-data 'all-the-icons-file-icons-data "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-fileicon 'all-the-icons-file-icons "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-insert-fileicon 'all-the-icons-insert-file-icons "6.0.0")
+
+(define-obsolete-function-alias 'all-the-icons-octicon-data 'all-the-icons-octicons-data "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-octicon 'all-the-icons-octicons "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-insert-octicon 'all-the-icons-insert-octicons "6.0.0")
+
+(define-obsolete-function-alias 'all-the-icons-faicon-data 'all-the-icons-fontawesome-4-data "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-faicon 'all-the-icons-fontawesome-4 "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-insert-faicon 'all-the-icons-insert-fontawesome-4 "6.0.0")
+
+(define-obsolete-function-alias 'all-the-icons-material-data 'all-the-icons-material-icons-data "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-material 'all-the-icons-material-icons "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-insert-material 'all-the-icons-insert-material-icons "6.0.0")
+
+(define-obsolete-function-alias 'all-the-icons-wicon-data 'all-the-icons-weather-icons-data "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-wicon 'all-the-icons-weather-icons "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-insert-wicon 'all-the-icons-insert-weather-icons "6.0.0")
+
 ;;; Custom Variables
 (defgroup all-the-icons nil
   "Manage how All The Icons formats icons."
@@ -1126,6 +1150,28 @@ height."
                                                 (/ (- size (or h vh)) 2))))
     (svg-image doc)))
 
+(defun all-the-icons--resolve-icon-file-name (icon-name alist icon-set)
+  "Look up ALIST for ICON-NAME.
+
+If ICON-NAME is not found in ALIST, and a compatibility alist is
+available, look up the icon name from the compatibility list,
+otherwise return nil.
+
+Return the icon file name if found."
+  (let ((file-name (assoc-default icon-name alist)))
+    (or file-name
+        (when-let ((mapping
+                    (assoc-default
+                     icon-name
+                     (cond ((eq icon-set 'file-icons)
+                            all-the-icons-data-file-icons-compat-alist)
+                           ((eq icon-set 'octicons)
+                            all-the-icons-data-octicons-compat-alist)
+                           ((eq icon-set 'alltheicon)
+                            all-the-icons-data-alltheicons-compat-alist))))
+                   (fn (all-the-icons--data-name (car mapping))))
+          (apply fn (cdr mapping))))))
+
 (cl-defmacro all-the-icons-define-icon (name alist &key svg-path-finder (svg-doc-processor ''identity) (padding 0))
   "Macro to generate functions for inserting icons for icon set NAME.
 
@@ -1149,7 +1195,7 @@ PADDING is the number of pixels to be applied to the SVG image."
      (add-to-list 'all-the-icons-sets (quote ,name))
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
-       (let* ((file-name (cdr (assoc icon-name ,alist))) ;; remap icons
+       (let* ((file-name (all-the-icons--resolve-icon-file-name icon-name ,alist (quote ,name))) ;; remap icons
               (size (window-default-font-height))
               (lib-dir (concat (file-name-directory (locate-library "all-the-icons")) ,(format "svg/%s/" name)))
               (image-path (concat lib-dir ,(or (and svg-path-finder
@@ -1243,34 +1289,37 @@ See `all-the-icons-define-icon' for the meaning of NAME and ARGS."
   (let* ((style (or (plist-get args :style) "")))
     (format "clockface%s/clock_%s.svg" style name)))
 
-(all-the-icons-define-icon devopicons all-the-icons-data/devopicons-alist
+(all-the-icons-define-icon alltheicon all-the-icons-data-alltheicons-alist
                            :padding 1)
 
-(all-the-icons-define-icon file-icons all-the-icons-data/file-icons-alist
+(all-the-icons-define-icon devopicons all-the-icons-data-devopicons-alist
                            :padding 1)
 
-(all-the-icons-define-icon mfixx all-the-icons-data/mfixx-alist
+(all-the-icons-define-icon file-icons all-the-icons-data-file-icons-alist
                            :padding 1)
 
-(all-the-icons-define-icon octicons all-the-icons-data/octicons-alist
+(all-the-icons-define-icon mfixx all-the-icons-data-mfixx-alist
+                           :padding 1)
+
+(all-the-icons-define-icon octicons all-the-icons-data-octicons-alist
                            :svg-path-finder 'all-the-icons--octicons-path
                            :padding 1)
 
-(all-the-icons-define-icon weather-icons all-the-icons-data/weather-icons-alist)
+(all-the-icons-define-icon weather-icons all-the-icons-data-weather-icons-alist)
 
-(all-the-icons-define-icon vscode-codicons all-the-icons-data/vscode-codicons-alist
+(all-the-icons-define-icon vscode-codicons all-the-icons-data-vscode-codicons-alist
                            :padding 1)
 
-(all-the-icons-define-icon fontawesome-4 all-the-icons-data/fontawesome-4-alist
+(all-the-icons-define-icon fontawesome-4 all-the-icons-data-fontawesome-4-alist
                            :padding 1)
 
-(all-the-icons-define-icon fluentui-system-icons all-the-icons-data/fluentui-system-icons-alist
+(all-the-icons-define-icon fluentui-system-icons all-the-icons-data-fluentui-system-icons-alist
                            :svg-path-finder 'all-the-icons--fluentui-system-icons-path)
 
-(all-the-icons-define-icon material-icons all-the-icons-data/material-icons-alist
+(all-the-icons-define-icon material-icons all-the-icons-data-material-icons-alist
                            :svg-path-finder 'all-the-icons--material-icons-path)
 
-(all-the-icons-define-icon clockface all-the-icons-data/clockface-alist
+(all-the-icons-define-icon clockface all-the-icons-data-clockface-alist
                            :svg-path-finder 'all-the-icons--clockface-path)
 
 (provide 'all-the-icons)
