@@ -25,17 +25,14 @@
 
 ;;; Commentary:
 
-;; This package is a utility for using and formatting various Icon
-;; fonts within Emacs.  Icon Fonts allow you to propertize and format
-;; icons the same way you would normal text.  This enables things such
-;; as better scaling of and anti aliasing of the icons.
+;; This package adds various SVG icon sets to Emacs.
 
 ;; This package was inspired by
 
 ;; - `mode-icons' for Emacs, found at https://github.com/ryuslash/mode-icons
 ;; - `file-icons' for Atom, found at https://atom.io/packages/file-icons
 
-;; Currently, this package provides an interface to the following Icon Fonts
+;; Currently, this package provides an interface to the following icon sets:
 
 ;; - Atom File Icons,       found at https://atom.io/packages/file-icons
 ;; - GitHub Octicons,       found at http://octicons.github.com
@@ -43,9 +40,10 @@
 ;; - VSCode Icons,          found at https://github.com/microsoft/vscode-codicons
 ;; - Optimized Devicons,    found at https://github.com/file-icons/DevOpicons
 ;; - Optimized MFizz,       found at https://github.com/file-icons/MFixx
+;; - FluentUI System Icons, found at https://github.com/microsoft/fluentui-system-icons
+;; - Material Design Icons, found at https://github.com/google/material-design-icons
+;; - Font Awesome 4,        found at https://fontawesome.com/v4/icons/
 
-
-;; Requests for new icons will be accepted and added to the AllTheIcons Icon Font
 
 ;;; Usage:
 
@@ -55,35 +53,35 @@
 ;;   `all-the-icons-icon-for-dir'
 ;;   `all-the-icons-icon-for-file'
 ;;   `all-the-icons-icon-for-mode'
+;;   `all-the-icons-icon-for-weather'
 
-;; Which can be used to get a formatted icon for the current buffer, a
-;; file name, or a major mode respectively.  e.g.
+;; Which can be used to get a formatted icon for the current buffer, a file
+;; name, a major mode or a weather status respectively.  e.g.
 
 ;;   (insert (all-the-icons-icon-for-file "foo.js"))
 
-;; Inserts a JavaScript icon formatted like this
+;; which will insert a JavaScript SVG icon.
 
-;;   #("some-icon" 0 1 (display (raise -0.24)
-;;              face (:family "dev-icons" :height 1.08 :foreground "#FFD446")))
+;; You can also insert icons directly using the individual icon set functions:
 
-;; You can also insert icons directly using the individual icon family
-;; functions
-
-;;   `all-the-icons-file-icons'       // File Icons from the Atom File Icons package
-;;   `all-the-icons-octicons'         // GitHub Octicons
-;;   `all-the-icons-vscode-codicons'  // Visual Studio Code Icons
-;;   `all-the-icons-weather-icons'    // Weather Icons
-;;   `all-the-icons-devopicons'       // Devicons
-;;   `all-the-icons-mdiff'            // MFizz Icons
+;;   `all-the-icons-file-icons'            // File Icons from the Atom File Icons package
+;;   `all-the-icons-octicons'              // GitHub Octicons
+;;   `all-the-icons-vscode-codicons'       // Visual Studio Code Icons
+;;   `all-the-icons-weather-icons'         // Weather Icons
+;;   `all-the-icons-devopicons'            // DevopIcons
+;;   `all-the-icons-mfixx'                 // MFixx Icons
+;;   `all-the-icons-fontawesome-4'         // Font Awesome 4
+;;   `all-the-icons-fluentui-system-icons' // FluentUI System Icons
+;;   `all-the-icons-material-icons'        // Material Design Icons
 
 ;; You can call these functions with the icon name you want to insert, e.g.
 
 ;;   (all-the-icons-octicons        "file-binary")  // GitHub Octicon for Binary File
 ;;   (all-the-icons-weather-icons   "tornado")      // Weather Icon for tornado
 
-;; A list of all the icon names for the different font families can be
-;; found in the data directory, or by inspecting the alist variables.
-;; All the alist variables are prefixed with `all-the-icons-data/'
+;; A list of all the icon names for the different font families can be found in
+;; the data files, or by inspecting the alist variables.  All the alist
+;; variables are prefixed with `all-the-icons-data-'
 
 ;;; Code:
 (require 'cl-lib)
