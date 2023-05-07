@@ -936,7 +936,7 @@ When F is provided, the info function is calculated with the format
 
 ;; Definitions
 
-(eval-when-compile
+(eval-and-compile
   (defun all-the-icons--function-name (name)
     "Get the symbol for an icon function name for icon set NAME."
     (intern (concat "all-the-icons-" (downcase (symbol-name name)))))
