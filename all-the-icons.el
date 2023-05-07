@@ -1170,7 +1170,7 @@ Return the icon file name if found."
                            ((eq icon-set 'alltheicon)
                             all-the-icons-data-alltheicons-compat-alist))))
                    (fn (all-the-icons--data-name (car mapping))))
-          (apply fn (cdr mapping))))))
+          (assoc-default (cadr mapping) (funcall fn))))))
 
 (cl-defmacro all-the-icons-define-icon (name alist &key svg-path-finder (svg-doc-processor ''identity) (padding 0))
   "Macro to generate functions for inserting icons for icon set NAME.
