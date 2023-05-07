@@ -1096,7 +1096,7 @@ between printing each character."
 (defun all-the-icons--normalize-svg-doc (doc)
   "Normalize the dimension of a SVG document.
 
-Some icon set icons do not all have the same width. When
+Some icon set icons do not all have the same width.  When
 displayed, they result in variable widths, which is usually not
 desired in a monospaced text editor.
 
