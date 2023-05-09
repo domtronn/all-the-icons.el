@@ -1241,7 +1241,7 @@ SIZE, and ARGS."
                            :svg-path-finder 'all-the-icons--material-icons-path)
 
 (defun all-the-icons-weather-icons-advice (fn icon-name &rest args)
-  "If ICON-NAME `\"wind-direction\"', return an icon pointing at
+  "If ICON-NAME is `\"wind-direction\"', return an icon pointing at
 `:direction'.
 
 FN is `all-the-icons-weather-icons'."
