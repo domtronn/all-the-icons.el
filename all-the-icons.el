@@ -85,6 +85,7 @@
 
 ;;; Code:
 (require 'cl-lib)
+(require 'map)
 (require 'svg)
 
 (when load-in-progress
@@ -1238,6 +1239,83 @@ SIZE, and ARGS."
 
 (all-the-icons-define-icon material-icons all-the-icons-data-material-icons-alist
                            :svg-path-finder 'all-the-icons--material-icons-path)
+
+(defun all-the-icons-weather-icons-advice (fn icon-name &rest args)
+  "If ICON-NAME `\"wind-direction\"', return an icon pointing at
+`:direction'.
+
+FN is `all-the-icons-weather-icons'."
+  (let ((icon (apply fn icon-name args))
+        (direction (plist-get args :direction)))
+    (if (and (equal icon-name "wind-direction")
+             direction)
+        (let* ((image (get-text-property 0 'display icon))
+               (image-props (map-into (map-filter (lambda (k _) (not (memq k '(:type :data)))) (cdr image)) 'plist))
+               (doc (with-temp-buffer
+                      (insert (plist-get (cdr image) :data))
+                      (if (libxml-available-p)
+                          (libxml-parse-xml-region (point-min) (point-max))
+                        (car (xml-parse-region (point-min) (point-max))))))
+               (viewbox (dom-attr doc 'viewBox))
+               (vw (and viewbox (all-the-icons--parse-number (nth 2 (split-string viewbox)))))
+               (vh (and viewbox (all-the-icons--parse-number (nth 3 (split-string viewbox)))))
+               (path (car (dom-by-tag doc 'path)))
+               (transform (dom-attr path 'transform)))
+          (save-match-data
+            (cond ((string-match "\\(towards\\|from\\)-\\([[:digit:]]+\\)-deg" direction)
+                   (let* ((face (match-string 1 direction))
+                          (deg (string-to-number (match-string 2 direction)))
+                          (offset (if (equal face "from") 180 0)))
+
+                     (dom-set-attribute
+                      path
+                      'transform
+                      (concat (if transform (concat (string-trim transform) " ") "")
+                              (format "rotate(%s %s %s)"
+                                      (mod (+ offset deg) 360)
+                                      (/ vw 2)
+                                      (/ vh 2))))
+
+                     (propertize
+                      icon
+                      'display (append `(image :type svg
+                                               :data ,(with-temp-buffer
+                                                        (svg-print doc)
+                                                        (buffer-string)))
+                                       image-props))))
+
+                  ((string-match "\\(towards\\|from\\)-\\([nsew]+\\)" direction)
+                   (let* ((face (match-string 1 direction))
+                          (cardinal (match-string 2 direction))
+                          (offset (if (equal face "from") 180 0))
+                          (deg (cond ((equal cardinal "n") 0)
+                                     ((equal cardinal "nne") 23)
+                                     ((equal cardinal "ne") 45)
+                                     ((equal cardinal "ene") 68)
+                                     ((equal cardinal "e") 90)
+                                     ((equal cardinal "ese") 113)
+                                     ((equal cardinal "se") 135)
+                                     ((equal cardinal "sse") 158)
+                                     ((equal cardinal "s") 180)
+                                     ((equal cardinal "ssw") 203)
+                                     ((equal cardinal "sw") 225)
+                                     ((equal cardinal "wsw") 248)
+                                     ((equal cardinal "w") 270)
+                                     ((equal cardinal "wnw") 293)
+                                     ((equal cardinal "nw") 313)
+                                     ((equal cardinal "nnw") 336))))
+
+                     (apply 'all-the-icons-weather-icons
+                            icon-name
+                            (plist-put
+                             (copy-sequence args)
+                             :direction
+                             (format "%s-%s-deg" face (mod (+ offset deg) 360))))))
+
+                  (t icon))))
+      icon)))
+
+(advice-add 'all-the-icons-weather-icons :around #'all-the-icons-weather-icons-advice)
 
 (provide 'all-the-icons)
 
