@@ -884,6 +884,17 @@ for performance sake.")
 ;;   Functions Start
 ;; ====================
 
+(cl-defsubst all-the-icons--override-args (args overrides)
+  "Override an `all-the-icons' icon arg list ARGS with OVERRIDES.
+ARGS should be a list of arguments supplied to an all-the-icons icon
+function such as `all-the-icons-octicon'. The first entry in ARGS
+should be the icon name, the remaining entries should be overrides
+for that icon. OVERRIDES should be a new set of OVERRIDES that will
+take precedence over (cdr args)."
+  (when overrides
+    (setq args (append (list (car args)) overrides (cdr args))))
+  args)
+
 (defun all-the-icons-auto-mode-match? (&optional file)
   "Whether or not FILE's `major-mode' match against its `auto-mode-alist'."
   (let* ((file (or file (buffer-file-name) (buffer-name)))
@@ -971,7 +982,9 @@ This is used by `all-the-icons--web-mode'."
 (defun all-the-icons--web-mode (&optional family arg-overrides)
   "Return icon or FAMILY for `web-mode' based on `web-mode-content-type'.
 Providing ARG-OVERRIDES will modify the creation of the icon."
-  (let* ((non-nil-args (cl-reduce (lambda (acc it) (if it (append acc (list it)) acc)) arg-overrides :initial-value '()))
+  (let* ((non-nil-args (cl-reduce (lambda (acc it)
+                                    (if it (append acc (list it)) acc))
+                                  arg-overrides :initial-value '()))
          (icon (cdr
                 (or
                  (when (boundp 'web-mode-content-type)
@@ -982,7 +995,7 @@ Providing ARG-OVERRIDES will modify the creation of the icon."
       (if family
           (funcall (intern (format "%s-family" (car icon))))
         (when non-nil-args
-          (setq args (append `(,(car args)) non-nil-args (cdr args))))
+          (setq args (all-the-icons--override-args args non-nil-args)))
         (apply (car icon) args)))))
 
 ;; Icon Functions
@@ -1027,7 +1040,8 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
       (setq icon (list (car icon-override))
             args (append (cdr icon-override) (cdr args))))
 
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (apply (car icon) args)))
 
 ;;;###autoload
@@ -1043,7 +1057,8 @@ inserting functions."
                                     all-the-icons-extension-icon-alist)))
                    all-the-icons-default-file-icon))
          (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (apply (car icon) args)))
 
 ;;;###autoload
@@ -1055,7 +1070,8 @@ inserting functions."
   (let* ((icon (cdr (or (assoc mode all-the-icons-mode-icon-alist)
                         (assoc (get mode 'derived-mode-parent) all-the-icons-mode-icon-alist))))
          (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (if icon (apply (car icon) args) mode)))
 
 ;;;###autoload
@@ -1069,7 +1085,8 @@ inserting functions."
           (or (all-the-icons-match-to-alist url all-the-icons-url-alist)
               (alist-get t all-the-icons-url-alist)))
          (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (apply (car icon) args)))
 
 (defcustom all-the-icons--cache-limit 2048
