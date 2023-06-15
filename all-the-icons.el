@@ -1257,8 +1257,6 @@ FONT-NAME is the name of the .ttf file providing the font, defaults to FAMILY."
        (interactive "P")
        (all-the-icons-insert arg (quote ,name)))))
 
-(define-obsolete-function-alias 'define-icon 'all-the-icons-define-icon "4.0.0")
-
 (all-the-icons-define-icon alltheicon all-the-icons-data/alltheicons-alist    "all-the-icons")
 (all-the-icons-define-icon fileicon   all-the-icons-data/file-icon-alist      "file-icons")
 (all-the-icons-define-icon faicon     all-the-icons-data/fa-icon-alist        "FontAwesome")
