@@ -1,50 +1,71 @@
 ![img](logo.png)
 
-<p align="center">
-<b><a href="#installation">Installation</a></b>
-|
-<b><a href="#usage">Usage</a></b>
-|
-<b><a href="#resource-fonts">Fonts</a></b>
-|
-<b><a href="#wiki">Wiki</a></b>
-</p>
+## Migrating from 5.x to 6.x
 
-<p align="center">
-  <a href="https://melpa.org/#/all-the-icons"><img src="https://melpa.org/packages/all-the-icons-badge.svg"></a>
-  <a href="https://stable.melpa.org/#/all-the-icons"><img src="https://stable.melpa.org/packages/all-the-icons-badge.svg"></a>
-  <a href="https://github.com/domtronn/all-the-icons.el/releases"><img src="https://img.shields.io/github/tag/domtronn/all-the-icons.el.svg"></a>
-  <a href="https://travis-ci.org/domtronn/all-the-icons.el"><img src="https://travis-ci.org/domtronn/all-the-icons.el.svg?branch=master"></a>
-  <a href="https://github.com/domtronn/all-the-icons.el/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
-</p>
+Starting from 6.0.0, `all-the-icons` will no longer provide any icon fonts, or
+require installation of any icon fonts into the operating system. Instead, it
+will come bundled with over 18000 icons from 9 different popular SVG icon sets
+and totaling over 31000 variations.
+
+The behavior of documented public APIs are preserved as much as possible, but
+text properties other than `:face` will be ignored because each icon will
+automatically scale itself to respect the default font size.
+
+### Breaking Changes
+
+- `all-the-icons-data/**` variables are renamed to `all-the-icons-data-**`
+- Data files are moved to the top level directory to unify the different ways
+  Emacs package managers unpack packages.
+- `all-the-icons-icon-for-url` is removed.
+- Icon sets are updated to their latest versions, and many are remapped. Please
+  see the alist variables for details.
+- If you modify any of the internal alist variables, you will probably need to
+  update the icon set names and icon names.
+
+# Introduction
+
+`all-the-icons` is a package that provides a convenient API for users and
+package authors to insert SVG icons into buffers and mode lines.
+
+# System Requirements
+
+`all-the-icons` does not work when Emacs is running inside a terminal, so you
+will need to use a GUI Emacs in order to render the icons properly.
+
+In addition, you will need to use a Emacs installation that is compiled with
+`RSVG` support. You can check if this is the case by checking if `RSVG` is
+included in the list of the `system-configuration-features` variable.
+
+Please check the manual of your OS' package manager to find out how to install
+Emacs with RSVG support, or [compile your
+own](https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html).
 
 # Installation
 
-You should be able to install this package in the standard way, add it
-to the load path and then calling
+`all-the-icons` 6.0 currently is in beta, and installation currently requires
+one of the following ways:
 
-```el
-(when (display-graphic-p)
-  (require 'all-the-icons))
-;; or
+## straight
+
+```elisp
 (use-package all-the-icons
+  :straight (all-the-icons :type git :host github :repo "domtronn/all-the-icons.el" :branch "svg" :files (:defaults "svg"))
   :if (display-graphic-p))
 ```
 
-### Installing Fonts
+## use-package + quelpa
 
-In order for the icons to work it is **very important** that you install
-the Resource Fonts included in this package, they are available in the
-[ `fonts` ](file:///fonts) directory. You can also install the *latest*
-fonts for this package in the *(guessed?)* based on the OS by calling
-the following function;
+```elisp
+(use-package all-the-icons
+  :quelpa (all-the-icons :fetcher github :repo "domtronn/all-the-icons.el" :branch "svg" :files (:defaults "svg"))
+  :if (display-graphic-p))
+```
 
-    M-x all-the-icons-install-fonts
+## Emacs 29+ package-vc
 
-Bear in mind, this will also run `fc-cache -f -v` on **MacOS** and
-**Linux** which *can take some time* to complete. For **Windows**, this
-function will prompt for a *download* directory for you to install
-them manually.
+```elisp
+(package-vc-install "https://github.com/domtronn/all-the-icons.el.git" "svg")
+```
 
 # Usage
 
@@ -54,15 +75,14 @@ The simplest usage for this package is to use the following functions;
 -   `all-the-icons-icon-for-dir`
 -   `all-the-icons-icon-for-file`
 -   `all-the-icons-icon-for-mode`
--   `all-the-icons-icon-for-url`
+-   `all-the-icons-icon-for-weather`
+-   `all-the-icons-icon-for-dir-with-chevron`
 
 Which can be used to get a formatted icon which you can insert into
-buffers, *e.g.*
+buffers. Try the following in the `*scratch*` buffer:
 
-```el
-(insert (all-the-icons-icon-for-file "foo.js"))
-    ;; Inserts a javascript icon
-    ;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 1.08 :foreground "#FFD446")))
+```elisp
+(insert (all-the-icons-icon-for-file "foo.js")) ;; Inserts a javascript icon
 ```
 
 ## Inserting Icons Directly
@@ -71,154 +91,72 @@ The above is fine if you want this package to automatically decide on
 the icon you want for files and things, however, to insert the icons
 directly you will want to use these icons functions;
 
--   `all-the-icons-alltheicon`
--   `all-the-icons-faicon`
--   `all-the-icons-fileicon`
--   `all-the-icons-octicon`
--   `all-the-icons-wicon`
+-   `all-the-icons-file-icons`
+-   `all-the-icons-devopicons`
+-   `all-the-icons-mfixx`
+-   `all-the-icons-fontawesome-4`
+-   `all-the-icons-octicons`
+-   `all-the-icons-weather-icons`
+-   `all-the-icons-fluentui-system-icons`
+-   `all-the-icons-vscode-codicons`
+-   `all-the-icons-material-icons`
 
 You can then call these functions with the icon you want to insert,
 *e.g.*
 
-```el
-(all-the-icons-octicon "file-binary")  ;; GitHub Octicon for Binary File
-(all-the-icons-faicon  "cogs")         ;; FontAwesome icon for cogs
-(all-the-icons-wicon   "tornado")      ;; Weather Icon for tornado
+```elisp
+(all-the-icons-octicons "file-binary")  ;; GitHub Octicon for Binary File
+(all-the-icons-fontawesome-4 "cogs")    ;; FontAwesome icon for cogs
+(all-the-icons-weather-icons "tornado") ;; Weather Icon for tornado
 ```
 
-A list of all the icon names for a font family can be found in the
-`data` directory, or by inspecting the alist variables.
+A list of all the icon names for an icon set can be found by inspecting the
+`all-the-icons-data-[icon-set].el` files or the alist variables.
 
 The alist variables are all prefixed with
 
--   `all-the-icons-data/`
+-   `all-the-icons-data-`
 
-For example `C-h v all-the-icons-data/ <TAB>` will give a list of all the data
-alist you can describe *(and the icon fonts they're associated with)*
+For example `C-h v all-the-icons-data <TAB>` will give a list of all the data
+alist you can describe *(and the icon sets they're associated with)*
 
 ## Inserting icons with properties
 
-Each of the above icon functions can also be given different
-properties to slightly adjust the way they're formatted, these are
+Each of the above icon functions can also be given different the `face` property
+to slightly adjust the way they're displayed.
 
--   `:height` - The height of the icon
--   `:v-adjust` - Vertical adjust (*positive is up, negative is down*)
--   `:face` - The face to apply to the icon, defaults to `\'default`
+-   `:face` - The face to apply to the icon, defaults to `'default`
 
 So you would call, for example
 
-```el
-(all-the-icons-wicon "tornado" :face 'all-the-icons-blue)
+```elisp
+(all-the-icons-icon-for-mode 'python-mode :face 'all-the-icons-blue)
 ```
 
-These properties can also be used on the `all-the-icons-icon-for-file`
-and `all-the-icons-icon-for-mode` functions as well, *i.e.*
+# Resource Icon Sets
 
-```el
-(insert (all-the-icons-icon-for-file "foo.js" :height 2 :face 'all-the-icons-lred))
-    ;; Inserts a RED Javascript icon with height 2
-    ;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 2.0 :foreground "red")))
-```
+| Icon Set | License |
+| --- | --- |
+| [Atom File Icons](https://github.com/file-icons/icons) | [LICENSE](https://github.com/file-icons/icons/blob/master/LICENSE.md) |
+| [Atom DevOpicons](https://github.com/file-icons/DevOpicons) | [LICENSE](https://github.com/vorillaz/devicons#meet--devicons) |
+| [Atom MFixx](https://github.com/file-icons/MFixx) | [LICENSE](https://github.com/fizzed/font-mfizz/#license) |
+| [FontAwesome 4](https://fontawesome.com/v4/icons/) | [LICENSE](https://fontawesome.com/v4/license/) |
+| [GitHub OctIcons](https://github.com/primer/octicons) | [LICENSE](https://github.com/primer/octicons/blob/main/LICENSE) |
+| [Weather Icons](https://erikflowers.github.io/weather-icons/) | [LICENSE](https://github.com/erikflowers/weather-icons#licensing) |
+| [Material Icons](https://github.com/google/material-design-icons) | [LICENSE](https://github.com/google/material-design-icons/blob/master/LICENSE) |
+| [VSCode Codicons](https://github.com/microsoft/vscode-codicons) | [LICENSE](https://github.com/microsoft/vscode-codicons/blob/main/LICENSE-CODE) |
+| [VSCode Codicons](https://github.com/microsoft/fluentui-system-icons) | [LICENSE](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
 
-The default icon `:height` and `:v-adjust` properties can be set with
-the `all-the-icons-scale-factor` and `all-the-icons-default-adjust`
-variables. Additional adjustments can be made per font family via the
-`all-the-icons-{familyname}-scale-factor` and
-`all-the-icons-default-{familyname}-adjust` variables, where
-`{familyname}` is any member of `all-the-icons-font-families`.
+I would like to thank all the authors for the creation and use of these
+fantastic fonts.
 
-## Propertizing icons yourself
+# Troubleshooting
 
-However, sometimes when propertizing these icons *(for example if you
-were customising your mode line)* you *may* sometimes have to know the
-font family to add in to override the current font family being used,
-*e.g.*
-
-```el
-(propertize (all-the-icons-octicon "package")
-            'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
-            'display '(raise -0.1))
-```
-
-## Troubleshooting
-
-If you see placeholders (AKA tofus) being rendered, or the wrong icons being displayed, the underlying cause generally falls into one of three categories:
-
-1. Font installation failed due to networking issues. Check your OS' and Emacs' networking (`M-x customize-group RET gnutls/nsm/url/network RET`) and security settings (i.e. proxy, firewall, antivirus software...)
-2. On \*nix systems, make sure the font cache has been updated. `all-the-icons-install-fonts` should do this for you automatically, but sometimes it may fail due to misconfiguration.
-3. You've misconfigured your font settings in Emacs.
-
-To check if you've misconfigured your Emacs font settings, you can try the following steps:
-
-1. Print out all of the icons in an icon set and their corresponding id/name.
-
-```el
-
-;; Valid font families are 'material 'wicon 'octicon 'faicon 'fileicon and 'alltheicon
-
-(all-the-icons-insert-icons-for 'alltheicon)   ;; Prints all the icons for `alltheicon' font set
-
-(all-the-icons-insert-icons-for 'octicon 10)   ;; Prints all the icons for the `octicon' family
-                                               ;; and makes the icons height 10
-
-(all-the-icons-insert-icons-for 'faicon 1 0.5) ;; Prints all the icons for the `faicon' family
-                                               ;; and also waits 0.5s between printing each one
-```
-
-2. Now that you are certain which icon set is not displaying properly, check the fontset currently in effect.
-  * Look up the hex code of the icon from the `data/data-[font-family].el` file. Write it down.
-  * `M-x describe-fontset RET RET`
-  * Now you are looking at the fontset for the current frame, search for the hex range for that icon. Usually it's `#xE000`, or `#xF0` `#xF2`, but there are a few outside of these offsets.
-  * If you don't see the font family in question in the list of fontspecs (i.e. `[-*-file-icons-...]`) below the range, or some other fontspecs in front of the one in question, you will have to add the families back to the fontset (scroll to the top to see which one is in effect), or arrange the fontspec order. For example:
+If you experience a slow down in performance when rendering many icons, you can
+try adjusting the following variable:
 
 ```elisp
-;; Use 'prepend for the NS and Mac ports or Emacs will crash.
-(set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
-(set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
+(setq image-cache-eviction-delay nil) ;; or set it to a much longer time than 5 minutes
 ```
-
-# Resource Fonts
-
-All of the fonts provided in this packages as resources come with
-either the SIL Open Font License *(OFL)* or an MIT License, below I
-will link to each of the fonts Sources and their Licenses.
-
-| Font Name | Font | License |
-| --- | --- | --- |
-| `file-icons.ttf` | [Atom File Icons Plugin](https://atom.io/packages/file-icons) | [MIT LICENSE](https://github.com/DanBrooker/file-icons/blob/master/LICENSE.md) |
-| `fontawesome.ttf` | [FontAwesome Icons](http://fontawesome.io/) | [SIL OFL LICENSE](https://github.com/FortAwesome/Font-Awesome#license) |
-| `ocitcons.ttf` | [GitHub OctIcons](http://octicons.github.com) | [SIL OFL LICENSE](https://github.com/primer/octicons/blob/master/LICENSE) |
-| `weathericons.ttf` | [Weather Icons](https://erikflowers.github.io/weather-icons/) | [SIL OFL LICENSE](https://github.com/primer/octicons/blob/master/LICENSE) |
-| `material-design-icons.ttf` | [Material Icons](http://google.github.io/material-design-icons/) | [APACHE LICENSE v2.0](http://www.apache.org/licenses/LICENSE-2.0.txt) |
-| `all-the-icons.ttf` | Custom Made Font | MIT LICENSE |
-
-The fonts provided with this packages are locked down to a version for
-unicode character mapping values. In the future, these may be
-automatically generated.
-
-I would like to thank all the authors for the creation and use
-of these fantastic fonts.
-
-# Wiki
-
-Lastly, there is a
-[Wiki Page](https://github.com/domtronn/all-the-icons.el/wiki) which
-should give you some ideas of ways to use this library to spruce up
-other Emacs packages.
-
-### Slow Rendering
-
-If you experience a slow down in performance when rendering multiple
-icons simultaneously, you can try setting the following variable
-
-```el
-(setq inhibit-compacting-font-caches t)
-```
-
-Some people have found that this [fixes the problem](https://github.com/domtronn/all-the-icons.el/issues/28)
 
 [▲ back to top](#readme)
