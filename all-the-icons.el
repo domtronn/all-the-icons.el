@@ -1,7 +1,7 @@
 ;;; all-the-icons.el --- A library for inserting Developer icons -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016-2018  Dominic Charlesworth <dgc336@gmail.com>
-;; Copyright (C) 2019-2022  Jimmy Yuen Ho Wong <wyuenho@gmail.com>
+;; Copyright (C) 2019-2023  Jimmy Yuen Ho Wong <wyuenho@gmail.com>
 
 ;; Author: Dominic Charlesworth <dgc336@gmail.com>
 ;; Maintainer: Jimmy Yuen Ho Wong <wyuenho@gmail.com>
