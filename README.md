@@ -7,7 +7,7 @@ require installation of any icon fonts into the operating system. Instead, it
 will come bundled with over 18000 icons from 9 different popular SVG icon sets
 and totaling over 31000 variations.
 
-The behavior of documented public APIs are preserved as much as possible, but
+The behavior of the documented public API is preserved as much as possible, but
 text properties other than `:face` will be ignored because each icon will
 automatically scale itself to respect the default font size.
 
@@ -17,8 +17,8 @@ automatically scale itself to respect the default font size.
 - Data files are moved to the top level directory to unify the different ways
   Emacs package managers unpack packages.
 - `all-the-icons-icon-for-url` is removed.
-- Icon sets are updated to their latest versions, and many are remapped. Please
-  see the alist variables for details.
+- Icon sets are updated to their latest versions, and many are remapped and
+  renamed. Please see the alist variables for details.
 - If you modify any of the internal alist variables, you will probably need to
   update the icon set names and icon names.
 
