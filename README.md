@@ -145,7 +145,7 @@ So you would call, for example
 | [Weather Icons](https://erikflowers.github.io/weather-icons/) | [LICENSE](https://github.com/erikflowers/weather-icons#licensing) |
 | [Material Icons](https://github.com/google/material-design-icons) | [LICENSE](https://github.com/google/material-design-icons/blob/master/LICENSE) |
 | [VSCode Codicons](https://github.com/microsoft/vscode-codicons) | [LICENSE](https://github.com/microsoft/vscode-codicons/blob/main/LICENSE-CODE) |
-| [VSCode Codicons](https://github.com/microsoft/fluentui-system-icons) | [LICENSE](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
+| [FluentUI System Icons](https://github.com/microsoft/fluentui-system-icons) | [LICENSE](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
 
 I would like to thank all the authors for the creation and use of these
 fantastic fonts.
