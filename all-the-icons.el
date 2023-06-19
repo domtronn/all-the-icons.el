@@ -742,6 +742,8 @@
         (search-forward-regexp module-search (point-max) t)))))
 
 ;; Icon functions
+
+;;;###autoload
 (defun all-the-icons-icon-for-dir-with-chevron (dir &optional chevron padding)
   "Format an icon for DIR with CHEVRON similar to tree based directories.
 
@@ -756,6 +758,7 @@ directory contents"
         (padding (or padding "\t")))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
 
+;;;###autoload
 (defun all-the-icons-icon-for-buffer ()
   "Get the formatted icon for the current buffer.
 
@@ -935,12 +938,12 @@ the icon set."
          (cons candidate-name candidate-icon)))
      data)))
 
+;;;###autoload
 (defun all-the-icons-insert (&optional arg icon-set)
   "Interactive icon insertion function.
 
 When Prefix ARG is non-nil, print the icon, else insert it.
-When ICON-SET is non-nil, limit the candidates to the icon set matching it.
-When STYLE is non-nil, limit the candidates to the style matching the icon set."
+When ICON-SET is non-nil, limit the candidates to the icon set matching it."
   (interactive "P")
   (let* ((standard-output (current-buffer))
          (candidates (cond ((eq icon-set 'fluentui-system-icons)
