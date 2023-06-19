@@ -154,14 +154,14 @@ So you would call, for example
 | [Atom DevOpicons](https://github.com/file-icons/DevOpicons) | [LICENSE](https://github.com/vorillaz/devicons#meet--devicons) |
 | [Atom MFixx](https://github.com/file-icons/MFixx) | [LICENSE](https://github.com/fizzed/font-mfizz/#license) |
 | [FontAwesome 4](https://fontawesome.com/v4/icons/) | [LICENSE](https://fontawesome.com/v4/license/) |
-| [GitHub OctIcons](https://github.com/primer/octicons) | [LICENSE](https://github.com/primer/octicons/blob/main/LICENSE) |
+| [GitHub Octicons](https://github.com/primer/octicons) | [LICENSE](https://github.com/primer/octicons/blob/main/LICENSE) |
 | [Weather Icons](https://erikflowers.github.io/weather-icons/) | [LICENSE](https://github.com/erikflowers/weather-icons#licensing) |
 | [Material Icons](https://github.com/google/material-design-icons) | [LICENSE](https://github.com/google/material-design-icons/blob/master/LICENSE) |
 | [VSCode Codicons](https://github.com/microsoft/vscode-codicons) | [LICENSE](https://github.com/microsoft/vscode-codicons/blob/main/LICENSE-CODE) |
 | [FluentUI System Icons](https://github.com/microsoft/fluentui-system-icons) | [LICENSE](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE) |
 
 I would like to thank all the authors for the creation and use of these
-fantastic fonts.
+fantastic icons.
 
 # Troubleshooting
 
