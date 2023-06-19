@@ -65,6 +65,19 @@ one of the following ways:
 
 ```elisp
 (package-vc-install "https://github.com/domtronn/all-the-icons.el.git" "svg")
+(when (display-graphic-p)
+  (require 'all-the-icons))
+```
+
+## Git clone
+
+```shellsession
+$ git clone https://github.com/domtronn/all-the-icons.el.git --branch svg /path/to/your/user-emacs-directory/elpa/
+```
+
+```elisp
+(when (display-graphic-p)
+  (require 'all-the-icons))
 ```
 
 # Usage
