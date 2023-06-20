@@ -1133,7 +1133,8 @@ PADDING is the number of pixels to be applied to the SVG image."
                                                     `(apply ,svg-path-finder file-name lib-dir size args))
                                                '(format "%s.svg" file-name))))
               (face (when all-the-icons-color-icons (plist-get args :face)))
-              (raise-error (plist-get args :raise-error)))
+              (raise-error (plist-get args :raise-error))
+              (custom-padding (plist-get args :padding)))
          (if (and file-name (file-exists-p image-path))
              (let* ((icon (all-the-icons--normalize-svg-doc
                            (funcall ,svg-doc-processor
@@ -1141,7 +1142,7 @@ PADDING is the number of pixels to be applied to the SVG image."
                (setf (image-property icon :max-width) (- size (* ,padding 2)))
                (setf (image-property icon :max-height) (- size (* ,padding 2)))
                (setf (image-property icon :ascent) 'center)
-               (setf (image-property icon :margin) ,padding)
+               (setf (image-property icon :margin) (or custom-padding ,padding))
                (when face
                  (setf (image-property icon :foreground) (face-foreground face))
                  (setf (image-property icon :background) (face-background face)))

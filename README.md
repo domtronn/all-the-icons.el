@@ -139,6 +139,7 @@ Each of the above icon functions can also be given different the `face` property
 to slightly adjust the way they're displayed.
 
 -   `:face` - The face to apply to the icon, defaults to `'default`
+-   `:padding` - The value to apply to the [`:margin`](https://www.gnu.org/software/emacs/manual/html_node/elisp/Image-Descriptors.html) of the image property.
 
 So you would call, for example
 
