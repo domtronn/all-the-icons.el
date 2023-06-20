@@ -108,6 +108,8 @@
 
 ;; Obsolete stuff
 
+(define-obsolete-variable-alias 'all-the-icons-font-families 'all-the-icons-sets "6.0.0")
+
 (define-obsolete-function-alias 'all-the-icons-fileicon-data 'all-the-icons-file-icons-data "6.0.0")
 (define-obsolete-function-alias 'all-the-icons-fileicon 'all-the-icons-file-icons "6.0.0")
 (define-obsolete-function-alias 'all-the-icons-insert-fileicon 'all-the-icons-insert-file-icons "6.0.0")
