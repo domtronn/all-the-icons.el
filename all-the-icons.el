@@ -1105,6 +1105,8 @@ Return the icon file name if found."
                    (fn (all-the-icons--data-name (car mapping))))
           (assoc-default (cadr mapping) (funcall fn))))))
 
+(defconst all-the-icons--lib-dir (file-name-directory (locate-library "all-the-icons")))
+
 (cl-defmacro all-the-icons-define-icon (name alist &key svg-path-finder (svg-doc-processor ''identity) (padding 0))
   "Macro to generate functions for inserting icons for icon set NAME.
 
@@ -1130,7 +1132,7 @@ PADDING is the number of pixels to be applied to the SVG image."
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let* ((file-name (all-the-icons--resolve-icon-file-name icon-name ,alist (quote ,name))) ;; remap icons
               (size (window-default-font-height))
-              (lib-dir (concat (file-name-directory (locate-library "all-the-icons")) ,(format "svg/%s/" name)))
+              (lib-dir (concat all-the-icons--lib-dir ,(format "svg/%s/" name)))
               (image-path (concat lib-dir ,(or (and svg-path-finder
                                                     `(apply ,svg-path-finder file-name lib-dir size args))
                                                '(format "%s.svg" file-name))))
