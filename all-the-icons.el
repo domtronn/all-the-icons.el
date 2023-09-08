@@ -558,6 +558,7 @@
     (cuda-mode                         file-icons "nvidia"           :face all-the-icons-green     )
     (dart-mode                         devopicons "dart"             :face all-the-icons-blue      )
     (dired-mode                        fontawesome-4 "folder"                                      )
+    (wdired-mode                       fontawesome-4 "folder"                                      )
     (docker-compose-mode               file-icons "docker"           :face all-the-icons-lblue     )
     (dockerfile-mode                   file-icons "docker"           :face all-the-icons-blue      )
     (dockerfile-ts-mode                file-icons "docker"           :face all-the-icons-blue      )
