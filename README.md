@@ -24,9 +24,11 @@ You should be able to install this package in the standard way, add it
 to the load path and then calling
 
 ```el
-(require 'all-the-icons)
+(when (display-graphic-p)
+  (require 'all-the-icons))
 ;; or
-(use-package all-the-icons)
+(use-package all-the-icons
+  :if (display-graphic-p))
 ```
 
 ### Installing Fonts
