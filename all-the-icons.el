@@ -776,7 +776,8 @@ for performance sake.")
     (magik-session-mode                 all-the-icons-alltheicon "terminal"       :face all-the-icons-blue)
     (magik-cb-mode                      all-the-icons-faicon "book"               :face all-the-icons-blue)
     (meson-mode                         all-the-icons-fileicon "meson"            :face all-the-icons-purple)
-    (man-common                         all-the-icons-fileicon "man-page"         :face all-the-icons-blue)))
+    (man-common                         all-the-icons-fileicon "man-page"         :face all-the-icons-blue)
+    (ess-r-mode                         all-the-icons-fileicon "R"                :face all-the-icons-lblue)))
 
 (defvar all-the-icons-url-alist
   '(
