@@ -129,6 +129,7 @@
 (define-obsolete-function-alias 'all-the-icons-wicon-data 'all-the-icons-weather-icons-data "6.0.0")
 (define-obsolete-function-alias 'all-the-icons-wicon 'all-the-icons-weather-icons "6.0.0")
 (define-obsolete-function-alias 'all-the-icons-insert-wicon 'all-the-icons-insert-weather-icons "6.0.0")
+(define-obsolete-function-alias 'all-the-icons-auto-mode-match? 'all-the-icons-auto-mode-match-p "6.0.0")
 
 ;;; Custom Variables
 (defgroup all-the-icons nil
@@ -737,7 +738,7 @@
 ;;   Functions Start
 ;; ====================
 
-(defun all-the-icons-auto-mode-match? (&optional file)
+(defun all-the-icons-auto-mode-match-p (&optional file)
   "Whether or not FILE's `major-mode' match against its `auto-mode-alist'."
   (let* ((file (or file (buffer-file-name) (buffer-name)))
          (auto-mode (all-the-icons-match-to-alist file auto-mode-alist)))
@@ -895,7 +896,7 @@ When F is provided, the info function is calculated with the format
          (file-f (intern (concat base-f "-for-file")))
          (mode-f (intern (concat base-f "-for-mode"))))
     (if (and (buffer-file-name)
-             (all-the-icons-auto-mode-match?))
+             (all-the-icons-auto-mode-match-p))
         (funcall file-f (file-name-nondirectory (buffer-file-name)))
       (funcall mode-f major-mode))))
 
