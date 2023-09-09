@@ -760,7 +760,7 @@ for performance sake.")
     (zig-mode                           all-the-icons-fileicon "zig"              :face all-the-icons-orange)
     (exwm-mode                          all-the-icons-octicon "browser"           :v-adjust 0.2 :face all-the-icons-purple)
     (beancount-mode                     all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)
-    (ledger-mode                        all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)))
+    (ledger-mode                        all-the-icons-faicon "credit-card"        :face all-the-icons-lgreen)
     (odin-mode                          all-the-icons-fileicon "odin"             :height 1.1 :face all-the-icons-lblue)
     (pdf-view-mode                      all-the-icons-octicon  "file-pdf"         :v-adjust 0.0 :face all-the-icons-dred)
     (spacemacs-buffer-mode              all-the-icons-fileicon "elisp"            :height 1.0 :v-adjust -0.1 :face all-the-icons-purple)
@@ -1051,7 +1051,7 @@ inserting functions."
 (defun all-the-icons-icon-family-for-file (file)
   "Get the icons font family for FILE."
   (let* ((ext (file-name-extension file))
-	     (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
+         (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
                    (and ext
                         (cdr (assoc (downcase ext)
                                     all-the-icons-extension-icon-alist)))
