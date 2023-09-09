@@ -86,7 +86,9 @@
 ;;; Code:
 (require 'cl-lib)
 (require 'map)
+(require 'mode-local)
 (require 'svg)
+(require 'vc-hooks)
 
 (when load-in-progress
   (add-to-list 'load-path (file-name-directory load-file-name)))
@@ -746,8 +748,9 @@
 
 (defun all-the-icons-match-to-alist (file alist)
   "Match FILE against an entry in ALIST using `string-match-p'."
-  (cdr (cl-find-if (lambda (it) (string-match-p (car it) file)) alist)))
+  (assoc-default file alist 'string-match-p))
 
+;; TODO: support mercurial subrepo too
 (defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
   (let* ((gitmodule-dir (locate-dominating-file dir ".gitmodules"))
@@ -786,40 +789,41 @@ otherwise it will use the buffers `major-mode' to decide its
 icon."
   (all-the-icons--icon-info-for-buffer))
 
+(defun all-the-icons--merge-args (args &optional arg-overrides)
+  "Merge ARG-OVERRIDES to ARGS."
+  (let ((icon-name (car args))
+        (icon-set-func-args (cdr args)))
+    (cons icon-name (map-merge 'plist icon-set-func-args arg-overrides))))
+
 (defun all-the-icons--web-mode-icon (&rest arg-overrides)
   "Return icon for `web-mode' based on `web-mode-content-type'.
 Providing ARG-OVERRIDES will modify the creation of the icon."
-  (let ((non-nil-args (cl-reduce (lambda (acc it)
-                                   (if it (append acc (list it)) acc))
-                                 arg-overrides :initial-value '())))
-    (cond
-     ((and (boundp 'web-mode-content-type) (equal web-mode-content-type "jsx"))
-      (apply #'all-the-icons-file-icons (append '("jsx-atom") non-nil-args)))
-     ((and (boundp 'web-mode-content-type) (equal web-mode-content-type "javascript"))
-      (apply #'all-the-icons-mfixx (append '("javascript") non-nil-args)))
-     ((and (boundp 'web-mode-content-type) (equal web-mode-content-type "json"))
-      (apply #'all-the-icons-vscode-codicons (append '("json") non-nil-args)))
-     ((and (boundp 'web-mode-content-type) (equal web-mode-content-type "xml"))
-      (apply #'all-the-icons-octicons (append '("file-code") non-nil-args)))
-     ((and (boundp 'web-mode-content-type) (equal web-mode-content-type "css"))
-      (apply #'all-the-icons-devopicons (append '("css3") non-nil-args)))
-     (t
-      (apply #'all-the-icons-devopicons (append '("html5") non-nil-args))))))
+  (let* ((ext (pcase (and (boundp 'web-mode-content-type) web-mode-content-type)
+                ("javascript" "js")
+                ("markdown" "md")
+                ("ruby" "rb")
+                ("stylus" "styl")
+                ("typescript" "ts")
+                (_ web-mode-content-type)))
+         (entry (assoc-default ext all-the-icons-extension-icon-alist))
+         (icon-set (car entry))
+         (args (all-the-icons--merge-args (cdr entry) arg-overrides)))
+    (apply (all-the-icons--function-name icon-set) args)))
 
 ;; Icon Functions
 
 ;;;###autoload
 (defun all-the-icons-icon-for-dir (dir &rest arg-overrides)
   "Get the formatted icon for DIR.
-ARG-OVERRIDES should be a plist containining properties like in
-the normal icon inserting functions.
+ARG-OVERRIDES should be a plist containing properties like in the
+normal icon inserting functions.
 
 Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
   (let* ((dirname (file-name-base (directory-file-name dir)))
-         (icon (or (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist)
-                   all-the-icons-default-dir-icon))
-         (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+         (entry (or (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist)
+                    all-the-icons-default-dir-icon))
+         (icon-set (car entry))
+         (args (all-the-icons--merge-args (cdr entry) arg-overrides)))
     (if (file-remote-p dir) ;; don't call expand-file-name on a remote dir as this can make emacs hang
         (apply #'all-the-icons-octicons "terminal" (cdr args))
       (let ((path (expand-file-name dir)))
@@ -828,35 +832,43 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
           (apply #'all-the-icons-vscode-codicons "file-symlink-directory" (cdr args)))
          ((all-the-icons-dir-is-submodule path)
           (apply #'all-the-icons-octicons "file-submodule" (cdr args)))
-         ((file-exists-p (format "%s/.git" path))
+         ((member dirname vc-directory-exclusion-list)
           (apply #'all-the-icons-octicons "repo" (cdr args)))
-         (t (apply (all-the-icons--function-name (car icon)) args)))))))
+         (t (apply (all-the-icons--function-name icon-set) args)))))))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
   "Get the formatted icon for FILE.
-ARG-OVERRIDES should be a plist containining properties like in
-the normal icon inserting functions."
+ARG-OVERRIDES should be a plist containing properties like in the
+normal icon inserting functions."
   (let* ((ext (file-name-extension file))
-         (icon (or (all-the-icons-match-to-alist file all-the-icons-regexp-icon-alist)
-                   (and ext
-                        (cdr (assoc (downcase ext)
-                                    all-the-icons-extension-icon-alist)))
-                   all-the-icons-default-file-icon))
-         (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
-    (apply (all-the-icons--function-name (car icon)) args)))
+         (entry (or (all-the-icons-match-to-alist
+                     file
+                     all-the-icons-regexp-icon-alist)
+                    (and ext
+                         (assoc-default
+                          (downcase ext)
+                          all-the-icons-extension-icon-alist))
+                    all-the-icons-default-file-icon))
+         (icon-set (car entry))
+         (args (all-the-icons--merge-args (cdr entry) arg-overrides)))
+    (apply (all-the-icons--function-name icon-set) args)))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-mode (mode &rest arg-overrides)
   "Get the formatted icon for MODE.
-ARG-OVERRIDES should be a plist containining properties like in
-the normal icon inserting functions."
-  (let* ((icon (cdr (or (assoc mode all-the-icons-mode-icon-alist)
-                        (assoc (get mode 'derived-mode-parent) all-the-icons-mode-icon-alist))))
-         (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
-    (if icon (apply (all-the-icons--function-name (car icon)) args) mode)))
+ARG-OVERRIDES should be a plist containing properties like in the
+normal icon inserting functions."
+  (let* ((entry (or (assoc-default mode all-the-icons-mode-icon-alist)
+                    (let* ((parent (get-mode-local-parent mode))
+                           (entry (assoc-default parent all-the-icons-mode-icon-alist)))
+                      (while (and parent (not entry))
+                        (setq parent (get-mode-local-parent mode)
+                              entry (assoc-default parent all-the-icons-mode-icon-alist)))
+                      entry)))
+         (icon-set (car entry))
+         (args (all-the-icons--merge-args (cdr entry) arg-overrides)))
+    (if entry (apply (all-the-icons--function-name icon-set) args) mode)))
 
 (defcustom all-the-icons--cache-limit 2048
   "Maximum cache size for functions cached by `all-the-icons-cache'."
@@ -903,8 +915,9 @@ When F is provided, the info function is calculated with the format
 ;; Weather icons
 (defun all-the-icons-icon-for-weather (weather)
   "Get an icon for a WEATHER status."
-  (let ((icon (all-the-icons-match-to-alist weather all-the-icons-weather-icon-alist)))
-    (if icon (apply (all-the-icons--function-name (car icon)) (cdr icon)) weather)))
+  (let* ((entry (all-the-icons-match-to-alist weather all-the-icons-weather-icon-alist))
+         (icon-set (car entry)))
+    (if entry (apply (all-the-icons--function-name icon-set) (cdr entry)) weather)))
 
 ;; Definitions
 
