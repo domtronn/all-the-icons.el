@@ -888,8 +888,8 @@ for performance sake.")
     (eq major-mode auto-mode)))
 
 (defun all-the-icons-match-to-alist (file alist)
-  "Match FILE against an entry in ALIST using `string-match'."
-  (cdr (cl-find-if (lambda (it) (string-match (car it) file)) alist)))
+  "Match FILE against an entry in ALIST using `string-match-p'."
+  (cdr (cl-find-if (lambda (it) (string-match-p (car it) file)) alist)))
 
 (defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
