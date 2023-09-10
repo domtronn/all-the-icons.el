@@ -864,7 +864,7 @@ normal icon inserting functions."
                     (let* ((parent (get-mode-local-parent mode))
                            (entry (assoc-default parent all-the-icons-mode-icon-alist)))
                       (while (and parent (not entry))
-                        (setq parent (get-mode-local-parent mode)
+                        (setq parent (get-mode-local-parent parent)
                               entry (assoc-default parent all-the-icons-mode-icon-alist)))
                       entry)))
          (icon-set (car entry))
