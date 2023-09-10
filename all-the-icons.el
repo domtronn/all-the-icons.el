@@ -586,6 +586,7 @@
     (erc-mode                          octicons "comment-discussion"                                    )
     (erlang-mode                       mfixx "erlang"                     :face all-the-icons-red       )
     (eshell-mode                       octicons "terminal"                :face all-the-icons-purple    )
+    (ess-r-mode                        file-icons "r"                     :face all-the-icons-lblue     )
     (eww-mode                          octicons "browser"                 :face all-the-icons-red       )
     (exwm-mode                         vscode-codicons "multiple-windows" :face all-the-icons-purple    )
     (f90-mode                          file-icons "fortran"               :face all-the-icons-purple    )
