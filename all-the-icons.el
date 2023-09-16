@@ -473,26 +473,20 @@
 
 (defvar all-the-icons-dir-icon-alist
   '(
-    ("\\.git"           devopicons "git"                 :face all-the-icons-red   )
-    ("\\.hg"            file-icons "mercurial"           :face all-the-icons-grey  )
-    ("\\.svn"           file-icons "svn"                 :face all-the-icons-lblue )
-    ("\\.bzr"           file-icons "bazaar"              :face all-the-icons-yellow)
-    ("_darcs"           file-icons "darcs-patch"         :face all-the-icons-green )
-    ("CVS"              file-icons "cvs"                                           )
-    ("code"             octicons "code"                                            )
-    ("desktop"          octicons "device-desktop"                                  )
-    ("documents"        octicons "book"                                            )
-    ("download"         vscode-codicons "cloud-download"                           )
-    ("dropbox"          devopicons "dropbox"                                       )
-    ("google[ _-]drive" devopicons "google-drive"                                  )
-    ("movies"           fontawesome-4 "film"                                       )
-    ("music"            fontawesome-4 "music"                                      )
-    ("photos"           fontawesome-4 "camera-retro"                               )
-    ("pictures"         fontawesome-4 "picture-o"                                  )
-    ("test"             file-icons "test-directory"                                )
-    ("trash"            octicons "trash"                                           )
-    ("workspace"        octicons "code"                                            )
-    ("\\.[^.]+"         fluentui-system-icons "folder"                             )))
+    ("code"             octicons "code"                 )
+    ("desktop"          octicons "device-desktop"       )
+    ("documents"        octicons "book"                 )
+    ("download"         vscode-codicons "cloud-download")
+    ("dropbox"          devopicons "dropbox"            )
+    ("google[ _-]drive" devopicons "google-drive"       )
+    ("movies"           fontawesome-4 "film"            )
+    ("music"            fontawesome-4 "music"           )
+    ("photos"           fontawesome-4 "camera-retro"    )
+    ("pictures"         fontawesome-4 "picture-o"       )
+    ("test"             file-icons "test-directory"     )
+    ("trash"            octicons "trash"                )
+    ("workspace"        octicons "code"                 )
+    ("\\.[^.]+"         fluentui-system-icons "folder"  )))
 
 (defvar all-the-icons-default-dir-icon
   '(fluentui-system-icons "folder" :style filled))
@@ -766,7 +760,6 @@
   "Match FILE against an entry in ALIST using `string-match-p'."
   (assoc-default file alist 'string-match-p))
 
-;; TODO: support mercurial subrepo too
 (defun all-the-icons-dir-is-submodule (dir)
   "Checker whether or not DIR is a git submodule."
   (let* ((gitmodule-dir (locate-dominating-file dir ".gitmodules"))
