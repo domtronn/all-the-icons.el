@@ -809,6 +809,7 @@ icon."
   "Return icon for `web-mode' based on `web-mode-content-type'.
 Providing ARG-OVERRIDES will modify the creation of the icon."
   (let* ((ext (pcase (and (boundp 'web-mode-content-type) web-mode-content-type)
+                ('nil "html")
                 ("javascript" "js")
                 ("markdown" "md")
                 ("ruby" "rb")
