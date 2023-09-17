@@ -613,6 +613,7 @@
     (go-ts-mode                        file-icons "go"                    :face all-the-icons-blue      )
     (gpr-ts-mode                       file-icons "ada"                   :face all-the-icons-lblue     )
     (graphql-mode                      file-icons "graphql"               :face all-the-icons-dpink     )
+    (graphql-ts-mode                   file-icons "graphql"               :face all-the-icons-dpink     )
     (haml-mode                         file-icons "haml"                  :face all-the-icons-lyellow   )
     (haskell-c2hs-mode                 devopicons "haskell"               :face all-the-icons-red       )
     (haskell-cabal-mode                file-icons "cabal"                 :face all-the-icons-lblue     )
