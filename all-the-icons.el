@@ -1186,8 +1186,8 @@ PADDING is the number of pixels to be applied to the SVG image."
              (let* ((icon (all-the-icons--normalize-svg-doc
                            (funcall ,svg-doc-processor
                                     (all-the-icons--load-svg image-path)))))
-               (setf (image-property icon :max-width) (- size (* ,padding 2)))
-               (setf (image-property icon :max-height) (- size (* ,padding 2)))
+               (setf (image-property icon :width) (- size (* ,padding 2)))
+               (setf (image-property icon :height) (- size (* ,padding 2)))
                (setf (image-property icon :ascent) 'center)
                (setf (image-property icon :margin) (or custom-padding ,padding))
 
