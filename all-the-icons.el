@@ -844,7 +844,7 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
                  :style (if (string-prefix-p "." dirname) 'regular 'filled)
                  (cdr args)))
          ((all-the-icons-dir-is-submodule path)
-          (apply #'all-the-icons-fluentui-system-icons "folder_arrow_left"
+          (apply #'all-the-icons-fluentui-system-icons "folder_arrow_right"
                  :style 'filled (cdr args)))
          ((member dirname vc-directory-exclusion-list)
           (apply #'all-the-icons-octicons "repo" (cdr args)))
