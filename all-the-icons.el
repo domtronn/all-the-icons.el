@@ -840,9 +840,12 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
       (let ((path (expand-file-name dir)))
         (cond
          ((file-symlink-p path)
-          (apply #'all-the-icons-vscode-codicons "file-symlink-directory" (cdr args)))
+          (apply #'all-the-icons-fluentui-system-icons "folder_link"
+                 :style (if (string-prefix-p "." dirname) 'regular 'filled)
+                 (cdr args)))
          ((all-the-icons-dir-is-submodule path)
-          (apply #'all-the-icons-octicons "file-submodule" (cdr args)))
+          (apply #'all-the-icons-fluentui-system-icons "folder_arrow_left"
+                 :style 'filled (cdr args)))
          ((member dirname vc-directory-exclusion-list)
           (apply #'all-the-icons-octicons "repo" (cdr args)))
          (t (apply (all-the-icons--function-name icon-set) args)))))))
