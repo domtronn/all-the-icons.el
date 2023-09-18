@@ -1190,9 +1190,6 @@ PADDING is the number of pixels to be applied to the SVG image."
                (setf (image-property icon :max-height) (- size (* ,padding 2)))
                (setf (image-property icon :ascent) 'center)
                (setf (image-property icon :margin) (or custom-padding ,padding))
-               (when face
-                 (setf (image-property icon :foreground) (face-foreground face nil t))
-                 (setf (image-property icon :background) (face-background face nil t)))
 
                (propertize "￼"
                            'face (or face 'default)           ;so that this works without `font-lock-mode' enabled
