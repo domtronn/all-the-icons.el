@@ -491,6 +491,13 @@
 (defvar all-the-icons-default-dir-icon
   '(fluentui-system-icons "folder" :style filled))
 
+(defvar all-the-icons-chevron-icon-alist
+  '(
+    ("left"  octicons "chevron-left" )
+    ("right" octicons "chevron-right")
+    ("up"    octicons "chevron-up"   )
+    ("down"  octicons "chevron-down" )))
+
 (defvar all-the-icons-weather-icon-alist
   '(
     ("blowing.*snow"         weather-icons "snow-wind"              )
@@ -785,7 +792,7 @@ Produces different symbols by inspecting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
   (let ((icon (all-the-icons-icon-for-dir dir))
-        (chevron (if chevron (all-the-icons-octicons (format "chevron-%s" chevron)) ""))
+        (chevron (or (assoc-default chevron all-the-icons-chevron-icon-alist) ""))
         (padding (or padding "\t")))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
 
