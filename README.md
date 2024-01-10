@@ -44,7 +44,8 @@ the following function;
 Bear in mind, this will also run `fc-cache -f -v` on **MacOS** and
 **Linux** which *can take some time* to complete. For **Windows**, this
 function will prompt for a *download* directory for you to install
-them manually.
+them. When installation is completed, go to defined directory, and open
+each font file to install it on your machine.
 
 # Usage
 
