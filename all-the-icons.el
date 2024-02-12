@@ -405,6 +405,7 @@
     ("docx"         all-the-icons-fileicon "word"             :face all-the-icons-blue)
     ("docm"         all-the-icons-fileicon "word"             :face all-the-icons-blue)
     ("eml"          all-the-icons-faicon "envelope"              :face all-the-icons-blue)
+    ("epub"         all-the-icons-faicon "book"               :face all-the-icons-blue)
     ("msg"          all-the-icons-faicon "envelope"              :face all-the-icons-blue)
     ("texi"         all-the-icons-fileicon "tex"              :face all-the-icons-lred)
     ("tex"          all-the-icons-fileicon "tex"              :face all-the-icons-lred)
