@@ -45,7 +45,7 @@ jobs:
         version: 'snapshot'
 
     - name: Run tests
-      run:
+      run: |
         eask package
         eask install
         eask compile
