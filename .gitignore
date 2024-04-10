@@ -4,3 +4,6 @@ all-the-icons-autoloads.el
 
 # Packaging
 .cask
+.eask
+
+/dist
