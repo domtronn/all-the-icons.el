@@ -1,6 +1,6 @@
 (defvar all-the-icons-data/file-icon-alist
   '(
-
+    ( "astro" . "\xe040")
     ( "1c" . "\xa5ea" )
     ( "1c-alt" . "\xea28" )
     ( "MJML" . "\xea6f" )
