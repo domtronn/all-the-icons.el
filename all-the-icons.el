@@ -696,6 +696,8 @@
     (pdf-view-mode                     vscode-codicons "file-pdf"         :face all-the-icons-dred      )
     (perl-mode                         mfixx "perl"                       :face all-the-icons-lorange   )
     (php-mode                          file-icons "php"                   :face all-the-icons-lsilver   )
+    (php-ts-mode                       file-icons "php"                   :face all-the-icons-lsilver   )
+    (phps-mode                         file-icons "php"                   :face all-the-icons-lsilver   )
     (powershell-mode                   file-icons "powershell"            :face all-the-icons-blue      )
     (projectile-rails-compilation-mode mfixx "rails"                      :face all-the-icons-red       )
     (prolog-mode                       devopicons "prolog"                :face all-the-icons-lmaroon   )
