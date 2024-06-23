@@ -661,8 +661,6 @@
     (lisp-mode                         file-icons "lisp"                  :face all-the-icons-orange    )
     (literate-haskell-mode             devopicons "haskell"               :face all-the-icons-red       )
     (lua-mode                          file-icons "lua"                   :face all-the-icons-dblue     )
-    (magik-cb-mode                     octicons "book"                    :face all-the-icons-blue      )
-    (magik-session-mode                octicons "terminal"                :face all-the-icons-blue      )
     (magit-diff-mode                   octicons "git-compare"             :face all-the-icons-lblue     )
     (magit-log-mode                    devopicons "git"                   :face all-the-icons-green     )
     (magit-popup-mode                  devopicons "git"                   :face all-the-icons-red       )
