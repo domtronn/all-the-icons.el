@@ -150,6 +150,10 @@
 (defvar all-the-icons-extension-icon-alist
   '(
     ("7z"              octicons "file-zip"               :face all-the-icons-lmaroon   )
+    ("ada"             file-icons "ada"                  :face all-the-icons-dblue     )
+    ("adb"             file-icons "ada"                  :face all-the-icons-dblue     )
+    ("adc"             file-icons "ada"                  :face all-the-icons-dblue     )
+    ("ads"             file-icons "ada"                  :face all-the-icons-dblue     )
     ("adoc"            file-icons "asciidoc"             :face all-the-icons-lblue     )
     ("aif"             fontawesome-4 "file-audio-o"      :face all-the-icons-dred      )
     ("aifc"            fontawesome-4 "file-audio-o"      :face all-the-icons-dred      )
@@ -171,6 +175,7 @@
     ("cabal"           file-icons "cabal"                :face all-the-icons-lblue     )
     ("cache"           material-icons "cached"           :face all-the-icons-green     )
     ("cc"              mfixx "c++"                       :face all-the-icons-blue      )
+    ("cgpr"            file-icons "ada"                  :face all-the-icons-lblue     )
     ("chs"             devopicons "haskell"              :face all-the-icons-red       )
     ("cl"              file-icons "common-lisp"          :face all-the-icons-lorange   )
     ("clj"             devopicons "clojure"              :face all-the-icons-blue      )
@@ -232,6 +237,7 @@
     ("glsl"            file-icons "vertexshader"         :face all-the-icons-blue      )
     ("go"              file-icons "go"                   :face all-the-icons-blue      )
     ("gpg"             octicons "key"                    :face all-the-icons-lblue     )
+    ("gpr"             file-icons "ada"                  :face all-the-icons-lblue     )
     ("gql"             file-icons "graphql"              :face all-the-icons-dpink     )
     ("gradle"          file-icons "gradle"               :face all-the-icons-silver    )
     ("graphql"         file-icons "graphql"              :face all-the-icons-dpink     )
@@ -537,6 +543,7 @@
     (web-mode                          -web-mode-icon)
 
     (Custom-mode                       octicons "sliders"                                               )
+    (ada-mode                          file-icons "ada"                   :face all-the-icons-dblue     )
     (ada-ts-mode                       file-icons "ada"                   :face all-the-icons-dblue     )
     (adoc-mode                         file-icons "asciidoc"              :face all-the-icons-lblue     )
     (apache-mode                       mfixx "apache"                     :face all-the-icons-dgreen    )
@@ -618,6 +625,7 @@
     (go-mod-ts-mode                    file-icons "config-go"             :face all-the-icons-blue-alt  )
     (go-mode                           file-icons "go"                    :face all-the-icons-blue      )
     (go-ts-mode                        file-icons "go"                    :face all-the-icons-blue      )
+    (gpr-mode                          file-icons "ada"                   :face all-the-icons-lblue     )
     (gpr-ts-mode                       file-icons "ada"                   :face all-the-icons-lblue     )
     (graphql-mode                      file-icons "graphql"               :face all-the-icons-dpink     )
     (graphql-ts-mode                   file-icons "graphql"               :face all-the-icons-dpink     )
