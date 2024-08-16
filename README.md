@@ -140,6 +140,7 @@ to slightly adjust the way they're displayed.
 
 -   `:face` - The face to apply to the icon, defaults to `'default`
 -   `:padding` - The value to apply to the [`:margin`](https://www.gnu.org/software/emacs/manual/html_node/elisp/Image-Descriptors.html) of the image property.
+-   `:size` - The size of the icon (defaults to the text height of the default face).
 
 So you would call, for example
 
