@@ -382,6 +382,7 @@
     ("wav"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("m4a"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("ogg"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("ogx"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("flac"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("opus"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("au"           all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
