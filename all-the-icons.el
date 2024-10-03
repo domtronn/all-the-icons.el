@@ -306,6 +306,8 @@
     ("tfstate"      all-the-icons-fileicon "terraform"        :height 1.0 :face all-the-icons-purple-alt)
 
     ("asm"          all-the-icons-fileicon "assembly"         :height 1.0 :face all-the-icons-blue)
+    ("s"            all-the-icons-fileicon "assembly"         :height 1.0 :face all-the-icons-blue)
+    ("S"            all-the-icons-fileicon "assembly"         :height 1.0 :face all-the-icons-blue)
     ;; Verilog(-AMS) and SystemVerilog(-AMS)
     ("v"            all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
     ("vams"         all-the-icons-fileicon "verilog"          :height 1.0 :v-adjust -0.2 :face all-the-icons-red)
@@ -380,6 +382,7 @@
     ("wav"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("m4a"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("ogg"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
+    ("ogx"          all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("flac"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("opus"         all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
     ("au"           all-the-icons-faicon "volume-up"          :face all-the-icons-dred)
