@@ -1167,11 +1167,7 @@ Return the icon file name if found."
 
 (defun all-the-icons-font-size (&optional face)
   "Returns the font size for the given FACE (or the default face if nil)."
-  (if-let* (((display-multi-font-p))
-            (info (font-info (face-font (or face 'default))))
-            (font-height (aref info 2)))
-      font-height
-    (frame-char-height)))
+  (aref (font-info (face-font (or face 'default))) 2))
 
 (cl-defmacro all-the-icons-define-icon (name alist &key svg-path-finder (svg-doc-processor ''identity) (padding 0))
   "Macro to generate functions for inserting icons for icon set NAME.
