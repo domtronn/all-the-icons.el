@@ -24,7 +24,13 @@
 ;;; Commentary:
 
 ;; This file contains all of the faces used by the package for
-;; colouring icons
+;; colouring icons.
+
+;; Caution:
+
+;; If you decide to customize or theme any of the following faces, please make
+;; sure you do not set background colors or the icon background will clash with
+;; the fontification of other major or minor modes.
 
 ;;; Code:
 
@@ -34,6 +40,12 @@
   :group 'tools
   :group 'all-the-icons)
 
+(defface all-the-icons-default nil
+  "Default face for icons.
+
+Do make sure the background is left unset or the icon background
+won't change after switching theme."
+  :group 'all-the-icons-faces)
 
 ;; red
 (defface all-the-icons-red

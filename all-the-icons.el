@@ -1189,19 +1189,18 @@ PADDING is the number of pixels to be applied to the SVG image."
      (defun ,(all-the-icons--data-name name) () ,alist)
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let* ((file-name (all-the-icons--resolve-icon-file-name icon-name ,alist (quote ,name))) ;; remap icons
-              (size (window-default-font-height))
+              (face (or (and all-the-icons-color-icons (plist-get args :face)) 'all-the-icons-default))
+              (size (or (plist-get args :size) (aref (font-info (face-font face)) 3))) ;; font height = pixel-size + ascent + descent
               (lib-dir (concat all-the-icons--lib-dir ,(format "svg/%s/" name)))
               (image-path (concat lib-dir ,(or (and svg-path-finder
                                                     `(apply ,svg-path-finder file-name lib-dir size args))
                                                '(format "%s.svg" file-name))))
-              (face (when all-the-icons-color-icons (plist-get args :face)))
-              (foreground (or (cond ((plistp face) ; take the background from the surrounding
-                                     (plist-get face :foreground))
-                                    ((facep face)
-                                     (face-foreground face nil t)))
-                              (face-foreground 'default)))
               (raise-error (plist-get args :raise-error))
               (custom-padding (plist-get args :padding)))
+
+         (when (and raise-error (face-background face nil t))
+           (error (format "face %s cannot contain a background" face)))
+
          (if (and file-name (file-exists-p image-path))
              (let* ((icon (all-the-icons--normalize-svg-doc
                            (funcall ,svg-doc-processor
@@ -1212,8 +1211,8 @@ PADDING is the number of pixels to be applied to the SVG image."
                (setf (image-property icon :margin) (or custom-padding ,padding))
 
                (propertize "￼"
-                           'face `(:foreground ,foreground)           ;so that this works without `font-lock-mode' enabled
-                           'font-lock-face `(:foreground ,foreground) ;so that `font-lock-mode' leaves this alone
+                           'face face           ;so that this works without `font-lock-mode' enabled
+                           'font-lock-face face ;so that `font-lock-mode' leaves this alone
                            'fontified t
                            'display icon
                            'front-sticky nil
