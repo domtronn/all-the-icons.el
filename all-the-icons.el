@@ -1190,7 +1190,13 @@ PADDING is the number of pixels to be applied to the SVG image."
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let* ((file-name (all-the-icons--resolve-icon-file-name icon-name ,alist (quote ,name))) ;; remap icons
               (face (or (and all-the-icons-color-icons (plist-get args :face)) 'all-the-icons-default))
-              (size (or (plist-get args :size) (aref (font-info (face-font face)) 3))) ;; font height = pixel-size + ascent + descent
+              (size (or (plist-get args :size)
+                        (aref (font-info (face-font face))
+                              (pcase window-system
+                                ;; font height = pixel-size + ascent + descent on NS
+                                (`ns 3)
+                                ;; pixel-size on everything else
+                                (_ 2)))))
               (lib-dir (concat all-the-icons--lib-dir ,(format "svg/%s/" name)))
               (image-path (concat lib-dir ,(or (and svg-path-finder
                                                     `(apply ,svg-path-finder file-name lib-dir size args))
