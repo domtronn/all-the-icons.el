@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (defvar all-the-icons-data/weather-icons-alist
   '(
 
