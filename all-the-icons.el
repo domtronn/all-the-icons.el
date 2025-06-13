@@ -886,11 +886,23 @@ for performance sake.")
     ("\\.pdf$" all-the-icons-octicon "file-pdf" :v-adjust 0.0 :face all-the-icons-dred)
     ("google" all-the-icons-faicon "google")
     ("\\.rss" all-the-icons-faicon "rss")
+    (t all-the-icons-faicon "globe")
     ))
 
 ;; ====================
 ;;   Functions Start
 ;; ====================
+
+(cl-defsubst all-the-icons--override-args (args overrides)
+  "Override an `all-the-icons' icon arg list ARGS with OVERRIDES.
+ARGS should be a list of arguments supplied to an all-the-icons icon
+function such as `all-the-icons-octicon'. The first entry in ARGS
+should be the icon name, the remaining entries should be overrides
+for that icon. OVERRIDES should be a new set of OVERRIDES that will
+take precedence over (cdr args)."
+  (when overrides
+    (setq args (append (list (car args)) overrides (cdr args))))
+  args)
 
 (defun all-the-icons-auto-mode-match? (&optional file)
   "Whether or not FILE's `major-mode' match against its `auto-mode-alist'."
@@ -913,6 +925,18 @@ for performance sake.")
         (insert-file-contents modules-file)
         (search-forward-regexp module-search (point-max) t)))))
 
+(defcustom all-the-icons-chevron-icon-alist
+  '((up    all-the-icons-nerd-oct "chevron-up"    :height 0.8 :v-adjust -0.1)
+    (down  all-the-icons-nerd-oct "chevron-down"  :height 0.8 :v-adjust -0.1)
+    (left  all-the-icons-nerd-oct "chevron-left"  :height 0.8 :v-adjust -0.1)
+    (right all-the-icons-nerd-oct "chevron-right" :height 0.8 :v-adjust -0.1))
+  "Alist associating chevron types with icons."
+  :type '(alist :key-type (choice (const up)
+                                  (const down)
+                                  (const left)
+                                  (const right))
+                :value-type list))
+
 ;; Icon functions
 (defun all-the-icons-icon-for-dir-with-chevron (dir &optional chevron padding)
   "Format an icon for DIR with CHEVRON similar to tree based directories.
@@ -924,7 +948,14 @@ Produces different symbols by inspecting DIR to distinguish
 symlinks and git repositories which do not depend on the
 directory contents"
   (let ((icon (all-the-icons-icon-for-dir dir))
-        (chevron (if chevron (all-the-icons-octicon (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
+        (chevron
+         (or
+          (when-let ((chevron-icon
+                      (alist-get
+                       (if (symbolp chevron) chevron (intern chevron))
+                       all-the-icons-chevron-icon-alist)))
+            (apply (car chevron-icon) (cdr chevron-icon)))
+          ""))
         (padding (or padding "\t")))
     (format "%s%s%s%s%s" padding chevron padding icon padding)))
 
@@ -941,27 +972,56 @@ icon."
   "Get the icon font family for the current buffer."
   (all-the-icons--icon-info-for-buffer "family"))
 
+(defcustom all-the-icons-web-mode-icon-alist
+  '(("jsx"        all-the-icons-fileicon "jsx-2")
+    ("javascript" all-the-icons-alltheicon "javascript")
+    ("json"       all-the-icons-alltheicon "less")
+    ("xml"        all-the-icons-faicon "file-code-o")
+    ("css"        all-the-icons-alltheicon "css3")
+    (t            all-the-icons-alltheicon "html5"))
+  "Association list between a `web-mode' buffer and the icon for it.
+This is used by `all-the-icons--web-mode'."
+  :type '(alist :key-type (choice
+                           (string :tag "Value of `web-mode-content-type'")
+                           (const :tag "Default icon" t))
+                :value-type list))
+
 (defun all-the-icons--web-mode-icon (&rest arg-overrides) "Get icon for a `web-mode' buffer with ARG-OVERRIDES." (all-the-icons--web-mode nil arg-overrides))
 (defun all-the-icons--web-mode-icon-family () "Get icon family for a `web-mode' buffer." (all-the-icons--web-mode t))
 (defun all-the-icons--web-mode (&optional family arg-overrides)
   "Return icon or FAMILY for `web-mode' based on `web-mode-content-type'.
 Providing ARG-OVERRIDES will modify the creation of the icon."
-  (let ((non-nil-args (cl-reduce (lambda (acc it) (if it (append acc (list it)) acc)) arg-overrides :initial-value '())))
-    (cond
-     ((equal web-mode-content-type "jsx")
-      (if family (all-the-icons-fileicon-family) (apply 'all-the-icons-fileicon (append '("jsx-2") non-nil-args))))
-     ((equal web-mode-content-type "javascript")
-      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("javascript") non-nil-args))))
-     ((equal web-mode-content-type "json")
-      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("less") non-nil-args))))
-     ((equal web-mode-content-type "xml")
-      (if family (all-the-icons-faicon-family) (apply 'all-the-icons-faicon (append '("file-code-o") non-nil-args))))
-     ((equal web-mode-content-type "css")
-      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("css3") non-nil-args))))
-     (t
-      (if family (all-the-icons-alltheicon-family) (apply 'all-the-icons-alltheicon (append '("html5") non-nil-args)))))))
+  (let* ((non-nil-args (cl-reduce (lambda (acc it)
+                                    (if it (append acc (list it)) acc))
+                                  arg-overrides :initial-value '()))
+         (icon (cdr
+                (or
+                 (when (boundp 'web-mode-content-type)
+                   (assoc web-mode-content-type all-the-icons-web-mode-icon-alist #'equal))
+                 (assoc t all-the-icons-web-mode-icon-alist))))
+         (args (cdr icon)))
+    (when icon
+      (if family
+          (funcall (intern (format "%s-family" (car icon))))
+        (when non-nil-args
+          (setq args (all-the-icons--override-args args non-nil-args)))
+        (apply (car icon) args)))))
 
 ;; Icon Functions
+
+(defcustom all-the-icons-dir-icon-overrides
+  '((remote    all-the-icons-octicon "terminal")
+    (symlink   all-the-icons-octicon "file-symlink-directory")
+    (submodule all-the-icons-octicon "file-submodule")
+    (project   all-the-icons-octicon "repo"))
+  "Directory icon overrides for `all-the-icons-icon-for-dir'.
+If a directory matches the key of any entry in this variable then replace
+the icon that would be used for it with the cdr of that entry."
+  :type '(alist :key-type (choice (const :tag "Directory is on a remote host" remote)
+                                  (const :tag "Directory is a symlink" symlink)
+                                  (const :tag "Directory is a submodule" submodule)
+                                  (const :tag "Directory is a project" project))
+                :value-type list))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-dir (dir &rest arg-overrides)
@@ -974,19 +1034,24 @@ Note: You want chevron, please use `all-the-icons-icon-for-dir-with-chevron'."
   (let* ((dirname (file-name-base (directory-file-name dir)))
          (icon (all-the-icons-match-to-alist dirname all-the-icons-dir-icon-alist))
          (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
-    (if (file-remote-p dir) ;; don't call expand-file-name on a remote dir as this can make emacs hang
-        (apply #'all-the-icons-octicon "terminal" (cdr args))
-      (let
-          ((path (expand-file-name dir)))
-        (cond
-         ((file-symlink-p path)
-          (apply #'all-the-icons-octicon "file-symlink-directory" (cdr args)))
-         ((all-the-icons-dir-is-submodule path)
-          (apply #'all-the-icons-octicon "file-submodule" (cdr args)))
-         ((file-exists-p (format "%s/.git" path))
-          (apply #'all-the-icons-octicon "repo" (cdr args)))
-         (t (apply (car icon) args)))))))
+    (when-let ((icon-override
+                (cdr
+                 (if (file-remote-p dir)
+                     (assoc 'remote all-the-icons-dir-icon-overrides)
+                   (let ((path (expand-file-name dir)))
+                     (cond
+                      ((file-symlink-p path)
+                       (assoc 'symlink all-the-icons-dir-icon-overrides))
+                      ((all-the-icons-dir-is-submodule path)
+                       (assoc 'submodule all-the-icons-dir-icon-overrides))
+                      ((file-exists-p (format "%s/.git" path))
+                       (assoc 'project all-the-icons-dir-icon-overrides))))))))
+      (setq icon (list (car icon-override))
+            args (append (cdr icon-override) (cdr args))))
+
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
+    (apply (car icon) args)))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
@@ -1001,7 +1066,8 @@ inserting functions."
                                     all-the-icons-extension-icon-alist)))
                    all-the-icons-default-file-icon))
          (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (apply (car icon) args)))
 
 ;;;###autoload
@@ -1013,7 +1079,8 @@ inserting functions."
   (let* ((icon (cdr (or (assoc mode all-the-icons-mode-icon-alist)
                         (assoc (get mode 'derived-mode-parent) all-the-icons-mode-icon-alist))))
          (args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (if icon (apply (car icon) args) mode)))
 
 ;;;###autoload
@@ -1023,12 +1090,12 @@ If an icon for URL isn't found in `all-the-icons-url-alist', a globe is used.
 ARG-OVERRIDES should be a plist containining `:height',
 `:v-adjust' or `:face' properties like in the normal icon
 inserting functions."
-  (let* ((icon (all-the-icons-match-to-alist url all-the-icons-url-alist))
+  (let* ((icon
+          (or (all-the-icons-match-to-alist url all-the-icons-url-alist)
+              (alist-get t all-the-icons-url-alist)))
          (args (cdr icon)))
-    (unless icon
-      (setq icon '(all-the-icons-faicon "globe"))
-      (setq args (cdr icon)))
-    (when arg-overrides (setq args (append `(,(car args)) arg-overrides (cdr args))))
+    (when arg-overrides
+      (setq args (all-the-icons--override-args args arg-overrides)))
     (apply (car icon) args)))
 
 (defcustom all-the-icons--cache-limit 2048
