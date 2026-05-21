@@ -65,6 +65,11 @@ buffers, *e.g.*
     ;; #("js-icon" 0 1 (display (raise -0.24) face (:family "alltheicon" :height 1.08 :foreground "#FFD446")))
 ```
 
+`all-the-icons-icon-for-mode` includes both classic and tree-sitter
+major modes where available. Recent additions include Ada/GNAT modes
+(`ada-mode`, `ada-ts-mode`, `gpr-mode`, `gpr-ts-mode`) and modern PHP
+variants (`php-mode`, `php-ts-mode`, `phps-mode`).
+
 ## Inserting Icons Directly
 
 The above is fine if you want this package to automatically decide on
